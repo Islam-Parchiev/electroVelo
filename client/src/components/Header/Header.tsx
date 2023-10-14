@@ -1,7 +1,7 @@
-import React from 'react'
+import {FC} from 'react'
 
 import styles from './Header.module.scss'
-const Header = () => {
+const Header:FC = () => {
 	return (
 		<header className={styles.Header}>
 			<div className={`container ${styles.Header__container}`}>
