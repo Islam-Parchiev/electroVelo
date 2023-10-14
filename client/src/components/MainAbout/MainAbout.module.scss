@@ -1,0 +1,42 @@
+@import "../../scss/mixins/mini";
+/* @import url("https://fonts.googleapis.com/css?family=Bebas+Neue:regular");*/
+.MainAbout {
+	@include bg-cover;
+	height: 100vh;
+	color:#fff;
+	background-image: url("../../../public/images/Main/mainAboutBg.jpg");
+	background-color: #000;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+	}
+	&__title {
+/* desk h1 */
+font-family: Bebas Neue Cyrillic;
+font-weight: 700;
+font-style: normal;
+font-size: 110px;
+line-height: 123%; /* 135.3px */
+letter-spacing: 2.2px;
+		text-transform: uppercase;
+		color: var(--light-color);
+	}
+	&__descr {
+/* desk mob subhead */
+font-family: Inter;
+font-weight: 300;
+font-style: normal;
+font-size: 18px;
+line-height: 160%; /* 28.8px */
+letter-spacing: 0.18px;
+color: var(--light-color);
+	}
+	&__text {
+		width: 600px;
+	}
+	
+}
+

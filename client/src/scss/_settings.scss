@@ -148,63 +148,50 @@ a {
   }
 }
 .btn {
-  display: inline-block;
-  border-style: solid;
-  border-width: 1px;
-  border-color: transparent;
-  border-radius:4px;
+	border-radius: 10px;
+	padding: 16px 80px;
+	background-color: #F57520;
+ color:var(--light-color);
+//   &--fill {
 
-  padding: 15px 39px;
+//     background-color:var(--color-primary);
+//     &:focus {
 
-  font-weight: 700;
-  font-size: 16px;
+//       outline: 2px solid var(--color-primary);
+//       outline-offset: 2px;
+//     }
+//     &:hover {
+//       background-color: var(--color-active);
+//     }
+//     &:active {
+//       background-color: var(--color-active);
+//     }
+//   }
+//   &--stroke {
 
-  line-height: 20px;
-  letter-spacing:0.5px;
+// &-light {
+//   border-color: var(--light-color);
+//   color:var(--light-color);
 
-  text-transform: uppercase;
-  color:var(--light-color);
-  transition: background-color 0.3s ease-in-out,border-color 0.3s ease-in-out;
-  &--fill {
+//     }
+//     &-primary {
+//       border-color: var(--color-primary);
+//       color: var(--color-primary);
+//         }
+//         &:focus {
 
-    background-color:var(--color-primary);
-    &:focus {
-
-      outline: 2px solid var(--color-primary);
-      outline-offset: 2px;
-    }
-    &:hover {
-      background-color: var(--color-active);
-    }
-    &:active {
-      background-color: var(--color-active);
-    }
-  }
-  &--stroke {
-
-&-light {
-  border-color: var(--light-color);
-  color:var(--light-color);
-
-    }
-    &-primary {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
-        }
-        &:focus {
-
-          outline: 2px solid var(--color-primary);
-          outline-offset: 2px;
-        }
-        &:hover {
-        border-color: var(--color-primary);
-          background-color: var(--color-primary);
-        }
-        &:active {
-          border-color: var(--color-primary);
-          background-color: var(--color-active);
-        }
-  }
+//           outline: 2px solid var(--color-primary);
+//           outline-offset: 2px;
+//         }
+//         &:hover {
+//         border-color: var(--color-primary);
+//           background-color: var(--color-primary);
+//         }
+//         &:active {
+//           border-color: var(--color-primary);
+//           background-color: var(--color-active);
+//         }
+//   }
 }
 
 .title {
