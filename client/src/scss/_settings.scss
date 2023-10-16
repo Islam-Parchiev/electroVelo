@@ -511,3 +511,15 @@ color:var(--light-color);
   }
   }
 
+	.swiper-pagination-bullet{
+		width: 12px;
+		height: 12px;
+		background-color: #fff;
+		opacity: 1;
+	}
+	.swiper-pagination-bullet-active{
+		width: 12px;
+		height: 12px;
+		background-color: #F57520;
+		opacity: 1;
+	}

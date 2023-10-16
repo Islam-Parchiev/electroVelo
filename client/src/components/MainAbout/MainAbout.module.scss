@@ -1,17 +1,25 @@
 @import "../../scss/mixins/mini";
 /* @import url("https://fonts.googleapis.com/css?family=Bebas+Neue:regular");*/
 .MainAbout {
-	@include bg-cover;
+	
 	height: 100vh;
-	color:#fff;
-	background-image: url("../../../public/images/Main/mainAboutBg.jpg");
-	background-color: #000;
+	
+	
 
 	&__container {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		height: 100%;
+	}
+	&__top {
+		@include bg-cover;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 80%;
+		background-image: url("../../../public/images/Main/mainAboutBg.jpg");
+	background-color: #000;
 	}
 	&__title {
 /* desk h1 */
@@ -37,6 +45,33 @@ color: var(--light-color);
 	&__text {
 		width: 600px;
 	}
+	&__slider {
+		width: 100%;
+		height: 100%;
+	}
 	
 }
 
+.Slide {
+	width: 100%;
+	height: 100%;
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+		margin: 0 auto;
+		width: 1280px;
+		height: 100%;
+	}
+	}
+.swiper-pagination-bullet{
+	width: 12px;
+	height: 12px;
+	background-color: #4C4C4C;
+}
+.swiper-pagination-bullet-active{
+	width: 18px;
+	width: 18px;
+	background-color: #F57520;
+}
