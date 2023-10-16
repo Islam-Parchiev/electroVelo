@@ -1,10 +1,10 @@
 import { FC } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, A11y } from 'swiper/modules'
+import {Pagination, A11y } from 'swiper/modules'
 
 import 'swiper/css'
-import 'swiper/css/navigation'
+
 import 'swiper/css/pagination'
 import styles from './MainAbout.module.scss'
 
@@ -15,8 +15,8 @@ const MainAbout: FC = () => {
 				<Swiper
 					className={styles.MainAbout__slider}
 					slidesPerView={1}
-					modules={[Pagination, Navigation, A11y]}
-					navigation
+					modules={[Pagination, A11y]}
+				
 					pagination={{ clickable: true }}
 					scrollbar={{ draggable: true }}
 					onSwiper={(swiper: any) => console.log(swiper)}
@@ -111,8 +111,37 @@ const MainAbout: FC = () => {
 					</SwiperSlide>
 				</Swiper>
 			</div>
-			<div className={styles.MainAbout__bottom}>
-				
+			<div className={styles.MainAbout__info}>
+				<div className={`${styles.MainAbout__info_item} ${styles.InfoItem}`}>
+					<div className={styles.InfoItem__content}>
+						<h2 className={styles.InfoItem__title}>
+					Экстремальное вождение на горном велосипеде
+						</h2>
+						<button className={`btn-reset ${styles.InfoItem__btn}`}>
+					Подробнее
+						</button>
+					</div>
+				</div>
+				<div className={`${styles.MainAbout__info_item} ${styles.InfoItem}`}>
+					<div className={styles.InfoItem__content}>
+						<h2 className={styles.InfoItem__title}>
+					Экстремальное вождение на горном велосипеде
+						</h2>
+						<button className={`btn-reset ${styles.InfoItem__btn}`}>
+					Подробнее
+						</button>
+					</div>
+				</div>
+				<div className={`${styles.MainAbout__info_item} ${styles.InfoItem}`}>
+					<div className={styles.InfoItem__content}>
+						<h2 className={styles.InfoItem__title}>
+					Экстремальное вождение на горном велосипеде
+						</h2>
+						<button className={`btn-reset ${styles.InfoItem__btn}`}>
+					Подробнее
+						</button>
+					</div>
+				</div>
 			</div>
 		</section>
 	)

@@ -1,9 +1,9 @@
 @import "../../scss/mixins/mini";
 /* @import url("https://fonts.googleapis.com/css?family=Bebas+Neue:regular");*/
 .MainAbout {
+	overflow-x: hidden;
 	
 	height: 100vh;
-	
 	
 
 	&__container {
@@ -49,9 +49,40 @@ color: var(--light-color);
 		width: 100%;
 		height: 100%;
 	}
+	&__info {
+		display: flex;
+		align-items: start;
+		width: 100%;
+	}
 	
 }
+.InfoItem {
+	@include flex-all-center;
+	flex-grow: 1;
+	height: 182px;
+	text-align: start;
+	color:#fff;
+	background-color: #131313;
+	&__content {
+		width: 300px;
+	}
+	&__btn {
+		display: none;
+		margin-top: 15px;
+		color:#F57520;
+	}
+	&:hover {
+		border-radius: 20px;
+		transform: scale(1.1);
+		.InfoItem__btn {
+			display: block;
+		}
+	}
+	&:last-child {
+		background-color: #2E2E2E;
+	}
 
+}
 .Slide {
 	width: 100%;
 	height: 100%;
@@ -65,13 +96,3 @@ color: var(--light-color);
 		height: 100%;
 	}
 	}
-.swiper-pagination-bullet{
-	width: 12px;
-	height: 12px;
-	background-color: #4C4C4C;
-}
-.swiper-pagination-bullet-active{
-	width: 18px;
-	width: 18px;
-	background-color: #F57520;
-}
