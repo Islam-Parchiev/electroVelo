@@ -63,6 +63,7 @@ color: var(--light-color);
 	text-align: start;
 	color:#fff;
 	background-color: #131313;
+	transition: all 0.3s ease-in-out;
 	&__content {
 		width: 300px;
 	}
