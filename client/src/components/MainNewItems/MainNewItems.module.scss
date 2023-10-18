@@ -67,23 +67,23 @@ line-height: 123%; /* 19.68px */
 		color: var(--2-grey, #777);
 	}
 	&__btn {
-		position: absolute;
+		// position: absolute;
 		display:flex;
 		align-items: center;
 		justify-content: center;
 		margin-top: 20px;
 		width: 368px;
 		text-align: center;
-		opacity: 0;
-		visibility: hidden;
+		// opacity: 0;
+		// visibility: hidden;
 		transition: all 0.7s  cubic-bezier(0.215, 0.610, 0.355, 1);
 	}
-	&:hover {
-		.Card__btn {
-		position: unset;
-			opacity: 1;
-		visibility: visible;
+	// &:hover {
+	// 	.Card__btn {
+	// 	position: unset;
+	// 		opacity: 1;
+	// 	visibility: visible;
 	
-		}
-	}
+	// 	}
+	// }
 }
