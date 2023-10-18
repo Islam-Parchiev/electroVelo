@@ -4,6 +4,7 @@ import {FC} from 'react'
 import MainAbout from '../../components/MainAbout/MainAbout'
 import Brands from '../../components/Brands/Brands'
 import MainNewItems from '../../components/MainNewItems/MainNewItems'
+import MainCatalog from '../../components/MainCatalog/MainCatalog'
 
 const Main:FC = () => {
 	return (
@@ -11,6 +12,7 @@ const Main:FC = () => {
 			<MainAbout/>
 			<Brands/>
 			<MainNewItems/>
+			<MainCatalog/>
 		</main>
 	)
 }
