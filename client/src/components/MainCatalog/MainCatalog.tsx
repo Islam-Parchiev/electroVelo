@@ -17,42 +17,42 @@ const MainCatalog:FC = () => {
 					</div>
 					<div className={styles.Grid__item}>
           	 <h3 className={styles.Grid__item_title}>
-							Велосипеды
+						 Trade-in
 						</h3>
 						<div className={styles.Grid__item_img}>
-							<img src="/images/CatalogGrid/1.png" alt="" />
+							<img src="/images/CatalogGrid/2.png" alt="" />
 						</div>
 					</div>
 					<div className={styles.Grid__item}>
           	 <h3 className={styles.Grid__item_title}>
-							Велосипеды
+						 Запчасти
 						</h3>
 						<div className={styles.Grid__item_img}>
-							<img src="/images/CatalogGrid/1.png" alt="" />
+							<img src="/images/CatalogGrid/3.png" alt="" />
 						</div>
 					</div>
 					<div className={styles.Grid__item}>
           	 <h3 className={styles.Grid__item_title}>
-							Велосипеды
+						 Экипировка
 						</h3>
 						<div className={styles.Grid__item_img}>
-							<img src="/images/CatalogGrid/1.png" alt="" />
+							<img src="/images/CatalogGrid/4.png" alt="" />
 						</div>
 					</div>
 					<div className={styles.Grid__item}>
           	 <h3 className={styles.Grid__item_title}>
-							Велосипеды
+						 Аксессуары
 						</h3>
 						<div className={styles.Grid__item_img}>
-							<img src="/images/CatalogGrid/1.png" alt="" />
+							<img src="/images/CatalogGrid/5.png" alt="" />
 						</div>
 					</div>
 					<div className={styles.Grid__item}>
           	 <h3 className={styles.Grid__item_title}>
-							Велосипеды
+						 Велостанки
 						</h3>
 						<div className={styles.Grid__item_img}>
-							<img src="/images/CatalogGrid/1.png" alt="" />
+							<img src="/images/CatalogGrid/6.png" alt="" />
 						</div>
 					</div>
 					
