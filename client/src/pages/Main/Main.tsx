@@ -5,6 +5,7 @@ import MainAbout from '../../components/MainAbout/MainAbout'
 import Brands from '../../components/Brands/Brands'
 import MainNewItems from '../../components/MainNewItems/MainNewItems'
 import MainCatalog from '../../components/MainCatalog/MainCatalog'
+import MainVideo from '../../components/MainVideo/MainVideo'
 
 const Main:FC = () => {
 	return (
@@ -13,6 +14,7 @@ const Main:FC = () => {
 			<Brands/>
 			<MainNewItems/>
 			<MainCatalog/>
+			<MainVideo/>
 		</main>
 	)
 }
