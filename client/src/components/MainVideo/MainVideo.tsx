@@ -1,11 +1,23 @@
-import { FC } from 'react'
+import { FC, useState, useRef } from 'react'
 
 import styles from './MainVideo.module.scss'
 const MainVideo: FC = () => {
+	const [play, setPlay] = useState(false)
+	const videoRef = useRef<HTMLVideoElement>(null)
+
+	const onPlay = () => {
+		videoRef?.current?.play()
+		setPlay(true)
+	}
+	const onStop = () => {
+		videoRef?.current?.pause()
+		setPlay(false)
+	}
 	return (
 		<section className={styles.MainVideo}>
 			<div className={styles.MainVideo__header}>
-				<div className={`container ${styles.MainVideo__container} ${styles.MainVideo__header_container}`}>
+				<div
+					className={`container ${styles.MainVideo__header_container}`}>
 					<h2 className={styles.MainVideo__title}>
 						Ничего не сможет остановить вас
 					</h2>
@@ -24,31 +36,41 @@ const MainVideo: FC = () => {
 			</div>
 			<div className={styles.MainVideo__body}>
 				<video
+					onClick={onStop}
+					ref={videoRef}
 					src="/vidtou.mp4"
 					poster="/images/Main/videoPreview.jpg"></video>
-				<button className="btn-reset">
-					<svg
-						width="53"
-						height="60"
-						viewBox="0 0 53 60"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg">
-						<path
-							d="M49.5259 25.6729C52.8523 27.5987 52.8523 32.4013 49.5259 34.3271L7.50518 
-							58.6549C4.17185 60.5847 2.10133e-07 58.1794 3.7803e-07 54.3278L2.49896e-06 
-							5.67224C2.66686e-06 1.82058 4.17185 -0.584717 7.50518 1.34511L49.5259 25.6729Z"
-							fill="#F57520"
-						/>
-					</svg>
-				</button>
+				{play === false && (
+					<button className="btn-reset" onClick={onPlay}>
+						<svg
+							width="53"
+							height="60"
+							viewBox="0 0 53 60"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M49.5259 25.6729C52.8523 27.5987 52.8523 32.4013 49.5259 34.3271L7.50518 
+						58.6549C4.17185 60.5847 2.10133e-07 58.1794 3.7803e-07 54.3278L2.49896e-06 
+						5.67224C2.66686e-06 1.82058 4.17185 -0.584717 7.50518 1.34511L49.5259 25.6729Z"
+								fill="#F57520"
+							/>
+						</svg>
+					</button>
+				)}
 			</div>
 			<div className={styles.MainVideo__footer}>
-				<div className={`container ${styles.MainVideo__container}`}>
+				<div className={`container ${styles.MainVideo__footer_container}`}>
 					<ul className={`list-reset ${styles.MainVideo__items}`}>
 						<li className={styles.MainVideo__item}>
 							<div className={styles.MainVideo__item_header}>
-								<svg width="40" height="34" viewBox="0 0 40 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M7.16383 0.695312C6.80445 0.914062 6.99195 0.625 3.20289 6.72656C0.0544531 
+								<svg
+									width="40"
+									height="34"
+									viewBox="0 0 40 34"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M7.16383 0.695312C6.80445 0.914062 6.99195 0.625 3.20289 6.72656C0.0544531 
 									11.7891 0.0466406 11.7969 0.0153906 12.2734C-0.000234438 12.6562 0.0232031 12.7969
 									 0.171641 13.0234C0.273203 13.1797 4.59352 17.8125 9.78102 23.3125C16.5154 30.4531 
 									 19.2888 33.3359 19.4607 33.3984C19.781 33.5078 20.2185 33.5078 20.5388 33.3984C20.7107
@@ -71,20 +93,28 @@ const MainVideo: FC = () => {
 										 28.4062C19.9763 28.4062 18.6326 25.1016 17.0154 21.0625L14.0779 13.7188H20.0154C25.6404 13.7188 
 										 25.9529 13.7266 25.906 13.8516ZM35.3045 13.9297C34.9138 14.3672 24.8045 25.1016 24.3982 
 										 25.5156L23.9763 25.9453L24.1404 25.5156C24.4763 24.6484 28.8357 13.8438 28.8748 
-										 13.7812C28.8982 13.75 30.3982 13.7188 32.2029 13.7188H35.492L35.3045 13.9297Z" fill="#4C4C4C"/>
+										 13.7812C28.8982 13.75 30.3982 13.7188 32.2029 13.7188H35.492L35.3045 13.9297Z"
+										fill="#4C4C4C"
+									/>
 								</svg>
-            	   <h4 className={styles.MainVideo__item_title}>
-								 Европейские бренды
-							 </h4>
+								<h4 className={styles.MainVideo__item_title}>
+									Европейские бренды
+								</h4>
 							</div>
 							<p className={styles.MainVideo__item_descr}>
-							Представляем десятки европейских брендов
+								Представляем десятки европейских брендов
 							</p>
 						</li>
 						<li className={styles.MainVideo__item}>
 							<div className={styles.MainVideo__item_header}>
-								<svg width="40" height="34" viewBox="0 0 40 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M7.16383 0.695312C6.80445 0.914062 6.99195 0.625 3.20289 6.72656C0.0544531 
+								<svg
+									width="40"
+									height="34"
+									viewBox="0 0 40 34"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M7.16383 0.695312C6.80445 0.914062 6.99195 0.625 3.20289 6.72656C0.0544531 
 									11.7891 0.0466406 11.7969 0.0153906 12.2734C-0.000234438 12.6562 0.0232031 12.7969
 									 0.171641 13.0234C0.273203 13.1797 4.59352 17.8125 9.78102 23.3125C16.5154 30.4531 
 									 19.2888 33.3359 19.4607 33.3984C19.781 33.5078 20.2185 33.5078 20.5388 33.3984C20.7107
@@ -107,20 +137,28 @@ const MainVideo: FC = () => {
 										 28.4062C19.9763 28.4062 18.6326 25.1016 17.0154 21.0625L14.0779 13.7188H20.0154C25.6404 13.7188 
 										 25.9529 13.7266 25.906 13.8516ZM35.3045 13.9297C34.9138 14.3672 24.8045 25.1016 24.3982 
 										 25.5156L23.9763 25.9453L24.1404 25.5156C24.4763 24.6484 28.8357 13.8438 28.8748 
-										 13.7812C28.8982 13.75 30.3982 13.7188 32.2029 13.7188H35.492L35.3045 13.9297Z" fill="#4C4C4C"/>
+										 13.7812C28.8982 13.75 30.3982 13.7188 32.2029 13.7188H35.492L35.3045 13.9297Z"
+										fill="#4C4C4C"
+									/>
 								</svg>
-            	   <h4 className={styles.MainVideo__item_title}>
-								 Европейские бренды
-							 </h4>
+								<h4 className={styles.MainVideo__item_title}>
+									Европейские бренды
+								</h4>
 							</div>
 							<p className={styles.MainVideo__item_descr}>
-							Представляем десятки европейских брендов
+								Представляем десятки европейских брендов
 							</p>
 						</li>
 						<li className={styles.MainVideo__item}>
 							<div className={styles.MainVideo__item_header}>
-								<svg width="40" height="34" viewBox="0 0 40 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M7.16383 0.695312C6.80445 0.914062 6.99195 0.625 3.20289 6.72656C0.0544531 
+								<svg
+									width="40"
+									height="34"
+									viewBox="0 0 40 34"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M7.16383 0.695312C6.80445 0.914062 6.99195 0.625 3.20289 6.72656C0.0544531 
 									11.7891 0.0466406 11.7969 0.0153906 12.2734C-0.000234438 12.6562 0.0232031 12.7969
 									 0.171641 13.0234C0.273203 13.1797 4.59352 17.8125 9.78102 23.3125C16.5154 30.4531 
 									 19.2888 33.3359 19.4607 33.3984C19.781 33.5078 20.2185 33.5078 20.5388 33.3984C20.7107
@@ -143,20 +181,28 @@ const MainVideo: FC = () => {
 										 28.4062C19.9763 28.4062 18.6326 25.1016 17.0154 21.0625L14.0779 13.7188H20.0154C25.6404 13.7188 
 										 25.9529 13.7266 25.906 13.8516ZM35.3045 13.9297C34.9138 14.3672 24.8045 25.1016 24.3982 
 										 25.5156L23.9763 25.9453L24.1404 25.5156C24.4763 24.6484 28.8357 13.8438 28.8748 
-										 13.7812C28.8982 13.75 30.3982 13.7188 32.2029 13.7188H35.492L35.3045 13.9297Z" fill="#4C4C4C"/>
+										 13.7812C28.8982 13.75 30.3982 13.7188 32.2029 13.7188H35.492L35.3045 13.9297Z"
+										fill="#4C4C4C"
+									/>
 								</svg>
-            	   <h4 className={styles.MainVideo__item_title}>
-								 Европейские бренды
-							 </h4>
+								<h4 className={styles.MainVideo__item_title}>
+									Европейские бренды
+								</h4>
 							</div>
 							<p className={styles.MainVideo__item_descr}>
-							Представляем десятки европейских брендов
+								Представляем десятки европейских брендов
 							</p>
 						</li>
 						<li className={styles.MainVideo__item}>
 							<div className={styles.MainVideo__item_header}>
-								<svg width="40" height="34" viewBox="0 0 40 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M7.16383 0.695312C6.80445 0.914062 6.99195 0.625 3.20289 6.72656C0.0544531 
+								<svg
+									width="40"
+									height="34"
+									viewBox="0 0 40 34"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M7.16383 0.695312C6.80445 0.914062 6.99195 0.625 3.20289 6.72656C0.0544531 
 									11.7891 0.0466406 11.7969 0.0153906 12.2734C-0.000234438 12.6562 0.0232031 12.7969
 									 0.171641 13.0234C0.273203 13.1797 4.59352 17.8125 9.78102 23.3125C16.5154 30.4531 
 									 19.2888 33.3359 19.4607 33.3984C19.781 33.5078 20.2185 33.5078 20.5388 33.3984C20.7107
@@ -179,14 +225,16 @@ const MainVideo: FC = () => {
 										 28.4062C19.9763 28.4062 18.6326 25.1016 17.0154 21.0625L14.0779 13.7188H20.0154C25.6404 13.7188 
 										 25.9529 13.7266 25.906 13.8516ZM35.3045 13.9297C34.9138 14.3672 24.8045 25.1016 24.3982 
 										 25.5156L23.9763 25.9453L24.1404 25.5156C24.4763 24.6484 28.8357 13.8438 28.8748 
-										 13.7812C28.8982 13.75 30.3982 13.7188 32.2029 13.7188H35.492L35.3045 13.9297Z" fill="#4C4C4C"/>
+										 13.7812C28.8982 13.75 30.3982 13.7188 32.2029 13.7188H35.492L35.3045 13.9297Z"
+										fill="#4C4C4C"
+									/>
 								</svg>
-            	   <h4 className={styles.MainVideo__item_title}>
-								 Европейские бренды
-							 </h4>
+								<h4 className={styles.MainVideo__item_title}>
+									Европейские бренды
+								</h4>
 							</div>
 							<p className={styles.MainVideo__item_descr}>
-							Представляем десятки европейских брендов
+								Представляем десятки европейских брендов
 							</p>
 						</li>
 					</ul>
