@@ -23,7 +23,7 @@ export class ProductService {
   
     for (const product of createProductDto) {
       const jsonProduct = {
-        id:product.id,
+        
     title:product.title,
     description:product.description,
     articul:product.articul,
@@ -45,8 +45,12 @@ export class ProductService {
 
   }
 
-  findAll() {
-    return `This action returns all product`;
+ async  findAllWithLimit(limit:number) {
+    const products = await this.productRepository.find({
+      take:limit
+    })
+
+    return products
   }
 
   async findOne(id: number) {

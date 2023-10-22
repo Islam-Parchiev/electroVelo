@@ -1,7 +1,9 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post,Req, Body, Patch, Param, Delete,Query, UseGuards } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+
 
 @Controller('product')
 export class ProductController {
@@ -13,8 +15,11 @@ export class ProductController {
   }
 
   @Get()
-  findAll() {
-    return this.productService.findAll();
+  @UseGuards(JwtAuthGuard)
+  findAllWithLimit(
+    @Query('limit') limit:number=10
+  ) {
+    return this.productService.findAllWithLimit(+limit);
   }
 
   @Get(':id')
