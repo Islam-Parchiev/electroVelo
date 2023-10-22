@@ -1,6 +1,6 @@
 import {FC} from 'react'
 
-// import Card from '@components/Card/Card'
+import Card from '@components/Card/Card'
 
 import styles from './BestModels.module.scss'
 const BestModels:FC = () => {
@@ -11,7 +11,7 @@ const BestModels:FC = () => {
 				Лучшие модели для зимней езды
 				</h2>
              <ul className={styles.BestModels__items}>
-               {/* <Card/> */}
+               <Card/>
 			 </ul>
 			</div>
 		</section>
