@@ -150,65 +150,21 @@ a {
 .btn {
 	border-radius: 10px;
 	padding: 16px 80px;
-	background-color: #F57520;
  color:var(--light-color);
-//   &--fill {
+	background-color: #F57520;
 
-//     background-color:var(--color-primary);
-//     &:focus {
-
-//       outline: 2px solid var(--color-primary);
-//       outline-offset: 2px;
-//     }
-//     &:hover {
-//       background-color: var(--color-active);
-//     }
-//     &:active {
-//       background-color: var(--color-active);
-//     }
-//   }
-//   &--stroke {
-
-// &-light {
-//   border-color: var(--light-color);
-//   color:var(--light-color);
-
-//     }
-//     &-primary {
-//       border-color: var(--color-primary);
-//       color: var(--color-primary);
-//         }
-//         &:focus {
-
-//           outline: 2px solid var(--color-primary);
-//           outline-offset: 2px;
-//         }
-//         &:hover {
-//         border-color: var(--color-primary);
-//           background-color: var(--color-primary);
-//         }
-//         &:active {
-//           border-color: var(--color-primary);
-//           background-color: var(--color-active);
-//         }
-//   }
 }
 
 .title {
-  margin: 0;
-  margin-bottom: 25px;
-font-weight: 700;
-font-size: 46px;
-line-height: 130%;
-
-color: var(--color-ebony);
-&--center {
-  text-align: center;
-}
-@include mobile {
-  font-size: 28px;
-  line-height: 40px;
-}
+	/* desk h2 */
+	font-family: Bebas Neue Cyrillic;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 64px;
+	line-height: 123%; /* 78.72px */
+	letter-spacing: 3.2px;
+	text-transform: uppercase;
+	color: var(--bl, #101010);
 
 }
 .descr {

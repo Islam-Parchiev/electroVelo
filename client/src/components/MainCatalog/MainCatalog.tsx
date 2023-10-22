@@ -5,7 +5,7 @@ const MainCatalog:FC = () => {
 	return (
 		<section className={styles.MainCatalog}>
 		  <div className={`container ${styles.MainCatalog__container}`}>
-				<h2 className={styles.MainCatalog__title}>Каталог</h2>
+				<h2 className="title">Каталог</h2>
 				<div className={`${styles.MainCatalog__grid} ${styles.Grid}`}>
         	<div className={styles.Grid__item}>
           	 <h3 className={styles.Grid__item_title}>

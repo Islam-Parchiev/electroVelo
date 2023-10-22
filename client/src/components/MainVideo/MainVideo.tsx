@@ -20,7 +20,7 @@ const MainVideo: FC = () => {
 			<div className={styles.MainVideo__header}>
 				<div
 					className={`container ${styles.MainVideo__header_container}`}>
-					<h2 className={styles.MainVideo__title}>
+					<h2 className="title">
 						Ничего не сможет остановить вас
 					</h2>
 					<div className={styles.MainVideo__info}>
