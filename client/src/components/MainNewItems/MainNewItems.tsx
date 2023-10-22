@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import Card from '../../components/Card/Card'
+
 import styles from './MainNewItems.module.scss'
 const MainNewItems: FC = () => {
 	return (
@@ -7,7 +9,7 @@ const MainNewItems: FC = () => {
 			<div className={`container ${styles.MainNewItems__container}`}>
 				<h2 className={styles.MainNewItems__title}>Новинки</h2>
 				<ul className={`list-reset ${styles.MainNewItems__cards}`}>
-					<li className={styles.Card}>
+					{/* <li className={styles.Card}>
 						<div className={styles.Card__header}>
 							<div className={styles.Card__country}>
 								<img src="/images/Card/country1.png" alt="" />
@@ -205,7 +207,10 @@ const MainNewItems: FC = () => {
 								В 1 клик
 							</button>
 						</div>
-					</li>
+					</li> */}
+					<Card/>
+					<Card/>
+					<Card/>
 				</ul>
 			</div>
 		</section>

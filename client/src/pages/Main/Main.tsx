@@ -6,6 +6,7 @@ import Brands from '../../components/Brands/Brands'
 import MainNewItems from '../../components/MainNewItems/MainNewItems'
 import MainCatalog from '../../components/MainCatalog/MainCatalog'
 import MainVideo from '../../components/MainVideo/MainVideo'
+import BestModels from '../../components/BestModels/BestModels'
 
 const Main:FC = () => {
 	return (
@@ -15,6 +16,7 @@ const Main:FC = () => {
 			<MainNewItems/>
 			<MainCatalog/>
 			<MainVideo/>
+			<BestModels/>
 		</main>
 	)
 }
