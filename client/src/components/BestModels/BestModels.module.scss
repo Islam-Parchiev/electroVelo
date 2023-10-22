@@ -1,0 +1,19 @@
+.BestModels {
+	min-height: 770px;
+	background-image: url("../../../public/images/Main/bestModelsBg.jpg");
+	background-position:center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		padding-top: 30px;
+	}
+	&__items {
+		display: flex;
+		align-items: center;
+		padding-top: 30px;
+		gap: 20px;
+	}
+}
