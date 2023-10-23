@@ -48,6 +48,12 @@ let ProductService = class ProductService {
         });
         return products;
     }
+    async searchProductsByKeyword(keyword) {
+        return await this.productRepository
+            .createQueryBuilder('product')
+            .where('product.title ILIKE :keyword', { keyword: `%${keyword}%` })
+            .getMany();
+    }
     async findOne(id) {
         const product = await this.productRepository.findOne({
             where: {

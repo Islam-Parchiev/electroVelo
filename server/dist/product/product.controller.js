@@ -27,6 +27,9 @@ let ProductController = class ProductController {
     findAllWithLimit(limit = 10) {
         return this.productService.findAllWithLimit(+limit);
     }
+    async searchPosts(keyword) {
+        return this.productService.searchProductsByKeyword(keyword);
+    }
     findOne(id) {
         return this.productService.findOne(+id);
     }
@@ -52,6 +55,13 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "findAllWithLimit", null);
+__decorate([
+    (0, common_1.Get)('search'),
+    __param(0, (0, common_1.Query)('keyword')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], ProductController.prototype, "searchPosts", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),

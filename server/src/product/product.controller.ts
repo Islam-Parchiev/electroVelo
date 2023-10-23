@@ -21,11 +21,16 @@ export class ProductController {
   ) {
     return this.productService.findAllWithLimit(+limit);
   }
+  @Get('search')
+  async searchPosts(@Query('keyword') keyword: string) {
+    return this.productService.searchProductsByKeyword(keyword);
+  }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.productService.findOne(+id);
   }
+  
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {

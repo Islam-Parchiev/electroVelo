@@ -7,6 +7,7 @@ export declare class ProductService {
     constructor(productRepository: Repository<Product>);
     create(createProductDto: CreateProductDto[]): Promise<any[]>;
     findAllWithLimit(limit: number): Promise<Product[]>;
+    searchProductsByKeyword(keyword: string): Promise<Product[]>;
     findOne(id: number): Promise<{
         id: number;
         title: string;

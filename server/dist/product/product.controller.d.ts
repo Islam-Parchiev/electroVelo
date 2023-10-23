@@ -6,6 +6,7 @@ export declare class ProductController {
     constructor(productService: ProductService);
     create(createProductDto: CreateProductDto[]): Promise<any[]>;
     findAllWithLimit(limit?: number): Promise<import("./entities/product.entity").Product[]>;
+    searchPosts(keyword: string): Promise<import("./entities/product.entity").Product[]>;
     findOne(id: string): Promise<{
         id: number;
         title: string;

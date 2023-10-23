@@ -53,6 +53,14 @@ export class ProductService {
     return products
   }
 
+  async searchProductsByKeyword(keyword: string): Promise<Product[]> {
+    return await this.productRepository
+      .createQueryBuilder('product')
+      .where('product.title ILIKE :keyword', { keyword: `%${keyword}%` })
+      // .orWhere('product.content ILIKE :keyword', { keyword: `%${keyword}%` })
+      .getMany();
+  }
+
   async findOne(id: number) {
     const product = await this.productRepository.findOne({
       where: {
