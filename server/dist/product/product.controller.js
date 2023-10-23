@@ -16,7 +16,6 @@ exports.ProductController = void 0;
 const common_1 = require("@nestjs/common");
 const product_service_1 = require("./product.service");
 const update_product_dto_1 = require("./dto/update-product.dto");
-const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
 let ProductController = class ProductController {
     constructor(productService) {
         this.productService = productService;
@@ -24,11 +23,8 @@ let ProductController = class ProductController {
     create(createProductDto) {
         return this.productService.create(createProductDto);
     }
-    findAllWithLimit(limit = 10) {
-        return this.productService.findAllWithLimit(+limit);
-    }
-    async searchPosts(keyword) {
-        return this.productService.searchProductsByKeyword(keyword);
+    async findProducts(searchTerm, page, limit, order) {
+        return this.productService.findPosts(+page, +limit, searchTerm, order);
     }
     findOne(id) {
         return this.productService.findOne(+id);
@@ -48,20 +44,15 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)(),
-    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
-    __param(0, (0, common_1.Query)('limit')),
+    (0, common_1.Get)('find'),
+    __param(0, (0, common_1.Query)('searchTerm')),
+    __param(1, (0, common_1.Query)('page')),
+    __param(2, (0, common_1.Query)('limit')),
+    __param(3, (0, common_1.Query)('order')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", void 0)
-], ProductController.prototype, "findAllWithLimit", null);
-__decorate([
-    (0, common_1.Get)('search'),
-    __param(0, (0, common_1.Query)('keyword')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Object, String, String, String]),
     __metadata("design:returntype", Promise)
-], ProductController.prototype, "searchPosts", null);
+], ProductController.prototype, "findProducts", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),

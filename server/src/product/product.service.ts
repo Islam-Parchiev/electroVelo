@@ -3,7 +3,7 @@ import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Product } from './entities/product.entity';
-import { Repository } from 'typeorm';
+import { Repository,Like } from 'typeorm';
 @Injectable()
 export class ProductService {
   constructor(
@@ -59,6 +59,28 @@ export class ProductService {
       .where('product.title ILIKE :keyword', { keyword: `%${keyword}%` })
       // .orWhere('product.content ILIKE :keyword', { keyword: `%${keyword}%` })
       .getMany();
+  }
+
+  async findPosts(
+    page: number = 1,
+    limit: number = 10,
+    searchTerm?: any,
+    order:any ='DESC'
+  ): Promise<{ data: Product[]; totalItems: number }> {
+    const [data, totalItems] = await this.productRepository.findAndCount({
+      where: searchTerm
+        ? [
+          
+            { title: Like(`%${searchTerm}%`) },
+            // { content: Like(%${searchTerm}%) },
+          ]
+        : {},
+      order: { price: order },
+      skip: (page - 1) * limit,
+      take: limit,
+    });
+
+    return { data, totalItems };
   }
 
   async findOne(id: number) {

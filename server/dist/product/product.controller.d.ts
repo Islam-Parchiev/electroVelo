@@ -5,8 +5,10 @@ export declare class ProductController {
     private readonly productService;
     constructor(productService: ProductService);
     create(createProductDto: CreateProductDto[]): Promise<any[]>;
-    findAllWithLimit(limit?: number): Promise<import("./entities/product.entity").Product[]>;
-    searchPosts(keyword: string): Promise<import("./entities/product.entity").Product[]>;
+    findProducts(searchTerm: any, page: string, limit: string, order: string): Promise<{
+        data: import("./entities/product.entity").Product[];
+        totalItems: number;
+    }>;
     findOne(id: string): Promise<{
         id: number;
         title: string;

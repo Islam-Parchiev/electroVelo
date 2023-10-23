@@ -14,18 +14,21 @@ export class ProductController {
     return this.productService.create(createProductDto);
   }
 
-  @Get()
-  @UseGuards(JwtAuthGuard)
-  findAllWithLimit(
-    @Query('limit') limit:number=10
-  ) {
-    return this.productService.findAllWithLimit(+limit);
+  // @Get()
+  // @UseGuards(JwtAuthGuard)
+  // findAllWithLimit(
+  //   @Query('limit') limit:number=10
+  // ) {
+  //   return this.productService.findAllWithLimit(+limit);
+  // }
+  // @Get('search')
+  // async searchPosts(@Query('keyword') keyword: string) {
+  //   return this.productService.searchProductsByKeyword(keyword);
+  // }
+  @Get('find')
+  async findProducts(@Query('searchTerm') searchTerm:any,@Query('page') page:string,@Query('limit') limit:string,@Query('order') order:string) {
+       return this.productService.findPosts(+page,+limit,searchTerm,order)
   }
-  @Get('search')
-  async searchPosts(@Query('keyword') keyword: string) {
-    return this.productService.searchProductsByKeyword(keyword);
-  }
-
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.productService.findOne(+id);

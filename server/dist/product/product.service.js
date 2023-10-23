@@ -54,6 +54,19 @@ let ProductService = class ProductService {
             .where('product.title ILIKE :keyword', { keyword: `%${keyword}%` })
             .getMany();
     }
+    async findPosts(page = 1, limit = 10, searchTerm, order = 'DESC') {
+        const [data, totalItems] = await this.productRepository.findAndCount({
+            where: searchTerm
+                ? [
+                    { title: (0, typeorm_2.Like)(`%${searchTerm}%`) },
+                ]
+                : {},
+            order: { price: order },
+            skip: (page - 1) * limit,
+            take: limit,
+        });
+        return { data, totalItems };
+    }
     async findOne(id) {
         const product = await this.productRepository.findOne({
             where: {

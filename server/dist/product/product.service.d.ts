@@ -8,6 +8,10 @@ export declare class ProductService {
     create(createProductDto: CreateProductDto[]): Promise<any[]>;
     findAllWithLimit(limit: number): Promise<Product[]>;
     searchProductsByKeyword(keyword: string): Promise<Product[]>;
+    findPosts(page?: number, limit?: number, searchTerm?: any, order?: any): Promise<{
+        data: Product[];
+        totalItems: number;
+    }>;
     findOne(id: number): Promise<{
         id: number;
         title: string;
