@@ -25,10 +25,11 @@
       "@styled/*": ["components/styled/*"],
       "@pages/*": ["components/pages/*"],
       "@assets/*": ["assets/*"],
-      "@services/*": ["services/*"]
+      "@services/*": ["services/*"],
+      "*": ["types/*"]
     },
   },
   "include": [
     "src"
-  ]
+, "src/types/declaration.d.ts"  ]
 }
