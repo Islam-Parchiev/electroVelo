@@ -21,36 +21,3 @@
 		width: 50%;
 	}
 }
-.MountainBikesItem {
-	border-radius: 10px;
-	padding: 30px 25px;
-	width: 302px;
-height: 233px;
-	background: var(--dark, #34312D);
-	&__top {
-		display: flex;
-		justify-content: space-between;
-
-	}
-	&__title {
-/* desk mob 20 */
-font-family: Inter;
-font-weight: 500;
-font-style: normal;
-font-size: 20px;
-line-height: 160%; /* 32px */
-letter-spacing: 0.2px;
-		color: var(--light-color, #FFF);
-	}
-	&__descr {
-		p {
-/* desk mob text 16 */
-font-family: Inter;
-font-weight: 400;
-font-style: normal;
-font-size: 16px;
-line-height: 160%; /* 25.6px */
-			color: var(--light-color, #FFF);
-		}
-	}
-}

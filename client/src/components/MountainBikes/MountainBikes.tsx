@@ -1,85 +1,40 @@
 import React from 'react'
 
+import MountainBikesItem from '@components/MountainBikesItem/MountainBikesItem'
+
 import styles from './MountainBikes.module.scss'
 
-interface MountainBikesProps {}
 
-const MountainBikes: React.FC<MountainBikesProps> = props => {
-	const {} = props
+
+
+const MountainBikes: React.FC = () => {
+
 	return (
 		<section className={styles.MountainBikes}>
 			<div className={`container ${styles.MountainBikes__container}`}>
 				<h2 className="title">Горные велосипеды</h2>
 				<div className={styles.MountainBikes__body}>
 					<ul className={`list-reset ${styles.MountainBikes__list}`}>
-						<li className={styles.MountainBikesItem}>
-							<div className={styles.MountainBikesItem__top}>
-								<h4 className={styles.MountainBikesItem__title}>
-									Рама
-								</h4>
-								<img
-									src="/images/Main/mountain1.svg"
-									alt="Icon"
-								/>
-							</div>
-							<div className={styles.MountainBikesItem__descr}>
-								<p>
-									It is a long established fact that a reader
-									will be distracted by the readable content of
-								</p>
-							</div>
-						</li>
-						<li className={styles.MountainBikesItem}>
-							<div className={styles.MountainBikesItem__top}>
-								<h4 className={styles.MountainBikesItem__title}>
-									Рама
-								</h4>
-								<img
-									src="/images/Main/mountain1.svg"
-									alt="Icon"
-								/>
-							</div>
-							<div className={styles.MountainBikesItem__descr}>
-								<p>
-									It is a long established fact that a reader
-									will be distracted by the readable content of
-								</p>
-							</div>
-						</li>
-						<li className={styles.MountainBikesItem}>
-							<div className={styles.MountainBikesItem__top}>
-								<h4 className={styles.MountainBikesItem__title}>
-									Рама
-								</h4>
-								<img
-									src="/images/Main/mountain1.svg"
-									alt="Icon"
-								/>
-							</div>
-							<div className={styles.MountainBikesItem__descr}>
-								<p>
-									It is a long established fact that a reader
-									will be distracted by the readable content of
-								</p>
-							</div>
-						</li>
-						<li className={styles.MountainBikesItem}>
-							<div className={styles.MountainBikesItem__top}>
-								<h4 className={styles.MountainBikesItem__title}>
-									Рама
-								</h4>
-								<img
-									src="/images/Main/mountain1.svg"
-									alt="Icon"
-								/>
-							</div>
-							<div className={styles.MountainBikesItem__descr}>
-								<p>
-									It is a long established fact that a reader
-									will be distracted by the readable content of
-								</p>
-							</div>
-						</li>
+						<MountainBikesItem 
+							imageUrl="/images/Main/mountain1.svg" 
+							title="Рама" 
+							description="It is a long established fact that a reader will be distracted by the readable content of"
+						/>
+						<MountainBikesItem 
+							imageUrl="/images/Main/mountain1.svg" 
+							title="Рама" 
+							description="It is a long established fact that a reader will be distracted by the readable content of"
+						/>
+						<MountainBikesItem 
+							imageUrl="/images/Main/mountain1.svg" 
+							title="Рама" 
+							description="It is a long established fact that a reader will be distracted by the readable content of"
+						/>
+						<MountainBikesItem 
+							imageUrl="/images/Main/mountain1.svg" 
+							title="Рама" 
+							description="It is a long established fact that a reader will be distracted by the readable content of"
+						/>
 					</ul>
 					<div className={styles.MountainBikes__right}>
 						<div className={styles.MountainBikes__img}>
