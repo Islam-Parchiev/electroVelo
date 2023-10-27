@@ -1,9 +1,15 @@
 import React from 'react'
 
 import styles from './Card.module.scss';
-const Card = () => {
+interface ICard {
+	type:'primary' | 'secondary'
+}
+const Card:React.FC<ICard> = (props) => {
+	const {
+		type,
+	} = props;
 	return (
-		<li className={styles.Card}>
+		<li className={`${styles.Card} Card--${type}`}>
 			<div className={styles.Card__header}>
 				<div className={styles.Card__country}>
 					<img src="/images/Card/country1.png" alt="" />

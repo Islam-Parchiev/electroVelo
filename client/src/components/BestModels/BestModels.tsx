@@ -9,9 +9,9 @@ const BestModels: FC = () => {
 			<div className={`container ${styles.BestModels__container}`}>
 				<h2 className="title">Лучшие модели для зимней езды</h2>
 				<ul className={`list-reset ${styles.BestModels__items}`}>
-					<Card />
-					<Card />
-					<Card />
+				<Card type="primary"/>
+				<Card type="primary"/>
+				<Card type="primary"/>
 				</ul>
 			</div>
 		</section>
