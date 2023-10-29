@@ -1,5 +1,7 @@
 import React from 'react'
 
+import AdvantagesItem from '@components/AdvantagesItem/AdvantagesItem'
+
 import styles from './Advantages.module.scss'
 
 const Advantages: React.FC = props => {
@@ -13,47 +15,10 @@ const Advantages: React.FC = props => {
 					<img src="/images/Main/advantages1.jpg" alt="" />
 				</div>
 				<ul className={`list-reset ${styles.Advantages__list}`}>
-					<li className={styles.AdvantagesItem}>
-						<h4 className={styles.AdvantagesItem__title}>
-							БЕСПЛАТНАЯ ДОСТАВКА
-						</h4>
-						<p>Мы пользуемся всеми популярными видами доставки</p>
-						<button
-							className={`btn-reset ${styles.AdvantagesItem__btn}`}>
-							Подробнее
-						</button>
-					</li>
-					<li className={styles.AdvantagesItem}>
-						<h4 className={styles.AdvantagesItem__title}>
-							БЕСПЛАТНАЯ ДОСТАВКА
-						</h4>
-						<p>Мы пользуемся всеми популярными видами доставки</p>
-						<button
-							className={`btn-reset ${styles.AdvantagesItem__btn}`}>
-							Подробнее
-						</button>
-					</li>
-					<li className={styles.AdvantagesItem}>
-						<h4 className={styles.AdvantagesItem__title}>
-							БЕСПЛАТНАЯ ДОСТАВКА
-						</h4>
-						<p>Мы пользуемся всеми популярными видами доставки</p>
-						<button
-							className={`btn-reset ${styles.AdvantagesItem__btn}`}>
-							Подробнее
-						</button>
-					</li>
-					<li className={styles.AdvantagesItem}>
-						<h4 className={styles.AdvantagesItem__title}>
-							БЕСПЛАТНАЯ ДОСТАВКА
-						</h4>
-						<p>Мы пользуемся всеми популярными видами доставки</p>
-						<button
-							className={`btn-reset ${styles.AdvantagesItem__btn}`}>
-							Подробнее
-						</button>
-					</li>
-					
+					<AdvantagesItem title="БЕСПЛАТНАЯ ДОСТАВКА" description="Мы пользуемся всеми популярными видами доставки" url="https://www.google.com/"/>
+					<AdvantagesItem title="ОБМЕН И ВОЗВРАТ" description="Все товары обеспечены фирменной гарантией фирм-производителей" url="#"/>
+					<AdvantagesItem title="ДОП. ОБСЛУЖИВАНИЕ" description="Мы выполняем ремонт велосипеда любой сложности" url="#"/>
+					<AdvantagesItem title="ОНЛАЙН ОПЛАТА" description="Для удобства вы можете оплатить товар банковской картой через сайт" url="#"/>
 				</ul>
 				<div className={styles.Advantages__img}>
 					<img src="/images/Main/advantages2.jpg" alt="" />
