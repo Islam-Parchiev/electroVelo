@@ -9,6 +9,7 @@ import MainVideo from '@components/MainVideo/MainVideo'
 import BestModels from '@components/BestModels/BestModels'
 import MountainBikes from '@components/MountainBikes/MountainBikes'
 import Advantages from '@components/Advantages/Advantages'
+import Kit from '@components/Kit/Kit'
 
 const Main:FC = () => {
 	return (
@@ -21,6 +22,7 @@ const Main:FC = () => {
 			<BestModels/>
 			<MountainBikes/>
 			<Advantages/>
+			<Kit/>
 		</main>
 	)
 }

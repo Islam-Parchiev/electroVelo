@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './Card.module.scss';
 interface ICard {
-	type:'primary' | 'secondary'
+	type:'primary' | 'secondary';
 }
 const Card:React.FC<ICard> = (props) => {
 	const {

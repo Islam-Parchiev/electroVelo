@@ -1,0 +1,45 @@
+.Kit {
+	&__slide {
+		width: 400px;
+	}
+	&__card {
+		width: 400px;
+		max-width: 400px;
+	}
+	&__slider {
+		position: relative;
+	}
+	&__prev {
+   position: absolute;
+	 left: 0;
+	 top: 40%;
+	 z-index: 50;
+	 display: block;
+border-radius: 100%;
+	 width: 43px;
+height: 43px;
+
+&:hover {
+	background-color: var(--bl, #101010);
+	svg {
+		fill: var(--light-color);
+	}
+}
+	}
+	&__next {
+		position: absolute;
+		right: 0;
+		top: 40%;
+		z-index: 50;
+		display: block;
+border-radius: 100%;
+		width: 43px;
+ height: 43px;
+ &:hover {
+	background-color: var(--bl, #101010);
+	svg {
+		fill: var(--light-color);
+	}
+}
+	}
+}

@@ -18,7 +18,15 @@ h1,h2,h3,h4,h5,h6 {
 }
 .Card--primary {
 	max-width: 400px;
+	button {
+		width: 100%;
+		max-width: 368px;
+	}
 }
 .Card--secondary {
 	max-width: 290px;
+	button {
+		width: 100%;
+		max-width: 100px;
+	}
 }

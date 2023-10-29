@@ -466,7 +466,9 @@ color:var(--light-color);
     display: block;
   }
   }
-
+ .swiper-slide {
+	width: auto;
+ }
 	.swiper-pagination-bullet{
 		width: 12px;
 		height: 12px;
