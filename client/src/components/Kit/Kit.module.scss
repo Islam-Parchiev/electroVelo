@@ -1,5 +1,7 @@
 .Kit {
 	&__slide {
+		display: flex;
+		justify-content: center;
 		width: 400px;
 	}
 	&__card {
