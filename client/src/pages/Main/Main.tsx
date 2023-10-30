@@ -10,6 +10,7 @@ import BestModels from '@components/BestModels/BestModels'
 import MountainBikes from '@components/MountainBikes/MountainBikes'
 import Advantages from '@components/Advantages/Advantages'
 import Kit from '@components/Kit/Kit'
+import Reviews from '@components/Reviews/Reviews'
 
 const Main:FC = () => {
 	return (
@@ -23,6 +24,7 @@ const Main:FC = () => {
 			<MountainBikes/>
 			<Advantages/>
 			<Kit/>
+			<Reviews/>
 		</main>
 	)
 }
