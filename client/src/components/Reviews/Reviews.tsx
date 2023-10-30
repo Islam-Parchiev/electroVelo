@@ -1,19 +1,23 @@
 import React from 'react'
 
+import ReviewsItem from '@components/ReviewsItem/ReviewsItem'
+
 import styles from './Reviews.module.scss'
 
 interface ReviewsProps {}
 
-const Reviews:React.FC<ReviewsProps> = (props) => {
-	const {} = props;
+const Reviews: React.FC<ReviewsProps> = props => {
+	const tag = {
+		text: '#обзор',
+		url: '/',
+	}
+	const {} = props
 	return (
 		<section className={styles.Reviews}>
 			<div className={`container ${styles.Reviews__container}`}>
-       	 <h2 className="title">
-					Последние обзоры
-				</h2>
+				<h2 className="title">Последние обзоры</h2>
 				<ul className={`list-reset ${styles.Reviews__list}`}>
-					<li className={styles.ReviewsItem}>
+					{/* <li className={styles.ReviewsItem}>
 						<div className={styles.ReviewsItem__img}>
 							<img src="/images/Reviews/1.jpg" alt="Review" />
 						</div>
@@ -29,7 +33,31 @@ const Reviews:React.FC<ReviewsProps> = (props) => {
 							<a href="/" className={styles.ReviewsItem__more}>Подробнее</a>
 						
 						 </div>
-					</li>
+					</li> */}
+					<ReviewsItem
+						imageUrl="/images/Reviews/1.jpg"
+						dateTime="2023-1-25"
+						date="18 ноября 2015"
+						tag={tag}
+						text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
+						url="/"
+					/>
+					<ReviewsItem
+						imageUrl="/images/Reviews/1.jpg"
+						dateTime="2023-1-25"
+						date="18 ноября 2015"
+						tag={tag}
+						text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
+						url="/"
+					/>
+					<ReviewsItem
+						imageUrl="/images/Reviews/1.jpg"
+						dateTime="2023-1-25"
+						date="18 ноября 2015"
+						tag={tag}
+						text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
+						url="/"
+					/>
 				</ul>
 			</div>
 		</section>
