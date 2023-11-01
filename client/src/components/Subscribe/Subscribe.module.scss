@@ -1,0 +1,42 @@
+.Subscribe {
+  height: 275px;
+	background-image: url("../../../public/images/Main/bgSubscribe.jpg");
+	background-position:center;
+	background-size: cover;
+	background-repeat: no-repeat;	
+	h2{
+		color:var(--light-color);
+	}
+	&__form {
+		display: flex;
+		align-items: start;
+	}
+	&__inputs {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+	}
+	&__input {
+border-radius: 5px;
+		width: 346px;
+		background-color: var(--light-color);
+		input {
+			border-radius: 5px;
+			padding: 10px 16px;
+			width: 100%;
+			height: 100%;
+			font-family: Inter;
+font-weight: 400;
+font-style: normal;
+font-size: 16px;
+line-height: 160%; /* 25.6px */
+		color: var(--light-grey, #B3B3B3);
+		}
+	}
+	&__checkbox {
+		color:var(--light-color);
+		div {
+			background-color: var(--light-color);
+		}
+	}
+}

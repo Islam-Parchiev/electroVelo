@@ -12,6 +12,7 @@ import Advantages from '@components/Advantages/Advantages'
 import Kit from '@components/Kit/Kit'
 import Reviews from '@components/Reviews/Reviews'
 import MainContacts from '@components/MainContacts/MainContacts'
+import Subscribe from '@components/Subscribe/Subscribe'
 
 const Main:FC = () => {
 	return (
@@ -27,6 +28,7 @@ const Main:FC = () => {
 			<Kit/>
 			<Reviews/>
 			<MainContacts/>	
+			<Subscribe/>
 		</main>
 	)
 }
