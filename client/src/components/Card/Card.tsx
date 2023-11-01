@@ -3,11 +3,21 @@ import React from 'react'
 import styles from './Card.module.scss';
 interface ICard {
 	type:'primary' | 'secondary';
+	title?:string;
+  price?:string;
+	available?:boolean;
+	images?:any;
 }
 const Card:React.FC<ICard> = (props) => {
 	const {
 		type,
+		title,
+		price,
+		available,
+		images,
 	} = props;
+	const aimages = images?.split(',');
+	console.log(images);
 	return (
 		<li className={`${styles.Card} Card--${type}`}>
 			<div className={styles.Card__header}>
@@ -15,17 +25,17 @@ const Card:React.FC<ICard> = (props) => {
 					<img src="/images/Card/country1.png" alt="" />
 				</div>
 				<div className={styles.Card__status}>
-					<span>В наличии</span>
+					<span>{available ? 'В наличии' : 'Нет в наличии'} </span>
 				</div>
 			</div>
 			<div className={styles.Card__body}>
-				<img src="/images/Card/1.png" alt="" />
+				<img src="/images/Card/1.1.png" alt="" />
 			</div>
 			<div className={styles.Card__footer}>
 				<h4 className={styles.Card__title}>
-					Trek Marlin 7 Matte Nautical Navy Matte Anth ATB 29 2022
+					{title || 'Title'}
 				</h4>
-				<span className={styles.Card__price}>115 000 ₽</span>
+				<span className={styles.Card__price}>{price || '100'} ₽</span>
 				<button className={`btn-reset btn ${styles.Card__btn}`}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

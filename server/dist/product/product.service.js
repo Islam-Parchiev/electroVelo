@@ -65,6 +65,7 @@ let ProductService = class ProductService {
             skip: (page - 1) * limit,
             take: limit,
         });
+        console.log(data);
         return { data, totalItems };
     }
     async findOne(id) {
