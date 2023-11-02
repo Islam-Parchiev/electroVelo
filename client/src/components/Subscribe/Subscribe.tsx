@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import Checkbox from '@components/Checkbox/Checkbox'
+import Button from '@components/Button/Button';
 
 import styles from './Subscribe.module.scss'
 
@@ -30,7 +31,8 @@ const Subscribe: React.FC = () => {
 							check={check}
 							setCheck={setCheck}/>
 					</div>
-					<button className={`btn-reset btn ${styles.Subscribe__btn}`}>Подписаться</button>
+					{/* <button className={`btn-reset btn ${styles.Subscribe__btn}`}>Подписаться</button> */}
+					<Button handleClick={()=>console.log('click')}>Подписаться</Button>
 				</form>
 			</div>
 		</section>
