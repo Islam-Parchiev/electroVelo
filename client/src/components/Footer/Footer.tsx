@@ -1,33 +1,39 @@
-import { FC } from 'react'
+import React from 'react'
 
-import styles from './Header.module.scss'
-const Header: FC = () => {
+import styles from './Footer.module.scss'
+
+interface FooterProps {}
+
+const Footer: React.FC<FooterProps> = props => {
+	const {} = props
 	return (
-		<header className={styles.Header}>
-			<div className={`container ${styles.Header__container}`}>
-				<a href="/" className={styles.Header__logo}>
-					<svg
-						width="87"
-						height="49"
-						viewBox="0 0 87 49"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg">
-						<path
-							d="M20.8637 22.3305C23.0006 22.3305 24.7328 20.5545 24.7328 18.3638C24.7328 16.1731 23.0006 
+		<footer className={styles.Footer}>
+			<div className={`container ${styles.Footer__container}`}>
+				<div className={styles.Footer__columns}>
+					<div className={styles.Footer__logo}>
+						<a href="/">
+							<svg
+								width="87"
+								height="49"
+								viewBox="0 0 87 49"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M20.8637 22.3305C23.0006 22.3305 24.7328 20.5545 24.7328 18.3638C24.7328 16.1731 23.0006 
 							14.3972 20.8637 14.3972C18.7269 14.3972 16.9946 16.1731 16.9946 18.3638C16.9946 20.5545 18.7269 22.3305 20.8637 22.3305Z"
-							stroke="white"
-							stroke-width="0.731399"
-							stroke-miterlimit="10"
-						/>
-						<path
-							d="M23.9585 10.2722C26.0953 10.2722 27.8276 8.49626 27.8276 6.30555C27.8276 4.11485 26.0953 2.33893 
+									stroke="white"
+									stroke-width="0.731399"
+									stroke-miterlimit="10"
+								/>
+								<path
+									d="M23.9585 10.2722C26.0953 10.2722 27.8276 8.49626 27.8276 6.30555C27.8276 4.11485 26.0953 2.33893 
 							23.9585 2.33893C21.8216 2.33893 20.0894 4.11485 20.0894 6.30555C20.0894 8.49626 21.8216 10.2722 23.9585 10.2722Z"
-							stroke="white"
-							stroke-width="0.731399"
-							stroke-miterlimit="10"
-						/>
-						<path
-							d="M24.1096 6.74202C24.1406 6.73996 24.1708 6.73128 24.1981 6.71656C24.2254 6.70184 24.2493 6.68142 
+									stroke="white"
+									stroke-width="0.731399"
+									stroke-miterlimit="10"
+								/>
+								<path
+									d="M24.1096 6.74202C24.1406 6.73996 24.1708 6.73128 24.1981 6.71656C24.2254 6.70184 24.2493 6.68142 
 							24.2681 6.65669C24.6484 6.13252 24.1657 5.97648 24.1657 5.97648L16.6883 6.57379C16.6526 6.5784 
 							16.6163 6.57423 16.5825 6.56164C16.5487 6.54904 16.5185 6.52841 16.4945 6.50152C16.4705 6.47463 
 							16.4534 6.44229 16.4447 6.40731C16.436 6.37232 16.4359 6.33574 16.4445 6.30074C16.5765 5.67817 
@@ -74,24 +80,24 @@ const Header: FC = () => {
 							 12.3128C21.9142 12.3427 21.9314 12.3788 21.9385 12.4174C21.9455 12.4561 21.9422 12.4959 
 							 21.9288 12.5329C21.9154 12.5699 21.8924 12.6026 21.8622 12.6277C21.832 12.6529 21.7957 
 							 12.6696 21.7569 12.6761Z"
-							fill="white"
-							stroke="white"
-							stroke-width="0.2438"
-							stroke-miterlimit="10"
-						/>
-						<path
-							d="M65.6303 41.2972L67.3101 36.8307L63.4995 34.0465H68.3731L69.9309 29.6216L71.2012 
+									fill="white"
+									stroke="white"
+									stroke-width="0.2438"
+									stroke-miterlimit="10"
+								/>
+								<path
+									d="M65.6303 41.2972L67.3101 36.8307L63.4995 34.0465H68.3731L69.9309 29.6216L71.2012 
 							34.127H75.8699L71.9374 36.7503L73.1272 41.2972L69.6847 38.7153"
-							fill="#F57520"
-						/>
-						<path
-							d="M45.5347 48.7628H50.4261L64.033 1.6275H59.1417L45.5347 48.7628Z"
-							fill="white"
-						/>
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M52.7383 48.7628L54.2502 44.0493H71.4145L71.7135 44.0495C72.1615 44.05 72.5882 
+									fill="#F57520"
+								/>
+								<path
+									d="M45.5347 48.7628H50.4261L64.033 1.6275H59.1417L45.5347 48.7628Z"
+									fill="white"
+								/>
+								<path
+									fill-rule="evenodd"
+									clip-rule="evenodd"
+									d="M52.7383 48.7628L54.2502 44.0493H71.4145L71.7135 44.0495C72.1615 44.05 72.5882 
 							44.0505 72.9986 44.0403C75.29 43.9169 77.3833 42.6646 78.9995 41.0182C80.6744 
 							39.3121 81.6131 37.0157 81.6134 34.6235C81.6135 32.2156 80.6631 29.9051 
 							78.9693 28.1955C78.1052 27.3232 77.094 26.9124 75.9914 26.7165C75.2809 
@@ -109,149 +115,171 @@ const Header: FC = () => {
 							24.2688 82.2899 24.4645 82.5066 24.6832C85.1271 27.3283 86.605 30.8981 86.622 
 							34.6235C86.6057 38.3253 85.1467 41.8745 82.5556 44.5154C80.8927 46.2102 78.8475 
 							47.4084 76.6185 48.0711C75.3662 48.51 73.9359 48.7628 72.3039 48.7628H52.7383Z"
-							fill="white"
-						/>
-						<path
-							d="M0.88916 1.62726H5.69163L17.1642 41.381L15.3855 48.7626L0.88916 1.62726Z"
-							fill="white"
-						/>
-						<path
-							d="M17.2539 48.7627H21.9674L31.9281 10.1651L43.3117 48.7627L45.624 41.2033L33.7068 1.62738H29.2601L17.2539 48.7627Z"
-							fill="white"
-						/>
-					</svg>
-				</a>
-				<nav className={styles.Header__nav}>
-					<ul className={`list-reset ${styles.Header__nav_list}`}>
-						<li className={styles.Header__nav_item}>
-							<a href="/">Trade in</a>
-						</li>
-						<li className={styles.Header__nav_item}>
-							<a href="/">Велосипеды</a>
-						</li>
-
-						<li className={styles.Header__nav_item}>
-							<a href="/">Запчасти</a>
-						</li>
-						<li className={styles.Header__nav_item}>
-							<a href="/">Экипировка</a>
-						</li>
-						<li className={styles.Header__nav_item}>
-							<a href="/">Аксессуары</a>
-						</li>
-						<li className={styles.Header__nav_item}>
-							<a href="/">Велостанки</a>
-						</li>
-					</ul>
-				</nav>
-				<div className={styles.Header__right}>
-					<ul className={`list-reset ${styles.Header__right_list}`}>
-						<li className={styles.Header__right_item}>
-							<svg
-								width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M16 10.5C16 14.6421 12.6421 18 8.5 18C4.35786 18 1 14.6421 1 10.5C1 6.35786 4.35786 3 8.5 3C12.6421 3 16 6.35786 
-16 10.5Z"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
+									fill="white"
 								/>
 								<path
-									d="M17.9999 20L13.8032 15.8033"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
+									d="M0.88916 1.62726H5.69163L17.1642 41.381L15.3855 48.7626L0.88916 1.62726Z"
+									fill="white"
+								/>
+								<path
+									d="M17.2539 48.7627H21.9674L31.9281 10.1651L43.3117 48.7627L45.624 41.2033L33.7068 1.62738H29.2601L17.2539 48.7627Z"
+									fill="white"
 								/>
 							</svg>
-						</li>
-						<li className={styles.Header__right_item}>
-							<a href="/">
+						</a>
+						<span>
+							Компания World-bikes специализируется на продаже
+							товаров для велосипедного спорта.
+						</span>
+					</div>
+					<div className={styles.Footer__info}>
+						<h4 className={styles.Footer__info_title}>Каталог</h4>
+						<ul className={`list-reset ${styles.Footer__list}`}>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Trade-in</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Велосипеды</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Экипировка</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Запчасти</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Велостанки</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Аксессуары</a>
+							</li>
+						</ul>
+					</div>
+					<div className={styles.Footer__info}>
+						<h4 className={styles.Footer__info_title}>Для клиента</h4>
+						<ul className={`list-reset ${styles.Footer__list}`}>
+							<li className={styles.Footer__list_item}>
+								<a href="/">О нас</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Доставка и оплата</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Блог</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Контакты</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Веломастерская</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Хранение</a>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<a href="/">Гарантии</a>
+							</li>
+						</ul>
+					</div>
+					<div className={`${styles.Footer__info} ${styles.Footer__info_contacts}`}>
+						<h4 className={styles.Footer__info_title}>Контакты</h4>
+						<ul className={`list-reset ${styles.Footer__list}`}>
+							<li className={styles.Footer__list_item}>
 								<svg
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									xmlns="http://www.w3.org/2000/svg">
+									xmlns="http://www.w3.org/2000/svg"
+									width="33"
+									height="32"
+									viewBox="0 0 33 32"
+									fill="none">
 									<path
-										d="M14 15H6C3.79086 15 2 16.7909 2 19V21H10H18V19C18 16.7909 16.2091 15 14 15Z"
+										d="M19.3333 4H8.66667C7.19391 4 6 5.19391 6 6.66667V25.3333C6 26.8061 7.19391 28 
+										8.66667 28H19.3333C20.8061 28 22 26.8061 22 25.3333V6.66667C22 5.19391 20.8061 4 
+										19.3333 4Z"
+										stroke="#4C4C4C"
 										stroke-width="1.5"
 										stroke-linecap="round"
 										stroke-linejoin="round"
 									/>
 									<path
-										d="M10 11C12.2091 11 14 9.20914 14 7C14 4.79086 12.2091 3 10 3C7.79086 3 6 4.79086 6 7C6 9.20914 7.79086 11 10 11Z"
+										d="M14 24.0133V24"
+										stroke="#4C4C4C"
 										stroke-width="1.5"
 										stroke-linecap="round"
 										stroke-linejoin="round"
 									/>
 								</svg>
-							</a>
-						</li>
-						<li className={styles.Header__right_item}>
-							<a href="/">
+								<div>
+									<a href="/">+7(495)055-75-86</a>
+									<a href="/">+7(495)055-75-86</a>
+								</div>
+							</li>
+							<li className={styles.Footer__list_item}>
 								<svg
-									width="20"
-									height="18"
-									viewBox="0 0 20 18"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M2.3314 9.0474L10 17L17.6686 9.0474C18.5211 8.1633 19 6.96429 19 5.71405C19 3.11055 16.9648 1 
-									14.4543 1C13.2487 1 12.0925 1.49666 11.24 2.38071L10 3.66667L8.76 2.38071C7.90749 1.49666 6.75128 
-									1 5.54569 1C3.03517 1 1 3.11055 1 5.71405C1 6.96429 1.47892 8.1633 2.3314 9.0474Z"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
+									xmlns="http://www.w3.org/2000/svg"
+									width="33"
+									height="32"
+									viewBox="0 0 33 32"
+									fill="none">
+									<g clip-path="url(#clip0_1926_501)">
+										<path
+											d="M21.4038 29.8148L24.6542 5.51823L5.23796 20.4815L15.3209 21.684L21.4038 29.8148Z"
+											stroke="#4C4C4C"
+											stroke-width="1.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</g>
+									<defs>
+										<clipPath id="clip0_1926_501">
+											<rect
+												width="32"
+												height="32"
+												fill="white"
+												transform="translate(0.666504)"
+											/>
+										</clipPath>
+									</defs>
 								</svg>
-							</a>
-						</li>
-						<li className={styles.Header__right_item}>
-							<a href="/">
-								<svg
-									width="21"
-									height="20"
-									viewBox="0 0 21 20"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M16 15H5.5L3.5 1H1"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-									<path
-										d="M3.78564 3H19.9999L16.9999 12H5.07135"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-									<path
-										d="M8 19C9.1046 19 10 18.1046 10 17C10 15.8954 9.1046 15 8 15C6.89543 15 6 15.8954 6 17C6 18.1046 6.89543 19 8 19Z"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-									<path
-										d="M16 19C17.1046 19 18 18.1046 18 17C18 15.8954 17.1046 15 16 15C14.8954 15 14 15.8954 14 17C14 18.1046 14.8954 19 16 19Z"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-								</svg>
-							</a>
-						</li>
-					</ul>
 
-					<div className={styles.Header__burger}>
-						<span>.</span>
-						<span>.</span>
-						<span>.</span>
+								<address>г. Москва, ул. Доватора, 7/8 с1</address>
+							</li>
+							<li className={styles.Footer__list_item}>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="33"
+									height="32"
+									viewBox="0 0 33 32"
+									fill="none">
+									<path
+										d="M28.6667 6.66699H7.33333C6.96515 6.66699 6.63181 6.81623 6.39052 7.05751C6.14924 7.29881
+										 6 7.63214 6 8.00033V24.0003C6 24.7367 6.59696 25.3337 7.33333 25.3337H28.6667C29.4031 25.3337 
+										 30 24.7367 30 24.0003V8.00033C30 7.63214 29.8508 7.29881 29.6095 7.05751C29.3681 6.81623 
+										 29.0348 6.66699 28.6667 6.66699Z"
+										stroke="#4C4C4C"
+										stroke-width="1.5"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									/>
+									<path
+										d="M6.39062 7.05762L16.1145 16.7814C17.1558 17.8229 18.8444 17.8229 19.8857 16.7814L29.6096 7.05762"
+										stroke="#4C4C4C"
+										stroke-width="1.5"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									/>
+								</svg>
+								<a href="/">order@world-bike.ru</a>
+							</li>
+						</ul>
 					</div>
 				</div>
+				<div className={styles.Footer__copyright}>
+					<span>© 2023 world bike</span>
+					<a href="/">Пользовательское соглашение</a>
+				</div>
 			</div>
-		</header>
+		</footer>
 	)
 }
 
-export default Header
+export default Footer

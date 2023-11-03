@@ -40,8 +40,8 @@ main {
  */
 
 h1 {
-	font-size: 2em;
 	margin: 0.67em 0;
+	font-size: 2em;
 }
 
 /* Grouping content
@@ -53,11 +53,11 @@ h1 {
  */
 
 hr {
-	box-sizing: content-box;
-	/* 1 */
-	height: 0;
 	/* 1 */
 	overflow: visible;
+	/* 1 */
+	height: 0;
+	box-sizing: content-box;
 	/* 2 */
 }
 
@@ -136,10 +136,10 @@ small {
 
 sub,
 sup {
-	font-size: 75%;
-	line-height: 0;
 	position: relative;
 	vertical-align: baseline;
+	font-size: 75%;
+	line-height: 0;
 }
 
 sub {
@@ -174,13 +174,13 @@ input,
 optgroup,
 select,
 textarea {
+	/* 1 */
+	margin: 0;
 	font-family: inherit;
 	/* 1 */
 	font-size: 100%;
 	/* 1 */
 	line-height: 1.15;
-	/* 1 */
-	margin: 0;
 	/* 2 */
 }
 
@@ -256,17 +256,17 @@ fieldset {
  */
 
 legend {
-	box-sizing: border-box;
-	/* 1 */
-	color: inherit;
 	/* 2 */
 	display: table;
 	/* 1 */
-	max-width: 100%;
-	/* 1 */
 	padding: 0;
+	/* 1 */
+	max-width: 100%;
+	box-sizing: border-box;
 	/* 3 */
 	white-space: normal;
+	/* 1 */
+	color: inherit;
 	/* 1 */
 }
 
@@ -293,9 +293,9 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
-	box-sizing: border-box;
 	/* 1 */
 	padding: 0;
+	box-sizing: border-box;
 	/* 2 */
 }
 

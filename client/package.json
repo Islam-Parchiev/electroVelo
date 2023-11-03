@@ -71,7 +71,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "component": "generate-react component"
+    "component": "generate-react component",
+    "stylelint":"npx stylelint '**/*.scss' --fix"
   },
   "eslintConfig": {
     "extends": [

@@ -3,8 +3,8 @@
 }
 
 .content {
-  max-width: 1000px;
   margin: 0 auto;
+  max-width: 1000px;
 }
 
 .accordion__control {
@@ -14,13 +14,13 @@
 }
 
 .accordion__content {
-  max-height: 0;
-  opacity: 0;
   overflow: hidden;
   padding: 0 20px;
-  will-change: max-height;
-  transition: all var(--accordion-time) ease-out;
+  max-height: 0;
   box-sizing: content-box;
+  opacity: 0;
+  transition: all var(--accordion-time) ease-out;
+  will-change: max-height;
 }
 
 .accordion__title {
@@ -37,6 +37,6 @@
 }
 
 .is-open .accordion__content {
-  opacity: 1;
   padding: 20px;
+  opacity: 1;
 }

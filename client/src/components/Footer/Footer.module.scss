@@ -1,0 +1,85 @@
+.Footer {
+	min-height: 300px;
+	background: var(--bl, #101010);
+	&__container {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		gap: 20px;
+	}
+	&__logo {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		width: 290px;
+		span {
+/* desk mob 16 light */
+font-family: Inter;
+font-weight: 300;
+font-style: normal;
+font-size: 16px;
+line-height: 160%; /* 25.6px */
+			color: var(--light-grey, #B3B3B3);
+		}
+	}
+	&__info {
+		&_title {
+/* desk mob 24 */
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 24px;
+line-height: 160%; /* 38.4px */
+letter-spacing: 0.24px;
+			color: var(--light-color, #FFF);
+		}
+		&_contacts {
+			.Footer__list_item {
+				display: flex;
+				align-items: center;
+				margin-top: 10px;
+				gap: 10px;
+			}
+			div a {
+				display: block;
+			}
+			address {
+				color:var(--light-color);
+			}
+		}
+	}
+	&__list {
+		&_item {
+			a{
+/* desk mob 16 light */
+font-family: Inter;
+font-weight: 300;
+font-style: normal;
+font-size: 16px;
+line-height: 160%; /* 25.6px */
+			color: var(--light-color, #FFF);
+			}
+		}
+	
+	}
+	&__columns {
+		display: flex;
+		justify-content: space-between;
+		padding-top:50px;
+	}
+	&__copyright {
+		border-top: 1px solid #34312D;
+/* desk mob 12 */
+font-family: Inter;
+font-weight: 400;
+font-style: normal;
+font-size: 12px;
+line-height: 160%; /* 19.2px */
+text-transform: uppercase;
+		color: var(--2-grey, #777);
+		a {
+			margin-left: 15px;
+			color: var(--2-grey, #777);
+		}
+	}
+}

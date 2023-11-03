@@ -1,0 +1,35 @@
+@import "../../scss/mixins/mini";
+
+.InfoItem {
+	@include flex-all-center;
+	flex-grow: 1;
+	height: 182px;
+	text-align: start;
+	color: #fff;
+	background-color: #131313;
+	transition: all 0.3s ease-in-out;
+
+	&__content {
+		width: 300px;
+	}
+
+	&__btn {
+		display: none;
+		margin-top: 15px;
+		color: #F57520;
+	}
+
+	&:hover {
+		border-radius: 20px;
+		transform: scale(1.1);
+
+		.InfoItem__btn {
+			display: block;
+		}
+	}
+
+	&:last-child {
+		background-color: #2E2E2E;
+	}
+
+}

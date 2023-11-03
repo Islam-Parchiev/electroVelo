@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Button from '@components/Button/Button'
 import MountainBikesItem from '@components/MountainBikesItem/MountainBikesItem'
 
 import styles from './MountainBikes.module.scss'
@@ -48,7 +49,7 @@ const MountainBikes: React.FC = () => {
 							приятной и комфортной
 							</p>
 						</div>
-						<button className={`btn-reset btn ${styles.MountainBikes__btn}`}>Каталог</button>
+						<Button otherClass={styles.MountainBikes__btn}>Каталог</Button>
 					</div>
 				</div>
 			</div>

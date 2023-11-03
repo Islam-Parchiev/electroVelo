@@ -1,64 +1,84 @@
 @import "../../scss/mixins/mini";
 
 .Header {
-    position: absolute;
-		z-index: 10;
-    width: 100%;
-    height: 100px;
-    color: var(--light-color);
-    // background-color: var(--black-color);
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	height: 100px;
+	color: var(--light-color);
+	// background-color: var(--black-color);
 
-    &__container {
-        @include flex-all-sb;
-        height: 100%;
-    }
+	&__container {
+		@include flex-all-sb;
+		height: 100%;
+	}
 
-    &__nav {
-        &_list {
-            @include flex-v-center;
-            gap: 25px;
-        }
+	&__nav {
+		&_list {
+			@include flex-v-center;
+			gap: 25px;
+		}
 
-        &_item {
-            a {
-                text-decoration: none;
-                color: var(--light-color);
-            }
-        }
-    }
+		&_item {
+			a {
+				text-decoration: none;
+				color: var(--light-color);
 
-    &__right {
-        @include flex-v-center;
-        gap: 40px;
+				&:hover {
+					color: var(--orange, #F57520);
+				}
+			}
+		}
+	}
 
-        &_list {
-            @include flex-v-center;
-            gap: 25px;
-        }
+	&__right {
+		@include flex-v-center;
+		gap: 40px;
 
-        &_item {
-            cursor: pointer;
-        }
-    }
+		&_list {
+			@include flex-v-center;
+			gap: 25px;
+		}
 
-    &__burger {
-        @include flex-column-end;
-        width: 33px;
-        height: 21px;
-        cursor: pointer;
+		&_item {
+			cursor: pointer;
 
-        span {
-            display: block;
+			svg {
+				fill: none;
+				stroke: var(--light-color);
 
-            width: 100%;
-            height: 2px;
-            font-size: 0;
-            background-color: var(--light-color);
+				&:hover {
+					stroke: var(--orange, #F57520);
+				}
+			}
+		}
+	}
 
-            &:not(:first-child) {
-                margin-top: 6px;
-                width: 80%;
-            }
-        }
-    }
+	&__burger {
+		@include flex-column-end;
+		width: 33px;
+		height: 21px;
+		cursor: pointer;
+
+		span {
+			display: block;
+
+			width: 100%;
+			height: 2px;
+			font-size: 0;
+			background-color: var(--light-color);
+
+			&:not(:first-child) {
+				margin-top: 6px;
+				width: 80%;
+			}
+
+		}
+
+		&:hover {
+			span {
+				background-color: var(--orange, #F57520);
+			}
+		}
+	}
 }
