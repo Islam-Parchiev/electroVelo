@@ -73,6 +73,9 @@ let ProductService = class ProductService {
     async getByLimit(limit) {
         const products = this.productRepository.find({
             take: limit,
+            relations: {
+                images: true
+            }
         });
         return products;
     }
@@ -98,8 +101,19 @@ let ProductService = class ProductService {
     update(id, updateProductDto) {
         return `This action updates a #${id} product`;
     }
-    remove(id) {
-        return `This action removes a #${id} product`;
+    async remove(id) {
+        const order = await this.productRepository.findOne({
+            where: { id },
+            relations: {
+                images: true,
+                specifications: true,
+                colors: true,
+                sizes: true
+            }
+        });
+        if (!order)
+            throw new common_1.NotFoundException('Product not found');
+        return await this.productRepository.delete(id);
     }
 };
 ProductService = __decorate([

@@ -81,6 +81,9 @@ export class ProductService {
   async getByLimit(limit:number){
       const products = this.productRepository.find({
         take:limit,
+        relations:{
+          images:true
+        }
       })
       return products;
   }
@@ -121,9 +124,20 @@ export class ProductService {
     return `This action updates a #${id} product`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} product`;
-  }
+  async remove(id: number) {
+
+    const order = await this.productRepository.findOne({
+      where:{id},
+      relations:{
+        images:true,
+        specifications:true,
+        colors:true,
+        sizes:true
+      }
+    })
+    if(!order) throw new NotFoundException('Product not found')
+      return await this.productRepository.delete(id);
+    }
 }
 // "productData":{
 // 	"title":"TeSSSt",

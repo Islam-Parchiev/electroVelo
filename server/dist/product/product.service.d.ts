@@ -22,5 +22,5 @@ export declare class ProductService {
     }>;
     findOne(id: number): string;
     update(id: number, updateProductDto: UpdateProductDto): string;
-    remove(id: number): string;
+    remove(id: number): Promise<import("typeorm").DeleteResult>;
 }

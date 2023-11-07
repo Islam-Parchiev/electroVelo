@@ -18,5 +18,5 @@ export declare class ProductController {
     getByLimit(limit: number): Promise<Product[]>;
     findOne(id: string): string;
     update(id: string, updateProductDto: UpdateProductDto): string;
-    remove(id: string): string;
+    remove(id: string): Promise<import("typeorm").DeleteResult>;
 }

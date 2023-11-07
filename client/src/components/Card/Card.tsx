@@ -18,8 +18,8 @@ const Card:React.FC<ICard> = (props) => {
 		available,
 		images,
 	} = props;
-	const aimages = images?.split(',');
-	console.log(images);
+	console.log('iii',images)
+	
 	return (
 		<li className={`${styles.Card} Card--${type}`}>
 			<div className={styles.Card__header}>
@@ -31,7 +31,7 @@ const Card:React.FC<ICard> = (props) => {
 				</div>
 			</div>
 			<div className={styles.Card__body}>
-				<img src="/images/Card/1.1.png" alt="" />
+				<img src={`/images/Product/${images}`} alt="" />
 			</div>
 			<div className={styles.Card__footer}>
 				<h4 className={styles.Card__title}>

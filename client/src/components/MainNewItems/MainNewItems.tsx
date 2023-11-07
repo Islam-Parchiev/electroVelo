@@ -1,21 +1,14 @@
-import { FC,useEffect,useState } from 'react'
+import { FC } from 'react'
+import { useQuery } from '@tanstack/react-query'
 
+import productService from '../../services/product.service';
 import Card from '../../components/Card/Card'
 
 import styles from './MainNewItems.module.scss'
 const MainNewItems: FC = () => {
-// 	const [items,setItems] = useState<any>([]);
 
-// 	useEffect(()=> {
-//    async function fetchData() {
-// 			const fetchD =  await fetch('http://localhost:4000/product/find?page=1&limit=3&order=DESC').then(res=> res.json());
-// 		  setItems(fetchD.data);
-
-// 		}
-// 		fetchData()
-// 	},[]); 
-	
-	// console.log(items);
+	const {data} = useQuery({ queryKey: ['products'], queryFn:()=> productService.getProductsByLimit(3)  })
+	console.log(data?.data);
 	return (
 		<section className={styles.MainNewItems}>
 			<div className={`container ${styles.MainNewItems__container}`}>
@@ -28,9 +21,14 @@ const MainNewItems: FC = () => {
 					<Card type="primary" price={item.price} title={item.title} available={item.available} images={item.images}/>
 				))
 			 } */}
+			 {
+				data?.data.map((item:any)=>(
+					<Card type="primary" price={item.price} title={item.title} available={item.available} images={item.images[0].srcPath}/>
+				))
+			 }
+					{/* <Card type="primary"/>
 					<Card type="primary"/>
-					<Card type="primary"/>
-					<Card type="primary"/>
+					<Card type="primary"/> */}
 				</ul>
 			</div>
 		</section>
