@@ -20,11 +20,17 @@ let ProductController = class ProductController {
     constructor(productService) {
         this.productService = productService;
     }
-    create(createProductDto) {
-        return this.productService.create(createProductDto);
+    async create(productData, imageUrls, sizes, colors, specs) {
+        return this.productService.create(productData, imageUrls, specs, sizes, colors);
     }
-    async findProducts(searchTerm, page, limit, order) {
-        return this.productService.findPosts(+page, +limit, searchTerm, order);
+    getProducts(sortByPrice, sortByName, page, limit) {
+        return this.productService.getProducts(sortByPrice, sortByName, page, limit);
+    }
+    findAll() {
+        return this.productService.findAll();
+    }
+    getByLimit(limit) {
+        return this.productService.getByLimit(limit);
     }
     findOne(id) {
         return this.productService.findOne(+id);
@@ -39,20 +45,37 @@ let ProductController = class ProductController {
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Body)('imageUrls')),
+    __param(2, (0, common_1.Body)('sizes')),
+    __param(3, (0, common_1.Body)('colors')),
+    __param(4, (0, common_1.Body)('specs')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Array]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [Object, Array, Array, Array, Array]),
+    __metadata("design:returntype", Promise)
 ], ProductController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)('find'),
-    __param(0, (0, common_1.Query)('searchTerm')),
-    __param(1, (0, common_1.Query)('page')),
-    __param(2, (0, common_1.Query)('limit')),
-    __param(3, (0, common_1.Query)('order')),
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)('sortByPrice')),
+    __param(1, (0, common_1.Query)('sortByName')),
+    __param(2, (0, common_1.Query)('page', common_1.ParseIntPipe)),
+    __param(3, (0, common_1.Query)('limit', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, String, String, String]),
+    __metadata("design:paramtypes", [String, String, Number, Number]),
     __metadata("design:returntype", Promise)
-], ProductController.prototype, "findProducts", null);
+], ProductController.prototype, "getProducts", null);
+__decorate([
+    (0, common_1.Get)('all'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ProductController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)('limit/:limit'),
+    __param(0, (0, common_1.Param)('limit', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], ProductController.prototype, "getByLimit", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),

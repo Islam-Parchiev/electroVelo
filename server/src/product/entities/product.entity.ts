@@ -1,72 +1,46 @@
-import { Entity,Column,PrimaryGeneratedColumn,CreateDateColumn,JoinColumn, ManyToOne} from "typeorm";
-
+import { Entity,Column,PrimaryGeneratedColumn,OneToMany} from "typeorm";
+import { Image } from "./image.entity";
+import {Color} from "./color.entity";
+import { Spec } from "./spec.entity";
+import { Size } from "./size.entity";
 @Entity()
 export class Product {
     @PrimaryGeneratedColumn({name:'product_id'})
     id:number;
 
 
-    @Column()
+    @Column({nullable:true})
     title:string;
 
-    @Column()
+    @Column({nullable:true})
     description:string;
 
-    @Column()
+    @Column({nullable:true})
     articul:string;
 
-    @Column()
+    @Column({nullable:true})
     price:string;
 
-    @Column({name:'prev_price'})
+    @Column({name:'prev_price',nullable:true})
     prewPrice:string;
 
-    @Column()
-    sizes:string;
-
-
+    @OneToMany(() => Size, size => size.product, {nullable:true })
+    sizes:Size[];
+   
+    
     @Column({nullable:true})
     available:boolean;
 
-    @Column()
-    colors:string;
+    @OneToMany(() => Color, color => color.product, {nullable:true })
+    colors:Color[];
 
-    @Column()
-    images:string;
+    @OneToMany(() => Image, image => image.product, {nullable:true })
+  images: Image[];
 
-    @Column()
-    specifications:string;
+  @OneToMany(() => Spec, spec => spec.product, {nullable:true })
+    specifications:Spec[];
 
-    @Column()
+    @Column({nullable:true})
     brand:string;
 
 }
-
-// import { Entity,Column,PrimaryGeneratedColumn,CreateDateColumn,JoinColumn, ManyToOne} from "typeorm";
-// import { User } from "src/user/entities/user.entity";
-// @Entity()
-// export class Order {
-//     @PrimaryGeneratedColumn({name:'order_id'})
-//     id:number;
-
-//     @ManyToOne(()=>User,(user)=>user.id)
-//     @JoinColumn({name:'user_id'})
-//     userId:User;
-
-//     @Column({nullable:true})
-//     title:string;
-
-//     @CreateDateColumn()
-//     date:Date;
-
-//     @Column()
-//     price:number;
-
-//     @Column()
-//     status:boolean;
-
-//     @Column()
-//     orderNumber:number;
-
-
-// }

@@ -11,6 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Product = void 0;
 const typeorm_1 = require("typeorm");
+const image_entity_1 = require("./image.entity");
+const color_entity_1 = require("./color.entity");
+const spec_entity_1 = require("./spec.entity");
+const size_entity_1 = require("./size.entity");
 let Product = class Product {
 };
 __decorate([
@@ -18,47 +22,47 @@ __decorate([
     __metadata("design:type", Number)
 ], Product.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Product.prototype, "title", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Product.prototype, "description", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Product.prototype, "articul", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Product.prototype, "price", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: 'prev_price' }),
+    (0, typeorm_1.Column)({ name: 'prev_price', nullable: true }),
     __metadata("design:type", String)
 ], Product.prototype, "prewPrice", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
+    (0, typeorm_1.OneToMany)(() => size_entity_1.Size, size => size.product, { nullable: true }),
+    __metadata("design:type", Array)
 ], Product.prototype, "sizes", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", Boolean)
 ], Product.prototype, "available", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
+    (0, typeorm_1.OneToMany)(() => color_entity_1.Color, color => color.product, { nullable: true }),
+    __metadata("design:type", Array)
 ], Product.prototype, "colors", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
+    (0, typeorm_1.OneToMany)(() => image_entity_1.Image, image => image.product, { nullable: true }),
+    __metadata("design:type", Array)
 ], Product.prototype, "images", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
+    (0, typeorm_1.OneToMany)(() => spec_entity_1.Spec, spec => spec.product, { nullable: true }),
+    __metadata("design:type", Array)
 ], Product.prototype, "specifications", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Product.prototype, "brand", void 0);
 Product = __decorate([

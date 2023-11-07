@@ -2,121 +2,139 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
-import { Repository,Like } from 'typeorm';
+import { Image } from './entities/image.entity';
+import { Spec } from './entities/spec.entity';
+import { Size } from './entities/size.entity';
+import { Color } from './entities/color.entity';
+import { calculatePagination, calculateTotalPages } from '../helpers/helpers';
 @Injectable()
 export class ProductService {
   constructor(
     @InjectRepository(Product)
-    private readonly productRepository:Repository<Product>
+    private readonly productRepository:Repository<Product>,
+    @InjectRepository(Image)
+    private readonly imageRepository:Repository<Image>,
+    @InjectRepository(Spec)
+    private readonly specRepository:Repository<Spec>,
+    @InjectRepository(Size)
+    private readonly sizeRepository:Repository<Size>,
+    @InjectRepository(Color)
+    private readonly colorRepository:Repository<Color>,
   ){}
-  
+  // create(createProductDto: CreateProductDto) {
 
- async create(createProductDto: CreateProductDto[]) {
-
-    const createdProducts= [];
-  //   let orderN = Math.floor((Math.random() * 1000000) + 1);
-  
-  // if(await this.orderRepository.find({where:{orderNumber:orderN}})) {
-  //   orderN=Math.floor((Math.random() * 1000000) + 1);
+  //   return 'This action adds a new product';
   // }
-  
-    for (const product of createProductDto) {
-      const jsonProduct = {
-        
-    title:product.title,
-    description:product.description,
-    articul:product.articul,
-    price:product.price,
-    available:product.available,
-    prewPrice:product.prewPrice,
-    sizes:JSON.stringify(product.sizes),
-    colors:JSON.stringify(product.colors),
-    images:JSON.stringify(product.images),
-    specifications:JSON.stringify(product.specifications),
-    brand:product.brand
-      }
-      // @ts-ignore
-      const createdProduct = await this.productRepository.save({...jsonProduct});
-      createdProducts.push(createdProduct);
-    }
-    return createdProducts;
-  
+  // const createdOrder = await this.orderRepository.save({...order,userId:{id},orderNumber:orderN});
+  async create(productData: Partial<Product>, 
+    imageUrls: Image[],
+    specs:Spec[],
+    sizes:Size[],
+    colors:Color[]
+    ): Promise<Product> {
+    const product = await this.productRepository.create(productData);
+    const images =await imageUrls.map(image => this.imageRepository.create({ srcPath:image.srcPath }));
+    const speccs =await specs.map(spec => this.specRepository.create({
+                                                                  year:spec.year,
+                                                                  brand:spec.brand,
+                                                                  category:spec.category,
+                                                                  country:spec.country,
+                                                                  material:spec.material
+                                                                
+                                                                }))
+    const sizess =await sizes.map(size => this.sizeRepository.create({
+       size:size.size
+      
+    }))   
+    const colorrs =await colors.map(color => this.colorRepository.create({
+      color:color.color
+     
+   }))                   
+    product.sizes = sizess;                                            
+    product.images = images;
+    product.specifications=speccs;
+    product.colors = colorrs;
 
+    await this.imageRepository.save(images);
+    await this.specRepository.save(speccs);
+    await this.sizeRepository.save(sizess);
+    await this.colorRepository.save(colorrs);
+    await this.productRepository.save(product);
+    return product;
   }
-
- async  findAllWithLimit(limit:number) {
+  async  findAll() {
     const products = await this.productRepository.find({
-      take:limit
-    })
-
-    return products
-  }
-
-  async searchProductsByKeyword(keyword: string): Promise<Product[]> {
-    return await this.productRepository
-      .createQueryBuilder('product')
-      .where('product.title ILIKE :keyword', { keyword: `%${keyword}%` })
-      // .orWhere('product.content ILIKE :keyword', { keyword: `%${keyword}%` })
-      .getMany();
-  }
-
-  async findPosts(
-    page: number = 1,
-    limit: number = 10,
-    searchTerm?: any,
-    order:any ='DESC'
-  ): Promise<{ data: Product[]; totalItems: number }> {
-    const [data, totalItems] = await this.productRepository.findAndCount({
-      where: searchTerm
-        ? [
-          
-            { title: Like(`%${searchTerm}%`) },
-            // { content: Like(%${searchTerm}%) },
-          ]
-        : {},
-      order: { price: order },
-      skip: (page - 1) * limit,
-      take: limit,
-    });
-console.log(data);
-    return { data, totalItems };
-  }
-
-  async findOne(id: number) {
-    const product = await this.productRepository.findOne({
-      where: {
-        id
+     
+      relations:{
+        images:true,
+        sizes:true,
+        specifications:true,
+        colors:true
       }
     })
-    const returnedProduct = {
-      id:product.id,
-       title:product.title,
-       description:product.description,
-    articul:product.articul,
-    price:product.price,
-    available:product.available,
-    prewPrice:product.prewPrice,
-    sizes:JSON.parse(product.sizes),
-    colors:JSON.parse(product.colors),
-    images:JSON.parse(product.images),
-    specifications:JSON.parse(product.specifications),
-    brand:product.brand,
+    if(!products) throw new NotFoundException('Transactions not found')
+    return products;
+  }
+
+  async getByLimit(limit:number){
+      const products = this.productRepository.find({
+        take:limit,
+      })
+      return products;
+  }
+
+  async getProducts(
+    sortByPrice: 'ASC' | 'DESC',
+    sortByName: 'ASC' | 'DESC',
+    page: number,
+    limit: number,
+  ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
+    const { skip, take } = calculatePagination(page, limit);
+  
+    const queryBuilder = this.productRepository.createQueryBuilder('product')
+      .skip(skip)
+      .take(take)
+ 
+  
+    if (sortByPrice) {
+      queryBuilder.orderBy('product.price', sortByPrice);
     }
-    if(!product) throw new NotFoundException('Product not found')
-    return returnedProduct;
+  
+    if (sortByName) {
+      queryBuilder.orderBy('product.title', sortByName);
+    }
+  
+    const [data, totalItems] = await queryBuilder.getManyAndCount();
+    const totalPages = calculateTotalPages(totalItems, limit);
+    const currentPage = page;
+  
+    return { data, currentPage, totalPages };
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} product`;
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
     return `This action updates a #${id} product`;
   }
 
- async remove(id: number) {
-  const product = await this.productRepository.findOne({
-    where:{id},
-  })
-  if(!product) throw new NotFoundException('Transaction not found')
-    return await this.productRepository.delete(id);
-    
+  remove(id: number) {
+    return `This action removes a #${id} product`;
   }
 }
+// "productData":{
+// 	"title":"TeSSSt",
+// 	"description": "Профессиональный гоночный хардтейл для кросс-кантри уровня Чемпионата и Кубка Мира. Одна из самых лёгких рам среди гоночных хардтейлов для кросс-кантри. Scott Scale 700 RC — это рама из композитного волокна HMX, гоночная трансмиссия Sram XX1/X01 1×11, дисковые тормоза Shimano XTR M9000 и гоночные колеса Syncros XR RC. Байк Нино Шуртера для шорт-трек кросс-кантри.",
+// 	"articul": "7655-188",	
+// 		"price": "444",
+// 		"prewPrice": "555",
+	
+// },
+// 	"imageUrls":[{"srcPath":"1.1.hpg"}],
+// 	"sizes":[{"size":"1"}],
+//   "colors":[{"color":"RED"}],
+// 	"specs":[{"year":"2016","country":"Russia","material":"Karbon","brand":"Scott","category":"Mountain"}],
+	

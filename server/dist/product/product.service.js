@@ -15,99 +15,105 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const product_entity_1 = require("./entities/product.entity");
 const typeorm_2 = require("typeorm");
+const product_entity_1 = require("./entities/product.entity");
+const image_entity_1 = require("./entities/image.entity");
+const spec_entity_1 = require("./entities/spec.entity");
+const size_entity_1 = require("./entities/size.entity");
+const color_entity_1 = require("./entities/color.entity");
+const helpers_1 = require("../helpers/helpers");
 let ProductService = class ProductService {
-    constructor(productRepository) {
+    constructor(productRepository, imageRepository, specRepository, sizeRepository, colorRepository) {
         this.productRepository = productRepository;
+        this.imageRepository = imageRepository;
+        this.specRepository = specRepository;
+        this.sizeRepository = sizeRepository;
+        this.colorRepository = colorRepository;
     }
-    async create(createProductDto) {
-        const createdProducts = [];
-        for (const product of createProductDto) {
-            const jsonProduct = {
-                title: product.title,
-                description: product.description,
-                articul: product.articul,
-                price: product.price,
-                available: product.available,
-                prewPrice: product.prewPrice,
-                sizes: JSON.stringify(product.sizes),
-                colors: JSON.stringify(product.colors),
-                images: JSON.stringify(product.images),
-                specifications: JSON.stringify(product.specifications),
-                brand: product.brand
-            };
-            const createdProduct = await this.productRepository.save(Object.assign({}, jsonProduct));
-            createdProducts.push(createdProduct);
-        }
-        return createdProducts;
+    async create(productData, imageUrls, specs, sizes, colors) {
+        const product = await this.productRepository.create(productData);
+        const images = await imageUrls.map(image => this.imageRepository.create({ srcPath: image.srcPath }));
+        const speccs = await specs.map(spec => this.specRepository.create({
+            year: spec.year,
+            brand: spec.brand,
+            category: spec.category,
+            country: spec.country,
+            material: spec.material
+        }));
+        const sizess = await sizes.map(size => this.sizeRepository.create({
+            size: size.size
+        }));
+        const colorrs = await colors.map(color => this.colorRepository.create({
+            color: color.color
+        }));
+        product.sizes = sizess;
+        product.images = images;
+        product.specifications = speccs;
+        product.colors = colorrs;
+        await this.imageRepository.save(images);
+        await this.specRepository.save(speccs);
+        await this.sizeRepository.save(sizess);
+        await this.colorRepository.save(colorrs);
+        await this.productRepository.save(product);
+        return product;
     }
-    async findAllWithLimit(limit) {
+    async findAll() {
         const products = await this.productRepository.find({
-            take: limit
+            relations: {
+                images: true,
+                sizes: true,
+                specifications: true,
+                colors: true
+            }
+        });
+        if (!products)
+            throw new common_1.NotFoundException('Transactions not found');
+        return products;
+    }
+    async getByLimit(limit) {
+        const products = this.productRepository.find({
+            take: limit,
         });
         return products;
     }
-    async searchProductsByKeyword(keyword) {
-        return await this.productRepository
-            .createQueryBuilder('product')
-            .where('product.title ILIKE :keyword', { keyword: `%${keyword}%` })
-            .getMany();
+    async getProducts(sortByPrice, sortByName, page, limit) {
+        const { skip, take } = (0, helpers_1.calculatePagination)(page, limit);
+        const queryBuilder = this.productRepository.createQueryBuilder('product')
+            .skip(skip)
+            .take(take);
+        if (sortByPrice) {
+            queryBuilder.orderBy('product.price', sortByPrice);
+        }
+        if (sortByName) {
+            queryBuilder.orderBy('product.title', sortByName);
+        }
+        const [data, totalItems] = await queryBuilder.getManyAndCount();
+        const totalPages = (0, helpers_1.calculateTotalPages)(totalItems, limit);
+        const currentPage = page;
+        return { data, currentPage, totalPages };
     }
-    async findPosts(page = 1, limit = 10, searchTerm, order = 'DESC') {
-        const [data, totalItems] = await this.productRepository.findAndCount({
-            where: searchTerm
-                ? [
-                    { title: (0, typeorm_2.Like)(`%${searchTerm}%`) },
-                ]
-                : {},
-            order: { price: order },
-            skip: (page - 1) * limit,
-            take: limit,
-        });
-        console.log(data);
-        return { data, totalItems };
-    }
-    async findOne(id) {
-        const product = await this.productRepository.findOne({
-            where: {
-                id
-            }
-        });
-        const returnedProduct = {
-            id: product.id,
-            title: product.title,
-            description: product.description,
-            articul: product.articul,
-            price: product.price,
-            available: product.available,
-            prewPrice: product.prewPrice,
-            sizes: JSON.parse(product.sizes),
-            colors: JSON.parse(product.colors),
-            images: JSON.parse(product.images),
-            specifications: JSON.parse(product.specifications),
-            brand: product.brand,
-        };
-        if (!product)
-            throw new common_1.NotFoundException('Product not found');
-        return returnedProduct;
+    findOne(id) {
+        return `This action returns a #${id} product`;
     }
     update(id, updateProductDto) {
         return `This action updates a #${id} product`;
     }
-    async remove(id) {
-        const product = await this.productRepository.findOne({
-            where: { id },
-        });
-        if (!product)
-            throw new common_1.NotFoundException('Transaction not found');
-        return await this.productRepository.delete(id);
+    remove(id) {
+        return `This action removes a #${id} product`;
     }
 };
 ProductService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(product_entity_1.Product)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(1, (0, typeorm_1.InjectRepository)(image_entity_1.Image)),
+    __param(2, (0, typeorm_1.InjectRepository)(spec_entity_1.Spec)),
+    __param(3, (0, typeorm_1.InjectRepository)(size_entity_1.Size)),
+    __param(4, (0, typeorm_1.InjectRepository)(color_entity_1.Color)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository])
 ], ProductService);
 exports.ProductService = ProductService;
 //# sourceMappingURL=product.service.js.map
