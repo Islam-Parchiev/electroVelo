@@ -4,12 +4,15 @@ import { A11y } from 'swiper/modules'
 
 import Card from '@components/Card/Card'
 import SliderControls from '@components/SliderControls/SliderControls'
+import { useQuery } from '@tanstack/react-query'
+import productService from '@services/product.service'
 
 import styles from './Kit.module.scss'
 
 interface KitProps {}
 
 const Kit: React.FC<KitProps> = props => {
+	const {data} = useQuery({ queryKey: ['kitProducts'], queryFn:()=> productService.getProductsByLimit(6,3)  })
 	const {} = props
 	return (
 		<section className={styles.Kit}>
@@ -23,7 +26,7 @@ const Kit: React.FC<KitProps> = props => {
 					scrollbar={{ draggable: true }}
 					onSwiper={(swiper: any) => console.log(swiper)}
 					onSlideChange={() => console.log('slide change')}>
-					<SwiperSlide>
+					{/* <SwiperSlide>
 						<div className={styles.Kit__slide}>
 							<Card type="secondary" />
 						</div>
@@ -52,7 +55,16 @@ const Kit: React.FC<KitProps> = props => {
 						<div className={styles.Kit__slide}>
 							<Card type="secondary" />
 						</div>
-					</SwiperSlide>
+					</SwiperSlide> */}
+					
+					{data?.data.map((item:any)=>(
+						<SwiperSlide>
+							<div className={styles.Kit__slide}>
+								<Card type="secondary" price={item.price} title={item.title} available={item.available} images={item.images[0].srcPath}/>
+							</div>
+						</SwiperSlide> 
+					))
+			 }
 					<SliderControls type="prev" className={styles.Kit__prev}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

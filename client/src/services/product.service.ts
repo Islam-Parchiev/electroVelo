@@ -2,7 +2,7 @@
 import axios from 'axios'
 // import { ITodo } from "../types"
 
-class ProductService  {
+export class ProductService  {
 
 
 	private URL = 'http://localhost:4000'
@@ -10,12 +10,13 @@ class ProductService  {
 	// async getAll() {
 	// return axios.get(`${this.URL}/todos?_start=0&_limit=5`)
 	//  }
-	 async getProductsByLimit(limit:number) {
-		return axios.get(`${this.URL}/product/limit/${limit}`)
+	 async getProductsByLimit(limit:number,skip:number) {
+		return axios.get(`${this.URL}/product/limit/${limit}/skip/${skip}`)
 	 }
 	// async getById(id:string) {
 	// 	return axios.get(`${this.URL}/todos/${id}`)
 	// }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default new ProductService()

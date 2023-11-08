@@ -7,7 +7,7 @@ import Card from '../../components/Card/Card'
 import styles from './MainNewItems.module.scss'
 const MainNewItems: FC = () => {
 
-	const {data} = useQuery({ queryKey: ['products'], queryFn:()=> productService.getProductsByLimit(3)  })
+	const {data} = useQuery({ queryKey: ['newProducts'], queryFn:()=> productService.getProductsByLimit(3,6)  })
 	console.log(data?.data);
 	return (
 		<section className={styles.MainNewItems}>
