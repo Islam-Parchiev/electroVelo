@@ -29,8 +29,8 @@ let ProductController = class ProductController {
     findAll() {
         return this.productService.findAll();
     }
-    getByLimit(limit) {
-        return this.productService.getByLimit(limit);
+    getByLimit(limit, skip) {
+        return this.productService.getByLimit(limit, skip);
     }
     findOne(id) {
         return this.productService.findOne(+id);
@@ -70,10 +70,11 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)('limit/:limit'),
+    (0, common_1.Get)('limit/:limit/skip/:skip'),
     __param(0, (0, common_1.Param)('limit', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Param)('skip', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "getByLimit", null);
 __decorate([

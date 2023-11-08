@@ -78,9 +78,10 @@ export class ProductService {
     return products;
   }
 
-  async getByLimit(limit:number){
+  async getByLimit(limit:number,skip:number){
       const products = this.productRepository.find({
         take:limit,
+        skip:skip,
         relations:{
           images:true
         }

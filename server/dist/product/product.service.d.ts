@@ -14,7 +14,7 @@ export declare class ProductService {
     constructor(productRepository: Repository<Product>, imageRepository: Repository<Image>, specRepository: Repository<Spec>, sizeRepository: Repository<Size>, colorRepository: Repository<Color>);
     create(productData: Partial<Product>, imageUrls: Image[], specs: Spec[], sizes: Size[], colors: Color[]): Promise<Product>;
     findAll(): Promise<Product[]>;
-    getByLimit(limit: number): Promise<Product[]>;
+    getByLimit(limit: number, skip: number): Promise<Product[]>;
     getProducts(sortByPrice: 'ASC' | 'DESC', sortByName: 'ASC' | 'DESC', page: number, limit: number): Promise<{
         data: Product[];
         currentPage: number;

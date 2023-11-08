@@ -15,7 +15,7 @@ export declare class ProductController {
         totalPages: number;
     }>;
     findAll(): Promise<Product[]>;
-    getByLimit(limit: number): Promise<Product[]>;
+    getByLimit(limit: number, skip: number): Promise<Product[]>;
     findOne(id: string): string;
     update(id: string, updateProductDto: UpdateProductDto): string;
     remove(id: string): Promise<import("typeorm").DeleteResult>;

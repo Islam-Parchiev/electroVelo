@@ -70,9 +70,10 @@ let ProductService = class ProductService {
             throw new common_1.NotFoundException('Transactions not found');
         return products;
     }
-    async getByLimit(limit) {
+    async getByLimit(limit, skip) {
         const products = this.productRepository.find({
             take: limit,
+            skip: skip,
             relations: {
                 images: true
             }
