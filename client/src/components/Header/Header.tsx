@@ -1,11 +1,12 @@
 import { FC } from 'react'
+import { Link } from 'react-router-dom'
 
 import styles from './Header.module.scss'
 const Header: FC = () => {
 	return (
 		<header className={styles.Header}>
 			<div className={`container ${styles.Header__container}`}>
-				<a href="/" className={styles.Header__logo}>
+				<Link to="/" className={styles.Header__logo}>
 					<svg
 						width="87"
 						height="49"
@@ -120,14 +121,14 @@ const Header: FC = () => {
 							fill="white"
 						/>
 					</svg>
-				</a>
+				</Link>
 				<nav className={styles.Header__nav}>
 					<ul className={`list-reset ${styles.Header__nav_list}`}>
 						<li className={styles.Header__nav_item}>
 							<a href="/">Trade in</a>
 						</li>
 						<li className={styles.Header__nav_item}>
-							<a href="/">Велосипеды</a>
+							<Link to="/catalog">Велосипеды</Link>
 						</li>
 
 						<li className={styles.Header__nav_item}>
