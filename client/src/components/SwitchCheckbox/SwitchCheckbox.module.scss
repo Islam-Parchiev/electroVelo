@@ -1,14 +1,27 @@
-.checkboxIos {      
+.switchCheckbox { 
 	position: relative;
-	display: inline-block;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	vertical-align: middle;   
-	height: 21px;
+	height: 21px;     
+	max-width: 200px;
 	font-size: 14px;    
 	line-height: 28px;	
 	cursor: pointer;
 	user-select: none;
+	&__text {
+/* desk mob med 18 */
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 18px;
+line-height: 160%; /* 28.8px */
+letter-spacing: 0.18px;
+		color: var(--dark, #34312D);
+	}
 }
-.checkboxIos .checkboxIosSwitch {
+.switchCheckbox .switchCheckbox__switch {
 	position: relative;	
 	display: inline-block;	
 	vertical-align: top;
@@ -20,7 +33,7 @@
 	background: var(--orange, #F57520);
 	transition: .2s;
 }
-.checkboxIos .checkboxIosSwitch:before {
+.switchCheckbox .switchCheckbox__switch:before {
 	content: '';
 	position: absolute;
 	left: 1px;
@@ -34,7 +47,7 @@
 	transform: translateX(2px);
 	transition: .15s;
 }
-.checkboxIos input[type=checkbox] {	
+.switchCheckbox input[type=checkbox] {	
 	position: absolute;
 	z-index: -1;
 	display: block;	
@@ -42,13 +55,13 @@
 	height: 0;
 	opacity: 0;
 }
-.checkboxIos input[type=checkbox]:not(:disabled):active + .checkboxIosSwitch:before {
+.switchCheckbox input[type=checkbox]:not(:disabled):active + .switchCheckbox__switch:before {
 	box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
 }
-.checkboxIos input[type=checkbox]:checked + .checkboxIosSwitch {
+.switchCheckbox input[type=checkbox]:checked + .switchCheckbox__switch {
 	background: var(--orange, #F57520);
 }
-.checkboxIos input[type=checkbox]:checked + .checkboxIosSwitch:before {
+.switchCheckbox input[type=checkbox]:checked + .switchCheckbox__switch:before {
 	transform:translateX(19px);
 }
  
