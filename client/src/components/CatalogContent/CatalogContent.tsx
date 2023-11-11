@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Filters from '@components/Filters/Filters'
+
 import styles from './CatalogContent.module.scss'
 
 const CatalogContent:React.FC = () => {
@@ -7,7 +9,8 @@ const CatalogContent:React.FC = () => {
 		<section className={styles.CatalogContent}>
 			<div className="container">
 				<div className={styles.CatalogContent__wrapper}>
-					CatalogContent
+					<Filters/>
+					<div>Goods</div>
 				</div>
 			</div>
 		</section>
