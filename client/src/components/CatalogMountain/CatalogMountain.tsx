@@ -23,6 +23,7 @@ const CatalogMountain:React.FC = () => {
 							Горные велосипеды 
 							</a>
 						</li>
+						
 					</ul>
 					<h1 className="title">Горные велосипеды</h1>
 				</div>

@@ -2,7 +2,11 @@
 	height: 280px;
 	background-image: url("../../../public/images/Catalog/bg.jpg");
 	&__wrapper {
-		
+		padding-top: 50px;
+		h1 {
+			margin-top: 30px;
+			color:var(--light-color);
+		}
 	}
 }
 .Breadcrumbs {
@@ -12,12 +16,12 @@
 	&__item {
 a {
 		position: relative;
-	font-family: Inter;
-font-weight: 400;
-font-style: normal;
-font-size: 14px;
-line-height: 160%; /* 22.4px */
-		color: var(--white, #FFF);
+		font-family: Inter;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 15px;
+		line-height: 160%; /* 22.4px */
+		color: var(--light-color, #FFF);
 &:hover {
 	color: var(--orange, #F57520);
 }
@@ -28,8 +32,8 @@ line-height: 160%; /* 22.4px */
 a::before{
 			content: "/";
 			position: absolute;
-			right: -4px;
-			top: 0;
+			right: -6px;
+			top: -2px;
 } 
 	 
 	
