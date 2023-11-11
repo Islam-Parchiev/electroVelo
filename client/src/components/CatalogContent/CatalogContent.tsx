@@ -2,14 +2,15 @@ import React from 'react'
 
 import styles from './CatalogContent.module.scss'
 
-interface CatalogContentProps {}
-
-const CatalogContent:React.FC<CatalogContentProps> = (props) => {
-	const {} = props;
+const CatalogContent:React.FC = () => {
 	return (
-		<div className={styles.CatalogContent}>
-			CatalogContent Component
-		</div>
+		<section className={styles.CatalogContent}>
+			<div className="container">
+				<div className={styles.CatalogContent__wrapper}>
+					CatalogContent
+				</div>
+			</div>
+		</section>
 	)
 }
 
