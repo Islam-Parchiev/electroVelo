@@ -1,10 +1,17 @@
-import {FC} from 'react'
+import React from 'react'
 
-const Catalog:FC = () => {
+import CatalogMountain from '@components/CatalogMountain/CatalogMountain'
+import Header from '@components/Header/Header'
+
+import styles from './Catalog.module.scss';
+const Catalog:React.FC = () => {
 	return (
-		<main className="Catalog">
-			Catalog
-		</main>
+		<>
+			<Header otherClass={styles.CatalogHeader}/>
+			<main className="Catalog">
+				<CatalogMountain/>
+			</main>
+		</>
 	)
 }
 

@@ -2,9 +2,15 @@ import { FC } from 'react'
 import { Link } from 'react-router-dom'
 
 import styles from './Header.module.scss'
-const Header: FC = () => {
+interface Props {
+	otherClass?:string;
+}
+const Header: FC<Props> = (props) => {
+	const {
+		otherClass,
+	} = props;
 	return (
-		<header className={styles.Header}>
+		<header className={`${styles.Header} ${otherClass}`}>
 			<div className={`container ${styles.Header__container}`}>
 				<Link to="/" className={styles.Header__logo}>
 					<svg

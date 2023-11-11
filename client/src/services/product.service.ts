@@ -11,7 +11,7 @@ export class ProductService  {
 	// return axios.get(`${this.URL}/todos?_start=0&_limit=5`)
 	//  }
 	 async getProductsByLimit(limit:number,skip:number) {
-		return axios.get(`${this.URL}/product/limit/${limit}/skip/${skip}`)
+		return axios.get(`${this.URL}/product/l/limit/${limit}/skip/${skip}`)
 	 }
 	// async getById(id:string) {
 	// 	return axios.get(`${this.URL}/todos/${id}`)
