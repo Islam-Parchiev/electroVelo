@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC,useState } from 'react'
 
 import styles from './Checkbox.module.scss'
 interface ICheckbox {
@@ -6,20 +6,24 @@ interface ICheckbox {
 	otherClass?:string;
 	check?:any;
 	setCheck?:any;
+	value?:any;
+	setValue?:any;
 }
 const Checkbox:FC<ICheckbox> = (props) => {
+	const [check,setCheck]=useState<boolean>(false);
 	const {
 		text,
 		otherClass='',
-		check,
-		setCheck,
+		value,
+		setValue,
 	} = props;
 	return (
-		<label className={`${styles.customCheckbox} ${otherClass}`}>
+		<label className={`${styles.customCheckbox} ${otherClass}`} onClick={()=>setValue(value)}>
 			<input 
 				className={styles.hiddenCheckbox} 
 				type="checkbox" 
 				checked={check}
+				value={value}
 				onChange={()=>setCheck(!check)}/>
 			<div className={styles.checkbox}>
 				<svg
