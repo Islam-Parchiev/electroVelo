@@ -19,7 +19,7 @@ const Filters: React.FC<FiltersProps> = props => {
 				handleClick={setChecked}
 			/>
 
-			<Accordion accordionTitle="Tile">
+			<Accordion accordionTitle="Категории товара">
 				<div>content</div>
 				<div>content</div>
 				<div>content</div>
