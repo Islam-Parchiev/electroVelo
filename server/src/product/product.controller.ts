@@ -36,12 +36,12 @@ export class ProductController {
     return this.productService.findAll();
   }
 
-  @Get('limit/:limit/skip/:skip')
+  @Get('l/limit/:limit/skip/:skip')
   getByLimit(
-    @Param('limit', ParseIntPipe) limit: number,
-    @Param('skip', ParseIntPipe) skip: number,
+    @Param('limit') limit: number=5,
+    @Param('skip') skip: number=0,
   ): Promise<Product[]> {
-    return this.productService.getByLimit(limit,skip);
+    return this.productService.getByLimit(+limit,+skip);
   }
 
   @Get(':id')

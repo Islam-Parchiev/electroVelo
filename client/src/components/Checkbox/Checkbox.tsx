@@ -10,12 +10,14 @@ interface ICheckbox {
 	setValue?:any;
 }
 const Checkbox:FC<ICheckbox> = (props) => {
-	const [check,setCheck]=useState<boolean>(false);
+	
 	const {
 		text,
 		otherClass='',
 		value,
 		setValue,
+		check,
+		setCheck,
 	} = props;
 	return (
 		<label className={`${styles.customCheckbox} ${otherClass}`} onClick={()=>setValue(value)}>
@@ -24,7 +26,7 @@ const Checkbox:FC<ICheckbox> = (props) => {
 				type="checkbox" 
 				checked={check}
 				value={value}
-				onChange={()=>setCheck(!check)}/>
+				onChange={setCheck}/>
 			<div className={styles.checkbox}>
 				<svg
 					className={styles.checkmark}
