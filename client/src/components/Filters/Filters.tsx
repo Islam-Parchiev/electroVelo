@@ -77,9 +77,14 @@ console.log(availableValue,'ava');
 					setCheck={() => handleCategoryToggle('category5')}/>
 			</Accordion>
 			<Accordion accordionTitle="Test">
-				<RangeSlider min={0} max={100} step={1} value={value} onChange={setValue} />
-     	 <p>The min value is: <span>{value.min}</span></p>
-      	<p>The max value is: <span>{value.max}</span></p>
+				<RangeSlider min={0} max={1000} step={1} value={value} onChange={setValue} />
+     	 {/* <p>The min value is: <span>{value.min}</span></p>
+      	<p>The max value is: <span>{value.max}</span></p> */}
+				<div className={styles.Filters__inputs}>
+					<input className="input-reset" type="text" value={value.min+'H'} onChange={(e)=> setValue({...value,min:+e.target.value})} />
+					-
+					<input className="input-reset" type="text" value={value.min} onChange={(e)=> setValue({...value,min:+e.target.value})} />
+				</div>
 			</Accordion>
 		</div>
 	)

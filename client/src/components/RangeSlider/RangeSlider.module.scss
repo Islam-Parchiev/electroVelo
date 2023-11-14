@@ -1,4 +1,4 @@
-$thumb-size: 16px;
+$thumb-size: 6px;
 
 @mixin track-styles {
   appearance: none;
@@ -39,13 +39,13 @@ $thumb-size: 16px;
 .inputWrapper {
   position: absolute;
   margin: 0 calc(#{$thumb-size} / -2);
-  width: calc(100% + #{$thumb-size});
+  width: calc(95% + #{$thumb-size});
   height: $thumb-size;
 }
 
 .controlWrapper {
   position: absolute;
-  width: 100%;
+  width: 96%;
   height: $thumb-size;
 }
 
@@ -90,25 +90,25 @@ $thumb-size: 16px;
   border-radius: 3px;
   width: 100%;
   height: 6px;
-  background: lightgrey;
+	background: var(--3-grey, #E5E5E5);
   transform: translateY(-50%);
 }
 
 .innerRail {
   position: absolute;
   height: 100%;
-  background: hotpink;
-  opacity: 0.5;
+  background: var(--bl, #101010);
 }
 
 .control {
-  position: absolute;
-  top: 50%;
-  z-index: 2;
-  margin-left: calc(#{$thumb-size} / -2);
-  border-radius: 50%;
-  width: $thumb-size;
-  height: $thumb-size;
-  background: hotpink;
-  transform: translate3d(0, -50%, 0);
+	position: absolute;
+	top: 50%;
+	z-index: 2;
+	margin-left: calc(6px / -2);
+	border: 5px solid var(--bl, #101010);
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+	background: var(--light-color, #fff);
+	transform: translate3d(0, -50%, 0);
 }
