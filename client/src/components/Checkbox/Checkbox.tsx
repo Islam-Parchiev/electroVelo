@@ -8,6 +8,8 @@ interface ICheckbox {
 	setCheck?:any;
 	value?:any;
 	setValue?:any;
+	count?:number;
+	countClass?:string;
 }
 const Checkbox:FC<ICheckbox> = (props) => {
 	
@@ -18,6 +20,9 @@ const Checkbox:FC<ICheckbox> = (props) => {
 		setValue,
 		check,
 		setCheck,
+		count,
+		countClass,
+		
 	} = props;
 	return (
 		<label className={`${styles.customCheckbox} ${otherClass}`} onClick={()=>setValue(value)}>
@@ -42,6 +47,9 @@ const Checkbox:FC<ICheckbox> = (props) => {
 				</svg>
 			</div>
 			<span>{text}</span>
+			{
+				count && <span className={countClass}>({count})</span>
+			}
 		</label>
 	)
 }
