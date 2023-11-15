@@ -6,7 +6,7 @@ interface SwitchCheckboxProps {
 	text:string;
 	value:boolean;
 	handleClick:(value:boolean)=>void;
-
+  otherClass?:string;
 }
 
 const SwitchCheckbox:React.FC<SwitchCheckboxProps> = (props) => {
@@ -14,10 +14,11 @@ const SwitchCheckbox:React.FC<SwitchCheckboxProps> = (props) => {
 		text,
 		value,
 		handleClick,
+		otherClass,
 	} = props;
 console.log(value);
 	return (
-		<label className={styles.switchCheckbox}>
+		<label className={`${styles.switchCheckbox} ${otherClass}`}>
 			<span className={styles.switchCheckbox__text}>
 				{text}
 			</span>

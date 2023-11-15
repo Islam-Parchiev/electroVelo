@@ -228,6 +228,9 @@ const Filters: React.FC<FiltersProps> = props => {
 						className={styles.Filters__colors_item}></li> */}
 				</ul>
 			</Accordion>
+			<button className={`btn-reset ${styles.Filters__reset}`}>
+			Сбросить фильтры
+			</button>
 		</div>
 	)
 }
