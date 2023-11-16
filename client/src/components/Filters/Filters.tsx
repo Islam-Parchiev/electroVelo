@@ -7,7 +7,7 @@ import RangeSlider from '@components/RangeSlider/RangeSlider'
 import FiltersColor from '@components/FiltersColor/FiltersColor'
 
 import { RootState, useAppDispatch,useAppSelector } from '@redux/store'
-import { changeCategory, toggleAvailable,changeBrand,changePrice,changeMaterial, changeColor } from '@redux/slices/filtersSlice'
+import { changeCategory, toggleAvailable,changeBrand,changePrice,changeMaterial, changeColor,resetFilters } from '@redux/slices/filtersSlice'
 
 import styles from './Filters.module.scss'
 
@@ -49,9 +49,20 @@ const Filters: React.FC<FiltersProps> = props => {
 		setValue({ ...value, max: +e.target.value })
 		dispatch(changePrice({...priceValue,max:+e.target.value}));
 	}
-	
+	const handleButtonReset = ()=> {
+		dispatch(resetFilters({available:false,
+			selectedCategories:[],
+			price:{
+				min:0,
+				max:1000000,
+			},
+			selectedBrands:[],
+			selectedMaterials:[],
+			selectedColors:[],
+		}))
+	}
 	const [checked, setChecked] = React.useState<boolean>(false)
-	const [value, setValue] = React.useState({ min: 0, max: 100 })
+	const [value, setValue] = React.useState({ min: priceValue.min, max: priceValue.max })
 	console.log(selectedCategories, 'Categories')
 	console.log(availableValue, 'available')
 	console.log(brandValue,'brands');
@@ -121,7 +132,7 @@ const Filters: React.FC<FiltersProps> = props => {
 					min={0}
 					max={1000000}
 					step={1}
-					value={value}
+					value={priceValue}
 					onChange={setValue}
 				/>
 				{/* <p>The min value is: <span>{value.min}</span></p>
@@ -131,7 +142,7 @@ const Filters: React.FC<FiltersProps> = props => {
 						<input
 							className="input-reset"
 							type="text"
-							value={value.min}
+							value={priceValue.min}
 							onChange={handleInputMin}
 						/>
 						<span>₽</span>
@@ -143,7 +154,7 @@ const Filters: React.FC<FiltersProps> = props => {
 						<input
 							className="input-reset"
 							type="text"
-							value={value.max}
+							value={priceValue.max}
 							onChange={handleInputMax}
 						/>
 						<span>₽</span>
@@ -251,7 +262,7 @@ const Filters: React.FC<FiltersProps> = props => {
 						className={styles.Filters__colors_item}></li> */}
 				</ul>
 			</Accordion>
-			<button className={`btn-reset ${styles.Filters__reset}`}>
+			<button className={`btn-reset ${styles.Filters__reset}`} onClick={handleButtonReset}>
 			Сбросить фильтры
 			</button>
 		</div>

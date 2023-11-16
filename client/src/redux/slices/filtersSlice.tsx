@@ -18,7 +18,7 @@ const initialState:InitialState = {
 	selectedCategories:[],
 	price:{
 		min:0,
-		max:0,
+		max:1000000,
 	},
 	selectedBrands:[],
 	selectedMaterials:[],
@@ -72,9 +72,18 @@ export const filtersSlice = createSlice({
 			}
 			console.log(state.selectedColors);
 		},
+		resetFilters:(state,action: PayloadAction<any>)=> {
+			state.available=false;
+			state.price={min:0,max:1000000}
+			state.selectedBrands=[]
+			state.selectedCategories=[]
+			state.selectedColors=[]
+			state.selectedMaterials=[]
+			console.log(state);
+		},
 	},
 })
 export const selectFilters = (state: RootState) => state.filters;
 
-export const {changeCategory,toggleAvailable,changePrice,changeBrand,changeMaterial,changeColor }= filtersSlice.actions;
+export const {changeCategory,toggleAvailable,changePrice,changeBrand,changeMaterial,changeColor,resetFilters }= filtersSlice.actions;
 export default  filtersSlice.reducer;

@@ -25,13 +25,13 @@ const RangeSlider:React.FC<RangeSliderProps> = (props) => {
 	const dispatch = useAppDispatch();
 	const priceValue = useAppSelector((state)=>state.filters.price);
 console.log(priceValue,'slicePrice');
-	const [minValue, setMinValue] = React.useState(value ? value.min : min);
-	const [maxValue, setMaxValue] = React.useState(value ? value.max : max);
+	const [minValue, setMinValue] = React.useState(priceValue.min);
+	const [maxValue, setMaxValue] = React.useState(priceValue.max);
 	
 	React.useEffect(() => {
 		if (value) {
-			setMinValue(value.min);
-			setMaxValue(value.max);
+			setMinValue(priceValue.min);
+			setMaxValue(priceValue.max);
 		}
 	}, [value]);
 	
@@ -39,7 +39,7 @@ console.log(priceValue,'slicePrice');
 		e.preventDefault();
 		const newMinVal = Math.min(+e.target.value, maxValue - step);
 		if (!value) setMinValue(newMinVal);
-		onChange({ min: newMinVal, max: maxValue });
+		onChange({ min: priceValue.min, max: priceValue.max });
 		dispatch(changePrice({min:newMinVal,max: maxValue}));
 	};
 	
@@ -47,7 +47,7 @@ console.log(priceValue,'slicePrice');
 		e.preventDefault();
 		const newMaxVal = Math.max(+e.target.value, minValue + step);
 		if (!value) setMaxValue(newMaxVal);
-		onChange({ min: minValue, max: newMaxVal });
+		onChange({ min: priceValue.min, max: priceValue.max });
 		dispatch(changePrice({min:minValue,max: newMaxVal}));
 	};
 	
