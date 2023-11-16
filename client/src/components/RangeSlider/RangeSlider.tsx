@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { useAppDispatch, useAppSelector } from '@redux/store'
+import { changePrice } from '@redux/slices/filtersSlice'
+
 import styles from './RangeSlider.module.scss'
 
 interface RangeSliderProps {
@@ -19,6 +22,9 @@ const RangeSlider:React.FC<RangeSliderProps> = (props) => {
 		onChange,
 	} = props;
 
+	const dispatch = useAppDispatch();
+	const priceValue = useAppSelector((state)=>state.filters.price);
+console.log(priceValue,'slicePrice');
 	const [minValue, setMinValue] = React.useState(value ? value.min : min);
 	const [maxValue, setMaxValue] = React.useState(value ? value.max : max);
 	
@@ -34,6 +40,7 @@ const RangeSlider:React.FC<RangeSliderProps> = (props) => {
 		const newMinVal = Math.min(+e.target.value, maxValue - step);
 		if (!value) setMinValue(newMinVal);
 		onChange({ min: newMinVal, max: maxValue });
+		dispatch(changePrice({min:newMinVal,max: maxValue}));
 	};
 	
 	const handleMaxChange = (e:any) => {
@@ -41,6 +48,7 @@ const RangeSlider:React.FC<RangeSliderProps> = (props) => {
 		const newMaxVal = Math.max(+e.target.value, minValue + step);
 		if (!value) setMaxValue(newMaxVal);
 		onChange({ min: minValue, max: newMaxVal });
+		dispatch(changePrice({min:minValue,max: newMaxVal}));
 	};
 	
 	const minPos = ((minValue - min) / (max - min)) * 100;
@@ -53,7 +61,7 @@ const RangeSlider:React.FC<RangeSliderProps> = (props) => {
 				<input
 					className={styles.input}
 					type="range"
-					value={minValue}
+					value={priceValue.min}
 					min={min}
 					max={max}
 					step={step}
@@ -62,7 +70,7 @@ const RangeSlider:React.FC<RangeSliderProps> = (props) => {
 				<input
 					className={styles.input}
 					type="range"
-					value={maxValue}
+					value={priceValue.max}
 					min={min}
 					max={max}
 					step={step}

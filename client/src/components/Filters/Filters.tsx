@@ -6,9 +6,8 @@ import Checkbox from '@components/Checkbox/Checkbox'
 import RangeSlider from '@components/RangeSlider/RangeSlider'
 import FiltersColor from '@components/FiltersColor/FiltersColor'
 
-import { RootState, useAppDispatch } from '@redux/store'
-import { useAppSelector } from '@redux/store'
-import { toggleCategory, toggleAvailable } from '@redux/slices/filtersSlice'
+import { RootState, useAppDispatch,useAppSelector } from '@redux/store'
+import { changeCategory, toggleAvailable,changeBrand,changePrice,changeMaterial, changeColor } from '@redux/slices/filtersSlice'
 
 import styles from './Filters.module.scss'
 
@@ -19,18 +18,46 @@ const Filters: React.FC<FiltersProps> = props => {
 	const selectedCategories = useAppSelector(
 		(state: RootState) => state.filters.selectedCategories,
 	)
+	const selectedColors = useAppSelector((state:RootState)=>state.filters.selectedColors)
+	
 	const availableValue = useAppSelector((state: RootState) => state.filters.available)
+	const brandValue=useAppSelector((state:RootState)=>state.filters.selectedBrands)
+  const priceValue = useAppSelector((state:RootState)=> state.filters.price)
+	const selectedMaterials = useAppSelector((state:RootState)=> state.filters.selectedMaterials);
 	const handleCategoryToggle = (category: string) => {
-		dispatch(toggleCategory(category))
+		dispatch(changeCategory(category))
+	}
+	const handleColorChange = (color:string)=> {
+		dispatch(changeColor(color));
+	 }
+	const handleMaterialToggle=(material:string)=> {
+		dispatch(changeMaterial(material));
 	}
 	const handleAvailable = (value: boolean) => {
 		dispatch(toggleAvailable(value))
 	}
+	const handleBrand=(value:string)=> {
+		dispatch(changeBrand(value))
+	}
+	const handleInputMin=(e:any)=> {
+		e.preventDefault(); 
+		setValue({ ...value, min: +e.target.value })
+		dispatch(changePrice({...priceValue,min:+e.target.value}));
+	}
+	const handleInputMax=(e:any)=> {
+		e.preventDefault(); 
+		setValue({ ...value, max: +e.target.value })
+		dispatch(changePrice({...priceValue,max:+e.target.value}));
+	}
+	
 	const [checked, setChecked] = React.useState<boolean>(false)
 	const [value, setValue] = React.useState({ min: 0, max: 100 })
-	console.log(selectedCategories, 'ssss')
-	console.log(availableValue, 'ava')
-	const [val, setVal] = React.useState(1)
+	console.log(selectedCategories, 'Categories')
+	console.log(availableValue, 'available')
+	console.log(brandValue,'brands');
+	console.log(selectedMaterials,'materials')
+	const [val, setVal] = React.useState(1);
+	const [secondVal,setSecondVal]=React.useState(1);
 	console.log(val)
 	const colors = ['#F2F1EF','#38D5C8','#ACB690','#CC7E3B',
 		'#740222','#44ACFB','#FEF95F','#0D7F19','#FFD536',
@@ -105,9 +132,7 @@ const Filters: React.FC<FiltersProps> = props => {
 							className="input-reset"
 							type="text"
 							value={value.min}
-							onChange={e =>
-								setValue({ ...value, min: +e.target.value })
-							}
+							onChange={handleInputMin}
 						/>
 						<span>₽</span>
 					</label>
@@ -119,9 +144,7 @@ const Filters: React.FC<FiltersProps> = props => {
 							className="input-reset"
 							type="text"
 							value={value.max}
-							onChange={e =>
-								setValue({ ...value, max: +e.target.value })
-							}
+							onChange={handleInputMax}
 						/>
 						<span>₽</span>
 					</label>
@@ -131,42 +154,42 @@ const Filters: React.FC<FiltersProps> = props => {
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="Bianci"
-					setValue={setVal}
-					value={1}
-					check={selectedCategories.includes('category1')}
-					setCheck={() => handleCategoryToggle('category1')}
+					setValue={setSecondVal}
+					value={6}
+					check={brandValue.includes('brand1')}
+					setCheck={() => handleBrand('brand1')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="BMC"
-					setValue={setVal}
-					value={1}
-					check={selectedCategories.includes('category1')}
-					setCheck={() => handleCategoryToggle('category1')}
+					setValue={setSecondVal}
+					value={7}
+					check={brandValue.includes('brand2')}
+					setCheck={() => handleBrand('brand2')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="Ciclistino"
-					setValue={setVal}
-					value={1}
-					check={selectedCategories.includes('category1')}
-					setCheck={() => handleCategoryToggle('category1')}
+					setValue={setSecondVal}
+					value={8}
+					check={brandValue.includes('brand3')}
+					setCheck={() => handleBrand('brand3')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="Cipollini"
-					setValue={setVal}
-					value={1}
-					check={selectedCategories.includes('category1')}
-					setCheck={() => handleCategoryToggle('category1')}
+					setValue={setSecondVal}
+					value={9}
+					check={brandValue.includes('brand4')}
+					setCheck={() => handleBrand('brand4')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="Colnago"
-					setValue={setVal}
-					value={1}
-					check={selectedCategories.includes('category1')}
-					setCheck={() => handleCategoryToggle('category1')}
+					setValue={setSecondVal}
+					value={10}
+					check={brandValue.includes('brand5')}
+					setCheck={() => handleBrand('brand5')}
 					count={2}
 					countClass={styles.Filters__checkbox_count}
 				/>
@@ -176,31 +199,31 @@ const Filters: React.FC<FiltersProps> = props => {
 					otherClass={styles.Filters__checkbox}
 					text="Алюминий"
 					setValue={setVal}
-					value={1}
-					check={selectedCategories.includes('category1')}
-					setCheck={() => handleCategoryToggle('category1')}
+					value={11}
+					check={selectedMaterials.includes('aluminium')}
+					setCheck={() => handleMaterialToggle('aluminium')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="Карбон"
 					setValue={setVal}
-					value={1}
-					check={selectedCategories.includes('category1')}
-					setCheck={() => handleCategoryToggle('category1')}
+					value={12}
+					check={selectedMaterials.includes('carbon')}
+					setCheck={() => handleMaterialToggle('carbon')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="Сталь"
 					setValue={setVal}
-					value={1}
-					check={selectedCategories.includes('category1')}
-					setCheck={() => handleCategoryToggle('category1')}
+					value={13}
+					check={selectedMaterials.includes('steel')}
+					setCheck={() => handleMaterialToggle('steel')}
 				/>
 			</Accordion>
 			<Accordion accordionTitle="Цвет">
 				<ul className={`list-reset ${styles.Filters__colors}`}>
 
-					{colors.map((color:any)=> (<FiltersColor color={color}/>) )}
+					{colors.map((color:any)=> (<FiltersColor color={color} selectedColors={selectedColors} changeColor={handleColorChange}/>) )}
 					{/* <li
 						style={{ backgroundColor: '#F2F1EF' }}
 						className={`${styles.Filters__colors_item} ${styles.active}`}></li> */}
