@@ -1,8 +1,5 @@
 import React from 'react'
 
-import { RootState, useAppDispatch,useAppSelector } from '@redux/store';
-import { changeColor } from '@redux/slices/filtersSlice';
-
 import styles from './FiltersColor.module.scss'
 
 interface FiltersColorProps {
@@ -19,7 +16,7 @@ const FiltersColor:React.FC<FiltersColorProps> = (props) => {
 	} = props;
 
 
-	console.log(selectedColors);
+	
 	return (
 		<li
 			style={{ backgroundColor: color }}

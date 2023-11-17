@@ -18,11 +18,12 @@ const Filters: React.FC<FiltersProps> = props => {
 	const selectedCategories = useAppSelector(
 		(state: RootState) => state.filters.selectedCategories,
 	)
+	console.log(selectedCategories);
 	const selectedColors = useAppSelector((state:RootState)=>state.filters.selectedColors)
 	
 	const availableValue = useAppSelector((state: RootState) => state.filters.available)
 	const brandValue=useAppSelector((state:RootState)=>state.filters.selectedBrands)
-  const priceValue = useAppSelector((state:RootState)=> state.filters.price)
+	const priceValue = useAppSelector((state:RootState)=> state.filters.price)
 	const selectedMaterials = useAppSelector((state:RootState)=> state.filters.selectedMaterials);
 	const handleCategoryToggle = (category: string) => {
 		dispatch(changeCategory(category))
@@ -50,7 +51,8 @@ const Filters: React.FC<FiltersProps> = props => {
 		dispatch(changePrice({...priceValue,max:+e.target.value}));
 	}
 	const handleButtonReset = ()=> {
-		dispatch(resetFilters({available:false,
+		dispatch(resetFilters({
+			available:false,
 			selectedCategories:[],
 			price:{
 				min:0,
@@ -61,15 +63,9 @@ const Filters: React.FC<FiltersProps> = props => {
 			selectedColors:[],
 		}))
 	}
-	const [checked, setChecked] = React.useState<boolean>(false)
 	const [value, setValue] = React.useState({ min: priceValue.min, max: priceValue.max })
-	console.log(selectedCategories, 'Categories')
-	console.log(availableValue, 'available')
-	console.log(brandValue,'brands');
-	console.log(selectedMaterials,'materials')
 	const [val, setVal] = React.useState(1);
 	const [secondVal,setSecondVal]=React.useState(1);
-	console.log(val)
 	const colors = ['#F2F1EF','#38D5C8','#ACB690','#CC7E3B',
 		'#740222','#44ACFB','#FEF95F','#0D7F19','#FFD536',
 		'#FE7E56','#AC632C','#FD0012','#25FD3C','#353839','#FEA32A','#E5E4E2',
@@ -235,31 +231,7 @@ const Filters: React.FC<FiltersProps> = props => {
 				<ul className={`list-reset ${styles.Filters__colors}`}>
 
 					{colors.map((color:any)=> (<FiltersColor color={color} selectedColors={selectedColors} changeColor={handleColorChange}/>) )}
-					{/* <li
-						style={{ backgroundColor: '#F2F1EF' }}
-						className={`${styles.Filters__colors_item} ${styles.active}`}></li> */}
-					{/* <li
-						style={{ backgroundColor: '#F2F1EF' }}
-						className={styles.Filters__colors_item}></li>
-					<li
-						style={{ backgroundColor: '#F2F1EF' }}
-						className={styles.Filters__colors_item}></li>
-					<li
-						style={{ backgroundColor: '#F2F1EF' }}
-						className={styles.Filters__colors_item}></li>
-					<li
-						style={{ backgroundColor: '#F2F1EF' }}
-						className={styles.Filters__colors_item}></li>
-					<li
-						style={{ backgroundColor: '#F2F1EF' }}
-						className={styles.Filters__colors_item}></li>
-
-					<li
-						style={{ backgroundColor: '#F2F1EF' }}
-						className={styles.Filters__colors_item}></li>
-					<li
-						style={{ backgroundColor: '#F2F1EF' }}
-						className={styles.Filters__colors_item}></li> */}
+				
 				</ul>
 			</Accordion>
 			<button className={`btn-reset ${styles.Filters__reset}`} onClick={handleButtonReset}>

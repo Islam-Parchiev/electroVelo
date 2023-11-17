@@ -39,7 +39,6 @@ export const filtersSlice = createSlice({
 			} else {
 				state.selectedCategories.push(category);
 			}
-			console.log(state.selectedCategories);
 		},
 		changePrice:(state,action:PayloadAction<any>)=> {
       	state.price={...action.payload}
@@ -51,7 +50,6 @@ export const filtersSlice = createSlice({
 			 }else {
 				state.selectedBrands.push(brand);
 			 }
-			 console.log('brands',state.selectedBrands);
 
 		},
 		changeMaterial: (state, action: PayloadAction<string>) => {
@@ -61,7 +59,6 @@ export const filtersSlice = createSlice({
 			} else {
 				state.selectedMaterials.push(material);
 			}
-			console.log(state.selectedMaterials);
 		},
 		changeColor: (state, action: PayloadAction<string>) => {
 			const color = action.payload;
@@ -70,7 +67,6 @@ export const filtersSlice = createSlice({
 			} else {
 				state.selectedColors.push(color);
 			}
-			console.log(state.selectedColors);
 		},
 		resetFilters:(state,action: PayloadAction<any>)=> {
 			state.available=false;
@@ -79,7 +75,6 @@ export const filtersSlice = createSlice({
 			state.selectedCategories=[]
 			state.selectedColors=[]
 			state.selectedMaterials=[]
-			console.log(state);
 		},
 	},
 })
