@@ -2,6 +2,10 @@
 min-height: 100vh;
 	&__wrapper {
 		display: flex;
-		
+		align-items: start;
+		padding-top: 50px;
+	}
+	&__right {
+		padding-left: 30px;
 	}
 }
