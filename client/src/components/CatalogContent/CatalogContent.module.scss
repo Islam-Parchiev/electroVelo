@@ -6,7 +6,20 @@ min-height: 100vh;
 		padding-top: 50px;
 	}
 	&__right {
+		position: relative;
+		
 		padding-left: 30px;
+		width: 100%;
+	}
+	&__top {
+		position: absolute;
+		display: flex;
+		align-items: start;
+		justify-content: space-between;
+		width: 100%;
 	}
 	
+}
+.CatalogGoods {
+	margin-top: 100px;
 }

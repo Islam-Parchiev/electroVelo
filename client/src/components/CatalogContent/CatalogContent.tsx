@@ -13,8 +13,13 @@ const CatalogContent:React.FC = () => {
 				<div className={styles.CatalogContent__wrapper}>
 					<Filters />
 					<div className={styles.CatalogContent__right}>
-						<CatalogSort />
-						<CatalogView/>
+						<div className={styles.CatalogContent__top}>
+							<CatalogSort />
+							<CatalogView/>
+						</div>
+					  <div className={styles.CatalogGoods}>
+							dasdsadsa
+						</div>
 					</div>
 				</div>
 			</div>

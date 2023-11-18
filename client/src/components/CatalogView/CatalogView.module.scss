@@ -1,5 +1,7 @@
 .CatalogView {
-	
+	display: flex;
+	align-items: center;
+	gap:10px;
 		li {
 			cursor: pointer;
 		}
