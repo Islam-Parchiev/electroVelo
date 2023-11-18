@@ -1,0 +1,13 @@
+.CatalogView {
+	
+		li {
+			cursor: pointer;
+		}
+		svg rect{
+			fill:#fff;
+		}
+		svg.active rect {
+		  fill:#4C4C4C;
+		}
+	
+}
