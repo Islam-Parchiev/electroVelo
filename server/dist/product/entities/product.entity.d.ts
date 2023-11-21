@@ -13,6 +13,10 @@ export declare class Product {
     available: boolean;
     colors: Color[];
     images: Image[];
+    previewImage: string;
     specifications: Spec[];
     brand: string;
+    country: string;
+    category: string;
+    material: string;
 }

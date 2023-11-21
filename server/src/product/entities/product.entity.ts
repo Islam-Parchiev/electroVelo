@@ -36,11 +36,20 @@ export class Product {
 
     @OneToMany(() => Image, image => image.product, {nullable:true })
   images: Image[];
-
+   @Column({nullable:true })
+   previewImage:string;
   @OneToMany(() => Spec, spec => spec.product, {nullable:true })
     specifications:Spec[];
 
     @Column({nullable:true})
     brand:string;
 
+    @Column({nullable:true})
+    country:string;
+    
+    @Column({nullable:true})
+    category:string;
+    @Column({nullable:true})
+    material:string;
 }
+

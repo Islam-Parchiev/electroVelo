@@ -98,8 +98,9 @@ export class ProductService {
     const { skip, take } = calculatePagination(page, limit);
   
     const queryBuilder = this.productRepository.createQueryBuilder('product')
-      .skip(skip)
-      .take(take)
+    .leftJoinAndSelect('product.images','image')
+    .skip(skip)
+    .take(take)
  
   
     if (sortByPrice) {

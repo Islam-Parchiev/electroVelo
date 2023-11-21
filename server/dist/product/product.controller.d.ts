@@ -9,7 +9,7 @@ export declare class ProductController {
     private readonly productService;
     constructor(productService: ProductService);
     create(productData: Partial<Product>, imageUrls: Image[], sizes: Size[], colors: Color[], specs: Spec[]): Promise<Product>;
-    getProducts(sortByPrice: 'ASC' | 'DESC', sortByName: 'ASC' | 'DESC', page: number, limit: number): Promise<{
+    getProducts(sortByPrice?: 'ASC' | 'DESC', sortByName?: 'ASC' | 'DESC', page?: number, limit?: number): Promise<{
         data: Product[];
         currentPage: number;
         totalPages: number;

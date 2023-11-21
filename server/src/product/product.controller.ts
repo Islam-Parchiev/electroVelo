@@ -22,12 +22,12 @@ export class ProductController {
                @Body('specs') specs:Spec[]) {
     return this.productService.create(productData, imageUrls,specs,sizes,colors);
   }
-  @Get()
+  @Get('')
   getProducts(
-    @Query('sortByPrice') sortByPrice: 'ASC' | 'DESC',
-    @Query('sortByName') sortByName: 'ASC' | 'DESC',
-    @Query('page', ParseIntPipe) page: number,
-    @Query('limit', ParseIntPipe) limit: number,
+    @Query('sortByPrice') sortByPrice: 'ASC' | 'DESC'='ASC',
+    @Query('sortByName') sortByName: 'ASC' | 'DESC'='ASC',
+    @Query('page', ParseIntPipe) page: number=1,
+    @Query('limit', ParseIntPipe) limit: number=10,
   ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
     return this.productService.getProducts(sortByPrice, sortByName, page, limit);
   }

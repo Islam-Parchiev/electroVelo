@@ -23,7 +23,7 @@ let ProductController = class ProductController {
     async create(productData, imageUrls, sizes, colors, specs) {
         return this.productService.create(productData, imageUrls, specs, sizes, colors);
     }
-    getProducts(sortByPrice, sortByName, page, limit) {
+    getProducts(sortByPrice = 'ASC', sortByName = 'ASC', page = 1, limit = 10) {
         return this.productService.getProducts(sortByPrice, sortByName, page, limit);
     }
     findAll() {
@@ -54,7 +54,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_1.Get)(''),
     __param(0, (0, common_1.Query)('sortByPrice')),
     __param(1, (0, common_1.Query)('sortByName')),
     __param(2, (0, common_1.Query)('page', common_1.ParseIntPipe)),

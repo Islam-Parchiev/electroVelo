@@ -83,6 +83,7 @@ let ProductService = class ProductService {
     async getProducts(sortByPrice, sortByName, page, limit) {
         const { skip, take } = (0, helpers_1.calculatePagination)(page, limit);
         const queryBuilder = this.productRepository.createQueryBuilder('product')
+            .leftJoinAndSelect('product.images', 'image')
             .skip(skip)
             .take(take);
         if (sortByPrice) {

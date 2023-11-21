@@ -58,6 +58,10 @@ __decorate([
     __metadata("design:type", Array)
 ], Product.prototype, "images", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Product.prototype, "previewImage", void 0);
+__decorate([
     (0, typeorm_1.OneToMany)(() => spec_entity_1.Spec, spec => spec.product, { nullable: true }),
     __metadata("design:type", Array)
 ], Product.prototype, "specifications", void 0);
@@ -65,6 +69,18 @@ __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Product.prototype, "brand", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Product.prototype, "country", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Product.prototype, "category", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Product.prototype, "material", void 0);
 Product = __decorate([
     (0, typeorm_1.Entity)()
 ], Product);
