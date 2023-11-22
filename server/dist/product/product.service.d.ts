@@ -1,4 +1,3 @@
-import { UpdateProductDto } from './dto/update-product.dto';
 import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
 import { Image } from './entities/image.entity';
@@ -15,12 +14,12 @@ export declare class ProductService {
     create(productData: Partial<Product>, imageUrls: Image[], specs: Spec[], sizes: Size[], colors: Color[]): Promise<Product>;
     findAll(): Promise<Product[]>;
     getByLimit(limit: number, skip: number): Promise<Product[]>;
-    getProducts(sortByPrice: 'ASC' | 'DESC', sortByName: 'ASC' | 'DESC', page: number, limit: number): Promise<{
+    getProducts(sortByPrice: 'ASC' | 'DESC', sortByName: 'ASC' | 'DESC', page: number, limit: number, available: string): Promise<{
         data: Product[];
         currentPage: number;
         totalPages: number;
     }>;
     findOne(id: number): string;
-    update(id: number, updateProductDto: UpdateProductDto): string;
+    update(id: number, prevPrice: number | null, price: number): Promise<Product>;
     remove(id: number): Promise<import("typeorm").DeleteResult>;
 }

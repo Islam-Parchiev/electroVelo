@@ -19,10 +19,10 @@ export class Product {
     articul:string;
 
     @Column({nullable:true})
-    price:string;
+    price:number;
 
     @Column({name:'prev_price',nullable:true})
-    prewPrice:string;
+    prevPrice:number;
 
     @OneToMany(() => Size, size => size.product, {nullable:true })
     sizes:Size[];

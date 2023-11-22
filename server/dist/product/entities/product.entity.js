@@ -35,12 +35,12 @@ __decorate([
 ], Product.prototype, "articul", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], Product.prototype, "price", void 0);
 __decorate([
     (0, typeorm_1.Column)({ name: 'prev_price', nullable: true }),
-    __metadata("design:type", String)
-], Product.prototype, "prewPrice", void 0);
+    __metadata("design:type", Number)
+], Product.prototype, "prevPrice", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => size_entity_1.Size, size => size.product, { nullable: true }),
     __metadata("design:type", Array)

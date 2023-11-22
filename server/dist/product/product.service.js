@@ -80,10 +80,9 @@ let ProductService = class ProductService {
         });
         return products;
     }
-    async getProducts(sortByPrice, sortByName, page, limit) {
+    async getProducts(sortByPrice, sortByName, page, limit, available) {
         const { skip, take } = (0, helpers_1.calculatePagination)(page, limit);
         const queryBuilder = this.productRepository.createQueryBuilder('product')
-            .leftJoinAndSelect('product.images', 'image')
             .skip(skip)
             .take(take);
         if (sortByPrice) {
@@ -91,6 +90,9 @@ let ProductService = class ProductService {
         }
         if (sortByName) {
             queryBuilder.orderBy('product.title', sortByName);
+        }
+        if (available === 'true') {
+            queryBuilder.where('product.available = :available', { available: available });
         }
         const [data, totalItems] = await queryBuilder.getManyAndCount();
         const totalPages = (0, helpers_1.calculateTotalPages)(totalItems, limit);
@@ -100,8 +102,16 @@ let ProductService = class ProductService {
     findOne(id) {
         return `This action returns a #${id} product`;
     }
-    update(id, updateProductDto) {
-        return `This action updates a #${id} product`;
+    async update(id, prevPrice, price) {
+        const product = await this.productRepository.findOne({
+            where: { id },
+        });
+        if (!product)
+            throw new common_1.NotFoundException('Product not found');
+        product.prevPrice = prevPrice;
+        product.price = price;
+        const updatedProduct = await this.productRepository.save(product);
+        return updatedProduct;
     }
     async remove(id) {
         const order = await this.productRepository.findOne({

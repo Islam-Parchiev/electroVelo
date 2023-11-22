@@ -10,8 +10,8 @@ import styles from './MainNewItems.module.scss'
 const MainNewItems: FC = () => {
 
 	
-	const {data} = useQuery<{data:ICard[]}>({ queryKey: ['newProducts'], queryFn:()=> productService.getProductsByLimit(3,6)  })
-	console.log(data?.data);
+	const {data} = useQuery<{data:ICard[]}>({ queryKey: ['newProducts'], queryFn:()=> productService.getProductsByLimit(3,0)  })
+	console.log(data);
 	return (
 		<section className={styles.MainNewItems}>
 			<div className={`container ${styles.MainNewItems__container}`}>
@@ -26,7 +26,7 @@ const MainNewItems: FC = () => {
 			 } */}
 					 {
 						data?.data.map((item:ICard)=>(
-							<Card type="primary" price={item.price} title={item.title} available={item.available} images={item.images[0].srcPath}/>
+							<Card type="primary" price={item.price} title={item.title} available={item.available} images={item.previewImage}/>
 						))
 						 }
 					{/* <Card type="primary"/>

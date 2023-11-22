@@ -24,12 +24,13 @@ export class ProductController {
   }
   @Get('')
   getProducts(
-    @Query('sortByPrice') sortByPrice: 'ASC' | 'DESC'='ASC',
-    @Query('sortByName') sortByName: 'ASC' | 'DESC'='ASC',
+    @Query('sortByPrice') sortByPrice: 'ASC' | 'DESC',
+    @Query('sortByName') sortByName: 'ASC' | 'DESC',
     @Query('page', ParseIntPipe) page: number=1,
     @Query('limit', ParseIntPipe) limit: number=10,
+    @Query('available') available: string='false'
   ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
-    return this.productService.getProducts(sortByPrice, sortByName, page, limit);
+    return this.productService.getProducts(sortByPrice, sortByName, page, limit,available);
   }
   @Get('all')
   findAll() {
@@ -49,9 +50,14 @@ export class ProductController {
     return this.productService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
-    return this.productService.update(+id, updateProductDto);
+  @Patch('id/:id')
+  // @UseGuards(JwtAuthGuard,AuthorGuard)
+  update(
+    @Param('id') id:string,
+    @Body('price') price:string,
+    @Body('prevPrice') prevPrice:string |null
+  ){
+    return this.productService.update(+id,+prevPrice,+price)
   }
 
   @Delete(':id')

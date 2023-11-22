@@ -1,5 +1,4 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -94,14 +93,15 @@ export class ProductService {
     sortByName: 'ASC' | 'DESC',
     page: number,
     limit: number,
+    available:string
   ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
     const { skip, take } = calculatePagination(page, limit);
   
     const queryBuilder = this.productRepository.createQueryBuilder('product')
-    .leftJoinAndSelect('product.images','image')
     .skip(skip)
     .take(take)
  
+    
   
     if (sortByPrice) {
       queryBuilder.orderBy('product.price', sortByPrice);
@@ -111,6 +111,10 @@ export class ProductService {
       queryBuilder.orderBy('product.title', sortByName);
     }
   
+    if(available==='true'){
+      queryBuilder.where('product.available = :available',{available:available})
+    }
+    
     const [data, totalItems] = await queryBuilder.getManyAndCount();
     const totalPages = calculateTotalPages(totalItems, limit);
     const currentPage = page;
@@ -122,8 +126,18 @@ export class ProductService {
     return `This action returns a #${id} product`;
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+  async update(id:number,prevPrice:number|null,price:number) {
+    const product = await this.productRepository.findOne({
+      where: {id},
+    })
+    if(!product) throw new NotFoundException('Product not found')
+  
+    product.prevPrice=prevPrice;
+    product.price=price;
+
+    const updatedProduct = await this.productRepository.save(product);
+
+    return updatedProduct
   }
 
   async remove(id: number) {

@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductController = void 0;
 const common_1 = require("@nestjs/common");
 const product_service_1 = require("./product.service");
-const update_product_dto_1 = require("./dto/update-product.dto");
 let ProductController = class ProductController {
     constructor(productService) {
         this.productService = productService;
@@ -23,8 +22,8 @@ let ProductController = class ProductController {
     async create(productData, imageUrls, sizes, colors, specs) {
         return this.productService.create(productData, imageUrls, specs, sizes, colors);
     }
-    getProducts(sortByPrice = 'ASC', sortByName = 'ASC', page = 1, limit = 10) {
-        return this.productService.getProducts(sortByPrice, sortByName, page, limit);
+    getProducts(sortByPrice, sortByName, page = 1, limit = 10, available = 'false') {
+        return this.productService.getProducts(sortByPrice, sortByName, page, limit, available);
     }
     findAll() {
         return this.productService.findAll();
@@ -35,8 +34,8 @@ let ProductController = class ProductController {
     findOne(id) {
         return this.productService.findOne(+id);
     }
-    update(id, updateProductDto) {
-        return this.productService.update(+id, updateProductDto);
+    update(id, price, prevPrice) {
+        return this.productService.update(+id, +prevPrice, +price);
     }
     remove(id) {
         return this.productService.remove(+id);
@@ -59,8 +58,9 @@ __decorate([
     __param(1, (0, common_1.Query)('sortByName')),
     __param(2, (0, common_1.Query)('page', common_1.ParseIntPipe)),
     __param(3, (0, common_1.Query)('limit', common_1.ParseIntPipe)),
+    __param(4, (0, common_1.Query)('available')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, Number, Number]),
+    __metadata("design:paramtypes", [String, String, Number, Number, String]),
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "getProducts", null);
 __decorate([
@@ -85,11 +85,12 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Patch)(':id'),
+    (0, common_1.Patch)('id/:id'),
     __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
+    __param(1, (0, common_1.Body)('price')),
+    __param(2, (0, common_1.Body)('prevPrice')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_product_dto_1.UpdateProductDto]),
+    __metadata("design:paramtypes", [String, String, String]),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "update", null);
 __decorate([

@@ -7,8 +7,8 @@ export declare class Product {
     title: string;
     description: string;
     articul: string;
-    price: string;
-    prewPrice: string;
+    price: number;
+    prevPrice: number;
     sizes: Size[];
     available: boolean;
     colors: Color[];

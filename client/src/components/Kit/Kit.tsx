@@ -12,7 +12,7 @@ import styles from './Kit.module.scss'
 interface KitProps {}
 
 const Kit: React.FC<KitProps> = props => {
-	const {data} = useQuery({ queryKey: ['kitProducts'], queryFn:()=> productService.getProductsByLimit(6,3)  })
+	const {data} = useQuery({ queryKey: ['kitProducts'], queryFn:()=> productService.getProductsByLimit(9,0)  })
 	const {} = props
 	return (
 		<section className={styles.Kit}>
@@ -26,41 +26,15 @@ const Kit: React.FC<KitProps> = props => {
 					scrollbar={{ draggable: true }}
 					onSwiper={(swiper: any) => console.log(swiper)}
 					onSlideChange={() => console.log('slide change')}>
-					{/* <SwiperSlide>
-						<div className={styles.Kit__slide}>
-							<Card type="secondary" />
-						</div>
-					</SwiperSlide>
-					<SwiperSlide>
-						<div className={styles.Kit__slide}>
-							<Card type="secondary" />
-						</div>
-					</SwiperSlide>
-					<SwiperSlide>
-						<div className={styles.Kit__slide}>
-							<Card type="secondary" />
-						</div>
-					</SwiperSlide>
-					<SwiperSlide>
-						<div className={styles.Kit__slide}>
-							<Card type="secondary" />
-						</div>
-					</SwiperSlide>
-					<SwiperSlide>
-						<div className={styles.Kit__slide}>
-							<Card type="secondary" />
-						</div>
-					</SwiperSlide>
-					<SwiperSlide>
-						<div className={styles.Kit__slide}>
-							<Card type="secondary" />
-						</div>
-					</SwiperSlide> */}
-					
 					{data?.data.map((item:any)=>(
 						<SwiperSlide>
 							<div className={styles.Kit__slide}>
-								<Card type="secondary" price={item.price} title={item.title} available={item.available} images={item.images[0].srcPath}/>
+								<Card type="secondary" 
+									otherClass={styles.Kit__slide_card} 
+									price={item.price} 
+									title={item.title} 
+									available={item.available} 
+									images={item.previewImage}/>
 							</div>
 						</SwiperSlide> 
 					))
