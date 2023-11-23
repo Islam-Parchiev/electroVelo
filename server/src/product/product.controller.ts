@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseIntPipe, ParseArrayPipe } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -22,16 +22,24 @@ export class ProductController {
                @Body('specs') specs:Spec[]) {
     return this.productService.create(productData, imageUrls,specs,sizes,colors);
   }
-  @Get('')
+  @Get()
   getProducts(
     @Query('sortByPrice') sortByPrice: 'ASC' | 'DESC',
     @Query('sortByName') sortByName: 'ASC' | 'DESC',
     @Query('page', ParseIntPipe) page: number=1,
     @Query('limit', ParseIntPipe) limit: number=10,
-    @Query('available') available: string='false'
+    @Query('available') available: string,
+    @Query('categories',new ParseArrayPipe({items:String})) categories:string[]
   ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
-    return this.productService.getProducts(sortByPrice, sortByName, page, limit,available);
+    return this.productService.getProducts(sortByPrice, sortByName, page, limit,available,categories);
   }
+
+
+  @Get('byCategories/:categories')
+  getProductsByCategories(@Param('categories', new ParseArrayPipe({ items: String })) categories: string[]): Promise<Product[]> {
+    return this.productService.getProductsByCategories(categories);
+  }
+
   @Get('all')
   findAll() {
     return this.productService.findAll();

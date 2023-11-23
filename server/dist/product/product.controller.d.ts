@@ -8,11 +8,12 @@ export declare class ProductController {
     private readonly productService;
     constructor(productService: ProductService);
     create(productData: Partial<Product>, imageUrls: Image[], sizes: Size[], colors: Color[], specs: Spec[]): Promise<Product>;
-    getProducts(sortByPrice: 'ASC' | 'DESC', sortByName: 'ASC' | 'DESC', page?: number, limit?: number, available?: string): Promise<{
+    getProducts(sortByPrice: 'ASC' | 'DESC', sortByName: 'ASC' | 'DESC', page: number, limit: number, available: string, categories: string[]): Promise<{
         data: Product[];
         currentPage: number;
         totalPages: number;
     }>;
+    getProductsByCategories(categories: string[]): Promise<Product[]>;
     findAll(): Promise<Product[]>;
     getByLimit(limit?: number, skip?: number): Promise<Product[]>;
     findOne(id: string): string;

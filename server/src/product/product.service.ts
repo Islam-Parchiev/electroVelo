@@ -93,7 +93,8 @@ export class ProductService {
     sortByName: 'ASC' | 'DESC',
     page: number,
     limit: number,
-    available:string
+    available:string,
+    categories:string[],
   ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
     const { skip, take } = calculatePagination(page, limit);
   
@@ -101,7 +102,11 @@ export class ProductService {
     .skip(skip)
     .take(take)
  
-    
+    if(categories) {
+      // .where('product.category = :category',{category:category})
+      queryBuilder.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
+      console.log('dasd');
+    } 
   
     if (sortByPrice) {
       queryBuilder.orderBy('product.price', sortByPrice);
@@ -111,6 +116,7 @@ export class ProductService {
       queryBuilder.orderBy('product.title', sortByName);
     }
   
+
     if(available==='true'){
       queryBuilder.where('product.available = :available',{available:available})
     }
@@ -120,6 +126,16 @@ export class ProductService {
     const currentPage = page;
   
     return { data, currentPage, totalPages };
+  }
+
+
+
+  async getProductsByCategories(categories: string[]): Promise<Product[]> {
+    const query = this.productRepository.createQueryBuilder('product')
+      // .innerJoinAndSelect('product.category', 'category')
+      // .where('category IN (:...categories)', { categories });
+      query.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
+    return query.getMany();
   }
 
   findOne(id: number) {

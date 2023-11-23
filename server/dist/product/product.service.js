@@ -80,11 +80,15 @@ let ProductService = class ProductService {
         });
         return products;
     }
-    async getProducts(sortByPrice, sortByName, page, limit, available) {
+    async getProducts(sortByPrice, sortByName, page, limit, available, categories) {
         const { skip, take } = (0, helpers_1.calculatePagination)(page, limit);
         const queryBuilder = this.productRepository.createQueryBuilder('product')
             .skip(skip)
             .take(take);
+        if (categories) {
+            queryBuilder.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
+            console.log('dasd');
+        }
         if (sortByPrice) {
             queryBuilder.orderBy('product.price', sortByPrice);
         }
@@ -98,6 +102,11 @@ let ProductService = class ProductService {
         const totalPages = (0, helpers_1.calculateTotalPages)(totalItems, limit);
         const currentPage = page;
         return { data, currentPage, totalPages };
+    }
+    async getProductsByCategories(categories) {
+        const query = this.productRepository.createQueryBuilder('product');
+        query.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
+        return query.getMany();
     }
     findOne(id) {
         return `This action returns a #${id} product`;
