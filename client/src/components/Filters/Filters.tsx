@@ -87,24 +87,24 @@ const Filters: React.FC<FiltersProps> = props => {
 					text="Велосипеды для триатлона"
 					setValue={setVal}
 					value={1}
-					check={selectedCategories.includes('category1')}
-					setCheck={() => handleCategoryToggle('category1')}
+					check={selectedCategories.includes('Triatlone')}
+					setCheck={() => handleCategoryToggle('Triatlone')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="Горные велосипеды"
 					setValue={setVal}
 					value={2}
-					check={selectedCategories.includes('category2')}
-					setCheck={() => handleCategoryToggle('category2')}
+					check={selectedCategories.includes('Mountain')}
+					setCheck={() => handleCategoryToggle('Mountain')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="Городские велосипеды"
 					setValue={setVal}
 					value={3}
-					check={selectedCategories.includes('category3')}
-					setCheck={() => handleCategoryToggle('category3')}
+					check={selectedCategories.includes('City')}
+					setCheck={() => handleCategoryToggle('City')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}

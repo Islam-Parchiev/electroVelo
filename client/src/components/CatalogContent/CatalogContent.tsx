@@ -18,8 +18,9 @@ const CatalogContent:React.FC = () => {
 	const [page,setPage] = useState(1);
 	const sortProperty = useAppSelector((state)=> state.sort.sortProperty);
 	const filtersValue = useAppSelector((state)=> state.filters);
-	const query = useQuery<{data:any}>({ queryKey: ['catalogProducts',page,sortProperty,filtersValue.available], 
-	queryFn:()=> productService.getProductsByFilters(page,6,sortProperty,filtersValue.available.toString())  })
+	const categoriesValue = useAppSelector((state)=> state.filters.selectedCategories)
+	const query = useQuery<{data:any}>({ queryKey: ['catalogProducts',page,sortProperty,filtersValue.available,categoriesValue], 
+		queryFn:()=> productService.getProductsByFilters(page,6,sortProperty,filtersValue.available.toString(),categoriesValue)})
 	
 	console.log(page);
 	console.log(query.data?.data.totalPages);

@@ -9,7 +9,7 @@ interface InitialState {
 
 const initialState: InitialState = {
 	sort: 'По умолчанию',
-	sortProperty: 'initial',
+	sortProperty: '',
 }
 
 export const sortSlice = createSlice({

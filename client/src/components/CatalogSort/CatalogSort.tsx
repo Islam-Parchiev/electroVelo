@@ -10,9 +10,9 @@ import styles from './CatalogSort.module.scss'
 const sortList:ISortListItem[] = [
 	{name:'По популярности',sortProperty:'popular'},
 	{name:'По рейтингу',sortProperty:'rating'},
-	{name:'Цены: по возрастанию',sortProperty:'sortByPrice=ASC'},
-	{name:'Цены: по убыванию',sortProperty:'sortByPrice=DESC'},
-	{name:'По названию',sortProperty:'sortByName=DESC'},
+	{name:'Цены: по возрастанию',sortProperty:'&sortByPrice=ASC'},
+	{name:'Цены: по убыванию',sortProperty:'&sortByPrice=DESC'},
+	{name:'По названию',sortProperty:'&sortByName=DESC'},
 ] 
 
 const CatalogSort: React.FC = () => {
