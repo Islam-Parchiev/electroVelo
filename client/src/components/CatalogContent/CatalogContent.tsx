@@ -18,12 +18,13 @@ const CatalogContent:React.FC = () => {
 	const [page,setPage] = useState(1);
 	const sortProperty = useAppSelector((state)=> state.sort.sortProperty);
 	const filtersValue = useAppSelector((state)=> state.filters);
-	const categoriesValue = useAppSelector((state)=> state.filters.selectedCategories)
-	const query = useQuery<{data:any}>({ queryKey: ['catalogProducts',page,sortProperty,filtersValue.available,categoriesValue], 
-		queryFn:()=> productService.getProductsByFilters(page,6,sortProperty,filtersValue.available.toString(),categoriesValue)})
+	const categoriesValue = useAppSelector((state)=> state.filters.selectedCategories);
+	const materialsValue = useAppSelector((state)=>state.filters.selectedMaterials);
+	const query = useQuery<{data:any}>({ queryKey: ['catalogProducts',page,sortProperty,filtersValue.available,categoriesValue,materialsValue], 
+		queryFn:()=> productService.getProductsByFilters(page,6,sortProperty,filtersValue.available.toString(),categoriesValue,materialsValue)})
 	
 	console.log(page);
-	console.log(query.data?.data.totalPages);
+	console.log(query.data?.data);
 	return (
 		<section className={styles.CatalogContent}>
 			<div className="container">
@@ -45,6 +46,7 @@ const CatalogContent:React.FC = () => {
 										title={item.title}
 										available={item.available}
 										images={item.previewImage}
+										countrySrc={item.country}
 									/>
 								))}
 							</ul>

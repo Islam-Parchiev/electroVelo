@@ -22,8 +22,11 @@ let ProductController = class ProductController {
     async create(productData, imageUrls, sizes, colors, specs) {
         return this.productService.create(productData, imageUrls, specs, sizes, colors);
     }
-    getProducts(sortByPrice, sortByName, page = 1, limit = 10, available, categories) {
-        return this.productService.getProducts(sortByPrice, sortByName, page, limit, available, categories);
+    async getProducts(sortByPrice, sortByName, page = 1, limit = 10, available, categories, materials) {
+        return this.productService.getProducts(sortByPrice, sortByName, page, limit, available, categories, materials);
+    }
+    getProductsByCategoriesAndMaterials(categories, materials) {
+        return this.productService.getProductsByCategoriesAndMaterials(categories, materials);
     }
     getProductsByCategories(categories) {
         return this.productService.getProductsByCategories(categories);
@@ -63,10 +66,19 @@ __decorate([
     __param(3, (0, common_1.Query)('limit', common_1.ParseIntPipe)),
     __param(4, (0, common_1.Query)('available')),
     __param(5, (0, common_1.Query)('categories', new common_1.ParseArrayPipe({ items: String }))),
+    __param(6, (0, common_1.Query)('materials', new common_1.ParseArrayPipe({ items: String }))),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, Number, Number, String, Array]),
+    __metadata("design:paramtypes", [String, String, Number, Number, String, Array, Array]),
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "getProducts", null);
+__decorate([
+    (0, common_1.Get)('byCategoriesAndMaterials/:categories/:materials'),
+    __param(0, (0, common_1.Param)('categories', new common_1.ParseArrayPipe({ items: String }))),
+    __param(1, (0, common_1.Param)('materials', new common_1.ParseArrayPipe({ items: String }))),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Array, Array]),
+    __metadata("design:returntype", void 0)
+], ProductController.prototype, "getProductsByCategoriesAndMaterials", null);
 __decorate([
     (0, common_1.Get)('byCategories/:categories'),
     __param(0, (0, common_1.Param)('categories', new common_1.ParseArrayPipe({ items: String }))),

@@ -12,7 +12,8 @@ import styles from './Kit.module.scss'
 interface KitProps {}
 
 const Kit: React.FC<KitProps> = props => {
-	const {data} = useQuery({ queryKey: ['kitProducts'], queryFn:()=> productService.getProductsByLimit(9,0)  })
+	const {data} = useQuery({ queryKey: ['kitProducts'], queryFn:()=> productService.getKitItems()  })
+	console.log(data);
 	const {} = props
 	return (
 		<section className={styles.Kit}>
@@ -26,7 +27,7 @@ const Kit: React.FC<KitProps> = props => {
 					scrollbar={{ draggable: true }}
 					onSwiper={(swiper: any) => console.log(swiper)}
 					onSlideChange={() => console.log('slide change')}>
-					{data?.data.map((item:any)=>(
+					{data?.data.data?.map((item:any)=>(
 						<SwiperSlide>
 							<div className={styles.Kit__slide}>
 								<Card type="secondary" 
@@ -34,7 +35,8 @@ const Kit: React.FC<KitProps> = props => {
 									price={item.price} 
 									title={item.title} 
 									available={item.available} 
-									images={item.previewImage}/>
+									images={item.previewImage}
+									countrySrc={item.country}/>
 							</div>
 						</SwiperSlide> 
 					))

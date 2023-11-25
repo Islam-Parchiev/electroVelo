@@ -23,17 +23,24 @@ export class ProductController {
     return this.productService.create(productData, imageUrls,specs,sizes,colors);
   }
   @Get()
-  getProducts(
+  async getProducts(
     @Query('sortByPrice') sortByPrice: 'ASC' | 'DESC',
     @Query('sortByName') sortByName: 'ASC' | 'DESC',
     @Query('page', ParseIntPipe) page: number=1,
     @Query('limit', ParseIntPipe) limit: number=10,
     @Query('available') available: string,
-    @Query('categories',new ParseArrayPipe({items:String})) categories:string[]
+    @Query('categories',new ParseArrayPipe({items:String})) categories:string[],
+    @Query('materials',new ParseArrayPipe({items:String})) materials:string[]
   ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
-    return this.productService.getProducts(sortByPrice, sortByName, page, limit,available,categories);
+    return this.productService.getProducts(sortByPrice, sortByName, page, limit,available,categories,materials);
   }
-
+  @Get('byCategoriesAndMaterials/:categories/:materials')
+  getProductsByCategoriesAndMaterials(
+    @Param('categories', new ParseArrayPipe({items:String})) categories: string[],
+    @Param('materials', new ParseArrayPipe({items:String})) materials: string[],
+  ) {
+    return this.productService.getProductsByCategoriesAndMaterials(categories, materials);
+  }
 
   @Get('byCategories/:categories')
   getProductsByCategories(@Param('categories', new ParseArrayPipe({ items: String })) categories: string[]): Promise<Product[]> {

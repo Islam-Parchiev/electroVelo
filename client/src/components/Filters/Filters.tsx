@@ -207,24 +207,24 @@ const Filters: React.FC<FiltersProps> = props => {
 					text="Алюминий"
 					setValue={setVal}
 					value={11}
-					check={selectedMaterials.includes('aluminium')}
-					setCheck={() => handleMaterialToggle('aluminium')}
+					check={selectedMaterials.includes('Aluminium')}
+					setCheck={() => handleMaterialToggle('Aluminium')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="Карбон"
 					setValue={setVal}
 					value={12}
-					check={selectedMaterials.includes('carbon')}
-					setCheck={() => handleMaterialToggle('carbon')}
+					check={selectedMaterials.includes('Carbon')}
+					setCheck={() => handleMaterialToggle('Carbon')}
 				/>
 				<Checkbox
 					otherClass={styles.Filters__checkbox}
 					text="Сталь"
 					setValue={setVal}
 					value={13}
-					check={selectedMaterials.includes('steel')}
-					setCheck={() => handleMaterialToggle('steel')}
+					check={selectedMaterials.includes('Steel')}
+					setCheck={() => handleMaterialToggle('Steel')}
 				/>
 			</Accordion>
 			<Accordion accordionTitle="Цвет">

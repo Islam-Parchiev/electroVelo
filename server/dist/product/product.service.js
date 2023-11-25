@@ -80,23 +80,23 @@ let ProductService = class ProductService {
         });
         return products;
     }
-    async getProducts(sortByPrice, sortByName, page, limit, available, categories) {
+    async getProducts(sortByPrice, sortByName, page, limit, available, categories, materials) {
         const { skip, take } = (0, helpers_1.calculatePagination)(page, limit);
         const queryBuilder = this.productRepository.createQueryBuilder('product')
             .skip(skip)
             .take(take);
         if (categories) {
-            queryBuilder.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
+            queryBuilder.where('product.category = :category').where('category IN (:...categories)', { categories }).andWhere('material IN (:...materials)', { materials });
             console.log('dasd');
+        }
+        if (available === 'true') {
+            queryBuilder.where('product.available = :available', { available: available });
         }
         if (sortByPrice) {
             queryBuilder.orderBy('product.price', sortByPrice);
         }
         if (sortByName) {
             queryBuilder.orderBy('product.title', sortByName);
-        }
-        if (available === 'true') {
-            queryBuilder.where('product.available = :available', { available: available });
         }
         const [data, totalItems] = await queryBuilder.getManyAndCount();
         const totalPages = (0, helpers_1.calculateTotalPages)(totalItems, limit);
@@ -106,6 +106,14 @@ let ProductService = class ProductService {
     async getProductsByCategories(categories) {
         const query = this.productRepository.createQueryBuilder('product');
         query.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
+        return query.getMany();
+    }
+    async getProductsByCategoriesAndMaterials(categories, materials) {
+        const query = this.productRepository.createQueryBuilder('product')
+            .andWhere('product.category  = :category')
+            .andWhere('product.material  = :material')
+            .where('category IN (:...categories)', { categories })
+            .andWhere('material IN (:...materials)', { materials });
         return query.getMany();
     }
     findOne(id) {

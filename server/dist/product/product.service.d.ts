@@ -14,12 +14,13 @@ export declare class ProductService {
     create(productData: Partial<Product>, imageUrls: Image[], specs: Spec[], sizes: Size[], colors: Color[]): Promise<Product>;
     findAll(): Promise<Product[]>;
     getByLimit(limit: number, skip: number): Promise<Product[]>;
-    getProducts(sortByPrice: 'ASC' | 'DESC', sortByName: 'ASC' | 'DESC', page: number, limit: number, available: string, categories: string[]): Promise<{
+    getProducts(sortByPrice: 'ASC' | 'DESC', sortByName: 'ASC' | 'DESC', page: number, limit: number, available: string, categories: string[], materials: string[]): Promise<{
         data: Product[];
         currentPage: number;
         totalPages: number;
     }>;
     getProductsByCategories(categories: string[]): Promise<Product[]>;
+    getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<Product[]>;
     findOne(id: number): string;
     update(id: number, prevPrice: number | null, price: number): Promise<Product>;
     remove(id: number): Promise<import("typeorm").DeleteResult>;

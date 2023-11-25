@@ -95,31 +95,45 @@ export class ProductService {
     limit: number,
     available:string,
     categories:string[],
+    materials:string[]
   ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
     const { skip, take } = calculatePagination(page, limit);
   
     const queryBuilder = this.productRepository.createQueryBuilder('product')
     .skip(skip)
     .take(take)
- 
     if(categories) {
       // .where('product.category = :category',{category:category})
-      queryBuilder.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
+      queryBuilder.where('product.category = :category').where('category IN (:...categories)', { categories }).andWhere('material IN (:...materials)', { materials })
       console.log('dasd');
     } 
+    // async getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<Product[]> {
+    //   const query = this.productRepository.createQueryBuilder('product')
+    //     .innerJoin('product.category', 'category')
+    //     .innerJoin('product.material', 'material')
+    //     .where('category.name IN (:...categories)', { categories })
+    //     .andWhere('material.name IN (:...materials)', { materials });
   
-    if (sortByPrice) {
-      queryBuilder.orderBy('product.price', sortByPrice);
+    //   return query.getMany();
+    // }
+    // if(materials) {
+    //   // .where('product.category = :category',{category:category})
+    //    queryBuilder.where('product.material = :material').where('material IN (:...materials)', { materials });
+    //   console.log('dasd');
+    // } 
+    if(available==='true'){
+       queryBuilder.where('product.available = :available',{available:available})
     }
   
-    if (sortByName) {
-      queryBuilder.orderBy('product.title', sortByName);
+    if (sortByPrice) {
+       queryBuilder.orderBy('product.price', sortByPrice);
+    }
+  
+   if (sortByName) {
+       queryBuilder.orderBy('product.title', sortByName);
     }
   
 
-    if(available==='true'){
-      queryBuilder.where('product.available = :available',{available:available})
-    }
     
     const [data, totalItems] = await queryBuilder.getManyAndCount();
     const totalPages = calculateTotalPages(totalItems, limit);
@@ -137,7 +151,15 @@ export class ProductService {
       query.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
     return query.getMany();
   }
-
+ async getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<Product[]> {
+      const query = this.productRepository.createQueryBuilder('product')
+        .andWhere('product.category  = :category')
+        .andWhere('product.material  = :material')
+        .where('category IN (:...categories)', { categories })
+        .andWhere('material IN (:...materials)', { materials });
+  
+      return query.getMany();
+    }
   findOne(id: number) {
     return `This action returns a #${id} product`;
   }

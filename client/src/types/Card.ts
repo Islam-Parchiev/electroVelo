@@ -13,4 +13,5 @@ export interface ICard {
 	price:string;
 	title:string;
 	previewImage:string;
+	country:string;
 }

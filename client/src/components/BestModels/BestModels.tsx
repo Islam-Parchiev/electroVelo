@@ -14,7 +14,7 @@ const BestModels: FC = () => {
 				<ul className={`list-reset ${styles.BestModels__items}`}>
 					{
 						data?.data.map((item:any)=>(
-							<Card type="primary" price={item.price} title={item.title} available={item.available} images={item.previewImage}/>
+							<Card type="primary" countrySrc={item.country} price={item.price} title={item.title} available={item.available} images={item.previewImage}/>
 						))
 			 }
 				</ul>

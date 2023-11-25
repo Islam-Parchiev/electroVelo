@@ -26,7 +26,7 @@ const MainNewItems: FC = () => {
 			 } */}
 					 {
 						data?.data.map((item:ICard)=>(
-							<Card type="primary" price={item.price} title={item.title} available={item.available} images={item.previewImage}/>
+							<Card type="primary" countrySrc={item.country}price={item.price} title={item.title} available={item.available} images={item.previewImage}/>
 						))
 						 }
 					{/* <Card type="primary"/>

@@ -10,6 +10,7 @@ interface ICard {
 	available?:boolean;
 	images?:any;
 	otherClass?:string;
+	countrySrc?:string;
 }
 const Card:React.FC<ICard> = (props) => {
 	const {
@@ -19,14 +20,15 @@ const Card:React.FC<ICard> = (props) => {
 		available,
 		images,
 		otherClass,
+		countrySrc,
 	} = props;
-	console.log('iii',images)
+	// console.log('iii',images)
 	
 	return (
 		<li className={`${styles.Card} Card--${type} ${otherClass}`}>
 			<div className={styles.Card__header}>
 				<div className={styles.Card__country}>
-					<img src="/images/Card/country1.png" alt="" />
+					<img src={`/images/Card/${countrySrc}`} alt="" />
 				</div>
 				<div className={styles.Card__status}>
 					<span>{available ? 'В наличии' : 'Нет в наличии'} </span>
@@ -85,7 +87,7 @@ const Card:React.FC<ICard> = (props) => {
 							fill="white"
 						/>
 					</svg>
-					В 1 клик
+					Перейти
 				</Button>
 			</div>
 		</li>
