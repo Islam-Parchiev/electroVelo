@@ -160,8 +160,20 @@ export class ProductService {
   
       return query.getMany();
     }
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
+  async findOne(id: number) {
+    const product = await this.productRepository.findOne({
+      where: {
+        id:id
+      },
+      relations:{
+        images:true,
+        colors:true,
+        sizes:true,
+        specifications:true
+      }
+    })
+    if(!product) throw new NotFoundException('Product not found')
+    return product;
   }
 
   async update(id:number,prevPrice:number|null,price:number) {

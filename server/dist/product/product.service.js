@@ -116,8 +116,21 @@ let ProductService = class ProductService {
             .andWhere('material IN (:...materials)', { materials });
         return query.getMany();
     }
-    findOne(id) {
-        return `This action returns a #${id} product`;
+    async findOne(id) {
+        const product = await this.productRepository.findOne({
+            where: {
+                id: id
+            },
+            relations: {
+                images: true,
+                colors: true,
+                sizes: true,
+                specifications: true
+            }
+        });
+        if (!product)
+            throw new common_1.NotFoundException('Product not found');
+        return product;
     }
     async update(id, prevPrice, price) {
         const product = await this.productRepository.findOne({

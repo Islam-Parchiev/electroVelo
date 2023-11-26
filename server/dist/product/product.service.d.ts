@@ -21,7 +21,7 @@ export declare class ProductService {
     }>;
     getProductsByCategories(categories: string[]): Promise<Product[]>;
     getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<Product[]>;
-    findOne(id: number): string;
+    findOne(id: number): Promise<Product>;
     update(id: number, prevPrice: number | null, price: number): Promise<Product>;
     remove(id: number): Promise<import("typeorm").DeleteResult>;
 }

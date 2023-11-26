@@ -60,7 +60,7 @@ export class ProductController {
     return this.productService.getByLimit(+limit,+skip);
   }
 
-  @Get(':id')
+  @Get('findOne/:id')
   findOne(@Param('id') id: string) {
     return this.productService.findOne(+id);
   }
