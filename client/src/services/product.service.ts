@@ -27,6 +27,9 @@ export class ProductService  {
 	 async getKitItems() {
 		return axios.get(`${this.URL}/product?categories=Kit&materials=Carbon&page=1&limit=15&sortByPrice=DESC&available=false`)
 	 }
+	 async getProductById(id:number) {
+  	return axios.get<ICard>(`${this.URL}/product/findOne/${id}`)
+	 }
 	// async getById(id:string) {
 	// 	return axios.get(`${this.URL}/todos/${id}`)
 	// }

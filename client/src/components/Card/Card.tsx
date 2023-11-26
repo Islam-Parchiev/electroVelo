@@ -1,29 +1,24 @@
 import React from 'react'
 
-import Button from '@components/Button/Button';
+import { Link } from 'react-router-dom'
 
-import styles from './Card.module.scss';
+import Button from '@components/Button/Button'
+
+import styles from './Card.module.scss'
 interface ICard {
-	type:'primary' | 'secondary';
-	title?:string;
-  price?:string;
-	available?:boolean;
-	images?:any;
-	otherClass?:string;
-	countrySrc?:string;
+	id: number
+	type: 'primary' | 'secondary'
+	title?: string
+	price?: string
+	available?: boolean
+	images?: any
+	otherClass?: string
+	countrySrc?: string
 }
-const Card:React.FC<ICard> = (props) => {
-	const {
-		type,
-		title,
-		price,
-		available,
-		images,
-		otherClass,
-		countrySrc,
-	} = props;
+const Card: React.FC<ICard> = props => {
+	const { id, type, title, price, available, images, otherClass, countrySrc } = props
 	// console.log('iii',images)
-	
+
 	return (
 		<li className={`${styles.Card} Card--${type} ${otherClass}`}>
 			<div className={styles.Card__header}>
@@ -38,20 +33,19 @@ const Card:React.FC<ICard> = (props) => {
 				<img src={`/images/Product/${images}`} alt="" />
 			</div>
 			<div className={styles.Card__footer}>
-				<h4 className={styles.Card__title}>
-					{title || 'Title'}
-				</h4>
+				<h4 className={styles.Card__title}>{title || 'Title'}</h4>
 				<span className={styles.Card__price}>{price || '100'} ₽</span>
-	
+
 				<Button otherClass={styles.Card__btn}>
-				<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="26"
-						height="25"
-						viewBox="0 0 26 25"
-						fill="none">
-						<path
-							d="M9.875 2.5C10.0408 2.5 10.1997 2.56585 10.3169 2.68306C10.4342 2.80027 10.5 2.95924 10.5 3.125V5.625C10.5 5.79076 
+					<Link to={`/product/${id}`}>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="26"
+							height="25"
+							viewBox="0 0 26 25"
+							fill="none">
+							<path
+								d="M9.875 2.5C10.0408 2.5 10.1997 2.56585 10.3169 2.68306C10.4342 2.80027 10.5 2.95924 10.5 3.125V5.625C10.5 5.79076 
  											10.4342 5.94973 10.3169 6.06694C10.1997 6.18415 10.0408 6.25 9.875 6.25C9.70924 6.25 9.55027 6.18415 9.43306 6.06694C9.31585
  											5.94973 9.25 5.79076 9.25 5.625V3.125C9.25 2.95924 9.31585 2.80027 9.43306 2.68306C9.55027 2.56585 9.70924 2.5 9.875 2.5ZM5.0125 
  											4.5125C5.07056 4.4543 5.13953 4.40812 5.21546 4.37661C5.29139 4.3451 5.37279 4.32888 5.455 4.32888C5.53721 4.32888 5.61861 4.3451 
@@ -84,10 +78,11 @@ const Card:React.FC<ICard> = (props) => {
 											21.4625V10.0838L19.3988 
  											17.5H15.385C14.9394 17.4999 14.499 17.5952 14.0933 17.7793C13.6875 17.9634 13.3259 18.2321 13.0325 18.5675L10.5 
 											21.4625Z"
-							fill="white"
-						/>
-					</svg>
-					Перейти
+								fill="white"
+							/>
+						</svg>
+						Перейти
+					</Link>
 				</Button>
 			</div>
 		</li>

@@ -4,6 +4,7 @@ import Main from '@pages/Main/Main';
 
 import Layout from '@pages/Layout/Layout';
 import Catalog from '@pages/Catalog/Catalog';
+import Product from '@pages/Product/Product';
 
 // import Home from "../pages/Home";
 // import Transactions, { transactionAction, transactionLoader } from "../pages/Transactions";
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
 			{
 				path:'catalog',
 				element:<Catalog/>,
+			},
+			{
+				path:'product/:id',
+				element:<Product/>,
 			},
 			// {
 			// 	path:'transaction',

@@ -36,7 +36,8 @@ const Kit: React.FC<KitProps> = props => {
 									title={item.title} 
 									available={item.available} 
 									images={item.previewImage}
-									countrySrc={item.country}/>
+									countrySrc={item.country}
+									id={item.id}/>
 							</div>
 						</SwiperSlide> 
 					))

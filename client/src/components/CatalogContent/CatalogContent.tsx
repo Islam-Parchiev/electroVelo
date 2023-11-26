@@ -41,6 +41,7 @@ const CatalogContent:React.FC = () => {
 								{query.data?.data.data.map((item: ICard) => (
 									<Card
 										type="secondary"
+										id={item.id}
 										otherClass={styles.CatalogGoods__card}
 										price={item.price}
 										title={item.title}
