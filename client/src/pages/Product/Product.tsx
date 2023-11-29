@@ -5,18 +5,22 @@ import { useQuery } from '@tanstack/react-query'
 import productService  from '@services/product.service'
 
 import Header from '@components/Header/Header'
-import { ICard } from 'Card'
+import ProductMain from '@components/ProductMain/ProductMain'
+
+
+import styles from './Product.module.scss';
 
 const Product:React.FC = () => {
 	const {id} = useParams();
 	//@ts-ignore
-	const product =  useQuery<ICard>({queryKey:['product'],queryFn:()=>productService.getProductById(+id)});
-	console.log(product);
+	const {data} =  useQuery<any>({queryKey:['product'],queryFn:()=>productService.getProductById(+id)});
+	console.log(data);
 	return (
 		<>
-		  <Header/>
+		  <Header otherClass={styles.Product__header}/>
 			<main className="Product">
-			das
+			
+				<ProductMain productTitle={data?.data?.title}/>
 			</main>
 		</>
 	)
