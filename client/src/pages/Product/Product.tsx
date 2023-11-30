@@ -6,6 +6,8 @@ import productService  from '@services/product.service'
 
 import Header from '@components/Header/Header'
 import ProductMain from '@components/ProductMain/ProductMain'
+import ProductDescription from '@components/ProductDescription/ProductDescription'
+import ProductSpecifications from '@components/ProductSpecifications/ProductSpecifications'
 
 
 import styles from './Product.module.scss';
@@ -13,7 +15,7 @@ import styles from './Product.module.scss';
 const Product:React.FC = () => {
 	const {id} = useParams();
 	//@ts-ignore
-	const {data} =  useQuery<any>({queryKey:['product'],queryFn:()=>productService.getProductById(+id)});
+	const {data,isLoading,isSuccess} =  useQuery<any>({queryKey:['product'],queryFn:()=>productService.getProductById(+id)});
 	console.log(data);
 	return (
 		<>
@@ -21,6 +23,11 @@ const Product:React.FC = () => {
 			<main className="Product">
 			
 				<ProductMain productTitle={data?.data?.title}/>
+				<ProductDescription/>
+				<ProductSpecifications 
+					productSpecifications={data?.data?.specifications} 
+					loading={isLoading}
+					success={isSuccess}/>
 			</main>
 		</>
 	)
