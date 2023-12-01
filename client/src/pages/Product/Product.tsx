@@ -8,6 +8,7 @@ import Header from '@components/Header/Header'
 import ProductMain from '@components/ProductMain/ProductMain'
 import ProductDescription from '@components/ProductDescription/ProductDescription'
 import ProductSpecifications from '@components/ProductSpecifications/ProductSpecifications'
+import ProductDelivery from '@components/ProductDelivery/ProductDelivery'
 
 
 import styles from './Product.module.scss';
@@ -28,6 +29,8 @@ const Product:React.FC = () => {
 					productSpecifications={data?.data?.specifications} 
 					loading={isLoading}
 					success={isSuccess}/>
+				<ProductDelivery/>
+
 			</main>
 		</>
 	)
