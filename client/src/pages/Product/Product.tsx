@@ -9,6 +9,8 @@ import ProductMain from '@components/ProductMain/ProductMain'
 import ProductDescription from '@components/ProductDescription/ProductDescription'
 import ProductSpecifications from '@components/ProductSpecifications/ProductSpecifications'
 import ProductDelivery from '@components/ProductDelivery/ProductDelivery'
+import ProductSimilar from '@components/ProductSimilar/ProductSimilar'
+import Subscribe from '@components/Subscribe/Subscribe'
 
 
 import styles from './Product.module.scss';
@@ -17,7 +19,7 @@ const Product:React.FC = () => {
 	const {id} = useParams();
 	//@ts-ignore
 	const {data,isLoading,isSuccess} =  useQuery<any>({queryKey:['product'],queryFn:()=>productService.getProductById(+id)});
-	console.log(data);
+	// console.log('datat',data.data.category);
 	return (
 		<>
 		  <Header otherClass={styles.Product__header}/>
@@ -30,7 +32,8 @@ const Product:React.FC = () => {
 					loading={isLoading}
 					success={isSuccess}/>
 				<ProductDelivery/>
-
+				<ProductSimilar category={data?.data?.category} loading={isLoading} success={isSuccess}/>
+				<Subscribe/>
 			</main>
 		</>
 	)
