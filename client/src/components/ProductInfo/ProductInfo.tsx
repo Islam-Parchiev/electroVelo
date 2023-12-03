@@ -4,11 +4,26 @@ import Button from '@components/Button/Button'
 
 import styles from './ProductInfo.module.scss'
 
-interface ProductInfoProps {}
-const colors:string[] = ['#FEF95F','#0D7F19','#FFD536','#FE7E56','#AC632C','#FD0012'];
+interface ProductInfoProps {
+	colors:any[];
+	sizes:any[];
+	loading:any;
+	success:any;
+}
+const colorsHex:string[] = ['#FEF95F','#0D7F19','#FFD536','#FE7E56','#AC632C','#FD0012'];
+const cccolors = [{color:'BLACK',hexColor:'#000'},
+{color:'YELLOW',hexColor:'#FEF95F'},
+{color:'GREEN',hexColor:'#25FD3C'}]
 const ProductInfo: React.FC<ProductInfoProps> = props => {
 	const [counter,setCounter] = React.useState(1);
-	const {} = props
+	const {
+		colors,
+		sizes,
+		loading,
+		success,
+
+	} = props;
+	console.log(sizes);
 	return (
 		<div className={styles.ProductInfo}>
 			<div className={styles.ProductInfo__top}>
@@ -254,7 +269,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 				<div className={styles.ProductInfo__sizes}>
 					<h3>Размер:</h3>
 					<ul className={`list-reset ${styles.ProductSizes}`}>
-						<li className={`${styles.ProductSizes__item} ${styles.active}`}>
+						{/* <li className={`${styles.ProductSizes__item} ${styles.active}`}>
 							S
 						</li>
 						<li className={styles.ProductSizes__item}>
@@ -268,14 +283,19 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 						</li>
 						<li className={styles.ProductSizes__item}>
 							S
-						</li>
+						</li> */}
+						{loading ? (
+						'Loading...'
+					) : success ? (sizes.map(item=> <li className={`${styles.ProductSizes__item} ${styles.active}`}>
+							{item.size}
+						</li>)):'Error'}
 					</ul>
 				</div>
 				<div className={styles.ProductInfo__colors}>
 				<h3>Цвет:</h3>
 					<ul className={`list-reset ${styles.ProductColors}`}>
-						{colors.map(color => <li style={{backgroundColor:color}} className={styles.ProductColors__item}></li>)}
-						
+						{colorsHex.map(color => <li style={{backgroundColor:color}} className={styles.ProductColors__item}></li>)}
+						{/* {colors.map(item => <li style={{backgroundColor:color}} className={styles.ProductColors__item}></li>)} */}
 						{/* <FiltersColor />
 						<FiltersColor/>
 						<FiltersColor/> */}

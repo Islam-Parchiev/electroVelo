@@ -7,11 +7,19 @@ import styles from './ProductMain.module.scss'
 
 interface ProductMainProps {
 	productTitle:string;
+	colors:any[];
+	sizes:any[];
+	loading:any;
+	success:any;
 }
 
 const ProductMain:React.FC<ProductMainProps> = (props) => {
 	const {
 		productTitle,
+		colors,
+		sizes,
+		loading,
+		success,
 	} = props;
 	return (
 		<section className={styles.ProductMain}>
@@ -40,7 +48,7 @@ const ProductMain:React.FC<ProductMainProps> = (props) => {
 				</ul>
 				<div className={styles.ProductMain__wrapper}>
 					<ProductSlider/>
-					<ProductInfo/>
+					<ProductInfo colors={colors} sizes={sizes} loading={loading} success={success}/>
 				</div>
 			</div>
 		</section>
