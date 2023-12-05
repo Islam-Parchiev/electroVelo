@@ -3,6 +3,7 @@ import { Image } from "./image.entity";
 import {Color} from "./color.entity";
 import { Spec } from "./spec.entity";
 import { Size } from "./size.entity";
+import { CartItem } from "src/cart/entities/cartItem.entity";
 @Entity()
 export class Product {
     @PrimaryGeneratedColumn({name:'product_id'})
@@ -51,5 +52,8 @@ export class Product {
     category:string;
     @Column({nullable:true})
     material:string;
+
+    @OneToMany(() => CartItem, item => item.product, {nullable:true })
+    cartItems:CartItem;
 }
 

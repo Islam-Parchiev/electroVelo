@@ -2,6 +2,7 @@ import { Image } from "./image.entity";
 import { Color } from "./color.entity";
 import { Spec } from "./spec.entity";
 import { Size } from "./size.entity";
+import { CartItem } from "src/cart/entities/cartItem.entity";
 export declare class Product {
     id: number;
     title: string;
@@ -19,4 +20,5 @@ export declare class Product {
     country: string;
     category: string;
     material: string;
+    cartItems: CartItem;
 }

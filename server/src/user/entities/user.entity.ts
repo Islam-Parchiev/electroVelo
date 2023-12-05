@@ -1,5 +1,5 @@
-// import { Order } from 'src/orders/entities/order.entity';
-import { Entity, Column, PrimaryGeneratedColumn,OneToMany, JoinColumn} from 'typeorm';
+import { Cart } from 'src/cart/entities/cart.entity';
+import { Entity, Column, PrimaryGeneratedColumn,OneToMany} from 'typeorm';
 
 @Entity()
 export class User {
@@ -38,4 +38,8 @@ export class User {
 
   @Column()
   password:string;
+
+  @OneToMany(() => Cart, cart => cart.user, {nullable:true })
+  carts:Cart
+
 }

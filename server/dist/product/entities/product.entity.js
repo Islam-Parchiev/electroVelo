@@ -15,6 +15,7 @@ const image_entity_1 = require("./image.entity");
 const color_entity_1 = require("./color.entity");
 const spec_entity_1 = require("./spec.entity");
 const size_entity_1 = require("./size.entity");
+const cartItem_entity_1 = require("../../cart/entities/cartItem.entity");
 let Product = class Product {
 };
 __decorate([
@@ -81,6 +82,10 @@ __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Product.prototype, "material", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => cartItem_entity_1.CartItem, item => item.product, { nullable: true }),
+    __metadata("design:type", cartItem_entity_1.CartItem)
+], Product.prototype, "cartItems", void 0);
 Product = __decorate([
     (0, typeorm_1.Entity)()
 ], Product);

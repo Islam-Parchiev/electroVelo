@@ -1,3 +1,4 @@
+import { Cart } from 'src/cart/entities/cart.entity';
 export declare class User {
     id: number;
     name: string;
@@ -11,4 +12,5 @@ export declare class User {
     floor: number;
     flatNumber: number;
     password: string;
+    carts: Cart;
 }
