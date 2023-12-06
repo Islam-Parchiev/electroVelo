@@ -14,4 +14,5 @@ export interface ICard {
 	title:string;
 	previewImage:string;
 	country:string;
+	sizes?:string[];
 }

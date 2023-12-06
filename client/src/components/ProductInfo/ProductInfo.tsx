@@ -2,13 +2,14 @@ import React from 'react'
 
 import Button from '@components/Button/Button'
 
+import { ICard } from 'Card';
+
 import styles from './ProductInfo.module.scss'
 
 interface ProductInfoProps {
-	colors:any[];
-	sizes:any[];
 	loading:any;
 	success:any;
+	product:ICard;
 }
 const colorsHex:string[] = ['#FEF95F','#0D7F19','#FFD536','#FE7E56','#AC632C','#FD0012'];
 const cccolors = [{color:'BLACK',hexColor:'#000'},
@@ -17,23 +18,23 @@ const cccolors = [{color:'BLACK',hexColor:'#000'},
 const ProductInfo: React.FC<ProductInfoProps> = props => {
 	const [counter,setCounter] = React.useState(1);
 	const {
-		colors,
-		sizes,
+		
 		loading,
 		success,
+		product,
 
 	} = props;
-	console.log(sizes);
+	console.log('Info...........',product);
 	return (
 		<div className={styles.ProductInfo}>
 			<div className={styles.ProductInfo__top}>
 				<h1 className={styles.ProductInfo__title}>
-					Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018
+					{product.title}
 				</h1>
 				<div className={styles.ProductInfo__social}>
 					<div>
-						<span>Scott</span>
-						<span>Артикул : 7655-188</span>
+						<span>{loading?'loading...':success?product.brand:'Error'}</span>
+						<span>Артикул : {loading?'loading...':success?product.articul:'Error'}</span>
 						<span className={styles.ProductInfo__available}>
 							В наличии
 						</span>
@@ -254,16 +255,14 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 					</ul>
 				</div>
 				<div className={styles.ProductInfo__price}>
-					<span>435 000 ₽</span>
+					<span>{loading?'loading...':success?product.price:'Error'}₽</span>
 					<span className={styles.ProductInfo__prevPrice}>
 					522 000 ₽
 					</span>
 				</div>
 				<div className={styles.ProductInfo__descr}>
 					<p>
-					Профессиональный гоночный хардтейл для кросс-кантри уровня 
-					Чемпионата и Кубка Мира. Одна из самых легких рам среди гоночных 
-					хардтейлов для кросс-кантри.
+						{loading?'loading...':success?product.description:'Error'}
 					</p>
 				</div>
 				<div className={styles.ProductInfo__sizes}>
@@ -284,11 +283,11 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 						<li className={styles.ProductSizes__item}>
 							S
 						</li> */}
-						{loading ? (
+						{/* {loading ? (
 						'Loading...'
-					) : success ? (sizes.map(item=> <li className={`${styles.ProductSizes__item} ${styles.active}`}>
+					) : success ? (product.sizes?.map(item=> <li className={`${styles.ProductSizes__item} ${styles.active}`}>
 							{item.size}
-						</li>)):'Error'}
+						</li>)):'Error'} */}
 					</ul>
 				</div>
 				<div className={styles.ProductInfo__colors}>

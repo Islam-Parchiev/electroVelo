@@ -3,21 +3,19 @@ import React from 'react'
 import ProductSlider from '@components/ProductSlider/ProductSlider';
 import ProductInfo from '@components/ProductInfo/ProductInfo';
 
+import { ICard } from 'Card';
+
 import styles from './ProductMain.module.scss'
 
 interface ProductMainProps {
-	productTitle:string;
-	colors:any[];
-	sizes:any[];
+	product:ICard;
 	loading:any;
 	success:any;
 }
 
 const ProductMain:React.FC<ProductMainProps> = (props) => {
 	const {
-		productTitle,
-		colors,
-		sizes,
+		product,
 		loading,
 		success,
 	} = props;
@@ -42,13 +40,13 @@ const ProductMain:React.FC<ProductMainProps> = (props) => {
 						</li>
 						<li className={styles.Breadcrumbs__item}>
 							<a href="/">
-								{productTitle}
+								{loading?'loading':success?product.title:'Error'}
 							</a>
 						</li>
 				</ul>
 				<div className={styles.ProductMain__wrapper}>
 					<ProductSlider/>
-					<ProductInfo colors={colors} sizes={sizes} loading={loading} success={success}/>
+					<ProductInfo product={product} loading={loading} success={success}/>
 				</div>
 			</div>
 		</section>

@@ -18,7 +18,7 @@ import styles from './Product.module.scss';
 const Product:React.FC = () => {
 	const {id} = useParams();
 	//@ts-ignore
-	const {data,isLoading,isSuccess} =  useQuery<any>({queryKey:['product'],queryFn:()=>productService.getProductById(+id)});
+	const {data,isLoading,isSuccess} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
 	console.log('product',data);
 	// console.log('datat',data.data.category);
 	return (
@@ -26,14 +26,15 @@ const Product:React.FC = () => {
 		  <Header otherClass={styles.Product__header}/>
 			<main className="Product">
 			
-				<ProductMain productTitle={data?.data?.title} colors={data?.data?.colors} sizes={data?.data?.sizes} loading={isLoading} success={isSuccess}/>
+				<ProductMain product={isSuccess&&data.data} loading={isLoading} success={isSuccess}/>
 				<ProductDescription/>
-				<ProductSpecifications 
-					productSpecifications={data?.data?.specifications} 
-					loading={isLoading}
-					success={isSuccess}/>
+			<ProductSpecifications  
+					 productSpecifications={isSuccess&&data?.data?.specifications} 
+					 loading={isLoading}
+					 success={isSuccess}/>
+
 				<ProductDelivery/>
-				<ProductSimilar category={data?.data?.category} loading={isLoading} success={isSuccess}/>
+				<ProductSimilar category={isSuccess&&data?.data?.category} loading={isLoading} success={isSuccess}/>
 				<Subscribe/>
 			</main>
 		</>
