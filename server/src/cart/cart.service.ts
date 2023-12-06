@@ -59,7 +59,7 @@ export class CartService {
     }
     return cart
   }
-  async getCartItem(productId:number,userId:number) {
+  async getCartItem(userId:number) {
     let cart = await this.cartRepository.findOne({ where: { user: { id: userId } }, relations: {
       items:{product:true}
 
@@ -67,8 +67,20 @@ export class CartService {
     if(!cart) {
       throw new Error('Cart not found');
     }
-    let cartItem = cart.items.find((item) => item.product.id === productId);
+    // let cartItem = cart.items.find((item) => item.product.id === productId);
     return cart
+  }
+  async removeCartItem(userId:number,productId:number) {
+    let cart = await this.cartRepository.findOne({ where: { user: { id: userId } }, relations: {
+      items:{product:true}
+
+    } });
+    if(!cart) {
+      throw new Error('Cart not found');
+    }
+
+    return await this.cartItemRepository.delete(productId)
+
   }
   create(createCartDto: CreateCartDto) {
     return 'This action adds a new cart';

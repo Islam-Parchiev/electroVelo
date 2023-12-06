@@ -28,14 +28,14 @@ let CartController = class CartController {
     findAll() {
         return this.cartService.findAll();
     }
-    findOne(req, productId) {
-        return this.cartService.getCartItem(+productId, +req.user.id);
+    findOne(req) {
+        return this.cartService.getCartItem(+req.user.id);
     }
     update(id, updateCartDto) {
         return this.cartService.update(+id, updateCartDto);
     }
-    remove(id) {
-        return this.cartService.remove(+id);
+    remove(req, id) {
+        return this.cartService.removeCartItem(+req.user.id, +id);
     }
     addToCart(req, productId, quantity) {
         return this.cartService.addToCart(+req.user.id, +productId, +quantity);
@@ -55,12 +55,11 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CartController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)('get/:id'),
+    (0, common_1.Get)('get'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Req)()),
-    __param(1, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], CartController.prototype, "findOne", null);
 __decorate([
@@ -72,10 +71,12 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CartController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Delete)('delete/:id'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], CartController.prototype, "remove", null);
 __decorate([

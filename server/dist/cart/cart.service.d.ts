@@ -11,7 +11,8 @@ export declare class CartService {
     constructor(cartRepository: Repository<Cart>, cartItemRepository: Repository<CartItem>, productRepository: Repository<Product>);
     addToCart(userId: number, productId: number, quantity: number): Promise<Cart>;
     getCart(userId: number): Promise<Cart>;
-    getCartItem(productId: number, userId: number): Promise<Cart>;
+    getCartItem(userId: number): Promise<Cart>;
+    removeCartItem(userId: number, productId: number): Promise<import("typeorm").DeleteResult>;
     create(createCartDto: CreateCartDto): string;
     findAll(): string;
     findOne(id: number): string;

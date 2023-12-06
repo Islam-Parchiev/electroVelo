@@ -19,10 +19,10 @@ export class CartController {
     return this.cartService.findAll();
   }
 
-  @Get('get/:id')
+  @Get('get')
   @UseGuards(JwtAuthGuard)
-  findOne(@Req() req,@Param('id') productId: any) {
-    return this.cartService.getCartItem(+productId,+req.user.id);
+  findOne(@Req() req) {
+    return this.cartService.getCartItem(+req.user.id);
   }
 
   @Patch(':id')
@@ -30,9 +30,10 @@ export class CartController {
     return this.cartService.update(+id, updateCartDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.cartService.remove(+id);
+  @Delete('delete/:id')
+  @UseGuards(JwtAuthGuard)
+  remove(@Req() req, @Param('id') id: any) {
+    return this.cartService.removeCartItem(+req.user.id,+id);
   }
   @Post('add-item')
   @UseGuards(JwtAuthGuard)
