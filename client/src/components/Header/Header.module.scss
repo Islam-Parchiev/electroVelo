@@ -18,16 +18,22 @@
 			@include flex-v-center;
 			gap: 25px;
 		}
-
-		&_item {
-			a {
+		&_link {
+			
 				text-decoration: none;
 				color: var(--light-color);
-
-				&:hover {
-					color: var(--orange, #F57520);
-				}
+			&:hover {
+				
+				color: var(--orange, #F57520);
+				
 			}
+			
+		}
+
+		&_item {
+			position: relative;
+
+			
 		}
 	}
 
@@ -78,6 +84,45 @@
 		&:hover {
 			span {
 				background-color: var(--orange, #F57520);
+			}
+		}
+	}
+
+	&__modalOne {
+
+		width: 650px;
+		z-index: 10;
+		display: flex;
+		align-items: start;
+		justify-content: space-between;
+
+		&_list {
+			// display: flex;
+			// flex-direction: column;
+			// gap: 20px;
+			// flex-wrap: wrap;
+			display: grid;
+			grid-template-columns: repeat(3,1fr);
+
+			li {
+				color: var(--3-grey, #E5E5E5);
+				/* desk mob 14 */
+				font-family: Inter;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 160%;
+				/* 22.4px */
+				display: flex;
+				align-items: center;
+				justify-content: start;
+				text-align: start;
+				a {
+					color: var(--3-grey, #E5E5E5);
+					&:hover {
+						color: var(--orange, #F57520);
+					}
+				}
 			}
 		}
 	}

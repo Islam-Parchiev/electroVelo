@@ -48,6 +48,7 @@ const CatalogContent:React.FC = () => {
 										available={item.available}
 										images={item.previewImage}
 										countrySrc={item.country}
+										key={item.id}
 									/>
 								))}
 							</ul>
