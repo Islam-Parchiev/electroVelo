@@ -1,10 +1,13 @@
 import React from 'react'
 
+import Modal from '@components/Modal/Modal';
+
 import styles from './Footer.module.scss'
 
 interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = props => {
+	const [modal,setModal] = React.useState(false);
 	const {} = props
 	return (
 		<footer className={styles.Footer}>
@@ -276,8 +279,10 @@ const Footer: React.FC<FooterProps> = props => {
 				<div className={styles.Footer__copyright}>
 					<span>© 2023 world bike</span>
 					<a href="/">Пользовательское соглашение</a>
+					<button onClick={()=>setModal(!modal)}>test modal</button>
 				</div>
 			</div>
+			{modal&&<Modal value={modal}handleOpen={setModal}>Content</Modal>}
 		</footer>
 	)
 }
