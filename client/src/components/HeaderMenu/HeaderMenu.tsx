@@ -53,26 +53,26 @@ const HeaderMenu:React.FC<HeaderMenuProps> = (props) => {
 						<a href="/">О нас</a>
 					</li>
 					<li className={styles.HeaderMenu__item}>
-						<a href="/">О нас</a>
+						<a href="/">Веломастерская</a>
 					</li>
 					<li className={styles.HeaderMenu__item}>
-						<a href="/">О нас</a>
+						<a href="/">Хранение</a>
 					</li>
 
 					<li className={styles.HeaderMenu__item}>
-						<a href="/">О нас</a>
+						<a href="/">Гарантии</a>
 					</li>
 					<li className={styles.HeaderMenu__item}>
-						<a href="/">О нас</a>
+						<a href="/">Пользовательское соглашение</a>
 					</li>
 					<li className={styles.HeaderMenu__item}>
-						<a href="/">О нас</a>
+						<a href="/">Доставка и оплата</a>
 					</li>
 					<li className={styles.HeaderMenu__item}>
-						<a href="/">О нас</a>
+						<a href="/">Блог</a>
 					</li>
 					<li className={styles.HeaderMenu__item}>
-						<a href="/">О нас</a>
+						<a href="/">Контакты</a>
 					</li>
 					
 				</ul>

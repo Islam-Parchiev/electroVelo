@@ -1,10 +1,10 @@
 import { FC,useState } from 'react'
 import { Link } from 'react-router-dom'
 
-// import HeaderModal from '@components/HeaderModal/HeaderModal'
+
 import NavItem from '@components/NavItem/NavItem'
-import Modal from '@components/Modal/Modal'
 import HeaderMenu from '@components/HeaderMenu/HeaderMenu'
+import HeaderSearch from '@components/HeaderSearch/HeaderSearch'
 
 import styles from './Header.module.scss'
 interface Props {
@@ -13,6 +13,7 @@ interface Props {
 const Header: FC<Props> = props => {
 	const { otherClass } = props;
 	const [modalHeader,setModalHeader] = useState(false);
+	const [search,setSearch]=useState(false);
 	return (
 		<header className={`${styles.Header} ${otherClass}`}>
 			<div className={`container ${styles.Header__container}`}>
@@ -433,7 +434,8 @@ const Header: FC<Props> = props => {
 								width="24"
 								height="24"
 								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg">
+								xmlns="http://www.w3.org/2000/svg"
+								onClick={()=>setSearch(!search)}>
 								<path
 									d="M16 10.5C16 14.6421 12.6421 18 8.5 18C4.35786 18 1 14.6421 1 10.5C1 6.35786 4.35786 3 8.5 3C12.6421 3 16 6.35786 
 16 10.5Z"
@@ -448,6 +450,7 @@ const Header: FC<Props> = props => {
 									stroke-linejoin="round"
 								/>
 							</svg>
+							{search&&<HeaderSearch/>}
 						</li>
 						<li className={styles.Header__right_item}>
 							<a href="/">
@@ -533,6 +536,7 @@ const Header: FC<Props> = props => {
 				</div>
 			</div>
 			{modalHeader&&<HeaderMenu	handleOpen={setModalHeader}/>}
+			
 		</header>
 	)
 }
