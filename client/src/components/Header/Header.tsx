@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 // import HeaderModal from '@components/HeaderModal/HeaderModal'
 import NavItem from '@components/NavItem/NavItem'
 import Modal from '@components/Modal/Modal'
+import HeaderMenu from '@components/HeaderMenu/HeaderMenu'
 
 import styles from './Header.module.scss'
 interface Props {
@@ -531,7 +532,7 @@ const Header: FC<Props> = props => {
 					</div>
 				</div>
 			</div>
-			{modalHeader&&<Modal value={modalHeader}handleOpen={setModalHeader}>HeaderContent</Modal>}
+			{modalHeader&&<HeaderMenu	handleOpen={setModalHeader}/>}
 		</header>
 	)
 }
