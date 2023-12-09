@@ -13,9 +13,12 @@ const Accordion: React.FC<AccordionProps> = props => {
 		children,
 	} = props;
 	const [open,setOpen] = React.useState<boolean>(false);
+	const handleClick = ()=> {
+		setOpen(!open)
+	}
 	return (
 		<div className={styles.Accordion}>
-			<div className={styles.Accordion__header} onClick={() => setOpen(!open)}>
+			<div className={styles.Accordion__header} onClick={handleClick}>
 				<h4 className={styles.Accordion__title}>{accordionTitle}</h4>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
