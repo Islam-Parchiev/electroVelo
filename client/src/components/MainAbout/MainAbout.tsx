@@ -37,10 +37,6 @@ const MainAbout: FC = () => {
 										категории
 									</p>
 								</div>
-								{/* <button
-									className={`btn-reset btn ${styles.MainAbout__btn}`}>
-									Подробнее
-								</button> */}
 								<Button otherClass={styles.MainAbout__btn}>
 									Подробнее
 								</Button>
@@ -113,36 +109,6 @@ const MainAbout: FC = () => {
 				</Swiper>
 			</div>
 			<div className={styles.MainAbout__info}>
-				{/* <div className={`${styles.MainAbout__info_item} ${styles.InfoItem}`}>
-					<div className={styles.InfoItem__content}>
-						<h2 className={styles.InfoItem__title}>
-					Экстремальное вождение на горном велосипеде
-						</h2>
-						<button className={`btn-reset ${styles.InfoItem__btn}`}>
-					Подробнее
-						</button>
-					</div>
-				</div>
-				<div className={`${styles.MainAbout__info_item} ${styles.InfoItem}`}>
-					<div className={styles.InfoItem__content}>
-						<h2 className={styles.InfoItem__title}>
-					Экстремальное вождение на горном велосипеде
-						</h2>
-						<button className={`btn-reset ${styles.InfoItem__btn}`}>
-					Подробнее
-						</button>
-					</div>
-				</div>
-				<div className={`${styles.MainAbout__info_item} ${styles.InfoItem}`}>
-					<div className={styles.InfoItem__content}>
-						<h2 className={styles.InfoItem__title}>
-					Экстремальное вождение на горном велосипеде
-						</h2>
-						<button className={`btn-reset ${styles.InfoItem__btn}`}>
-					Подробнее
-						</button>
-					</div>
-				</div> */}
 				<InfoItem title="Экстремальное вождение на горном велосипеде" />
 				<InfoItem title="Велосипеды для профессионалов" />
 				<InfoItem title="Долгая поездка на шоссейном велосипеде" />

@@ -12,9 +12,9 @@ interface ProductInfoProps {
 	product:ICard;
 }
 const colorsHex:string[] = ['#FEF95F','#0D7F19','#FFD536','#FE7E56','#AC632C','#FD0012'];
-const cccolors = [{color:'BLACK',hexColor:'#000'},
-{color:'YELLOW',hexColor:'#FEF95F'},
-{color:'GREEN',hexColor:'#25FD3C'}]
+// const cccolors = [{color:'BLACK',hexColor:'#000'},
+// {color:'YELLOW',hexColor:'#FEF95F'},
+// {color:'GREEN',hexColor:'#25FD3C'}]
 const ProductInfo: React.FC<ProductInfoProps> = props => {
 	const [counter,setCounter] = React.useState(1);
 	const {

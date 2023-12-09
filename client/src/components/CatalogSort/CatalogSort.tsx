@@ -65,10 +65,6 @@ const CatalogSort: React.FC = () => {
 						<li className={styles.CatalogSort__item}
 							onClick={()=>handleClickSortItem(item)}>{item.name}</li>
 					))}
-					{/* <li className={styles.CatalogSort__item}>По популярности</li>
-					<li className={styles.CatalogSort__item}>По рейтингу</li>
-					<li className={styles.CatalogSort__item}>Цены: по возрастанию</li>
-					<li className={styles.CatalogSort__item}>Цены: по убыванию</li> */}
 				</ul>
 			</div>
 		</div>

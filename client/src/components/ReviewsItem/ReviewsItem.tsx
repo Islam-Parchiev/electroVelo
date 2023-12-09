@@ -21,7 +21,6 @@ const ReviewsItem: React.FC<ReviewsItemProps> = props => {
 		tag,
 	} = props
 	return (
-		// "/images/Reviews/1.jpg"
 		<li className={styles.ReviewsItem}>
 			<div className={styles.ReviewsItem__img}>
 				<img src={imageUrl} alt="Review" />

@@ -15,47 +15,16 @@ const NavItem: React.FC<NavItemProps> = props => {
 		text,
 	} = props
 	const [active, setActive] = React.useState<boolean>(false)
+	const handleClickNavItem = ()=> {
+		setActive(!active)
+	}
 	return (
-		<li className={styles.NavItem} onClick={()=>setActive(!active)}>
-			<span className={styles.NavItem_link} onClick={()=>setActive(!active)}>
+		<li className={styles.NavItem} onClick={handleClickNavItem}>
+			<span className={styles.NavItem_link} onClick={handleClickNavItem}>
 				{text}
 			</span>
 			{active && (
 				<HeaderModal otherClasses={styles.NavItem__modal}>
-					{/* <ul className={`list-reset ${styles.Header__modalOne_list}`}>
-						<li>
-							<Link to={'/catalog'}>Горные велосипеды</Link>
-						</li>
-						<li>
-							{' '}
-							<Link to={'/catalog'}>Городские велосипеды</Link>
-						</li>
-						<li>
-							<Link to={'/catalog'}>Шоссейные велосипеды</Link>
-						</li>
-						<li>
-							<Link to={'/catalog'}>Гравийные велосипеды</Link>
-						</li>
-						<li>
-							<Link to={'/catalog'}>Трековые велосипеды</Link>
-						</li>
-
-						<li>
-							<Link to={'/catalog'}>Велосипеды для триатлона</Link>
-						</li>
-						<li>
-							<Link to={'/catalog'}>Двухподвесные велосипеды</Link>
-						</li>
-						<li>
-							<Link to={'/catalog'}>Электровелосипеды</Link>
-						</li>
-						<li>
-							<Link to={'/catalog'}>Женские велосипеды</Link>
-						</li>
-						<li>
-							<Link to={'/catalog'}>Детские велосипеды</Link>
-						</li>
-					</ul> */}
 					{children}
 				</HeaderModal>
 			)}
