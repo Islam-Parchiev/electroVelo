@@ -80,11 +80,18 @@ let ProductService = class ProductService {
         });
         return products;
     }
-    async getProducts(sortByPrice, sortByName, page, limit) {
+    async getProducts(sortByPrice, sortByName, page, limit, available, categories, materials) {
         const { skip, take } = (0, helpers_1.calculatePagination)(page, limit);
         const queryBuilder = this.productRepository.createQueryBuilder('product')
             .skip(skip)
             .take(take);
+        if (categories) {
+            queryBuilder.where('product.category = :category').where('category IN (:...categories)', { categories }).andWhere('material IN (:...materials)', { materials });
+            console.log('dasd');
+        }
+        if (available === 'true') {
+            queryBuilder.where('product.available = :available', { available: available });
+        }
         if (sortByPrice) {
             queryBuilder.orderBy('product.price', sortByPrice);
         }
@@ -96,11 +103,45 @@ let ProductService = class ProductService {
         const currentPage = page;
         return { data, currentPage, totalPages };
     }
-    findOne(id) {
-        return `This action returns a #${id} product`;
+    async getProductsByCategories(categories) {
+        const query = this.productRepository.createQueryBuilder('product');
+        query.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
+        return query.getMany();
     }
-    update(id, updateProductDto) {
-        return `This action updates a #${id} product`;
+    async getProductsByCategoriesAndMaterials(categories, materials) {
+        const query = this.productRepository.createQueryBuilder('product')
+            .andWhere('product.category  = :category')
+            .andWhere('product.material  = :material')
+            .where('category IN (:...categories)', { categories })
+            .andWhere('material IN (:...materials)', { materials });
+        return query.getMany();
+    }
+    async findOne(id) {
+        const product = await this.productRepository.findOne({
+            where: {
+                id: id
+            },
+            relations: {
+                images: true,
+                colors: true,
+                sizes: true,
+                specifications: true
+            }
+        });
+        if (!product)
+            throw new common_1.NotFoundException('Product not found');
+        return product;
+    }
+    async update(id, prevPrice, price) {
+        const product = await this.productRepository.findOne({
+            where: { id },
+        });
+        if (!product)
+            throw new common_1.NotFoundException('Product not found');
+        product.prevPrice = prevPrice;
+        product.price = price;
+        const updatedProduct = await this.productRepository.save(product);
+        return updatedProduct;
     }
     async remove(id) {
         const order = await this.productRepository.findOne({

@@ -6,7 +6,7 @@ import Card from '@components/Card/Card'
 
 import styles from './BestModels.module.scss'
 const BestModels: FC = () => {
-	const {data} = useQuery({ queryKey: ['bestProducts'], queryFn:()=> productService.getProductsByLimit(3,0)  })
+	const {data} = useQuery({ queryKey: ['bestProducts'], queryFn:()=> productService.getProductsByLimit(3,3)  })
 	return (
 		<section className={styles.BestModels}>
 			<div className={`container ${styles.BestModels__container}`}>
@@ -14,7 +14,13 @@ const BestModels: FC = () => {
 				<ul className={`list-reset ${styles.BestModels__items}`}>
 					{
 						data?.data.map((item:any)=>(
-							<Card type="primary" price={item.price} title={item.title} available={item.available} images={item.images[0].srcPath}/>
+							<Card type="primary" 
+								countrySrc={item.country} 
+								price={item.price} 
+								title={item.title} 
+								available={item.available} 
+								images={item.previewImage} 
+								id={item.id}/>
 						))
 			 }
 				</ul>

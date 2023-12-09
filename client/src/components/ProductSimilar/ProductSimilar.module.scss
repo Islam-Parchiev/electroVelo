@@ -1,0 +1,70 @@
+.ProductSimilar {
+
+	&__title {
+/* desk h3 */
+font-family: Bebas Neue Cyrillic;
+font-weight: 400;
+font-style: normal;
+font-size: 40px;
+line-height: 123%; /* 49.2px */
+letter-spacing: 2px;
+		color: var(--bl, #101010);
+	}
+	&__wrapper {
+		padding-top: 100px;
+	}
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 60px;
+	}
+	&__slider {
+		position: relative;
+	}
+		&__slide {
+		display: flex;
+		justify-content: center;
+		width: 400px;
+		&_card {
+			
+				button {
+					width: 100%;
+					max-width: 125px;
+				}
+			
+		}
+}
+&__prev {
+	position: absolute;
+	left: 0;
+	top: 40%;
+	z-index: 50;
+	display: block;
+border-radius: 100%;
+	width: 43px;
+height: 43px;
+
+&:hover {
+ background-color: var(--bl, #101010);
+ svg {
+	 fill: var(--light-color);
+ }
+}
+ }
+ &__next {
+	 position: absolute;
+	 right: 0;
+	 top: 40%;
+	 z-index: 50;
+	 display: block;
+border-radius: 100%;
+	 width: 43px;
+height: 43px;
+&:hover {
+ background-color: var(--bl, #101010);
+ svg {
+	 fill: var(--light-color);
+ }
+}
+ }
+}

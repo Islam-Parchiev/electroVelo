@@ -3,6 +3,7 @@ import { Image } from "./image.entity";
 import {Color} from "./color.entity";
 import { Spec } from "./spec.entity";
 import { Size } from "./size.entity";
+import { CartItem } from "src/cart/entities/cartItem.entity";
 @Entity()
 export class Product {
     @PrimaryGeneratedColumn({name:'product_id'})
@@ -19,10 +20,10 @@ export class Product {
     articul:string;
 
     @Column({nullable:true})
-    price:string;
+    price:number;
 
     @Column({name:'prev_price',nullable:true})
-    prewPrice:string;
+    prevPrice:number;
 
     @OneToMany(() => Size, size => size.product, {nullable:true })
     sizes:Size[];
@@ -36,11 +37,23 @@ export class Product {
 
     @OneToMany(() => Image, image => image.product, {nullable:true })
   images: Image[];
-
+   @Column({nullable:true })
+   previewImage:string;
   @OneToMany(() => Spec, spec => spec.product, {nullable:true })
     specifications:Spec[];
 
     @Column({nullable:true})
     brand:string;
 
+    @Column({nullable:true})
+    country:string;
+    
+    @Column({nullable:true})
+    category:string;
+    @Column({nullable:true})
+    material:string;
+
+    @OneToMany(() => CartItem, item => item.product, {nullable:true })
+    cartItems:CartItem;
 }
+

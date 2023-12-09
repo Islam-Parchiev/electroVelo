@@ -1,5 +1,4 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -94,22 +93,48 @@ export class ProductService {
     sortByName: 'ASC' | 'DESC',
     page: number,
     limit: number,
+    available:string,
+    categories:string[],
+    materials:string[]
   ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
     const { skip, take } = calculatePagination(page, limit);
   
     const queryBuilder = this.productRepository.createQueryBuilder('product')
-      .skip(skip)
-      .take(take)
- 
+    .skip(skip)
+    .take(take)
+    if(categories) {
+      // .where('product.category = :category',{category:category})
+      queryBuilder.where('product.category = :category').where('category IN (:...categories)', { categories }).andWhere('material IN (:...materials)', { materials })
+      console.log('dasd');
+    } 
+    // async getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<Product[]> {
+    //   const query = this.productRepository.createQueryBuilder('product')
+    //     .innerJoin('product.category', 'category')
+    //     .innerJoin('product.material', 'material')
+    //     .where('category.name IN (:...categories)', { categories })
+    //     .andWhere('material.name IN (:...materials)', { materials });
+  
+    //   return query.getMany();
+    // }
+    // if(materials) {
+    //   // .where('product.category = :category',{category:category})
+    //    queryBuilder.where('product.material = :material').where('material IN (:...materials)', { materials });
+    //   console.log('dasd');
+    // } 
+    if(available==='true'){
+       queryBuilder.where('product.available = :available',{available:available})
+    }
   
     if (sortByPrice) {
-      queryBuilder.orderBy('product.price', sortByPrice);
+       queryBuilder.orderBy('product.price', sortByPrice);
     }
   
-    if (sortByName) {
-      queryBuilder.orderBy('product.title', sortByName);
+   if (sortByName) {
+       queryBuilder.orderBy('product.title', sortByName);
     }
   
+
+    
     const [data, totalItems] = await queryBuilder.getManyAndCount();
     const totalPages = calculateTotalPages(totalItems, limit);
     const currentPage = page;
@@ -117,12 +142,52 @@ export class ProductService {
     return { data, currentPage, totalPages };
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
+
+
+  async getProductsByCategories(categories: string[]): Promise<Product[]> {
+    const query = this.productRepository.createQueryBuilder('product')
+      // .innerJoinAndSelect('product.category', 'category')
+      // .where('category IN (:...categories)', { categories });
+      query.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
+    return query.getMany();
+  }
+ async getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<Product[]> {
+      const query = this.productRepository.createQueryBuilder('product')
+        .andWhere('product.category  = :category')
+        .andWhere('product.material  = :material')
+        .where('category IN (:...categories)', { categories })
+        .andWhere('material IN (:...materials)', { materials });
+  
+      return query.getMany();
+    }
+  async findOne(id: number) {
+    const product = await this.productRepository.findOne({
+      where: {
+        id:id
+      },
+      relations:{
+        images:true,
+        colors:true,
+        sizes:true,
+        specifications:true
+      }
+    })
+    if(!product) throw new NotFoundException('Product not found')
+    return product;
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+  async update(id:number,prevPrice:number|null,price:number) {
+    const product = await this.productRepository.findOne({
+      where: {id},
+    })
+    if(!product) throw new NotFoundException('Product not found')
+  
+    product.prevPrice=prevPrice;
+    product.price=price;
+
+    const updatedProduct = await this.productRepository.save(product);
+
+    return updatedProduct
   }
 
   async remove(id: number) {

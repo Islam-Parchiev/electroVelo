@@ -1,0 +1,27 @@
+Сделать товары для секции и категорий Экиперовка Обязательно
+brands:
+Look
+
+country 
+Switzerland-Швейцария
+Italy-Италия
+France-Франция
+
+materials :
+Carbon
+Steel
+
+
+	{"color":"BLACK","hexColor":"#000"},
+		{"color":"YELLOW","hexColor":"#FEF95F"},
+		{"color":"GREEN","hexColor":"#25FD3C"}
+
+
+
+        "sizes":[{"size":"S"},{"size":"M-L"},{"size":"M"},{"size":"L"},{"size":"XL"}],
+
+category:
+Mountain
+Triatlone
+City
+

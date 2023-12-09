@@ -1,0 +1,75 @@
+.CatalogSort {
+overflow-y: hidden;
+border: 1px solid var(--3-grey, #E5E5E5);
+border-top: none;
+	border-radius: 10px;
+	width: 300px;
+	max-height: 62px;
+background: var(--white, #FFF);
+transition: max-height 0.6s ease-in-out;
+
+&__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid var(--3-grey, #E5E5E5);
+	border-radius: 10px;
+	padding: 20px 16px;
+	cursor: pointer;
+	svg {
+		transform: rotate(180deg);
+		transition: transform 0.3s ease-in-out;
+	}
+	span {
+/* desk mob cta */
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 16px;
+line-height: 123%; /* 19.68px */
+		color: var(--2-grey, #777);
+	}
+}
+
+&__body {
+	position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+}
+&__item  {
+	margin-top: 5px;
+	/* desk mob cta */
+	font-family: Inter;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 123%; /* 19.68px */
+	color: var(--2-grey, #777);
+	cursor: pointer;
+}
+&.active {
+	max-height: 200px;
+	transition: all 0.6s ease-in-out;
+	.CatalogSort__body {
+    position: unset;
+  overflow: unset;
+  margin: initial;
+  border: initial;
+  padding: 15px;
+  width: initial;
+  height: initial;
+  clip:auto;
+	
+	}
+	.CatalogSort__header {
+		svg {
+			transform: rotate(0deg);
+		}
+	}
+}
+}

@@ -23,6 +23,10 @@ __decorate([
     __metadata("design:type", String)
 ], Color.prototype, "color", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ nullable: true, name: 'hex_color' }),
+    __metadata("design:type", String)
+], Color.prototype, "hexColor", void 0);
+__decorate([
     (0, typeorm_1.ManyToOne)(() => product_entity_1.Product, (product) => product.colors, { onDelete: 'SET NULL' }),
     (0, typeorm_1.JoinColumn)({ name: 'product_id' }),
     __metadata("design:type", product_entity_1.Product)

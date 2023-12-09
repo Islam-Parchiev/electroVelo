@@ -59,6 +59,7 @@ line-height: 123%; /* 19.68px */
 		color: var(--2-grey, #777);
 	}
 	&__btn {
+	
 		// position: absolute;
 		display:flex;
 		align-items: center;
@@ -70,6 +71,12 @@ line-height: 123%; /* 19.68px */
 		// opacity: 0;
 		// visibility: hidden;
 		transition: all 0.7s  cubic-bezier(0.215, 0.610, 0.355, 1);
+		a {
+			display:flex;
+			align-items: center;
+			justify-content: center;
+			color:var(--light-color);
+		}
 	}
 	&:hover {
 		box-shadow: 0px 0px 0px 0px rgba(186, 186, 186, 0.10), 

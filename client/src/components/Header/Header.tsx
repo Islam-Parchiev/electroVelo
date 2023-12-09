@@ -1,11 +1,23 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import NavItem from '@components/NavItem/NavItem'
+import HeaderMenu from '@components/HeaderMenu/HeaderMenu'
+import HeaderSearch from '@components/HeaderSearch/HeaderSearch'
 
 import styles from './Header.module.scss'
-const Header: FC = () => {
+interface Props {
+	otherClass?: string
+}
+const Header: FC<Props> = props => {
+	const { otherClass } = props
+	const [menu, setMenu] = useState(false)
+	const [profileMenu, setProfileMenu] = useState(false)
+	const [search, setSearch] = useState(false)
 	return (
-		<header className={styles.Header}>
+		<header className={`${styles.Header} ${otherClass}`}>
 			<div className={`container ${styles.Header__container}`}>
-				<a href="/" className={styles.Header__logo}>
+				<Link to="/" className={styles.Header__logo}>
 					<svg
 						width="87"
 						height="49"
@@ -120,28 +132,299 @@ const Header: FC = () => {
 							fill="white"
 						/>
 					</svg>
-				</a>
+				</Link>
 				<nav className={styles.Header__nav}>
 					<ul className={`list-reset ${styles.Header__nav_list}`}>
 						<li className={styles.Header__nav_item}>
-							<a href="/">Trade in</a>
+							<Link to="/" className={styles.Header__nav_link}>
+								Trade in
+							</Link>
 						</li>
-						<li className={styles.Header__nav_item}>
-							<a href="/">Велосипеды</a>
-						</li>
+						<NavItem text="Велосипеды">
+							<ul
+								className={`list-reset ${styles.Header__modalOne_list}`}>
+								<li>
+									<Link to={'/catalog'}>
+										Горные велосипеды
+									</Link>
+								</li>
+								<li>
+									{' '}
+									<Link to={'/catalog'}>
+										Городские велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Шоссейные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Гравийные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Трековые велосипеды
+									</Link>
+								</li>
 
-						<li className={styles.Header__nav_item}>
-							<a href="/">Запчасти</a>
-						</li>
-						<li className={styles.Header__nav_item}>
-							<a href="/">Экипировка</a>
-						</li>
-						<li className={styles.Header__nav_item}>
-							<a href="/">Аксессуары</a>
-						</li>
-						<li className={styles.Header__nav_item}>
-							<a href="/">Велостанки</a>
-						</li>
+								<li>
+									<Link to={'/catalog'}>
+										Велосипеды для триатлона
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Двухподвесные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Электровелосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Женские велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Детские велосипеды
+									</Link>
+								</li>
+							</ul>
+						</NavItem>
+						<NavItem text="Запчасти">
+							<ul
+								className={`list-reset ${styles.Header__modalOne_list}`}>
+								<li>
+									<Link to={'/catalog'}>
+										Горные велосипеды
+									</Link>
+								</li>
+								<li>
+									{' '}
+									<Link to={'/catalog'}>
+										Городские велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Шоссейные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Гравийные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Трековые велосипеды
+									</Link>
+								</li>
+
+								<li>
+									<Link to={'/catalog'}>
+										Велосипеды для триатлона
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Двухподвесные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Электровелосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Женские велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Детские велосипеды
+									</Link>
+								</li>
+							</ul>
+						</NavItem>
+						<NavItem text="Экипировка">
+							<ul
+								className={`list-reset ${styles.Header__modalOne_list}`}>
+								<li>
+									<Link to={'/catalog'}>
+										Горные велосипеды
+									</Link>
+								</li>
+								<li>
+									{' '}
+									<Link to={'/catalog'}>
+										Городские велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Шоссейные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Гравийные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Трековые велосипеды
+									</Link>
+								</li>
+
+								<li>
+									<Link to={'/catalog'}>
+										Велосипеды для триатлона
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Двухподвесные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Электровелосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Женские велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Детские велосипеды
+									</Link>
+								</li>
+							</ul>
+						</NavItem>
+						<NavItem text="Аксессуары">
+							<ul
+								className={`list-reset ${styles.Header__modalOne_list}`}>
+								<li>
+									<Link to={'/catalog'}>
+										Горные велосипеды
+									</Link>
+								</li>
+								<li>
+									{' '}
+									<Link to={'/catalog'}>
+										Городские велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Шоссейные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Гравийные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Трековые велосипеды
+									</Link>
+								</li>
+
+								<li>
+									<Link to={'/catalog'}>
+										Велосипеды для триатлона
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Двухподвесные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Электровелосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Женские велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Детские велосипеды
+									</Link>
+								</li>
+							</ul>
+						</NavItem>
+						<NavItem text="Велостанки">
+							<ul
+								className={`list-reset ${styles.Header__modalOne_list}`}>
+								<li>
+									<Link to={'/catalog'}>
+										Горные велосипеды
+									</Link>
+								</li>
+								<li>
+									{' '}
+									<Link to={'/catalog'}>
+										Городские велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Шоссейные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Гравийные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Трековые велосипеды
+									</Link>
+								</li>
+
+								<li>
+									<Link to={'/catalog'}>
+										Велосипеды для триатлона
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Двухподвесные велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Электровелосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Женские велосипеды
+									</Link>
+								</li>
+								<li>
+									<Link to={'/catalog'}>
+										Детские велосипеды
+									</Link>
+								</li>
+							</ul>
+						</NavItem>
 					</ul>
 				</nav>
 				<div className={styles.Header__right}>
@@ -151,7 +434,8 @@ const Header: FC = () => {
 								width="24"
 								height="24"
 								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg">
+								xmlns="http://www.w3.org/2000/svg"
+								onClick={() => setSearch(!search)}>
 								<path
 									d="M16 10.5C16 14.6421 12.6421 18 8.5 18C4.35786 18 1 14.6421 1 10.5C1 6.35786 4.35786 3 8.5 3C12.6421 3 16 6.35786 
 16 10.5Z"
@@ -166,28 +450,28 @@ const Header: FC = () => {
 									stroke-linejoin="round"
 								/>
 							</svg>
+							{search && <HeaderSearch />}
 						</li>
 						<li className={styles.Header__right_item}>
-							<a href="/">
-								<svg
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M14 15H6C3.79086 15 2 16.7909 2 19V21H10H18V19C18 16.7909 16.2091 15 14 15Z"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-									<path
-										d="M10 11C12.2091 11 14 9.20914 14 7C14 4.79086 12.2091 3 10 3C7.79086 3 6 4.79086 6 7C6 9.20914 7.79086 11 10 11Z"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-								</svg>
-							</a>
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								xmlns="http://www.w3.org/2000/svg"
+								onClick={() => setProfileMenu(!profileMenu)}>
+								<path
+									d="M14 15H6C3.79086 15 2 16.7909 2 19V21H10H18V19C18 16.7909 16.2091 15 14 15Z"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+								<path
+									d="M10 11C12.2091 11 14 9.20914 14 7C14 4.79086 12.2091 3 10 3C7.79086 3 6 4.79086 6 7C6 9.20914 7.79086 11 10 11Z"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
 						</li>
 						<li className={styles.Header__right_item}>
 							<a href="/">
@@ -243,13 +527,54 @@ const Header: FC = () => {
 						</li>
 					</ul>
 
-					<div className={styles.Header__burger}>
+					<div
+						className={styles.Header__burger}
+						onClick={() => setMenu(!menu)}>
 						<span>.</span>
 						<span>.</span>
 						<span>.</span>
 					</div>
 				</div>
 			</div>
+			{menu && (
+				<HeaderMenu handleOpen={setMenu}>
+					<div className={styles.Header__menu_wrapper}>
+						<h2 className={styles.Header__menu_title}>
+							Доп. Информация
+						</h2>
+						<ul className={`list-reset ${styles.Header__menu_list}`}>
+							<li className={styles.Header__menu_item}>
+								<a href="/">О нас</a>
+							</li>
+							<li className={styles.Header__menu_item}>
+								<a href="/">Веломастерская</a>
+							</li>
+							<li className={styles.Header__menu_item}>
+								<a href="/">Хранение</a>
+							</li>
+
+							<li className={styles.Header__menu_item}>
+								<a href="/">Гарантии</a>
+							</li>
+							<li className={styles.Header__menu_item}>
+								<a href="/">Пользовательское соглашение</a>
+							</li>
+							<li className={styles.Header__menu_item}>
+								<a href="/">Доставка и оплата</a>
+							</li>
+							<li className={styles.Header__menu_item}>
+								<a href="/">Блог</a>
+							</li>
+							<li className={styles.Header__menu_item}>
+								<a href="/">Контакты</a>
+							</li>
+						</ul>
+					</div>
+				</HeaderMenu>
+			)}
+			{profileMenu && (
+				<HeaderMenu handleOpen={setProfileMenu}>content</HeaderMenu>
+			)}
 		</header>
 	)
 }

@@ -22,10 +22,11 @@
     "baseUrl": "src",
     "paths": {
       "@components/*": ["components/*"],
-      "@styled/*": ["components/styled/*"],
-      "@pages/*": ["components/pages/*"],
+      "@styled/*": ["styled/*"],
+      "@pages/*": ["pages/*"],
       "@assets/*": ["assets/*"],
       "@services/*": ["services/*"],
+      "@redux/*": ["redux/*"],
       "*": ["types/*"]
     },
   },

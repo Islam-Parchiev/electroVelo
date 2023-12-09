@@ -8,6 +8,9 @@ export class Color {
     @Column()
     color:string;
 
+    @Column({nullable:true,name:'hex_color'})
+    hexColor:string;
+
     @ManyToOne(()=>Product,(product)=>product.colors,{onDelete:'SET NULL'})
     @JoinColumn({name:'product_id'})
     product:Product;

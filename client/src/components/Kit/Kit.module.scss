@@ -3,6 +3,14 @@
 		display: flex;
 		justify-content: center;
 		width: 400px;
+		&_card {
+			
+				button {
+					width: 100%;
+					max-width: 125px;
+				}
+			
+		}
 	}
 	&__card {
 		width: 400px;

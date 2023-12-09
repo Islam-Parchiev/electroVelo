@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC,useState } from 'react'
 
 import styles from './Checkbox.module.scss'
 interface ICheckbox {
@@ -6,21 +6,32 @@ interface ICheckbox {
 	otherClass?:string;
 	check?:any;
 	setCheck?:any;
+	value?:any;
+	setValue?:any;
+	count?:number;
+	countClass?:string;
 }
 const Checkbox:FC<ICheckbox> = (props) => {
+	
 	const {
 		text,
 		otherClass='',
+		value,
+		setValue,
 		check,
 		setCheck,
+		count,
+		countClass,
+		
 	} = props;
 	return (
-		<label className={`${styles.customCheckbox} ${otherClass}`}>
+		<label className={`${styles.customCheckbox} ${otherClass}`} onClick={()=>setValue(value)}>
 			<input 
 				className={styles.hiddenCheckbox} 
 				type="checkbox" 
 				checked={check}
-				onChange={()=>setCheck(!check)}/>
+				value={value}
+				onChange={setCheck}/>
 			<div className={styles.checkbox}>
 				<svg
 					className={styles.checkmark}
@@ -36,6 +47,9 @@ const Checkbox:FC<ICheckbox> = (props) => {
 				</svg>
 			</div>
 			<span>{text}</span>
+			{
+				count && <span className={countClass}>({count})</span>
+			}
 		</label>
 	)
 }

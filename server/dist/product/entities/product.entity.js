@@ -15,6 +15,7 @@ const image_entity_1 = require("./image.entity");
 const color_entity_1 = require("./color.entity");
 const spec_entity_1 = require("./spec.entity");
 const size_entity_1 = require("./size.entity");
+const cartItem_entity_1 = require("../../cart/entities/cartItem.entity");
 let Product = class Product {
 };
 __decorate([
@@ -35,12 +36,12 @@ __decorate([
 ], Product.prototype, "articul", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], Product.prototype, "price", void 0);
 __decorate([
     (0, typeorm_1.Column)({ name: 'prev_price', nullable: true }),
-    __metadata("design:type", String)
-], Product.prototype, "prewPrice", void 0);
+    __metadata("design:type", Number)
+], Product.prototype, "prevPrice", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => size_entity_1.Size, size => size.product, { nullable: true }),
     __metadata("design:type", Array)
@@ -58,6 +59,10 @@ __decorate([
     __metadata("design:type", Array)
 ], Product.prototype, "images", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Product.prototype, "previewImage", void 0);
+__decorate([
     (0, typeorm_1.OneToMany)(() => spec_entity_1.Spec, spec => spec.product, { nullable: true }),
     __metadata("design:type", Array)
 ], Product.prototype, "specifications", void 0);
@@ -65,6 +70,22 @@ __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Product.prototype, "brand", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Product.prototype, "country", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Product.prototype, "category", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Product.prototype, "material", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => cartItem_entity_1.CartItem, item => item.product, { nullable: true }),
+    __metadata("design:type", cartItem_entity_1.CartItem)
+], Product.prototype, "cartItems", void 0);
 Product = __decorate([
     (0, typeorm_1.Entity)()
 ], Product);
