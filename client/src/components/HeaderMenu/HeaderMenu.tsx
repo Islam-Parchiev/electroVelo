@@ -5,11 +5,13 @@ import styles from './HeaderMenu.module.scss'
 interface HeaderMenuProps {
 	value?:boolean;
 	handleOpen?:any;
+	children:any;
 }
 
 const HeaderMenu:React.FC<HeaderMenuProps> = (props) => {
 	const {
 		handleOpen,
+		children,
 	} = props;
 	const menuRef=React.useRef<HTMLDivElement>(null);
 
@@ -47,35 +49,7 @@ const HeaderMenu:React.FC<HeaderMenuProps> = (props) => {
 						<line x1="23.3341" y1="0.707107" x2="0.706641" y2="23.3345" stroke="#B3B3B3" stroke-width="2"/>
 					</svg>
 				</button>
-				<h2 className={styles.HeaderMenu__title}>Доп. Информация</h2>
-				<ul className={`list-reset ${styles.HeaderMenu__list}`}>
-					<li className={styles.HeaderMenu__item}>
-						<a href="/">О нас</a>
-					</li>
-					<li className={styles.HeaderMenu__item}>
-						<a href="/">Веломастерская</a>
-					</li>
-					<li className={styles.HeaderMenu__item}>
-						<a href="/">Хранение</a>
-					</li>
-
-					<li className={styles.HeaderMenu__item}>
-						<a href="/">Гарантии</a>
-					</li>
-					<li className={styles.HeaderMenu__item}>
-						<a href="/">Пользовательское соглашение</a>
-					</li>
-					<li className={styles.HeaderMenu__item}>
-						<a href="/">Доставка и оплата</a>
-					</li>
-					<li className={styles.HeaderMenu__item}>
-						<a href="/">Блог</a>
-					</li>
-					<li className={styles.HeaderMenu__item}>
-						<a href="/">Контакты</a>
-					</li>
-					
-				</ul>
+				{children}
 
 			</div>
 			

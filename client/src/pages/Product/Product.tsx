@@ -28,7 +28,7 @@ const Product:React.FC = () => {
 			
 				<ProductMain product={isSuccess&&data.data} loading={isLoading} success={isSuccess}/>
 				<ProductDescription/>
-			<ProductSpecifications  
+				<ProductSpecifications  
 					 productSpecifications={isSuccess&&data?.data?.specifications} 
 					 loading={isLoading}
 					 success={isSuccess}/>

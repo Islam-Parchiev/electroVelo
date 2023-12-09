@@ -17,22 +17,24 @@
 			@include flex-v-center;
 			gap: 25px;
 		}
+
 		&_link {
-			
-				text-decoration: none;
-				color: var(--light-color);
+
+			text-decoration: none;
+			color: var(--light-color);
+
 			&:hover {
-				
+
 				color: var(--orange, #F57520);
-				
+
 			}
-			
+
 		}
 
 		&_item {
 			position: relative;
 
-			
+
 		}
 	}
 
@@ -56,6 +58,7 @@
 					stroke: var(--orange, #F57520);
 				}
 			}
+
 			&:first-child {
 				position: relative;
 			}
@@ -104,7 +107,7 @@
 			// gap: 20px;
 			// flex-wrap: wrap;
 			display: grid;
-			grid-template-columns: repeat(3,1fr);
+			grid-template-columns: repeat(3, 1fr);
 
 			li {
 				color: var(--3-grey, #E5E5E5);
@@ -119,11 +122,56 @@
 				align-items: center;
 				justify-content: start;
 				text-align: start;
+
 				a {
 					color: var(--3-grey, #E5E5E5);
+
 					&:hover {
 						color: var(--orange, #F57520);
 					}
+				}
+			}
+		}
+	}
+
+	&__menu {
+		&_list {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			text-align: left;
+			gap: 10px;
+		}
+
+		&_title {
+			margin-bottom: 30px;
+
+			/* desk h3 */
+			font-family: Bebas Neue Cyrillic;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 40px;
+			line-height: 123%;
+			/* 49.2px */
+			letter-spacing: 2px;
+			color: var(--black-color);
+		}
+
+		&_item {
+			a {
+				/* desk mob med 18 */
+				font-family: Inter;
+				font-weight: 500;
+				font-style: normal;
+				font-size: 18px;
+				line-height: 160%;
+				/* 28.8px */
+				letter-spacing: 0.18px;
+				color: var(--bl, #101010);
+
+				&:hover {
+					text-decoration: underline;
+					color: var(--orange);
 				}
 			}
 		}
