@@ -1,0 +1,81 @@
+.AuthForm {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 30px;
+	&__form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+	&__input {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		width: 370px;
+		span {
+/* desk mob text 16 */
+font-family: Inter;
+font-weight: 400;
+font-style: normal;
+font-size: 16px;
+line-height: 160%; /* 25.6px */
+			color: var(--1-grey, #4C4C4C);
+
+		}
+		input {
+				border-radius: 10px;
+			padding: 0 10px;
+				width: 100%;
+				height: 58px;
+background: var(--bg, #F8F8F8);
+		}
+	}
+	&__header {
+		display: flex;
+		align-items: end;
+		gap: 20px;
+		button {
+/* desk mob med 18 */
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 18px;
+line-height: 160%; /* 28.8px */
+letter-spacing: 0.18px;
+			color: var(--2-grey, #777);
+&.active {
+/* desk mob 24 */
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 24px;
+line-height: 160%; /* 38.4px */
+letter-spacing: 0.24px;
+	color: var(--bl, #101010);
+}
+		}
+	}
+	&__submit {
+		width: 100%;
+	}
+	&__bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+	}
+	&__checkbox {
+		gap: 15px;
+		span {
+/* desk mob 14 */
+font-family: Inter;
+font-weight: 400;
+font-style: normal;
+font-size: 14px;
+line-height: 160%; /* 22.4px */
+			color: var(--1-grey, #4C4C4C);
+		}
+	}
+}

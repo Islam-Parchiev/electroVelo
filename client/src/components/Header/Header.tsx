@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import NavItem from '@components/NavItem/NavItem'
 import HeaderMenu from '@components/HeaderMenu/HeaderMenu'
 import HeaderSearch from '@components/HeaderSearch/HeaderSearch'
+import AuthForm from '@components/AuthForm/AuthForm'
 
 import styles from './Header.module.scss'
 interface Props {
@@ -573,7 +574,9 @@ const Header: FC<Props> = props => {
 				</HeaderMenu>
 			)}
 			{profileMenu && (
-				<HeaderMenu handleOpen={setProfileMenu}>content</HeaderMenu>
+				<HeaderMenu handleOpen={setProfileMenu}>
+					<AuthForm/>
+				</HeaderMenu>
 			)}
 		</header>
 	)
