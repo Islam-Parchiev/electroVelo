@@ -12,86 +12,60 @@
 		height: 100%;
 	}
 
-	&__nav {
-		&_list {
-			@include flex-v-center;
-			gap: 25px;
-		}
+	// &__nav {
+	// 	&_list {
+	// 		@include flex-v-center;
+	// 		gap: 25px;
+	// 	}
 
-		&_link {
+	// 	&_link {
 
-			text-decoration: none;
-			color: var(--light-color);
+	// 		text-decoration: none;
+	// 		color: var(--light-color);
 
-			&:hover {
+	// 		&:hover {
 
-				color: var(--orange, #F57520);
+	// 			color: var(--orange, #F57520);
 
-			}
+	// 		}
 
-		}
+	// 	}
 
-		&_item {
-			position: relative;
+	// 	&_item {
+	// 		position: relative;
 
 
-		}
-	}
+	// 	}
+	// }
 
-	&__right {
-		@include flex-v-center;
-		gap: 40px;
+	// &__right {
+	// 	@include flex-v-center;
+	// 	gap: 40px;
 
-		&_list {
-			@include flex-v-center;
-			gap: 25px;
-		}
+	// 	&_list {
+	// 		@include flex-v-center;
+	// 		gap: 25px;
+	// 	}
 
-		&_item {
-			cursor: pointer;
+	// 	&_item {
+	// 		cursor: pointer;
 
-			svg {
-				fill: none;
-				stroke: var(--light-color);
+	// 		svg {
+	// 			fill: none;
+	// 			stroke: var(--light-color);
 
-				&:hover {
-					stroke: var(--orange, #F57520);
-				}
-			}
+	// 			&:hover {
+	// 				stroke: var(--orange, #F57520);
+	// 			}
+	// 		}
 
-			&:first-child {
-				position: relative;
-			}
-		}
-	}
+	// 		&:first-child {
+	// 			position: relative;
+	// 		}
+	// 	}
+	// }
 
-	&__burger {
-		@include flex-column-end;
-		width: 33px;
-		height: 21px;
-		cursor: pointer;
 
-		span {
-			display: block;
-
-			width: 100%;
-			height: 2px;
-			font-size: 0;
-			background-color: var(--light-color);
-
-			&:not(:first-child) {
-				margin-top: 6px;
-				width: 80%;
-			}
-
-		}
-
-		&:hover {
-			span {
-				background-color: var(--orange, #F57520);
-			}
-		}
-	}
 
 	&__modalOne {
 

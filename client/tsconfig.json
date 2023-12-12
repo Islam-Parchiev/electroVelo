@@ -27,6 +27,7 @@
       "@assets/*": ["assets/*"],
       "@services/*": ["services/*"],
       "@redux/*": ["redux/*"],
+      "@images/*": ["../public/images/*"],
       "*": ["types/*"]
     },
   },

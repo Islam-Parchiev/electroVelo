@@ -1,0 +1,55 @@
+@import "../../scss/mixins/mini";
+.HeaderRight {
+
+		@include flex-v-center;
+		gap: 40px;
+
+		&__list {
+			@include flex-v-center;
+			gap: 25px;
+		}
+
+		&__item {
+			cursor: pointer;
+
+			svg {
+				fill: none;
+				stroke: var(--light-color);
+
+				&:hover {
+					stroke: var(--orange, #F57520);
+				}
+			}
+
+			&:first-child {
+				position: relative;
+			}
+		}
+		&__burger {
+			@include flex-column-end;
+			width: 33px;
+			height: 21px;
+			cursor: pointer;
+	
+			span {
+				display: block;
+	
+				width: 100%;
+				height: 2px;
+				font-size: 0;
+				background-color: var(--light-color);
+	
+				&:not(:first-child) {
+					margin-top: 6px;
+					width: 80%;
+				}
+	
+			}
+	
+			&:hover {
+				span {
+					background-color: var(--orange, #F57520);
+				}
+			}
+		}
+}
