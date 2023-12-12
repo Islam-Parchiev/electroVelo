@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Checkbox from '@components/Checkbox/Checkbox';
 import Button from '@components/Button/Button';
-
+import FormInput from '@components/FormInput/FormInput';
 
 import { ActiveForm } from '@components/Header/Header';
 
@@ -30,14 +30,8 @@ const AuthForm:React.FC<AuthFormProps> = (props) => {
 			</div>
 
 			<form className={styles.AuthForm__form}>
-				<label className={styles.AuthForm__input}>
-					<span>Имя пользователя</span>
-					<input type="text" className="input-reset"/>
-				</label>
-				<label className={styles.AuthForm__input}>
-					<span>Пароль</span>
-					<input type="text" className="input-reset"/>
-				</label>
+				<FormInput title="E-mail"/>
+				<FormInput title="Пароль"/>
 
 				<Button otherClass={styles.AuthForm__submit}>
 					Войти
