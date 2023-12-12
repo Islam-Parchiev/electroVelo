@@ -24,7 +24,7 @@ __decorate([
     __metadata("design:type", user_entity_1.User)
 ], Cart.prototype, "user", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => cartItem_entity_1.CartItem, cartItem => cartItem.cart, { cascade: true }),
+    (0, typeorm_1.OneToMany)(() => cartItem_entity_1.CartItem, cartItem => cartItem.cart, { cascade: true, nullable: true }),
     __metadata("design:type", Array)
 ], Cart.prototype, "items", void 0);
 Cart = __decorate([

@@ -48,7 +48,8 @@ export class ProductService {
       
     }))   
     const colorrs =await colors.map(color => this.colorRepository.create({
-      color:color.color
+      color:color.color,
+      hexColor:color.hexColor
      
    }))                   
     product.sizes = sizess;                                            
@@ -202,7 +203,7 @@ export class ProductService {
       }
     })
     if(!order) throw new NotFoundException('Product not found')
-      return await this.productRepository.delete(id);
+      return await this.productRepository.delete(+id);
     }
 }
 // "productData":{

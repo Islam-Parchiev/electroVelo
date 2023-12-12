@@ -10,6 +10,6 @@ export class Cart {
   @ManyToOne(() => User, user => user.carts)
   user: User;
 
-  @OneToMany(() => CartItem, cartItem => cartItem.cart, { cascade: true })
+  @OneToMany(() => CartItem, cartItem => cartItem.cart, { cascade: true,nullable:true })
   items: CartItem[];
 }
