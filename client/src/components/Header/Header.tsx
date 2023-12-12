@@ -5,16 +5,22 @@ import NavItem from '@components/NavItem/NavItem'
 import HeaderMenu from '@components/HeaderMenu/HeaderMenu'
 import HeaderSearch from '@components/HeaderSearch/HeaderSearch'
 import AuthForm from '@components/AuthForm/AuthForm'
+import RegistrationForm from '@components/RegistrationForm/RegistrationForm'
 
 import styles from './Header.module.scss'
 interface Props {
 	otherClass?: string
+}
+export enum ActiveForm {
+	Auth='auth',
+	Registr='registr'
 }
 const Header: FC<Props> = props => {
 	const { otherClass } = props
 	const [menu, setMenu] = useState(false)
 	const [profileMenu, setProfileMenu] = useState(false)
 	const [search, setSearch] = useState(false)
+	const [form,setForm]=useState<ActiveForm>(ActiveForm.Auth);
 	return (
 		<header className={`${styles.Header} ${otherClass}`}>
 			<div className={`container ${styles.Header__container}`}>
@@ -575,7 +581,9 @@ const Header: FC<Props> = props => {
 			)}
 			{profileMenu && (
 				<HeaderMenu handleOpen={setProfileMenu}>
-					<AuthForm/>
+					{form ===ActiveForm.Auth ?	<AuthForm handleActiveForm={setForm}/>:<RegistrationForm handleActiveForm={setForm}/>}
+					{/* // <AuthForm/> */}
+					{/* <RegistrationForm/> */}
 				</HeaderMenu>
 			)}
 		</header>

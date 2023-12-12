@@ -11,6 +11,7 @@ interface ProductInfoProps {
 	success:any;
 	product:ICard;
 }
+
 const colorsHex:string[] = ['#FEF95F','#0D7F19','#FFD536','#FE7E56','#AC632C','#FD0012'];
 // const cccolors = [{color:'BLACK',hexColor:'#000'},
 // {color:'YELLOW',hexColor:'#FEF95F'},
@@ -283,11 +284,11 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 						<li className={styles.ProductSizes__item}>
 							S
 						</li> */}
-						{/* {loading ? (
+						{loading ? (
 						'Loading...'
-					) : success ? (product.sizes?.map(item=> <li className={`${styles.ProductSizes__item} ${styles.active}`}>
+					) : success ? (product.sizes?.map((item)=> <li className={`${styles.ProductSizes__item} ${styles.active}`}>
 							{item.size}
-						</li>)):'Error'} */}
+						</li>)):'Error'}
 					</ul>
 				</div>
 				<div className={styles.ProductInfo__colors}>
