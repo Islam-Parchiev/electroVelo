@@ -1,4 +1,4 @@
-import { IResponseUserData, IUserData, IUser } from 'User'
+import { IResponseUserData, IUserData, IUser, IAuthUserData } from 'User'
 
 import { instance } from '../api/axios.api'
 
@@ -9,7 +9,7 @@ export const AuthService = {
 	},
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	async login(userData: IUserData): Promise<IUser | undefined> {
+	async login(userData: IAuthUserData): Promise<IUser | undefined> {
 		const { data } = await instance.post<IUser>('auth/login', userData)
 		return data
 	},

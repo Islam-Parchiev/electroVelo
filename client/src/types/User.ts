@@ -1,6 +1,7 @@
 export interface IUser {
 	id:number;
 	email:string;
+	name:string;
 	token:string;
 	
 }
@@ -21,7 +22,17 @@ export interface IResponseUser {
 	// message:string;
 }
 
+// export interface IResponseUserData {
+//  token:string
+//  user:IResponseUser
+// }
 export interface IResponseUserData {
- token:string
- user:IResponseUser
+	id:number;
+	email:string;
+	name:string;
+	token:string;
+}
+export interface IAuthUserData {
+	email:string;
+	password:string;
 }

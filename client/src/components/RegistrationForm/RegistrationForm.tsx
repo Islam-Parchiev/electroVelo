@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { useForm, SubmitHandler, Controller } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
+
+import { AuthService } from '@services/auth.service'
 
 import Button from '@components/Button/Button'
-import FormInput from '@components/FormInput/FormInput'
-
 import { ActiveForm } from '@components/Header/Header'
 
 import styles from './RegistrationForm.module.scss'
@@ -18,18 +18,22 @@ const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 
 	const {
 		register,
-		control,
 		handleSubmit,
 		formState: { errors },
 		reset,
-		setValue,
 		watch,
 	} = useForm<{ name: string; email: string; password: any; confirmPassword: any }>({
 		mode: 'onChange',
 	})
 
 	const onSubmit: SubmitHandler<any> = data => {
-		alert(`Your name ${data.name}`)
+		alert(`Your name ${data}`)
+		console.log(data);
+		console.log(AuthService.registration({
+			name:data.name,
+			email:data.email,
+			password:data.password,
+		}))
 		reset()
 	}
 	return (
@@ -108,10 +112,12 @@ const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 				<Button otherClass={styles.RegistrationForm__submit}>
 					Регистрация
 				</Button>
-				<div className={styles.RegistrationForm__bottom}>bottm</div>
 			</form>
 		</div>
 	)
 }
 
 export default RegistrationForm
+// John22233
+// john1122@gmail.com
+// 11jj22jjA
