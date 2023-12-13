@@ -6,6 +6,7 @@ import { AuthService } from '@services/auth.service'
 
 import Button from '@components/Button/Button'
 import { ActiveForm } from '@components/Header/Header'
+import FormInput from '@components/FormInput/FormInput'
 
 import styles from './RegistrationForm.module.scss'
 
@@ -36,6 +37,31 @@ const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 		}))
 		reset()
 	}
+	const valName =		{...register('name', {
+		required: 'Name is require fielddddd!',
+		maxLength: {value:10,message:'test'},
+		minLength: 2,
+	})}
+	const valEmail = 	{...register('email', {
+		required: 'Email is require field!',
+
+		pattern: {
+			value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+
+			message: 'Please enter valid email!',
+		},
+	})}
+	const valPassword = {...register('password', {
+		required: 'Password is require field!',
+	})}
+	const valConfirmPassword =	{...register('confirmPassword', {
+		required: true,
+		validate: (val: string) => {
+			if (watch('password') !== val) {
+				return 'Your passwords do no match'
+			}
+		},
+	})}
 	return (
 		<div className={styles.RegistrationForm}>
 			<div className={styles.RegistrationForm__header}>
@@ -49,66 +75,32 @@ const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 			<form
 				className={styles.RegistrationForm__form}
 				onSubmit={handleSubmit(onSubmit)}>
-				{/* <FormInput title="Имя пользователя"/>
-				<FormInput title="E-mail"/>
-				<FormInput title="Пароль"/>
-				<FormInput title="Подтвердите пароль"/> */}
-				<label className={styles.FormInput}>
-					<span>Имя пользователя</span>
-					<input
-						{...register('name', {
-							required: 'Name is require field!',
-							maxLength: 10,
-							minLength: 2,
-						})}
-						type="text"
-						className="input-reset"
-					/>
-					{errors?.name && (
-						<div style={{ color: 'red' }}>{errors.name.message}</div>
-					)}
-				</label>
-				<label className={styles.FormInput}>
-					<span>E-mail</span>
-					<input
-						{...register('email', {
-							required: 'Emaile is require field!',
+				<FormInput 
+					labelTitle="Имя пользователя" 
+					validationSchema={valName} 
+					error={errors?.name?.message}
+					type="name"
+				/>
+				<FormInput 
+					labelTitle="Email" 
+					validationSchema={valEmail} 
+					error={errors?.email?.message}
+					type="email"
+				/>
 
-							pattern: {
-								value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+				<FormInput 
+					labelTitle="Пароль" 
+					validationSchema={valPassword} 
+					error={errors?.password?.message}
+					type="password"
+				/>
 
-								message: 'Please enter valid email!',
-							},
-						})}
-						className="input-reset"
+				<FormInput
+					labelTitle="Подтвердите пароль"
+					validationSchema={valConfirmPassword}
+					error={errors?.confirmPassword?.message}
+					type="password"
 					/>
-					{errors.email && (
-						<div style={{ color: 'red' }}>{errors.email.message}</div>
-					)}
-				</label>
-				<label className={styles.FormInput}>
-					<span>Пароль</span>
-					<input
-						{...register('password', {
-							required: true,
-						})}
-						className="input-reset"
-					/>
-				</label>
-				<label className={styles.FormInput}>
-					<span>Подтвердите пароль</span>
-					<input
-						{...register('confirmPassword', {
-							required: true,
-							validate: (val: string) => {
-								if (watch('password') !== val) {
-									return 'Your passwords do no match'
-								}
-							},
-						})}
-						className="input-reset"
-					/>
-				</label>
 				<Button otherClass={styles.RegistrationForm__submit}>
 					Регистрация
 				</Button>
@@ -121,3 +113,7 @@ export default RegistrationForm
 // John22233
 // john1122@gmail.com
 // 11jj22jjA
+
+// test23455
+// testtt0005@gmail.com
+// test123123

@@ -1,12 +1,15 @@
 import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+
 import HeaderMenu from '@components/HeaderMenu/HeaderMenu'
 import AuthForm from '@components/AuthForm/AuthForm'
 import RegistrationForm from '@components/RegistrationForm/RegistrationForm'
 import HeaderNav from '@components/HeaderNav/HeaderNav'
+import MyAccount from '@components/MyAccount/MyAccount'
 import HeaderRight from '@components/HeaderRight/HeaderRight'
 
+import { useAuth } from '../../hooks/useAuth';
 
 
 import styles from './Header.module.scss'
@@ -23,6 +26,7 @@ const Header: FC<Props> = props => {
 	const [profileMenu, setProfileMenu] = useState(false)
 	const [search, setSearch] = useState(false)
 	const [form,setForm]=useState<ActiveForm>(ActiveForm.Auth);
+	const auth = useAuth();
 	return (
 		<header className={`${styles.Header} ${otherClass}`}>
 			<div className={`container ${styles.Header__container}`}>
@@ -184,7 +188,7 @@ const Header: FC<Props> = props => {
 			)}
 			{profileMenu && (
 				<HeaderMenu handleOpen={setProfileMenu}>
-					{form ===ActiveForm.Auth ?	<AuthForm handleActiveForm={setForm}/>:<RegistrationForm handleActiveForm={setForm}/>}
+					{auth ? <MyAccount/> :form ===ActiveForm.Auth ?	<AuthForm handleActiveForm={setForm}/>:<RegistrationForm handleActiveForm={setForm}/>}
 				</HeaderMenu>
 			)}
 		</header>
