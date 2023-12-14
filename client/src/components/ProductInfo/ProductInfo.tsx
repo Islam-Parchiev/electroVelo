@@ -1,41 +1,64 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+
+import { useAppDispatch,useAppSelector } from '@redux/store'
+
+import { changeSize,changeColor } from '@redux/slices/productSlice'
 
 import Button from '@components/Button/Button'
 
-import { ICard } from 'Card';
+import { ICard } from 'Card'
 
 import styles from './ProductInfo.module.scss'
 
+
 interface ProductInfoProps {
-	loading:any;
-	success:any;
-	product:ICard;
+	loading: any
+	success: any
+	product: ICard
 }
 
-const colorsHex:string[] = ['#FEF95F','#0D7F19','#FFD536','#FE7E56','#AC632C','#FD0012'];
-// const cccolors = [{color:'BLACK',hexColor:'#000'},
-// {color:'YELLOW',hexColor:'#FEF95F'},
-// {color:'GREEN',hexColor:'#25FD3C'}]
 const ProductInfo: React.FC<ProductInfoProps> = props => {
-	const [counter,setCounter] = React.useState(1);
-	const {
-		
-		loading,
-		success,
-		product,
-
-	} = props;
-	console.log('Info...........',product);
+	const [counter, setCounter] = React.useState(1)
+	const { loading, success, product } = props
+	console.log('Info...........', product)
+	const dispatch = useAppDispatch();
+	const productSize = useAppSelector((state)=> state.product.size);
+	const productColor= useAppSelector((state)=> state.product.color);
+	console.log(productSize);
+	// eslint-disable-next-line react-hooks/rules-of-hooks
+	//  dispatch(changeSize(success&&product&&product.sizes&&product.sizes[0].size))
+	useEffect(()=> {
+			 dispatch(changeSize(success&&product&&product.sizes&&product.sizes[0].size))
+			 dispatch(changeColor(success&&product&&product.colors&&product.colors[0].color))
+	},[])
+	
+	 const handleClickSize = (size:string)=> {
+		dispatch(changeSize(size));
+	 }
+	 const handleClickColor = (color:string) =>{
+		dispatch(changeColor(color))
+	 }
 	return (
 		<div className={styles.ProductInfo}>
 			<div className={styles.ProductInfo__top}>
-				<h1 className={styles.ProductInfo__title}>
-					{product.title}
-				</h1>
+				<h1 className={styles.ProductInfo__title}>{product.title}</h1>
 				<div className={styles.ProductInfo__social}>
 					<div>
-						<span>{loading?'loading...':success?product.brand:'Error'}</span>
-						<span>Артикул : {loading?'loading...':success?product.articul:'Error'}</span>
+						<span>
+							{loading
+								? 'loading...'
+								: success
+									? product.brand
+									: 'Error'}
+						</span>
+						<span>
+							Артикул :{' '}
+							{loading
+								? 'loading...'
+								: success
+									? product.articul
+									: 'Error'}
+						</span>
 						<span className={styles.ProductInfo__available}>
 							В наличии
 						</span>
@@ -256,57 +279,85 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 					</ul>
 				</div>
 				<div className={styles.ProductInfo__price}>
-					<span>{loading?'loading...':success?product.price:'Error'}₽</span>
-					<span className={styles.ProductInfo__prevPrice}>
-					522 000 ₽
+					<span>
+						{loading ? 'loading...' : success ? product.price : 'Error'}
+						₽
 					</span>
+					<span className={styles.ProductInfo__prevPrice}>522 000 ₽</span>
 				</div>
 				<div className={styles.ProductInfo__descr}>
 					<p>
-						{loading?'loading...':success?product.description:'Error'}
+						{loading
+							? 'loading...'
+							: success
+								? product.description
+								: 'Error'}
 					</p>
 				</div>
 				<div className={styles.ProductInfo__sizes}>
 					<h3>Размер:</h3>
 					<ul className={`list-reset ${styles.ProductSizes}`}>
-						{loading ? (
-							'Loading...'
-						) : success ? (product.sizes?.map((item)=> <li className={`${styles.ProductSizes__item} ${styles.active}`}>
-							{item.size}
-						</li>)):'Error'}
+						{loading
+							? 'Loading...'
+							: success
+								? product.sizes?.map(item => (
+									<li
+										className={`${styles.ProductSizes__item} ${item.size===productSize&&styles.active}`}
+										onClick={()=>handleClickSize(item.size)}>
+										{item.size}
+									</li>
+							  ))
+								: 'Error'}
 					</ul>
 				</div>
 				<div className={styles.ProductInfo__colors}>
-				<h3>Цвет:</h3>
+					<h3>Цвет:</h3>
 					<ul className={`list-reset ${styles.ProductColors}`}>
-						{/* {colorsHex.map(color => <li style={{backgroundColor:color}} className={styles.ProductColors__item}></li>)} */}
-						{loading ? (
-							'Loading...'
-						) : success ? (product.colors?.map(color => <li style={{backgroundColor:color.hexColor}} className={styles.ProductColors__item}></li>)):'Error'}
+						{loading
+							? 'Loading...'
+							: success
+								? product.colors?.map(color => (
+									<li
+										style={{
+											backgroundColor: color.hexColor,
+										}}
+										className={`${styles.ProductColors__item} ${color.color===productColor&&styles.active}`}
+										onClick={()=>handleClickColor(color.color)}></li>
+							  ))
+								: 'Error'}
 					</ul>
 				</div>
 			</div>
 			<div className={styles.ProductInfo__bottom}>
 				<div className={styles.ProductCounter}>
-					<button 
+					<button
 						className={`btn-reset ${styles.ProductCounter__btn}`}
-						onClick={()=> setCounter(counter-1)}>
-							-
+						onClick={() => setCounter(counter - 1)}>
+						-
 					</button>
 					<span>{counter}</span>
-					<button 
+					<button
 						className={`btn-reset ${styles.ProductCounter__btn}`}
-						onClick={()=> setCounter(counter+1)}>
-							+
+						onClick={() => setCounter(counter + 1)}>
+						+
 					</button>
 				</div>
 				<Button otherClass={styles.ProductInfo__addToCart}>В корзину</Button>
 				<Button otherClass={`${styles.ProductInfo__addToFavorites}`}>
-					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" >
-						<path d="M4.67757 14.34L16.5 26.4464L28.3224 14.34C29.6367 12.9941 30.375 11.1688 30.375 9.26553C30.375 
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="32"
+						height="29"
+						viewBox="0 0 32 29">
+						<path
+							d="M4.67757 14.34L16.5 26.4464L28.3224 14.34C29.6367 12.9941 30.375 11.1688 30.375 9.26553C30.375 
 							5.30217 27.2374 2.08923 23.367 2.08923C21.5084 2.08923 19.7259 2.84531 18.4117 4.19112L16.5 6.14876L14.5883 
 							4.19112C13.274 2.84531 11.4916 2.08923 9.63294 2.08923C5.76255 2.08923 2.625 5.30217 2.625 9.26553C2.625 11.1688 
-							3.36333 12.9941 4.67757 14.34Z" stroke="#F57520" stroke-linecap="round" stroke-linejoin="round"/>
+							3.36333 12.9941 4.67757 14.34Z"
+							stroke="#F57520"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
 					</svg>
 				</Button>
 			</div>
