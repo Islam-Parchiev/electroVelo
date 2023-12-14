@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 
 import { useAppDispatch,useAppSelector } from '@redux/store'
 
-import { changeSize,changeColor } from '@redux/slices/productSlice'
+import { changeSize,changeColor,changeCount } from '@redux/slices/productSlice'
 
 import Button from '@components/Button/Button'
 
@@ -18,13 +18,17 @@ interface ProductInfoProps {
 }
 
 const ProductInfo: React.FC<ProductInfoProps> = props => {
-	const [counter, setCounter] = React.useState(1)
 	const { loading, success, product } = props
-	console.log('Info...........', product)
+	// console.log('Info...........', product)
 	const dispatch = useAppDispatch();
 	const productSize = useAppSelector((state)=> state.product.size);
 	const productColor= useAppSelector((state)=> state.product.color);
-	console.log(productSize);
+	const productCount= useAppSelector((state)=> state.product.count);
+	
+	console.log(productCount);
+	if(productCount<1) {
+		dispatch(changeCount(1))
+	}
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	//  dispatch(changeSize(success&&product&&product.sizes&&product.sizes[0].size))
 	useEffect(()=> {
@@ -37,6 +41,9 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 	 }
 	 const handleClickColor = (color:string) =>{
 		dispatch(changeColor(color))
+	 }
+	 const handleChangeCount = (count:number)=> {
+		dispatch(changeCount(count))
 	 }
 	return (
 		<div className={styles.ProductInfo}>
@@ -332,13 +339,13 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 				<div className={styles.ProductCounter}>
 					<button
 						className={`btn-reset ${styles.ProductCounter__btn}`}
-						onClick={() => setCounter(counter - 1)}>
+						onClick={() => handleChangeCount(-1)}>
 						-
 					</button>
-					<span>{counter}</span>
+					<span>{productCount}</span>
 					<button
 						className={`btn-reset ${styles.ProductCounter__btn}`}
-						onClick={() => setCounter(counter + 1)}>
+						onClick={() => handleChangeCount(1)}>
 						+
 					</button>
 				</div>
