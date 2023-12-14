@@ -23,6 +23,6 @@ export interface ICard {
 	title:string;
 	previewImage:string;
 	country:string;
-	sizes?:ICardSize[];
-	colors?:ICardColor[];
+	sizes:ICardSize[];
+	colors:ICardColor[];
 }

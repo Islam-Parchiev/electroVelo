@@ -19,7 +19,6 @@ interface ProductInfoProps {
 
 const ProductInfo: React.FC<ProductInfoProps> = props => {
 	const { loading, success, product } = props
-	// console.log('Info...........', product)
 	const dispatch = useAppDispatch();
 	const productSize = useAppSelector((state)=> state.product.size);
 	const productColor= useAppSelector((state)=> state.product.color);
@@ -47,6 +46,8 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 	 }
 	return (
 		<div className={styles.ProductInfo}>
+			{productSize}
+			{productColor}
 			<div className={styles.ProductInfo__top}>
 				<h1 className={styles.ProductInfo__title}>{product.title}</h1>
 				<div className={styles.ProductInfo__social}>
