@@ -269,24 +269,9 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 				<div className={styles.ProductInfo__sizes}>
 					<h3>Размер:</h3>
 					<ul className={`list-reset ${styles.ProductSizes}`}>
-						{/* <li className={`${styles.ProductSizes__item} ${styles.active}`}>
-							S
-						</li>
-						<li className={styles.ProductSizes__item}>
-							S
-						</li>
-						<li className={styles.ProductSizes__item}>
-							S
-						</li>
-						<li className={styles.ProductSizes__item}>
-							S
-						</li>
-						<li className={styles.ProductSizes__item}>
-							S
-						</li> */}
 						{loading ? (
-						'Loading...'
-					) : success ? (product.sizes?.map((item)=> <li className={`${styles.ProductSizes__item} ${styles.active}`}>
+							'Loading...'
+						) : success ? (product.sizes?.map((item)=> <li className={`${styles.ProductSizes__item} ${styles.active}`}>
 							{item.size}
 						</li>)):'Error'}
 					</ul>
@@ -294,11 +279,10 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 				<div className={styles.ProductInfo__colors}>
 				<h3>Цвет:</h3>
 					<ul className={`list-reset ${styles.ProductColors}`}>
-						{colorsHex.map(color => <li style={{backgroundColor:color}} className={styles.ProductColors__item}></li>)}
-						{/* {colors.map(item => <li style={{backgroundColor:color}} className={styles.ProductColors__item}></li>)} */}
-						{/* <FiltersColor />
-						<FiltersColor/>
-						<FiltersColor/> */}
+						{/* {colorsHex.map(color => <li style={{backgroundColor:color}} className={styles.ProductColors__item}></li>)} */}
+						{loading ? (
+							'Loading...'
+						) : success ? (product.colors?.map(color => <li style={{backgroundColor:color.hexColor}} className={styles.ProductColors__item}></li>)):'Error'}
 					</ul>
 				</div>
 			</div>

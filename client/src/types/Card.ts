@@ -6,6 +6,11 @@ interface ICardSize {
 	id: number;
 	size:string;
 }
+interface ICardColor {
+	id: number;
+	color:string; 
+	hexColor: string;
+}
 export interface ICard {
 	articul:string;
 	available:boolean;
@@ -19,4 +24,5 @@ export interface ICard {
 	previewImage:string;
 	country:string;
 	sizes?:ICardSize[];
+	colors?:ICardColor[];
 }
