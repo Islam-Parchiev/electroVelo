@@ -23,9 +23,12 @@ export const productSlice= createSlice({
 		changeColor:(state,action:PayloadAction<string>)=>{
 			state.color=action.payload
 		},
+		changeCount:(state,action:PayloadAction<number>)=> {
+			state.count=state.count+action.payload
+		},
 	},
 })
 export const selectProduct = (state: RootState) => state.product;
 
-export const {changeSize,changeColor}= productSlice.actions;
+export const {changeSize,changeColor,changeCount}= productSlice.actions;
 export default  productSlice.reducer;
