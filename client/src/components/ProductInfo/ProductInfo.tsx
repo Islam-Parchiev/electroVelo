@@ -8,6 +8,7 @@ import Button from '@components/Button/Button'
 import ProductPrice from '@components/ProductPrice/ProductPrice'
 import ProductSocial from '@components/ProductSocial/ProductSocial'
 import ProductInfoDescr from '@components/ProductInfoDescr/ProductInfoDescr'
+import ProductSizes from '@components/ProductSizes/ProductSizes'
 
 import { ICard } from 'Card'
 
@@ -38,9 +39,6 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 			 dispatch(changeColor(success&&product&&product.colors&&product.colors[0].color))
 	},[])
 	
-	 const handleClickSize = (size:string)=> {
-		dispatch(changeSize(size));
-	 }
 	 const handleClickColor = (color:string) =>{
 		dispatch(changeColor(color))
 	 }
@@ -56,22 +54,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 				<ProductSocial loading={loading} success={success} product={product}/>
 				<ProductPrice loading={loading} success={success} product={product}/>
 				<ProductInfoDescr loading={loading} success={success} product={product}/>
-				<div className={styles.ProductInfo__sizes}>
-					<h3>Размер:</h3>
-					<ul className={`list-reset ${styles.ProductSizes}`}>
-						{loading
-							? 'Loading...'
-							: success
-								? product.sizes?.map(item => (
-									<li
-										className={`${styles.ProductSizes__item} ${item.size===productSize&&styles.active}`}
-										onClick={()=>handleClickSize(item.size)}>
-										{item.size}
-									</li>
-							  ))
-								: 'Error'}
-					</ul>
-				</div>
+				<ProductSizes loading={loading} success={success} product={product}/>
 				<div className={styles.ProductInfo__colors}>
 					<h3>Цвет:</h3>
 					<ul className={`list-reset ${styles.ProductColors}`}>
