@@ -4,11 +4,15 @@ import {useDispatch,useSelector,TypedUseSelectorHook} from 'react-redux';
 
 import filters from './slices/filtersSlice';
 import sort from './slices/sortSlice';
+import user from './slices/userSlice'
+import product from './slices/productSlice';
 
 export const store = configureStore({
 	reducer:{
 		filters,
 		sort,
+		user,
+		product,
 	},
 });
 

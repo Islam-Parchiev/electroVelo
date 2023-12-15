@@ -15,7 +15,8 @@ Steel
 	{"color":"BLACK","hexColor":"#000"},
 		{"color":"YELLOW","hexColor":"#FEF95F"},
 		{"color":"GREEN","hexColor":"#25FD3C"}
-
+{"color":"WHITE","hexColor":"#FFF"},
+	{"color":"GREY","hexColor":"#808080"}
 
 
         "sizes":[{"size":"S"},{"size":"M-L"},{"size":"M"},{"size":"L"},{"size":"XL"}],

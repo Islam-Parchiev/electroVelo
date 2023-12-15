@@ -44,7 +44,8 @@ let ProductService = class ProductService {
             size: size.size
         }));
         const colorrs = await colors.map(color => this.colorRepository.create({
-            color: color.color
+            color: color.color,
+            hexColor: color.hexColor
         }));
         product.sizes = sizess;
         product.images = images;
@@ -155,7 +156,7 @@ let ProductService = class ProductService {
         });
         if (!order)
             throw new common_1.NotFoundException('Product not found');
-        return await this.productRepository.delete(id);
+        return await this.productRepository.delete(+id);
     }
 };
 ProductService = __decorate([

@@ -1,6 +1,6 @@
 {
     "path-autocomplete.pathMappings": {
-        "@img": "${folder}/client/public/images",
+        "@images": "${folder}/client/public/images",
         "@scss": "${folder}/client/src/scss",
         "@js": "${folder}/src/js",
         "@redux": "${folder}/client/src/redux",
