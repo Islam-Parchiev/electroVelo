@@ -5,9 +5,7 @@
 		@include  flex-column-start;
 		
 	}
-	&__colors {
-		margin-top: 20px;
-	}
+	
 	&__bottom {
 		@include flex-v-center;
 		padding-top: 20px;

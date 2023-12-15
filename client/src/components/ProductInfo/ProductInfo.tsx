@@ -9,6 +9,7 @@ import ProductPrice from '@components/ProductPrice/ProductPrice'
 import ProductSocial from '@components/ProductSocial/ProductSocial'
 import ProductInfoDescr from '@components/ProductInfoDescr/ProductInfoDescr'
 import ProductSizes from '@components/ProductSizes/ProductSizes'
+import ProductColors from '@components/ProductColors/ProductColors'
 
 import { ICard } from 'Card'
 
@@ -32,16 +33,11 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 	if(productCount<1) {
 		dispatch(changeCount(1))
 	}
-	// eslint-disable-next-line react-hooks/rules-of-hooks
-	//  dispatch(changeSize(success&&product&&product.sizes&&product.sizes[0].size))
 	useEffect(()=> {
 			 dispatch(changeSize(success&&product&&product.sizes&&product.sizes[0].size))
 			 dispatch(changeColor(success&&product&&product.colors&&product.colors[0].color))
 	},[])
 	
-	 const handleClickColor = (color:string) =>{
-		dispatch(changeColor(color))
-	 }
 	 const handleChangeCount = (count:number)=> {
 		dispatch(changeCount(count))
 	 }
@@ -55,23 +51,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 				<ProductPrice loading={loading} success={success} product={product}/>
 				<ProductInfoDescr loading={loading} success={success} product={product}/>
 				<ProductSizes loading={loading} success={success} product={product}/>
-				<div className={styles.ProductInfo__colors}>
-					<h3>Цвет:</h3>
-					<ul className={`list-reset ${styles.ProductColors}`}>
-						{loading
-							? 'Loading...'
-							: success
-								? product.colors?.map(color => (
-									<li
-										style={{
-											backgroundColor: color.hexColor,
-										}}
-										className={`${styles.ProductColors__item} ${color.color===productColor&&styles.active}`}
-										onClick={()=>handleClickColor(color.color)}></li>
-							  ))
-								: 'Error'}
-					</ul>
-				</div>
+				<ProductColors loading={loading} success={success} product={product}/>
 			</div>
 			<div className={styles.ProductInfo__bottom}>
 				<div className={styles.ProductCounter}>
