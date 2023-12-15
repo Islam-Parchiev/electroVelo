@@ -25,24 +25,9 @@ interface ProductInfoProps {
 
 const ProductInfo: React.FC<ProductInfoProps> = props => {
 	const { loading, success, product } = props
-	const dispatch = useAppDispatch();
-	const productSize = useAppSelector((state)=> state.product.size);
-	const productColor= useAppSelector((state)=> state.product.color);
-	const productCount= useAppSelector((state)=> state.product.count);
-	
-	console.log(productCount);
-	if(productCount<1) {
-		dispatch(changeCount(1))
-	}
-	useEffect(()=> {
-			 dispatch(changeSize(success&&product&&product.sizes&&product.sizes[0].size))
-			 dispatch(changeColor(success&&product&&product.colors&&product.colors[0].color))
-	},[])
 	
 	return (
 		<div className={styles.ProductInfo}>
-			{productSize}
-			{productColor}
 			<div className={styles.ProductInfo__top}>
 				<h1 className={styles.ProductInfo__title}>{product.title}</h1>
 				<ProductSocial loading={loading} success={success} product={product}/>

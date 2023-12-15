@@ -13,6 +13,9 @@ const ProductCounter: React.FC = () => {
 	const handleChangeCount = (count:number)=> {
 		dispatch(changeCount(count))
 	 }
+	 if(productCount<1) {
+		dispatch(changeCount(1))
+	}
 	return (
 		<div className={styles.ProductCounter}>
 			<button

@@ -17,16 +17,16 @@
 		padding: 0;
 width: 52px;
 height: 52px;
-background: #F8F8F8;
+background: var(--light-color);
 svg {
 	fill: none;
 }
 &:hover {
-	background-color: #F8F8F8;
+	background-color:  var(--light-color);
 }
 &.active {
 	svg {
-		fill: #F57520;
+		fill: var(--orange);
 	}
 }
 	}

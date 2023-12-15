@@ -24,6 +24,9 @@ const ProductSizes: React.FC<ProductSizesProps> = props => {
 	const handleClickSize = (size:string)=> {
 		dispatch(changeSize(size));
 	 }
+	 React.useEffect(()=>{
+		dispatch(changeSize(success&&product&&product.sizes&&product.sizes[0].size))
+	 },[])
 	return (
 		<div className={styles.ProductSizes}>
 			<h3>Размер:</h3>

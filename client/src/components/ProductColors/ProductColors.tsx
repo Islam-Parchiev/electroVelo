@@ -25,6 +25,10 @@ const ProductColors: React.FC<ProductColorsProps> = props => {
 	const handleClickColor = (color:string) =>{
 		dispatch(changeColor(color))
 	 }
+
+	 React.useEffect(()=>{
+		dispatch(changeColor(success&&product&&product.colors&&product.colors[0].color))
+	 },[])
 	return (
 		<div className={styles.ProductColors}>
 			<h3>Цвет:</h3>
