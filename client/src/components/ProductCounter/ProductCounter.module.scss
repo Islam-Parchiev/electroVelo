@@ -1,0 +1,23 @@
+@import "../../scss/mixins/mini";
+.ProductCounter {
+	@include flex-all-center;
+border: 1px solid var(--3-grey, #E5E5E5);
+	border-radius: 10px;
+	width: 123px;
+	height: 52px;
+/* desk mob cta */
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 16px;
+line-height: 123%; /* 19.68px */
+text-align: right;
+	color: var(--bl, #101010);
+	gap: 25px;
+	button {
+		@include flex-all-center;
+		width: 30%;
+		height: 100%;
+		text-align: center;
+	}
+}

@@ -10,6 +10,7 @@ import ProductSocial from '@components/ProductSocial/ProductSocial'
 import ProductInfoDescr from '@components/ProductInfoDescr/ProductInfoDescr'
 import ProductSizes from '@components/ProductSizes/ProductSizes'
 import ProductColors from '@components/ProductColors/ProductColors'
+import ProductCounter from '@components/ProductCounter/ProductCounter'
 
 import { ICard } from 'Card'
 
@@ -38,9 +39,6 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 			 dispatch(changeColor(success&&product&&product.colors&&product.colors[0].color))
 	},[])
 	
-	 const handleChangeCount = (count:number)=> {
-		dispatch(changeCount(count))
-	 }
 	return (
 		<div className={styles.ProductInfo}>
 			{productSize}
@@ -54,19 +52,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 				<ProductColors loading={loading} success={success} product={product}/>
 			</div>
 			<div className={styles.ProductInfo__bottom}>
-				<div className={styles.ProductCounter}>
-					<button
-						className={`btn-reset ${styles.ProductCounter__btn}`}
-						onClick={() => handleChangeCount(-1)}>
-						-
-					</button>
-					<span>{productCount}</span>
-					<button
-						className={`btn-reset ${styles.ProductCounter__btn}`}
-						onClick={() => handleChangeCount(1)}>
-						+
-					</button>
-				</div>
+				<ProductCounter/>
 				<Button otherClass={styles.ProductInfo__addToCart}>В корзину</Button>
 				<Button otherClass={`${styles.ProductInfo__addToFavorites}`}>
 					<svg
