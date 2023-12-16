@@ -1,8 +1,8 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 
 import { useAppDispatch,useAppSelector } from '@redux/store'
 
-import { changeSize,changeColor,changeCount } from '@redux/slices/productSlice'
+import { changeCount } from '@redux/slices/productSlice'
 
 import Button from '@components/Button/Button'
 import ProductPrice from '@components/ProductPrice/ProductPrice'
@@ -10,7 +10,7 @@ import ProductSocial from '@components/ProductSocial/ProductSocial'
 import ProductInfoDescr from '@components/ProductInfoDescr/ProductInfoDescr'
 import ProductSizes from '@components/ProductSizes/ProductSizes'
 import ProductColors from '@components/ProductColors/ProductColors'
-import ProductCounter from '@components/ProductCounter/ProductCounter'
+import Counter from '@components/Counter/Counter'
 
 import { ICard } from 'Card'
 
@@ -25,7 +25,14 @@ interface ProductInfoProps {
 
 const ProductInfo: React.FC<ProductInfoProps> = props => {
 	const { loading, success, product } = props
-	
+	const dispatch = useAppDispatch()
+	const productCount= useAppSelector((state)=> state.product.count);
+	const handleChangeCount = (count:number)=> {
+		dispatch(changeCount(count))
+	 }
+	 if(productCount<1) {
+		dispatch(changeCount(1))
+	}
 	return (
 		<div className={styles.ProductInfo}>
 			<div className={styles.ProductInfo__top}>
@@ -37,7 +44,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 				<ProductColors loading={loading} success={success} product={product}/>
 			</div>
 			<div className={styles.ProductInfo__bottom}>
-				<ProductCounter/>
+				<Counter handleChange={handleChangeCount} count={productCount}/>
 				<Button otherClass={styles.ProductInfo__addToCart}>В корзину</Button>
 				<Button otherClass={`${styles.ProductInfo__addToFavorites}`}>
 					<svg
