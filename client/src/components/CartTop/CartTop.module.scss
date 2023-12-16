@@ -1,3 +1,4 @@
+@import "../../scss/mixins/mini";
 .CartTop {
 	&__title {
 		margin-top: 50px;
@@ -15,8 +16,7 @@ letter-spacing: 3.2px;
 	}
 }
 .Breadcrumbs {
-	display: flex;
-	align-items: center;
+	@include  flex-v-center;
 	gap: 10px;
 	&__item {
 a {

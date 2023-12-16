@@ -1,0 +1,41 @@
+@import "../../scss/mixins/mini";
+.CartItem {
+	@include flex-all-sb;
+
+	&__title {
+		width: 20%;
+/* desk mob subhead */
+font-family: Inter;
+font-weight: 300;
+font-style: normal;
+font-size: 18px;
+line-height: 160%; /* 28.8px */
+letter-spacing: 0.18px;
+		color: var(--bl, #101010);
+	}
+	&__currentPrice {
+/* desk mob 20 */
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 20px;
+line-height: 160%; /* 32px */
+letter-spacing: 0.2px;
+		color: var(--bl, #101010);
+	}
+	&__prevPrice{
+		font-family: Inter;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 16px;
+		line-height: 160%; /* 25.6px */
+		text-decoration: line-through;
+		color: var(--light-grey, #B3B3B3);
+	}
+	&__price{
+		text-align: left;
+		span {
+			display: block;
+		}
+	}
+}
