@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import { FC,ReactNode } from 'react'
 
 import { useAuth } from '../../hooks/useAuth'
 
 interface Props {
-	children: JSX.Element
+	children: ReactNode
 }
 
 const ProtectedRoute: FC<Props> = ({ children }) => {

@@ -5,6 +5,8 @@ import Main from '@pages/Main/Main';
 import Layout from '@pages/Layout/Layout';
 import Catalog from '@pages/Catalog/Catalog';
 import Product from '@pages/Product/Product';
+import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
+import Cart from '@pages/Cart/Cart';
 
 // import Home from "../pages/Home";
 // import Transactions, { transactionAction, transactionLoader } from "../pages/Transactions";
@@ -29,6 +31,13 @@ export const router = createBrowserRouter([
 			{
 				path:'product/:id',
 				element:<Product/>,
+			},
+			{
+				path:'cart',
+				element:
+				<ProtectedRoute>
+					<Cart/>
+				</ProtectedRoute>,
 			},
 			// {
 			// 	path:'transaction',

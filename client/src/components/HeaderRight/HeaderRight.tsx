@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom';
+
 import HeaderSearch from '@components/HeaderSearch/HeaderSearch'
 
 import styles from './HeaderRight.module.scss'
@@ -88,7 +90,7 @@ const HeaderRight: React.FC<HeaderRightProps> = props => {
 					</a>
 				</li>
 				<li className={styles.HeaderRight__item}>
-					<a href="/">
+					<Link to="/cart">
 						<svg
 							width="21"
 							height="20"
@@ -119,7 +121,7 @@ const HeaderRight: React.FC<HeaderRightProps> = props => {
 								stroke-linejoin="round"
 							/>
 						</svg>
-					</a>
+					</Link>
 				</li>
 			</ul>
 
