@@ -4,26 +4,30 @@ import React from 'react'
 import styles from './Counter.module.scss'
 
 interface ICounter {
-	handleChange:(value:number)=>void;
+	onClickMinus:()=>void;
+	onClickPlus:()=>void;
 	count:number;
 }
 
 const Counter: React.FC<ICounter> = (props) => {
 	const {
 		count,
-		handleChange,
+		onClickPlus,
+		onClickMinus,
+		
 	}=props;
+		// TODO:Fix Counter 
 	return (
 		<div className={styles.Counter}>
 			<button
 				className={`btn-reset ${styles.Counter__btn}`}
-				onClick={() => handleChange(-1)}>
+				onClick={onClickMinus}>
 				-
 			</button>
 			<span>{count}</span>
 			<button
 				className={`btn-reset ${styles.Counter__btn}`}
-				onClick={() => handleChange(1)}>
+				onClick={onClickPlus}>
 				+
 			</button>
 		</div>

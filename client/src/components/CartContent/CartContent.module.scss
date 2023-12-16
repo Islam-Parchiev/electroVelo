@@ -1,0 +1,25 @@
+.CartContent {
+	&__btns {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__back {
+/* desk mob text 16 */
+font-family: Inter;
+font-weight: 400;
+font-style: normal;
+font-size: 16px;
+line-height: 160%; /* 25.6px */
+		color: var(--orange, #F57520);
+	}
+	&__clear {
+/* desk mob 14 */
+font-family: Inter;
+font-weight: 400;
+font-style: normal;
+font-size: 14px;
+line-height: 160%; /* 22.4px */
+		color: var(--light-grey, #B3B3B3);
+	}
+}

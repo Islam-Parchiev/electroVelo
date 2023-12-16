@@ -24,11 +24,15 @@ interface ProductInfoProps {
 }
 
 const ProductInfo: React.FC<ProductInfoProps> = props => {
+
 	const { loading, success, product } = props
 	const dispatch = useAppDispatch()
 	const productCount= useAppSelector((state)=> state.product.count);
-	const handleChangeCount = (count:number)=> {
-		dispatch(changeCount(count))
+	const onClickPlus = ()=> {
+		dispatch(changeCount(1))
+	 }
+	 const onClickMinus = ()=> {
+		dispatch(changeCount(-1))
 	 }
 	 if(productCount<1) {
 		dispatch(changeCount(1))
@@ -44,7 +48,8 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 				<ProductColors loading={loading} success={success} product={product}/>
 			</div>
 			<div className={styles.ProductInfo__bottom}>
-				<Counter handleChange={handleChangeCount} count={productCount}/>
+				{/* TODO:Fix Counter */}
+				<Counter onClickPlus={onClickPlus} onClickMinus={onClickMinus} count={productCount}/>
 				<Button otherClass={styles.ProductInfo__addToCart}>В корзину</Button>
 				<Button otherClass={`${styles.ProductInfo__addToFavorites}`}>
 					<svg

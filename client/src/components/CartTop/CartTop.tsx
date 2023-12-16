@@ -2,10 +2,8 @@ import React from 'react'
 
 import styles from './CartTop.module.scss'
 
-interface CartTopProps {}
+const CartTop:React.FC = () => {
 
-const CartTop:React.FC<CartTopProps> = (props) => {
-	const {} = props;
 	return (
 		<section className={styles.CartTop}>
 			<div className="container">
