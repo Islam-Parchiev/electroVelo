@@ -11,10 +11,10 @@ const Cart:FC = () => {
 			<Header otherClass={styles.Cart__header}/>
 			<main className={styles.Cart}>
 				<CartTop/>
-				<div className={styles.Cart__body}>
+				<section className={styles.Cart__body}>
 					<CartContent/>
-
-				</div>
+				</section>
+				
 			</main>
 		</>
 	)

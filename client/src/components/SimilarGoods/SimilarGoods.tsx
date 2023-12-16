@@ -11,14 +11,14 @@ import { ICard } from 'Card';
 import SliderControls from '@components/SliderControls/SliderControls';
 import Card from '@components/Card/Card';
 
-import styles from './ProductSimilar.module.scss'
-interface ProductSimilarProps {
+import styles from './SimilarGoods.module.scss'
+interface SimilarGoodsProps {
 	category:string;
 	loading:any;
 	success:any;
 }
 
-const ProductSimilar:React.FC<ProductSimilarProps> = (props) => {
+const SimilarGoods:React.FC<SimilarGoodsProps> = (props) => {
 	const {
 		category,
 		loading,
@@ -31,16 +31,16 @@ const ProductSimilar:React.FC<ProductSimilarProps> = (props) => {
 	})
 	console.log('similar',query);
 	return (
-		<section className={styles.ProductSimilar}>
+		<section className={styles.SimilarGoods}>
 			<div className="container">
-				<div className={styles.ProductSimilar__wrapper}>
-					<h2 className={styles.ProductSimilar__title}>Похожие товары</h2>
+				<div className={styles.SimilarGoods__wrapper}>
+					<h2 className={styles.SimilarGoods__title}>Похожие товары</h2>
 		
 					{loading ? (
 						'Loading...'
 					) : success ? (
 						<Swiper
-							className={styles.ProductSimilar__slider}
+							className={styles.SimilarGoods__slider}
 							slidesPerView={3}
 							modules={[A11y]}
 							spaceBetween={0}
@@ -51,7 +51,7 @@ const ProductSimilar:React.FC<ProductSimilarProps> = (props) => {
 								<SwiperSlide>
 									<div
 										className={
-											styles.ProductSimilar__slide
+											styles.SimilarGoods__slide
 										}>
 										<Card
 											id={product.id}
@@ -62,7 +62,7 @@ const ProductSimilar:React.FC<ProductSimilarProps> = (props) => {
 											price={product.price}
 											title={product.title}
 											otherClass={
-												styles.ProductSimilar__slide_card
+												styles.SimilarGoods__slide_card
 											}
 										/>
 									</div>
@@ -70,7 +70,7 @@ const ProductSimilar:React.FC<ProductSimilarProps> = (props) => {
 							))}
 							<SliderControls
 								type="prev"
-								className={styles.ProductSimilar__prev}>
+								className={styles.SimilarGoods__prev}>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="14"
@@ -89,7 +89,7 @@ const ProductSimilar:React.FC<ProductSimilarProps> = (props) => {
 							</SliderControls>
 							<SliderControls
 								type="next"
-								className={styles.ProductSimilar__next}>
+								className={styles.SimilarGoods__next}>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="14"
@@ -118,4 +118,4 @@ const ProductSimilar:React.FC<ProductSimilarProps> = (props) => {
 	)
 }
 
-export default ProductSimilar
+export default SimilarGoods

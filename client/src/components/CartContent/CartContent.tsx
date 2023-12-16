@@ -11,7 +11,7 @@ interface CartContentProps {}
 const CartContent: React.FC<CartContentProps> = props => {
 	const {} = props
 	return (
-		<section className={styles.CartContent}>
+		<div className={styles.CartContent}>
 			<div className="container">
 				<div className={styles.CartContent__wrapper}>
 					<div className={styles.CartContent__btns}>
@@ -34,7 +34,7 @@ const CartContent: React.FC<CartContentProps> = props => {
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	)
 }
 

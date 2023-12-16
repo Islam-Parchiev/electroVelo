@@ -9,7 +9,7 @@ import ProductMain from '@components/ProductMain/ProductMain'
 import ProductDescription from '@components/ProductDescription/ProductDescription'
 import ProductSpecifications from '@components/ProductSpecifications/ProductSpecifications'
 import ProductDelivery from '@components/ProductDelivery/ProductDelivery'
-import ProductSimilar from '@components/ProductSimilar/ProductSimilar'
+import ProductSimilar from '@components/SimilarGoods/SimilarGoods'
 import Subscribe from '@components/Subscribe/Subscribe'
 
 
