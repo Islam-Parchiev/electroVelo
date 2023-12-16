@@ -1,5 +1,7 @@
 import { FC } from 'react'
+
 import Header from '@components/Header/Header'
+import CartTop from '@components/CartTop/CartTop';
 
 import styles from './Cart.module.scss';
 const Main:FC = () => {
@@ -7,7 +9,7 @@ const Main:FC = () => {
 		<>
 			<Header otherClass={styles.Cart__header}/>
 			<main className={styles.Cart}>
-				Cart
+				<CartTop/>
 			</main>
 		</>
 	)
