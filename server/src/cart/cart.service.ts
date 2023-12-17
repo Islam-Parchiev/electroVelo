@@ -82,6 +82,24 @@ export class CartService {
     return await this.cartItemRepository.delete(productId)
 
   }
+	async changeQuantity(userId:number,productId:number,type:string){
+		let cart = await this.cartRepository.findOne({ where: { user: { id: userId } },
+			relations: {items:{product:true}} });
+			if (cart.items.find((item) =>  item.product.id === productId)) {
+				let cartItem =cart.items.find((item) =>  item.product.id === productId);
+				if(type==='plus'){
+					 cartItem.quantity = cartItem.quantity+1;
+					 return this.cartRepository.save(cart)
+				}
+				if(type==='minus'){
+					cartItem.quantity = cartItem.quantity-1;
+					return this.cartRepository.save(cart)
+				}
+			} else {
+				return "Product not found"
+			}
+	}
+	
   create(createCartDto: CreateCartDto) {
     return 'This action adds a new cart';
   }

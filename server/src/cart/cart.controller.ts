@@ -40,7 +40,11 @@ export class CartController {
   addToCart(@Req() req, @Body('productId') productId: any,@Body('quantity') quantity:number) {
     return this.cartService.addToCart(+req.user.id, +productId,+quantity);
   }
-
+  @Post('quantity')
+  @UseGuards(JwtAuthGuard)
+  changeQuantity(@Req() req, @Body('productId') productId: number,@Body('type') type:string){
+    return this.cartService.changeQuantity(+req.user.id, +productId,type)
+  }
   // @Get(':userId/items')
   // getCartItems(@Param('userId') userId: number) {
   //   return this.cartService.getCartItems(userId);
