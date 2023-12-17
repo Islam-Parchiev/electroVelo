@@ -24,7 +24,7 @@ const Subscribe: React.FC = () => {
 								placeholder="E-main"
 							/>
 						</label>
-				
+						{/* TODO:fix Checkbox */}
 						<Checkbox 
 							text="Согласен(на) на обработку персональных данных"
 							otherClass={styles.Subscribe__checkbox}

@@ -12,7 +12,7 @@ const CartContent: React.FC<CartContentProps> = props => {
 	const {} = props
 	return (
 		<div className={styles.CartContent}>
-			<div className="container">
+			
 				<div className={styles.CartContent__wrapper}>
 					<div className={styles.CartContent__btns}>
 						<Link to="/" className={styles.CartContent__back}>
@@ -32,7 +32,7 @@ const CartContent: React.FC<CartContentProps> = props => {
 
 						</ul>
 					</div>
-				</div>
+				
 			</div>
 		</div>
 	)
