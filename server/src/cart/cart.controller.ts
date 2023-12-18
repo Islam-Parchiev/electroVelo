@@ -42,8 +42,8 @@ export class CartController {
   }
   @Post('quantity')
   @UseGuards(JwtAuthGuard)
-  changeQuantity(@Req() req, @Body('productId') productId: number,@Body('type') type:string){
-    return this.cartService.changeQuantity(+req.user.id, +productId,type)
+  changeQuantity(@Req() req, @Body('productId') productId: number,@Body('count') count:number){
+    return this.cartService.changeQuantity(+req.user.id, +productId,+count)
   }
   // @Get(':userId/items')
   // getCartItems(@Param('userId') userId: number) {
