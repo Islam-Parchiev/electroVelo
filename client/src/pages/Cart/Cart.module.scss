@@ -3,3 +3,11 @@
 	background-color: var(--bl, #101010);
 	
 }
+.Cart{
+	&__body {
+		&_container {
+			display: flex;
+			gap: 30px;
+		}
+	}
+}

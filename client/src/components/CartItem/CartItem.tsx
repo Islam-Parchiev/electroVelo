@@ -1,27 +1,55 @@
 import React from 'react'
 
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
+import cartService from '@services/cart.service';
+
 import Counter from '@components/Counter/Counter'
 
 import styles from './CartItem.module.scss'
 
-interface CartItemProps {}
+interface CartItemProps {
+	id:number;
+	imageUrl:string;
+	title:string;
+	price:number;
+	count:number;
+	prevPrice?:number;
+}
 
 const CartItem: React.FC<CartItemProps> = props => {
-	const {} = props
-	const [count, setCount] = React.useState(1)
+	const {
+		id,
+		imageUrl,
+		title,
+		price,
+		prevPrice,
+		count,
+	} = props;
+	const queryClient = useQueryClient();
+	const {isSuccess,isError,mutate} = useMutation({
+   	 mutationFn: (id:number) => {
+      	return cartService.deleteCartItem(id)
+   	 },
+		mutationKey:['cartItem delete'],
+		onSuccess:()=>queryClient.invalidateQueries({queryKey:['cartItems']}),
+  	})
+	// const [count, setCount] = React.useState(1)
 	const onClickMinus = () => {
-		setCount(prev => prev - 1)
+		// setCount(prev => prev - 1)
+		console.log('-');
 	}
 	const onClickPlus = () => {
-		setCount(prev => prev + 1)
+		// setCount(prev => prev + 1)
+		console.log('+');
 	}
 	return (
 		<li className={styles.CartItem}>
 			<div className={styles.CartItem__image}>
-				<img src="/images/Product/pre1.1.png" alt="" />
+				<img src={`/images/Product/${imageUrl}`} alt="" />
 			</div>
 			<h4 className={styles.CartItem__title}>
-				Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018
+				{title}
 			</h4>
 			<Counter
 				count={count}
@@ -29,10 +57,10 @@ const CartItem: React.FC<CartItemProps> = props => {
 				onClickPlus={onClickPlus}
 			/>
 			<div className={styles.CartItem__price}>
-				<span className={styles.CartItem__currentPrice}>11 ₽</span>
-				<span className={styles.CartItem__prevPrice}>11 ₽</span>
+				<span className={styles.CartItem__currentPrice}>{price} ₽</span>
+				{prevPrice&&<span className={styles.CartItem__prevPrice}>{prevPrice} ₽</span>}
 			</div>
-			<button className={`btn-reset ${styles.CartItem__delete}`}>
+			<button className={`btn-reset ${styles.CartItem__delete}`} onClick={()=> mutate(id)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="17"
@@ -57,6 +85,7 @@ const CartItem: React.FC<CartItemProps> = props => {
 					/>
 				</svg>
 			</button>
+			{isSuccess&&'deleted'}
 		</li>
 	)
 }
