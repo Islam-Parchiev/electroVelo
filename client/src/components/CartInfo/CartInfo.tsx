@@ -4,10 +4,16 @@ import Button from '@components/Button/Button';
 
 import styles from './CartInfo.module.scss'
 
-interface CartInfoProps {}
+interface CartInfoProps {
+	totalPrice:number|undefined;
+	 discount:number|undefined;
+}
 
 const CartInfo:React.FC<CartInfoProps> = (props) => {
-	const {} = props;
+	const {
+		totalPrice,
+		discount,
+	} = props;
 	return (
 		<div className={styles.CartInfo}>
 			<div className={styles.CartInfo__wrapper}>
@@ -18,16 +24,16 @@ const CartInfo:React.FC<CartInfoProps> = (props) => {
 					</li>
 					<li className={styles.CartInfo__item}>
 						<h4>Сумма заказа (без скидки)</h4>
-						<span>692 370 ₽</span>
+						<span>{totalPrice&&discount?totalPrice+discount:'error'} ₽</span>
 					</li>
 					<li className={styles.CartInfo__item}>
 						<h4>Скидка</h4>
-						<span>87 000 ₽</span>
+						<span>{discount} ₽</span>
 					</li>
 				</ul>
 				<div className={styles.CartInfo__total}>
 					<h3 className={styles.CartInfo__total_title}>Итого</h3>
-					<span>605 370 ₽</span>
+					<span>{totalPrice} ₽</span>
 				</div>
 				<Button handleClick={()=>console.log('cartClic')} otherClass={styles.CartInfo__btn}>Оформить заказ</Button>
 			</div>

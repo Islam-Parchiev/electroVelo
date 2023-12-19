@@ -1,5 +1,9 @@
 import { FC } from 'react'
 
+import { useQuery } from '@tanstack/react-query'
+
+import cartService from '@services/cart.service'
+
 import Header from '@components/Header/Header'
 import CartTop from '@components/CartTop/CartTop';
 import CartContent from '@components/CartContent/CartContent';
@@ -7,8 +11,19 @@ import SimilarGoods from '@components/SimilarGoods/SimilarGoods';
 import Subscribe from '@components/Subscribe/Subscribe';
 import CartInfo from '@components/CartInfo/CartInfo';
 
+import { ICartData } from 'Cart';
+
 import styles from './Cart.module.scss';
+
 const Cart:FC = () => {
+	const {data,isLoading,isSuccess} = useQuery<ICartData>({
+		queryKey: ['cartItems'],
+		queryFn: () =>cartService.getCart(),
+	})
+	
+	const totalPrice = data?.items.reduce((prev,curr)=>prev+(curr.product.price*curr.quantity),0);
+	const discount = data?.items.reduce((prev,curr)=>prev+((curr.product.prevPrice-curr.product.price)*curr.quantity),0);
+	
 	return (
 		<>
 			<Header otherClass={styles.Cart__header}/>
@@ -17,8 +32,8 @@ const Cart:FC = () => {
 				<section className={styles.Cart__body}>
 					<div className={`container ${styles.Cart__body_container}`}>
 
-						<CartContent/>
-						<CartInfo/>
+						<CartContent cartDataItems={data?.items} loading={isLoading} success={isSuccess}/>
+						<CartInfo totalPrice={totalPrice} discount={discount}/>
 					</div>
 				</section>
 				<SimilarGoods loading={false} success={true} category={'City'}/>

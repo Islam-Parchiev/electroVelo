@@ -6,6 +6,8 @@ import cartService from '@services/cart.service';
 
 import Counter from '@components/Counter/Counter'
 
+import { useDebounce } from '../../hooks/useDebounce';
+
 import styles from './CartItem.module.scss'
 
 interface CartItemProps {

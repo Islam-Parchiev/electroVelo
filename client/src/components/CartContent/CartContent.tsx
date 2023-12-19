@@ -1,46 +1,26 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import { useQuery } from '@tanstack/react-query'
-
-import cartService from '@services/cart.service'
 
 import CartItem from '@components/CartItem/CartItem'
 
+import { ICartItem } from 'Cart';
+
 import styles from './CartContent.module.scss'
 
-interface CartContentProps {}
-interface ICartProduct {
-	articul:string;
-available: boolean;
-brand:string; 
-category:string;
-country:string;
-description:string;
-id:number;
-material:string;
-prevPrice:number;
-previewImage:string;
-price:number;
-title:string;
+interface CartContentProps {
+	loading:any;
+	success:any;
+	cartDataItems:any;
 }
-interface ICartItem {
-id:number;
-product: ICartProduct
-quantity:number;
-}
-interface ICartData {
-	id:number;
-items:ICartItem[];
 
-}
 const CartContent: React.FC<CartContentProps> = props => {
-	const {} = props
-	const {data,isLoading,isSuccess} = useQuery<ICartData>({
-		queryKey: ['cartItems'],
-		queryFn: () =>cartService.getCart(),
-	})
-	console.log(isSuccess&&data);
+	const {
+		loading,
+		success,
+		cartDataItems,
+	} = props
+
 
 	return (
 		<div className={styles.CartContent}>
@@ -56,7 +36,7 @@ const CartContent: React.FC<CartContentProps> = props => {
 				<div className={styles.CartContent__goods}>
 					<ul className={`list-reset ${styles.CartContent__list}`}>
 						{
-							isLoading?'Loadnig...':isSuccess ? data.items.map((cartItem)=> <CartItem 
+							loading?'Loadnig...':success ? cartDataItems.map((cartItem:ICartItem)=> <CartItem 
 								id={cartItem.id}
 								key={cartItem.id} 
 								count={cartItem.quantity} 
