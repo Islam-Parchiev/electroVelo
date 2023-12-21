@@ -57,19 +57,28 @@ export class CartService {
     if(!cart) {
       throw new Error('Cart not found');
     }
-    return cart
-  }
-  async getCartItem(userId:number) {
-    let cart = await this.cartRepository.findOne({ where: { user: { id: userId } }, relations: {
-      items:{product:true}
-
-    } });
-    if(!cart) {
-      throw new Error('Cart not found');
+    // const totalPrice = data?.items.reduce((prev,curr)=>prev+(curr.product.price*curr.quantity),0);
+    
+    let totalPrice= cart.items.reduce((prev,curr)=>prev+(curr.product.price*curr.quantity),0)
+    let discount = cart.items.reduce((prev,curr)=>prev+((curr.product.prevPrice-curr.product.price)*curr.quantity),0);
+    return {
+      cart,
+      totalPrice,
+      discount,
+      priceWithDiscount:totalPrice-discount,
     }
-    // let cartItem = cart.items.find((item) => item.product.id === productId);
-    return cart
   }
+  // async getCartItem(userId:number) {
+  //   let cart = await this.cartRepository.findOne({ where: { user: { id: userId } }, relations: {
+  //     items:{product:true}
+
+  //   } });
+  //   if(!cart) {
+  //     throw new Error('Cart not found');
+  //   }
+  //   // let cartItem = cart.items.find((item) => item.product.id === productId);
+  //   return cart
+  // }
   async removeCartItem(userId:number,productId:number) {
     let cart = await this.cartRepository.findOne({ where: { user: { id: userId } }, relations: {
       items:{product:true}
@@ -86,15 +95,15 @@ export class CartService {
 		let cart = await this.cartRepository.findOne({ where: { user: { id: userId } },
 			relations: {items:{product:true}} });
 
-			if (cart.items.find((item) =>  item.product.id === productId)) {
-				let cartItem =cart.items.find((item) =>  item.product.id === productId);
+			if (cart.items.find((item) =>  item.id === productId)) {
+				let cartItem =cart.items.find((item) =>  item.id === productId);
 				if(count>0){
 					cartItem.quantity=count;
 					return await this.cartRepository.save(cart)
 				}
 				if(count===0){
 					// await this.cartItemRepository.delete(productId)
-					let filteredCartItems=cart.items.filter((item)=>item.product.id!==productId)
+					let filteredCartItems=cart.items.filter((item)=>item.id!==productId)
 					cart.items=[...filteredCartItems]
 					await this.cartRepository.save(cart)
 					return filteredCartItems
@@ -124,9 +133,9 @@ export class CartService {
     return `This action returns a #${id} cart`;
   }
 
-  update(id: number, updateCartDto: UpdateCartDto) {
-    return `This action updates a #${id} cart`;
-  }
+  // update(id: number, updateCartDto: UpdateCartDto) {
+  //   return `This action updates a #${id} cart`;
+  // }
 
   remove(id: number) {
     return `This action removes a #${id} cart`;

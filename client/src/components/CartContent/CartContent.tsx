@@ -21,7 +21,7 @@ const CartContent: React.FC<CartContentProps> = props => {
 		cartDataItems,
 	} = props
 
-
+	success&&console.log('tttooooooooo',cartDataItems[0].quantity);
 	return (
 		<div className={styles.CartContent}>
 			<div className={styles.CartContent__wrapper}>

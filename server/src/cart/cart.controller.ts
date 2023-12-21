@@ -22,13 +22,13 @@ export class CartController {
   @Get('get')
   @UseGuards(JwtAuthGuard)
   findOne(@Req() req) {
-    return this.cartService.getCartItem(+req.user.id);
+    return this.cartService.getCart(+req.user.id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCartDto: UpdateCartDto) {
-    return this.cartService.update(+id, updateCartDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateCartDto: UpdateCartDto) {
+  //   return this.cartService.update(+id, updateCartDto);
+  // }
 
   @Delete('delete/:id')
   @UseGuards(JwtAuthGuard)
@@ -40,7 +40,7 @@ export class CartController {
   addToCart(@Req() req, @Body('productId') productId: any,@Body('quantity') quantity:number) {
     return this.cartService.addToCart(+req.user.id, +productId,+quantity);
   }
-  @Post('quantity')
+  @Patch('quantity')
   @UseGuards(JwtAuthGuard)
   changeQuantity(@Req() req, @Body('productId') productId: number,@Body('count') count:number){
     return this.cartService.changeQuantity(+req.user.id, +productId,+count)

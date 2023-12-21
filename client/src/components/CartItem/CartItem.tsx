@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
@@ -28,25 +28,46 @@ const CartItem: React.FC<CartItemProps> = props => {
 		prevPrice,
 		count,
 	} = props;
+	console.log('testtt',count)
+	const [countt, setCountt] = React.useState(count)
 	const queryClient = useQueryClient();
+	const debounced = useDebounce(countt,300)
 	const {isSuccess,isError,mutate} = useMutation({
    	 mutationFn: (id:number) => {
       	return cartService.deleteCartItem(id)
    	 },
+
 		mutationKey:['cartItem delete'],
 		onSuccess:()=>queryClient.invalidateQueries({queryKey:['cartItems']}),
   	})
-	// const [count, setCount] = React.useState(1)
+	const changeQ = useMutation({
+		mutationFn:()=> {
+			return cartService.changeQuantity(id,countt)
+		},
+		onSuccess:()=>queryClient.invalidateQueries({queryKey:['cartItems']}),
+		mutationKey:['cartItem update',countt],
+	})
+	// console.log(countt,'cccccccccccccccccccccccccc')
+	// useEffect(()=> {
+	// 	cartService.changeQuantity(id,countt);
+	// 	return ()=> {
+	// 		cartService.changeQuantity(id,countt);
+	// 	}
+	// },[debounced])
+
 	const onClickMinus = () => {
-		// setCount(prev => prev - 1)
+		setCountt(prev => prev - 1)
+		changeQ.mutate()
 		console.log('-');
 	}
 	const onClickPlus = () => {
-		// setCount(prev => prev + 1)
+		setCountt(prev => prev + 1)
+		changeQ.mutate()
 		console.log('+');
 	}
 	return (
 		<li className={styles.CartItem}>
+			{debounced}
 			<div className={styles.CartItem__image}>
 				<img src={`/images/Product/${imageUrl}`} alt="" />
 			</div>
@@ -54,7 +75,7 @@ const CartItem: React.FC<CartItemProps> = props => {
 				{title}
 			</h4>
 			<Counter
-				count={count}
+				count={countt}
 				onClickMinus={onClickMinus}
 				onClickPlus={onClickPlus}
 			/>

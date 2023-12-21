@@ -21,8 +21,8 @@ const Cart:FC = () => {
 		queryFn: () =>cartService.getCart(),
 	})
 	
-	const totalPrice = data?.items.reduce((prev,curr)=>prev+(curr.product.price*curr.quantity),0);
-	const discount = data?.items.reduce((prev,curr)=>prev+((curr.product.prevPrice-curr.product.price)*curr.quantity),0);
+	// const totalPrice = data?.items.reduce((prev,curr)=>prev+(curr.product.price*curr.quantity),0);
+	// const discount = data?.items.reduce((prev,curr)=>prev+((curr.product.prevPrice-curr.product.price)*curr.quantity),0);
 	
 	return (
 		<>
@@ -32,8 +32,8 @@ const Cart:FC = () => {
 				<section className={styles.Cart__body}>
 					<div className={`container ${styles.Cart__body_container}`}>
 
-						<CartContent cartDataItems={data?.items} loading={isLoading} success={isSuccess}/>
-						<CartInfo totalPrice={totalPrice} discount={discount}/>
+						<CartContent cartDataItems={data?.cart.items} loading={isLoading} success={isSuccess}/>
+						<CartInfo totalPrice={data?.totalPrice} discount={data?.discount}/>
 					</div>
 				</section>
 				<SimilarGoods loading={false} success={true} category={'City'}/>

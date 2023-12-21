@@ -17,8 +17,13 @@ id:number;
 product: ICartProduct
 quantity:number;
 }
-export interface ICartData {
+export interface ICart {
 	id:number;
-items:ICartItem[];
-
+	items:ICartItem[];
+}
+export interface ICartData {
+cart:ICart;
+totalPrice:number;
+discount:number;
+priceWithDiscount:number;
 }

@@ -26,6 +26,13 @@ export class CartService {
 		const {data} = await tt.delete(`cart/delete/${id}`)
 		return data;
 	}
+	async changeQuantity(id:number,count:number):Promise<any>{
+		const {data}=await tt.patch('cart/quantity',{
+			productId:id,
+			count:count,
+		})
+		return data;
+	}
 }
 // eslint-disable-next-line import/no-anonymous-default-export
 export default new CartService()
