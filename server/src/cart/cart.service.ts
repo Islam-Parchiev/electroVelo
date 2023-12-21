@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCartDto } from './dto/create-cart.dto';
-import { UpdateCartDto } from './dto/update-cart.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Cart } from './entities/cart.entity';
 import { Repository } from 'typeorm';
@@ -89,6 +88,18 @@ export class CartService {
     }
 
     return await this.cartItemRepository.delete(productId)
+
+  }
+  async clearCart(userId:number) {
+    let cart = await this.cartRepository.findOne({ where: { user: { id: userId } }, relations: {
+      items:{product:true}
+
+    } });
+    if(!cart) {
+      throw new Error('Cart not found');
+    }
+    cart.items=[];
+    return this.cartRepository.save(cart);
 
   }
 	async changeQuantity(userId:number,productId:number,count:number){

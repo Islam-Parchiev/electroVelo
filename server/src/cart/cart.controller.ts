@@ -25,6 +25,11 @@ export class CartController {
     return this.cartService.getCart(+req.user.id);
   }
 
+  @Delete('clear')
+  @UseGuards(JwtAuthGuard)
+  clearCart(@Req() req){
+    return this.cartService.clearCart(+req.user.id)
+  }
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateCartDto: UpdateCartDto) {
   //   return this.cartService.update(+id, updateCartDto);
