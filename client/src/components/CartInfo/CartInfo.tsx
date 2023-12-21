@@ -24,7 +24,7 @@ const CartInfo:React.FC<CartInfoProps> = (props) => {
 					</li>
 					<li className={styles.CartInfo__item}>
 						<h4>Сумма заказа (без скидки)</h4>
-						<span>{totalPrice&&discount?totalPrice+discount:'error'} ₽</span>
+						<span>{totalPrice&&discount?totalPrice+discount:0} ₽</span>
 					</li>
 					<li className={styles.CartInfo__item}>
 						<h4>Скидка</h4>

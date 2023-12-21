@@ -33,6 +33,9 @@ export class CartService {
 		})
 		return data;
 	}
+	async clearCart():Promise<any>{
+		await tt.delete('cart/clear');
+	}
 }
 // eslint-disable-next-line import/no-anonymous-default-export
 export default new CartService()

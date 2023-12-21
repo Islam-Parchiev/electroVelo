@@ -2,6 +2,9 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import cartService from '@services/cart.service';
+
 import CartItem from '@components/CartItem/CartItem'
 
 import { ICartItem } from 'Cart';
@@ -20,8 +23,17 @@ const CartContent: React.FC<CartContentProps> = props => {
 		success,
 		cartDataItems,
 	} = props
+	const queryClient = useQueryClient();
 
-	success&&console.log('tttooooooooo',cartDataItems[0].quantity);
+	// success&&console.log('tttooooooooo',cartDataItems[0].quantity);
+	const {isSuccess,isError,mutate} = useMutation({
+		mutationFn: () => {
+			return cartService.clearCart()
+		},
+
+		mutationKey:['clearCart'],
+		onSuccess:()=>queryClient.invalidateQueries({queryKey:['cartItems']}),
+	})
 	return (
 		<div className={styles.CartContent}>
 			<div className={styles.CartContent__wrapper}>
@@ -29,7 +41,7 @@ const CartContent: React.FC<CartContentProps> = props => {
 					<Link to="/" className={styles.CartContent__back}>
 						Вернуться к покупкам
 					</Link>
-					<button className={`btn-reset ${styles.CartContent__clear}`}>
+					<button className={`btn-reset ${styles.CartContent__clear}`} onClick={()=> mutate()}>
 						Очистить корзину
 					</button>
 				</div>
