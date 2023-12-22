@@ -10,17 +10,21 @@ import { removeTokenFromLocalStorage } from '../../helpers/localStorage.helper';
 
 import styles from './MyAccount.module.scss'
 
-interface MyAccountProps {}
+interface MyAccountProps {
+	anotherClass?:string;
+}
 
 const MyAccount:React.FC<MyAccountProps> = (props) => {
-	const {} = props;
+	const {
+		anotherClass='',
+	} = props;
 	const dispatch = useAppDispatch()
 	const handleLogout = () => {
 		removeTokenFromLocalStorage('token')
 		dispatch(logout())
 	}
 	return (
-		<div className={styles.MyAccount}>
+		<div className={`${styles.MyAccount} ${anotherClass}`}>
 			<h2 className={styles.MyAccount__title}>Мой аккаунт</h2>
 			<ul className={`list-reset ${styles.MyAccount__list}`}>
 				<li className={styles.MyAccount__item}>

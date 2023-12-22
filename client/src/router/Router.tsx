@@ -8,6 +8,7 @@ import Cart from '@pages/Cart/Cart';
 import Profile from '@pages/Profile/Profile';
 
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
+import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
 
 export const router = createBrowserRouter([
 	{
@@ -42,8 +43,8 @@ export const router = createBrowserRouter([
 				</ProtectedRoute>,
 				children:[
 					{
-						path:'data',
-						element:<div style={{color:'#000'}}>DataPage</div>,
+						path:'history',
+						element:<OrdersHistory/>,
 					},
 				],
 			},
