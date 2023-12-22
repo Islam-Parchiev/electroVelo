@@ -27,7 +27,7 @@ const MyAccount:React.FC<MyAccountProps> = (props) => {
 					<Link to="/">История заказов</Link>
 				</li>
 				<li className={styles.MyAccount__item}>
-					<Link to="/">Персональные данные</Link>
+					<Link to="profile/data">Персональные данные</Link>
 				</li>
 				<li className={styles.MyAccount__item}>
 					<Link to="/">Смена пароля</Link>

@@ -1,18 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Main from '@pages/Main/Main';
-
 import Layout from '@pages/Layout/Layout';
 import Catalog from '@pages/Catalog/Catalog';
 import Product from '@pages/Product/Product';
-import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import Cart from '@pages/Cart/Cart';
+import Profile from '@pages/Profile/Profile';
 
-// import Home from "../pages/Home";
-// import Transactions, { transactionAction, transactionLoader } from "../pages/Transactions";
-// import Categories, { categoriesAction, categoryLoader } from "../pages/Categories";
-// import Auth from "../pages/Auth";
-// import ProtectedRoute from "../components/ProtectedRoute";
+import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 
 export const router = createBrowserRouter([
 	{
@@ -39,16 +34,19 @@ export const router = createBrowserRouter([
 					<Cart/>
 				</ProtectedRoute>,
 			},
-			// {
-			// 	path:'transaction',
-			// 	loader:transactionLoader,
-			// 	action:transactionAction,
-			// 	element:
-			// 					<ProtectedRoute>
-			// 						<Transactions/>
-			// 					</ProtectedRoute>,
-			// },
-			
+			{
+				path:'profile/',
+				element:
+				<ProtectedRoute>
+					<Profile/>
+				</ProtectedRoute>,
+				children:[
+					{
+						path:'data',
+						element:<div style={{color:'#000'}}>DataPage</div>,
+					},
+				],
+			},
 		],
 	},
 ])
