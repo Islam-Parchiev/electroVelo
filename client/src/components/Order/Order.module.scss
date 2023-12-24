@@ -1,0 +1,32 @@
+.Order {
+	width: 100%;
+	&__header {
+		@include flex-all-sb;
+		padding: 20px 20px;
+		width: 100%;
+
+/* desk mob text 16 */
+font-family: Inter;
+font-weight: 400;
+font-style: normal;
+font-size: 16px;
+line-height: 160%; /* 25.6px */
+		color: #000;
+		&.active {
+			svg {
+				transform: rotate(180deg);
+				transition: transform .6s ease-in-out;
+			}
+
+		}
+	}
+	&__body {
+		overflow: hidden;
+		max-height: 0;
+		transition: max-height 1s ease-in-out;
+		&.active {
+			max-height: 300px;
+			transition: max-height 1.3s ease-in-out;
+		}
+	}
+}

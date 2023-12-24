@@ -24,7 +24,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = props => {
 				</div>
 				<div className={styles.OrdersHistory__content}>
 					<div className={styles.Order}>
-						<div className={styles.Order__header}>
+						<div className={`${styles.Order__header} ${active?styles.active:''} `}>
 							<time dateTime="2023-01-22T19:00">22.01.2023</time>
 							<span className={styles.Order__number}>789563678</span>
 							<span className={styles.Order__sum}>605 370 ₽</span>
