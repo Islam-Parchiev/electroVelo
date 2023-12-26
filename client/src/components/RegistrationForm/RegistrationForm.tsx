@@ -79,7 +79,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 					labelTitle="Имя пользователя" 
 					validationSchema={valName} 
 					error={errors?.name?.message}
-					type="name"
+					type="text"
 				/>
 				<FormInput 
 					labelTitle="Email" 

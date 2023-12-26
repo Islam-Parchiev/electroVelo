@@ -36,19 +36,19 @@ export const router = createBrowserRouter([
 					<Cart/>
 				</ProtectedRoute>,
 			},
-			{
-				path:'profile/',
+			{	
+				path:'/',
 				element:
 				<ProtectedRoute>
 					<Profile/>
 				</ProtectedRoute>,
 				children:[
 					{
-						path:'history',
+						path:'profile/history',
 						element:<OrdersHistory/>,
 					},
 					{
-						path:'data',
+						path:'profile/data',
 						element:<PersonalData/>,
 					},
 				],

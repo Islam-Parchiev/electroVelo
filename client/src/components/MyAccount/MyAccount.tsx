@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
 
 import { useAppDispatch } from '@redux/store';
 
@@ -23,15 +23,16 @@ const MyAccount:React.FC<MyAccountProps> = (props) => {
 		removeTokenFromLocalStorage('token')
 		dispatch(logout())
 	}
+	// const r = useLocation()
 	return (
 		<div className={`${styles.MyAccount} ${anotherClass}`}>
 			<h2 className={styles.MyAccount__title}>Мой аккаунт</h2>
 			<ul className={`list-reset ${styles.MyAccount__list}`}>
 				<li className={styles.MyAccount__item}>
-					<Link to="history">История заказов</Link>
+					<Link to="profile/history">История заказов</Link>
 				</li>
 				<li className={styles.MyAccount__item}>
-					<Link to="data">Персональные данные</Link>
+					<Link to="profile/data">Персональные данные</Link>
 				</li>
 				<li className={styles.MyAccount__item}>
 					<Link to="/">Смена пароля</Link>

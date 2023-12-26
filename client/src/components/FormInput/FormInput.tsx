@@ -7,6 +7,7 @@ interface FormInputProps {
 	type:string;
 	labelTitle:string;
 	error:any;
+	anotherClass?:string;
 }
 
 const FormInput: React.FC<FormInputProps> = props => {
@@ -15,9 +16,10 @@ const FormInput: React.FC<FormInputProps> = props => {
 		type,
 		labelTitle,
 		error,
+		anotherClass='',
 	} = props
 	return (
-		<label className={styles.FormInput}>
+		<label className={`${styles.FormInput} ${anotherClass}`}>
 			<span>{labelTitle}</span>
 			<input
 				{...validationSchema}
