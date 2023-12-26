@@ -35,7 +35,7 @@ const MyAccount:React.FC<MyAccountProps> = (props) => {
 					<Link to="profile/data">Персональные данные</Link>
 				</li>
 				<li className={styles.MyAccount__item}>
-					<Link to="/">Смена пароля</Link>
+					<Link to="profile/password">Смена пароля</Link>
 				</li>
 				<li className={styles.MyAccount__item}>
 					<Link to="/">Список желаний</Link>

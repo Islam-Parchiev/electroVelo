@@ -100,7 +100,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 					validationSchema={valConfirmPassword}
 					error={errors?.confirmPassword?.message}
 					type="password"
-					/>
+				/>
 				<Button otherClass={styles.RegistrationForm__submit}>
 					Регистрация
 				</Button>

@@ -10,6 +10,7 @@ import Profile from '@pages/Profile/Profile';
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
 import PersonalData from '@components/PersonalData/PersonalData';
+import ResetPassword from '@components/ResetPassword/ResetPassword';
 
 export const router = createBrowserRouter([
 	{
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
 					{
 						path:'profile/data',
 						element:<PersonalData/>,
+					},
+					{
+						path:'profile/password',
+						element:<ResetPassword/>,
 					},
 				],
 			},
