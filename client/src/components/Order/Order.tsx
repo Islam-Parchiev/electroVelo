@@ -1,19 +1,34 @@
 import React from 'react'
 
+import OrderItem from '@components/OrderItem/OrderItem';
+
 import styles from './Order.module.scss'
 
-interface OrderProps {}
-
+interface OrderProps {
+	date:string;
+	orderNumber:number;
+	orderPrice:number;
+	orderStatus:string;
+}
+// 22.01.2023
+// 789563678
+// 605 370
+// Новый заказ
 const Order: React.FC<OrderProps> = props => {
-	const {} = props;
+	const {
+		date,
+		orderNumber,
+		orderPrice,
+		orderStatus,
+	} = props;
 	const [active,setActive]= React.useState(false);
 	return (
 		<div className={styles.Order}>
 			<div className={`${styles.Order__header} ${active ? styles.active : ''} `}>
-				<time dateTime="2023-01-22T19:00">22.01.2023</time>
-				<span className={styles.Order__number}>789563678</span>
-				<span className={styles.Order__sum}>605 370 ₽</span>
-				<span className={styles.Order__status}>Новый заказ</span>
+				<time dateTime="2023-01-22T19:00">{date}</time>
+				<span className={styles.Order__number}>{orderNumber}</span>
+				<span className={styles.Order__sum}>{orderPrice} ₽</span>
+				<span className={styles.Order__status}>{orderStatus}</span>
 				<button
 					className={`btn-reset ${styles.Order__btn}`}
 					onClick={() => setActive(!active)}>
@@ -50,54 +65,24 @@ const Order: React.FC<OrderProps> = props => {
 			</div>
 			<div className={`${styles.Order__body} ${active ? styles.active : ''}`}>
 				<ul className={styles.Order__list}>
-					<li className={styles.OrderItem}>
-						<div className={styles.OrderItem__image}>
-							<img src="/images/Product/pre1.1.png" alt="" />
-						</div>
-						<h3 className={styles.OrderItem__title}>
-							Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018
-						</h3>
-						<div className={styles.OrderItem__price}>
-							<span className={styles.OrderItem__price_current}>
-								435 000 ₽
-							</span>
-							<span className={styles.OrderItem__price_prev}>
-								522 000 ₽
-							</span>
-						</div>
-					</li>
-					<li className={styles.OrderItem}>
-						<div className={styles.OrderItem__image}>
-							<img src="/images/Product/pre1.1.png" alt="" />
-						</div>
-						<h3 className={styles.OrderItem__title}>
-							Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018
-						</h3>
-						<div className={styles.OrderItem__price}>
-							<span className={styles.OrderItem__price_current}>
-								435 000 ₽
-							</span>
-							<span className={styles.OrderItem__price_prev}>
-								522 000 ₽
-							</span>
-						</div>
-					</li>
-					<li className={styles.OrderItem}>
-						<div className={styles.OrderItem__image}>
-							<img src="/images/Product/pre1.1.png" alt="" />
-						</div>
-						<h3 className={styles.OrderItem__title}>
-							Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018
-						</h3>
-						<div className={styles.OrderItem__price}>
-							<span className={styles.OrderItem__price_current}>
-								435 000 ₽
-							</span>
-							<span className={styles.OrderItem__price_prev}>
-								522 000 ₽
-							</span>
-						</div>
-					</li>
+					<OrderItem 
+						imageUrl="pre1.1.png" 
+						title="Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018" 
+						price={435000} 
+						prevPrice={522000}
+					/>
+					<OrderItem 
+						imageUrl="pre1.1.png" 
+						title="Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018" 
+						price={435000} 
+						prevPrice={522000}
+					/>
+					<OrderItem 
+						imageUrl="pre1.1.png" 
+						title="Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018" 
+						price={435000} 
+						prevPrice={522000}
+					/>
 				</ul>
 			</div>
 		</div>

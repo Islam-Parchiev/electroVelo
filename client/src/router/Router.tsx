@@ -9,6 +9,7 @@ import Profile from '@pages/Profile/Profile';
 
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
+import PersonalData from '@components/PersonalData/PersonalData';
 
 export const router = createBrowserRouter([
 	{
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
 					{
 						path:'history',
 						element:<OrdersHistory/>,
+					},
+					{
+						path:'data',
+						element:<PersonalData/>,
 					},
 				],
 			},

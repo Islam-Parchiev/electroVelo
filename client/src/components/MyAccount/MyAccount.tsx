@@ -28,10 +28,10 @@ const MyAccount:React.FC<MyAccountProps> = (props) => {
 			<h2 className={styles.MyAccount__title}>Мой аккаунт</h2>
 			<ul className={`list-reset ${styles.MyAccount__list}`}>
 				<li className={styles.MyAccount__item}>
-					<Link to="profile/history">История заказов</Link>
+					<Link to="history">История заказов</Link>
 				</li>
 				<li className={styles.MyAccount__item}>
-					<Link to="profile/data">Персональные данные</Link>
+					<Link to="data">Персональные данные</Link>
 				</li>
 				<li className={styles.MyAccount__item}>
 					<Link to="/">Смена пароля</Link>

@@ -1,3 +1,4 @@
+@import "../../scss/mixins/mini";
 .OrderItem {
 	@include flex-all-sb;
 	border-bottom: 1px solid var(--3-grey, #E5E5E5);
