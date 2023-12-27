@@ -1,0 +1,11 @@
+.Favorites {
+	&__items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+	&__item {
+		border: 1px solid #ece3e3;
+		width: 400px;
+	}
+}

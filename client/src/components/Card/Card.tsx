@@ -8,12 +8,12 @@ import styles from './Card.module.scss'
 interface ICard {
 	id: number
 	type: 'primary' | 'secondary'
-	title?: string
-	price?: string
-	available?: boolean
-	images?: any
+	title: string
+	price: string
+	available: boolean
+	images: any
 	otherClass?: string
-	countrySrc?: string
+	countrySrc: string
 }
 const Card: React.FC<ICard> = props => {
 	const { id, type, title, price, available, images, otherClass, countrySrc } = props

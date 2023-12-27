@@ -1,6 +1,5 @@
 import {FC} from 'react'
 
-
 import MainAbout from '@components/MainAbout/MainAbout'
 import Brands from '@components/Brands/Brands'
 import MainNewItems from '@components/MainNewItems/MainNewItems'

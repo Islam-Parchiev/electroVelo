@@ -38,7 +38,7 @@ const MyAccount:React.FC<MyAccountProps> = (props) => {
 					<Link to="profile/password">Смена пароля</Link>
 				</li>
 				<li className={styles.MyAccount__item}>
-					<Link to="/">Список желаний</Link>
+					<Link to="profile/favorites">Список желаний</Link>
 				</li>
 			</ul>
 			<button className={`btn-reset ${styles.MyAccount__logout}`} onClick={handleLogout}>Выйти</button>

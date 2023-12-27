@@ -11,6 +11,7 @@ import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
 import PersonalData from '@components/PersonalData/PersonalData';
 import ResetPassword from '@components/ResetPassword/ResetPassword';
+import Favorites from '@components/Favorites/Favorites';
 
 export const router = createBrowserRouter([
 	{
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
 					{
 						path:'profile/password',
 						element:<ResetPassword/>,
+					},
+					{
+						path:'profile/favorites',
+						element:<Favorites/>,
 					},
 				],
 			},
