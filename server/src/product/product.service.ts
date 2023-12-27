@@ -174,6 +174,7 @@ export class ProductService {
       }
     })
     if(!product) throw new NotFoundException('Product not found')
+    // if()
     return product;
   }
 

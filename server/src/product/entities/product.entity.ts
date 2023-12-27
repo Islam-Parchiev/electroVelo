@@ -4,6 +4,7 @@ import {Color} from "./color.entity";
 import { Spec } from "./spec.entity";
 import { Size } from "./size.entity";
 import { CartItem } from "src/cart/entities/cartItem.entity";
+import { FavoriteItem } from "src/favorites/entities/favoriteItem.entity";
 @Entity()
 export class Product {
     @PrimaryGeneratedColumn({name:'product_id'})
@@ -55,5 +56,8 @@ export class Product {
 
     @OneToMany(() => CartItem, item => item.product, {nullable:true })
     cartItems:CartItem;
+    
+    @OneToMany(() => FavoriteItem, item => item.product, {nullable:true })
+    favoriteItems:FavoriteItem;
 }
 

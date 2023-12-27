@@ -1,4 +1,5 @@
 import { Cart } from 'src/cart/entities/cart.entity';
+import { Favorite } from 'src/favorites/entities/favorite.entity';
 import { Entity, Column, PrimaryGeneratedColumn,OneToMany} from 'typeorm';
 
 @Entity()
@@ -40,6 +41,9 @@ export class User {
   password:string;
 
   @OneToMany(() => Cart, cart => cart.user, {nullable:true })
-  carts:Cart
+  carts:Cart;
+
+  @OneToMany(()=> Favorite,fav =>  fav.user,{nullable:true})
+  favorites:Favorite;
 
 }
