@@ -20,11 +20,11 @@ const Product:React.FC = () => {
 	const {id} = useParams();
 	//@ts-ignore
 	const {data,isLoading,isSuccess} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
-	const addToCart=()=> {
-		// @ts-ignore
-		const data = cartService.addToCart(+id,1);
-		data.then(data=>console.log(data));
-	}
+	// const addToCart=()=> {
+	// 	// @ts-ignore
+	// 	const data = cartService.addToCart(+id,1);
+	// 	data.then(data=>console.log(data));
+	// }
 	console.log('product',data);
 	// console.log('datat',data.data.category);
 	return (
@@ -38,7 +38,7 @@ const Product:React.FC = () => {
 					 productSpecifications={isSuccess&&data?.data?.specifications} 
 					 loading={isLoading}
 					 success={isSuccess}/>
-				<button onClick={addToCart}>add</button>
+				{/* <button onClick={addToCart}>add</button> */}
 				<ProductDelivery/>
 				<SimilarGoods category={isSuccess&&data?.data?.category} loading={isLoading} success={isSuccess}/>
 				<Subscribe/>

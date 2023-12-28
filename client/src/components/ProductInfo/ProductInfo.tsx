@@ -4,6 +4,9 @@ import { useAppDispatch,useAppSelector } from '@redux/store'
 
 import { changeCount } from '@redux/slices/productSlice'
 
+import cartService from '@services/cart.service'
+import favoritesService from '@services/favorites.service'
+
 import Button from '@components/Button/Button'
 import ProductPrice from '@components/ProductPrice/ProductPrice'
 import ProductSocial from '@components/ProductSocial/ProductSocial'
@@ -20,7 +23,7 @@ import styles from './ProductInfo.module.scss'
 interface ProductInfoProps {
 	loading: any
 	success: any
-	product: ICard
+	product: ICard;
 }
 
 const ProductInfo: React.FC<ProductInfoProps> = props => {
@@ -37,6 +40,15 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 	 if(productCount<1) {
 		dispatch(changeCount(1))
 	}
+	const addToCart=()=> {
+		// @ts-ignore
+		const data = cartService.addToCart(+product.id,1);
+		data.then(data=>console.log(data));
+	}
+	const addToFavorites = ()=> {
+		const data = favoritesService.addToFavorites(+product.id);
+		data.then(data=> console.log(data));
+	}
 	return (
 		<div className={styles.ProductInfo}>
 			<div className={styles.ProductInfo__top}>
@@ -50,8 +62,8 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 			<div className={styles.ProductInfo__bottom}>
 				{/* TODO:Fix Counter */}
 				<Counter onClickPlus={onClickPlus} onClickMinus={onClickMinus} count={productCount}/>
-				<Button otherClass={styles.ProductInfo__addToCart}>В корзину</Button>
-				<Button otherClass={`${styles.ProductInfo__addToFavorites}`}>
+				<Button otherClass={styles.ProductInfo__addToCart} handleClick={addToCart}>В корзину</Button>
+				<Button otherClass={`${styles.ProductInfo__addToFavorites}`} handleClick={addToFavorites}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="32"

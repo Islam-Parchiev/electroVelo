@@ -14,7 +14,7 @@ interface ProductMainProps {
 }
 
 const ProductMain: React.FC<ProductMainProps> = props => {
-	const { product, loading, success } = props
+	const { product, loading, success} = props
 	return (
 		<section className={styles.ProductMain}>
 			<div className="container">
@@ -44,6 +44,7 @@ const ProductMain: React.FC<ProductMainProps> = props => {
 						product={product}
 						loading={loading}
 						success={success}
+				
 					/>
 				</div>
 			</div>

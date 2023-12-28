@@ -1,20 +1,40 @@
 import React from 'react'
 
+import { useQuery } from '@tanstack/react-query'
+
+import favoritesService from '@services/favorites.service'
+
 import ProfileTitle from '@components/ProfileTitle/ProfileTitle'
 import Card from '@components/Card/Card'
+
+import { ICard } from 'Card'
 
 import styles from './Favorites.module.scss'
 
 interface FavoritesProps {}
-
+interface FavoritesItem {
+	id: number
+	product: ICard
+}
+interface FavoritesData {
+	id: number
+	items: FavoritesItem[]
+}
 const Favorites: React.FC<FavoritesProps> = props => {
 	const {} = props
+	// const {data,isLoading,isSuccess} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
+
+	const { data, isLoading, isSuccess } = useQuery<FavoritesData>({
+		queryKey: ['favorites'],
+		queryFn: () => favoritesService.findAllFavorites(),
+	})
+	console.log(data)
 	return (
 		<div className={styles.Favorites}>
 			<div className={styles.Favorites__wrapper}>
 				<ProfileTitle>Список желаний</ProfileTitle>
 				<ul className={`list-reset ${styles.Favorites__items}`}>
-					<Card 
+					{/* <Card 
 						id={0} 
 						type={'primary'}
 						images={['pre1.1.png']} 
@@ -68,9 +88,24 @@ const Favorites: React.FC<FavoritesProps> = props => {
 						title="Test"
 						key={1}
 						otherClass={styles.Favorites__item}
-					/>
-
-
+					/> */}
+					{isLoading
+						? 'loading'
+						: isSuccess
+							? data?.items.map(item => (
+								<Card
+									id={item.product.id}
+									type={'primary'}
+									images={item.product.previewImage}
+									available={item.product.available}
+									countrySrc={item.product.country}
+									price={item.product.price}
+									title={item.product.title}
+									key={item.id}
+									otherClass={styles.Favorites__item}
+								/>
+						  ))
+						: 'Error'}
 				</ul>
 				{/* <div className={styles.Favorites__empty}>
 					<svg
