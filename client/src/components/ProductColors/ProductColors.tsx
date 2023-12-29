@@ -8,8 +8,8 @@ import { changeColor } from '@redux/slices/productSlice';
 import styles from './ProductColors.module.scss'
 
 interface ProductColorsProps {
-	loading:any;
-	success:any;
+	loading:boolean;
+	success:boolean;
 	product:ICard;
 }
 
@@ -27,7 +27,10 @@ const ProductColors: React.FC<ProductColorsProps> = props => {
 	 }
 
 	 React.useEffect(()=>{
-		dispatch(changeColor(success&&product&&product.colors&&product.colors[0].color))
+		if(success&&product&&product.colors){
+
+			dispatch(changeColor(product.colors[0].color))
+		}
 	 },[])
 	return (
 		<div className={styles.ProductColors}>

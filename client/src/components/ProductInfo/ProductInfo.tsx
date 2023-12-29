@@ -21,8 +21,8 @@ import styles from './ProductInfo.module.scss'
 
 
 interface ProductInfoProps {
-	loading: any
-	success: any
+	loading: boolean
+	success: boolean
 	product: ICard;
 }
 

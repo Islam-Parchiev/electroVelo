@@ -7,7 +7,8 @@ import styles from './Subscribe.module.scss'
 
 
 const Subscribe: React.FC = () => {
-	const [check,setCheck]= useState(false);
+	const [check,setCheck] = React.useState(true);
+	const [value,setValue]=React.useState(1);
 	console.log('ccccc',check);
 	return (
 		<section className={styles.Subscribe}>
@@ -29,7 +30,9 @@ const Subscribe: React.FC = () => {
 							text="Согласен(на) на обработку персональных данных"
 							otherClass={styles.Subscribe__checkbox}
 							check={check}
-							setCheck={setCheck}/>
+							setCheck={setCheck}
+							value={value}
+							setValue={setValue}/>
 					</div>
 					{/* <button className={`btn-reset btn ${styles.Subscribe__btn}`}>Подписаться</button> */}
 					<Button handleClick={()=>console.log('click')}>Подписаться</Button>

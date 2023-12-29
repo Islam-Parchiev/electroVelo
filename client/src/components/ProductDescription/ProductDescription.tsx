@@ -2,10 +2,9 @@ import React from 'react'
 
 import styles from './ProductDescription.module.scss'
 
-interface ProductDescriptionProps {}
 
-const ProductDescription:React.FC<ProductDescriptionProps> = (props) => {
-	const {} = props;
+
+const ProductDescription:React.FC = () => {
 	return (
 		<section className={styles.ProductDescription}>
 			<div className="container">

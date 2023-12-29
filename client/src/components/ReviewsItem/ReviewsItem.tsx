@@ -8,7 +8,10 @@ interface ReviewsItemProps {
 	dateTime:string;
 	text:string;
 	url:string;
-	tag:any;
+	tag:{
+    text: string;
+    url: string;
+};
 }
 
 const ReviewsItem: React.FC<ReviewsItemProps> = props => {

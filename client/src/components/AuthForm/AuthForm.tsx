@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { AxiosError } from 'axios'
+
 import { Link } from 'react-router-dom'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useAppDispatch } from '@redux/store'
@@ -19,25 +21,31 @@ import { setTokenToLocalStorage } from '../../helpers/localStorage.helper'
 import styles from './AuthForm.module.scss'
 
 interface AuthFormProps {
-	handleActiveForm: any
+	handleActiveForm: (value:ActiveForm)=>void;
 }
 
 const AuthForm: React.FC<AuthFormProps> = props => {
 	const { handleActiveForm } = props
 	const dispatch = useAppDispatch();
+	const [check,setCheck] = React.useState(true);
+	const [value,setValue]=React.useState(1);
 
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		reset,
-	} = useForm<{ name: string; email: string; password: string; confirmPassword: any }>(
+	} = useForm<{ email: string; password: string; }>(
 		{
 			mode: 'onChange',
 		},
 	)
 
-	const onSubmit: SubmitHandler<any> = async (data) => {
+	type SubmitDataType ={
+		email:string;
+		password:string;
+	}
+	const onSubmit: SubmitHandler<SubmitDataType> = async (data) => {
 		try{
 			alert(`Your name ${data}`)
 			console.log(data)
@@ -45,11 +53,13 @@ const AuthForm: React.FC<AuthFormProps> = props => {
 			console.log('rdata',rdata);
 			if(rdata) {
 				setTokenToLocalStorage('token',rdata.token)
-				dispatch(login(data))
+				dispatch(login(rdata))
 			}
-		}catch(err:any){
-			const error  =err.response?.data.message;
-			console.log(error);
+		}catch(err){
+			if(err instanceof AxiosError){
+				const error  =err.response?.data.message;
+				console.log('autherror',error);
+			}
 		}finally {
 			reset()
 		}
@@ -97,6 +107,10 @@ const AuthForm: React.FC<AuthFormProps> = props => {
 					<Checkbox
 						text="Запомнить меня"
 						otherClass={styles.AuthForm__checkbox}
+						check={check}
+						setCheck={setCheck}
+						value={value}
+						setValue={setValue}
 					/>
 					<Link to="/">Забыли пароль?</Link>
 				</div>

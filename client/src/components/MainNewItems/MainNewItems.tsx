@@ -22,7 +22,7 @@ const MainNewItems: FC = () => {
 							 price={item.price} 
 							 title={item.title} 
 							 available={item.available} 
-							 images={item.previewImage}
+							 previewImage={item.previewImage}
 							 id={item.id}/>
 						))
 						 }

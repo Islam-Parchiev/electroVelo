@@ -4,8 +4,8 @@ import styles from './ProductSpecifications.module.scss'
 
 interface ProductSpecificationsProps {
 	productSpecifications:any;
-	loading:any;
-	success:any;
+	loading:boolean;
+	success:boolean;
 }
 
 const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
@@ -26,7 +26,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 							<h5 className={styles.SpecificationsItem__title}>Бренд</h5>
 							<span className={styles.SpecificationsItem__value}>
 								{
-									loading ? 'Загрузка...':productSpecifications[0].brand
+									loading ? 'Загрузка...':success?productSpecifications[0].brand:'Error'
 								}		
 							</span>
 						</li>
@@ -34,7 +34,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 							<h5 className={styles.SpecificationsItem__title}>Категория</h5>
 							<span className={styles.SpecificationsItem__value}>
 								{
-									loading ? 'Загрузка...':productSpecifications[0].category
+									loading ? 'Загрузка...':success?productSpecifications[0].category:'Error'
 								}		
 								
 								
@@ -44,7 +44,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 							<h5 className={styles.SpecificationsItem__title}>Материал</h5>
 							<span className={styles.SpecificationsItem__value}>
 								{
-									loading ? 'Загрузка...':productSpecifications[0].material
+									loading ? 'Загрузка...':success?productSpecifications[0].material:'Error'
 								}	
 							
 							</span>
@@ -53,7 +53,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 							<h5 className={styles.SpecificationsItem__title}>Год</h5>
 							<span className={styles.SpecificationsItem__value}>
 								{
-									loading ? 'Загрузка...':productSpecifications[0].year
+									loading ? 'Загрузка...':success?productSpecifications[0].year:'Error'
 								}	
 							
 							</span>
@@ -62,7 +62,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 							<h5 className={styles.SpecificationsItem__title}>Страна</h5>
 							<span className={styles.SpecificationsItem__value}>
 								{
-									loading ? 'Загрузка...':productSpecifications[0].country
+									loading ? 'Загрузка...':success?productSpecifications[0].country:'Error'
 								}
 								
 							</span>

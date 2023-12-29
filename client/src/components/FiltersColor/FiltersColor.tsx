@@ -5,7 +5,7 @@ import styles from './FiltersColor.module.scss'
 interface FiltersColorProps {
 	color:string;
 	selectedColors:string[];
-	changeColor:any;
+	changeColor:(color: string) => void;
 }
 
 const FiltersColor:React.FC<FiltersColorProps> = (props) => {

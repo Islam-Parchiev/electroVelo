@@ -4,11 +4,12 @@ import styles from './RangeSlider.module.scss'
 import { useRangeSlider } from './useRangeSlider'
 
 export interface RangeSliderProps {
-	min: any
-	max: any
-	value: any
-	step: any
-	onChange: any
+	min: number;
+	max: number;
+	value: {min: number;
+    max: number;}
+	step: number;
+	onChange: (value:{min: number;max: number;})=>void;
 }
 
 const RangeSlider: React.FC<RangeSliderProps> = props => {

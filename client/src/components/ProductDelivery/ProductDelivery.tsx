@@ -2,10 +2,8 @@ import React from 'react'
 
 import styles from './ProductDelivery.module.scss'
 
-interface ProductDeliveryProps {}
 
-const ProductDelivery:React.FC<ProductDeliveryProps> = (props) => {
-	const {} = props;
+const ProductDelivery:React.FC = () => {
 	return (
 		<section className={styles.ProductDelivery}>
 			<div className="container">

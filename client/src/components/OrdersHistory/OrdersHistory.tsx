@@ -5,12 +5,10 @@ import ProfileTitle from '@components/ProfileTitle/ProfileTitle';
 
 import styles from './OrdersHistory.module.scss'
 
-interface OrdersHistoryProps {}
 
 
+const OrdersHistory: React.FC= () => {
 
-const OrdersHistory: React.FC<OrdersHistoryProps> = props => {
-	const {} = props
 	return (
 		<div className={styles.OrdersHistory}>
 			<div className={styles.OrdersHistory__wrapper}>

@@ -4,7 +4,7 @@ import AdvantagesItem from '@components/AdvantagesItem/AdvantagesItem'
 
 import styles from './Advantages.module.scss'
 
-const Advantages: React.FC = props => {
+const Advantages: React.FC = () => {
 	return (
 		<section className={styles.Advantages}>
 			<div className="container">

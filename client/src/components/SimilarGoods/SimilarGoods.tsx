@@ -14,8 +14,8 @@ import Card from '@components/Card/Card';
 import styles from './SimilarGoods.module.scss'
 interface SimilarGoodsProps {
 	category:string;
-	loading:any;
-	success:any;
+	loading:boolean;
+	success:boolean;
 }
 
 const SimilarGoods:React.FC<SimilarGoodsProps> = (props) => {
@@ -26,8 +26,9 @@ const SimilarGoods:React.FC<SimilarGoodsProps> = (props) => {
 		
 	} = props;
 
-	const query = useQuery<{data:any}>({ queryKey: ['similarProducts',category], 
+	const query = useQuery({ queryKey: ['similarProducts',category], 
 		queryFn:()=> productService.getProductsByCategories(category),
+		
 	})
 	console.log('similar',query);
 	return (
@@ -45,7 +46,6 @@ const SimilarGoods:React.FC<SimilarGoodsProps> = (props) => {
 							modules={[A11y]}
 							spaceBetween={0}
 							scrollbar={{ draggable: true }}
-							onSwiper={(swiper: any) => console.log(swiper)}
 							onSlideChange={() => console.log('slide change')}>
 							{query.data?.data.map((product: ICard) => (
 								<SwiperSlide>
@@ -58,7 +58,7 @@ const SimilarGoods:React.FC<SimilarGoodsProps> = (props) => {
 											type="secondary"
 											available={product.available}
 											countrySrc={product.country}
-											images={product.previewImage}
+											previewImage={product.previewImage}
 											price={product.price}
 											title={product.title}
 											otherClass={

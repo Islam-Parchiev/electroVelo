@@ -190,7 +190,7 @@ const Filters: React.FC<FiltersProps> = props => {
 			<Accordion accordionTitle="Цвет">
 				<ul className={`list-reset ${styles.Filters__colors}`}>
 
-					{colors.map((color:any)=> (<FiltersColor color={color} selectedColors={selectedColors} changeColor={handleColorChange}/>) )}
+					{colors.map((color:string)=> (<FiltersColor color={color} selectedColors={selectedColors} changeColor={handleColorChange}/>) )}
 				
 				</ul>
 			</Accordion>

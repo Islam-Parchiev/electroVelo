@@ -25,9 +25,8 @@ const Kit: React.FC<KitProps> = props => {
 					modules={[A11y]}
 					spaceBetween={0}
 					scrollbar={{ draggable: true }}
-					onSwiper={(swiper: any) => console.log(swiper)}
 					onSlideChange={() => console.log('slide change')}>
-					{data?.data.data?.map((item:any)=>(
+					{data?.data.data?.map((item)=>(
 						<SwiperSlide>
 							<div className={styles.Kit__slide}>
 								<Card type="secondary" 
@@ -35,7 +34,7 @@ const Kit: React.FC<KitProps> = props => {
 									price={item.price} 
 									title={item.title} 
 									available={item.available} 
-									images={item.previewImage}
+									previewImage={item.previewImage}
 									countrySrc={item.country}
 									id={item.id}/>
 							</div>

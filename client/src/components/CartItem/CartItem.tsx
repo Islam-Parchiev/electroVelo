@@ -32,7 +32,7 @@ const CartItem: React.FC<CartItemProps> = props => {
 	const [countt, setCountt] = React.useState(count)
 	const queryClient = useQueryClient();
 	const debounced = useDebounce(countt,300)
-	const {isSuccess,isError,mutate} = useMutation({
+	const {isSuccess,mutate} = useMutation({
    	 mutationFn: (id:number) => {
       	return cartService.deleteCartItem(id)
    	 },
@@ -47,13 +47,6 @@ const CartItem: React.FC<CartItemProps> = props => {
 		onSuccess:()=>queryClient.invalidateQueries({queryKey:['cartItems']}),
 		mutationKey:['cartItem update',countt],
 	})
-	// console.log(countt,'cccccccccccccccccccccccccc')
-	// useEffect(()=> {
-	// 	cartService.changeQuantity(id,countt);
-	// 	return ()=> {
-	// 		cartService.changeQuantity(id,countt);
-	// 	}
-	// },[debounced])
 
 	const onClickMinus = () => {
 		setCountt(prev => prev - 1)

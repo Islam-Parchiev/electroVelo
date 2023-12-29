@@ -20,7 +20,6 @@ const MainAbout: FC = () => {
 					modules={[Pagination, A11y]}
 					pagination={{ clickable: true }}
 					scrollbar={{ draggable: true }}
-					onSwiper={(swiper: any) => console.log(swiper)}
 					onSlideChange={() => console.log('slide change')}>
 					<SwiperSlide>
 						<div className={styles.Slide}>

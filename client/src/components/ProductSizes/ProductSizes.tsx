@@ -8,8 +8,8 @@ import { changeSize } from '@redux/slices/productSlice';
 import styles from './ProductSizes.module.scss'
 
 interface ProductSizesProps {
-	success:any;
-	loading:any;
+	success:boolean;
+	loading:boolean;
 	product:ICard;
 }
 
@@ -25,7 +25,9 @@ const ProductSizes: React.FC<ProductSizesProps> = props => {
 		dispatch(changeSize(size));
 	 }
 	 React.useEffect(()=>{
-		dispatch(changeSize(success&&product&&product.sizes&&product.sizes[0].size))
+		if(success&&product&&product.sizes){
+			dispatch(changeSize(product.sizes[0].size))
+		}
 	 },[])
 	return (
 		<div className={styles.ProductSizes}>
@@ -34,7 +36,7 @@ const ProductSizes: React.FC<ProductSizesProps> = props => {
 				{loading
 					? 'Loading...'
 					: success
-					? product.sizes?.map(item => (
+						? product.sizes?.map(item => (
 							<li
 								className={`${styles.ProductSizes__item} ${
 									item.size === productSize && styles.active
@@ -43,7 +45,7 @@ const ProductSizes: React.FC<ProductSizesProps> = props => {
 								{item.size}
 							</li>
 					  ))
-					: 'Error'}
+						: 'Error'}
 			</ul>
 		</div>
 	)

@@ -5,7 +5,7 @@ import HeaderModal from '@components/HeaderModal/HeaderModal'
 import styles from './NavItem.module.scss'
 
 interface NavItemProps {
-	children:any;
+	children:React.ReactNode;
 	text:string;
 }
 

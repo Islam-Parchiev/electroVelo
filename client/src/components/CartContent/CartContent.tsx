@@ -12,9 +12,9 @@ import { ICartItem } from 'Cart';
 import styles from './CartContent.module.scss'
 
 interface CartContentProps {
-	loading:any;
-	success:any;
-	cartDataItems:any;
+	loading:boolean;
+	success:boolean;
+	cartDataItems:ICartItem[] | undefined;
 }
 
 const CartContent: React.FC<CartContentProps> = props => {
@@ -26,7 +26,7 @@ const CartContent: React.FC<CartContentProps> = props => {
 	const queryClient = useQueryClient();
 
 	// success&&console.log('tttooooooooo',cartDataItems[0].quantity);
-	const {isSuccess,isError,mutate} = useMutation({
+	const {mutate} = useMutation({
 		mutationFn: () => {
 			return cartService.clearCart()
 		},
@@ -48,7 +48,7 @@ const CartContent: React.FC<CartContentProps> = props => {
 				<div className={styles.CartContent__goods}>
 					<ul className={`list-reset ${styles.CartContent__list}`}>
 						{
-							loading?'Loadnig...':success ? cartDataItems.map((cartItem:ICartItem)=> <CartItem 
+							loading?'Loadnig...':success ? cartDataItems?.map((cartItem:ICartItem)=> <CartItem 
 								id={cartItem.id}
 								key={cartItem.id} 
 								count={cartItem.quantity} 

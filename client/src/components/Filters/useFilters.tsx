@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import { RootState, useAppDispatch,useAppSelector } from '@redux/store'
 import { changeCategory, toggleAvailable,changeBrand,changePrice,changeMaterial, changeColor,resetFilters } from '@redux/slices/filtersSlice'
 
@@ -32,12 +32,12 @@ export function useFilters(){
 	const handleBrand=(value:string)=> {
 		dispatch(changeBrand(value))
 	}
-	const handleInputMin=(e:any)=> {
+	const handleInputMin=(e:ChangeEvent<HTMLInputElement> )=> {
 		e.preventDefault(); 
 		setValue({ ...value, min: +e.target.value })
 		dispatch(changePrice({...priceValue,min:+e.target.value}));
 	}
-	const handleInputMax=(e:any)=> {
+	const handleInputMax=(e:ChangeEvent<HTMLInputElement> )=> {
 		e.preventDefault(); 
 		setValue({ ...value, max: +e.target.value })
 		dispatch(changePrice({...priceValue,max:+e.target.value}));

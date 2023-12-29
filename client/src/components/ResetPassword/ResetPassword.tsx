@@ -8,21 +8,25 @@ import Button from '@components/Button/Button';
 
 import styles from './ResetPassword.module.scss'
 
-interface ResetPasswordProps {}
 
-const ResetPassword:React.FC<ResetPasswordProps> = (props) => {
-	const {} = props;
+type SubmitHandlerType ={
+	 oldPassword:string; 
+	 newPassword:string;
+	  confirmPassword:string; 
+}
+
+const ResetPassword:React.FC = () => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		reset,
 		watch,
-	} = useForm<{ oldPassword:string; newPassword:string; confirmPassword:string; }>({
+	} = useForm<SubmitHandlerType>({
 		mode: 'onChange',
 	})
 
-	const onSubmit: SubmitHandler<any> = data => {
+	const onSubmit: SubmitHandler<SubmitHandlerType> = data => {
 		alert(`Your name ${data}`)
 		console.log(data);
 		// console.log(AuthService.registration({

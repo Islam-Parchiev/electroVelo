@@ -11,12 +11,12 @@ interface ICard {
 	title: string
 	price: string
 	available: boolean
-	images: any
+	previewImage: string;
 	otherClass?: string
 	countrySrc: string
 }
 const Card: React.FC<ICard> = props => {
-	const { id, type, title, price, available, images, otherClass, countrySrc } = props
+	const { id, type, title, price, available, previewImage, otherClass, countrySrc } = props
 	// console.log('iii',images)
 
 	return (
@@ -30,7 +30,7 @@ const Card: React.FC<ICard> = props => {
 				</div>
 			</div>
 			<div className={styles.Card__body}>
-				<img src={`/images/Product/${images}`} alt="" />
+				<img src={`/images/Product/${previewImage}`} alt="" />
 			</div>
 			<div className={styles.Card__footer}>
 				<h4 className={styles.Card__title}>{title || 'Title'}</h4>

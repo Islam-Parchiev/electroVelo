@@ -5,8 +5,8 @@ import { ICard } from 'Card';
 import styles from './ProductSocial.module.scss'
 
 interface ProductSocialProps {
-	loading:any;
-	success:any;
+	loading:boolean;
+	success:boolean;
 	product:ICard;
 }
 

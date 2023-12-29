@@ -13,13 +13,13 @@ const BestModels: FC = () => {
 				<h2 className={`title ${styles.BestModels__title}`}>Лучшие модели для зимней езды</h2>
 				<ul className={`list-reset ${styles.BestModels__items}`}>
 					{
-						data?.data.map((item:any)=>(
+						data?.data.map((item)=>(
 							<Card type="primary" 
 								countrySrc={item.country} 
 								price={item.price} 
 								title={item.title} 
 								available={item.available} 
-								images={item.previewImage} 
+								previewImage={item.previewImage} 
 								id={item.id}/>
 						))
 			 }

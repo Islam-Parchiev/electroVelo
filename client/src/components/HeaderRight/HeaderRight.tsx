@@ -7,11 +7,11 @@ import HeaderSearch from '@components/HeaderSearch/HeaderSearch'
 import styles from './HeaderRight.module.scss'
 
 interface HeaderRightProps {
-	setSearch:any;
+	setSearch:(value:boolean)=>void;
 	search:boolean;
-	setProfileMenu:any;
+	setProfileMenu:(value:boolean)=>void;
 	profileMenu:boolean;
-	setMenu:any;
+	setMenu:(value:boolean)=>void;
 	menu:boolean;
 }
 

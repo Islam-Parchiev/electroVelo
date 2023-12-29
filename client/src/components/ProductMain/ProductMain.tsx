@@ -9,8 +9,8 @@ import styles from './ProductMain.module.scss'
 
 interface ProductMainProps {
 	product: ICard
-	loading: any
-	success: any
+	loading: boolean
+	success: boolean
 }
 
 const ProductMain: React.FC<ProductMainProps> = props => {

@@ -96,7 +96,7 @@ const Favorites: React.FC<FavoritesProps> = props => {
 								<Card
 									id={item.product.id}
 									type={'primary'}
-									images={item.product.previewImage}
+									previewImage={item.product.previewImage}
 									available={item.product.available}
 									countrySrc={item.product.country}
 									price={item.product.price}

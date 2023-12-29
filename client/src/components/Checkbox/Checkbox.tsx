@@ -4,10 +4,10 @@ import styles from './Checkbox.module.scss'
 interface ICheckbox {
 	text:string;
 	otherClass?:string;
-	check?:any;
-	setCheck?:any;
-	value?:any;
-	setValue?:any;
+	check:boolean;
+	setCheck:(value:boolean)=>void;
+	value:any;
+	setValue:any;
 	count?:number;
 	countClass?:string;
 }
@@ -31,7 +31,7 @@ const Checkbox:FC<ICheckbox> = (props) => {
 				type="checkbox" 
 				checked={check}
 				value={value}
-				onChange={setCheck}/>
+				onChange={()=>setCheck(!check)}/>
 			<div className={styles.checkbox}>
 				<svg
 					className={styles.checkmark}

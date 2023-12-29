@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 
 import styles from './FormInput.module.scss'
 
@@ -6,7 +8,7 @@ interface FormInputProps {
 	validationSchema:any;
 	type:string;
 	labelTitle:string;
-	error:any;
+	error:ReactNode;
 	anotherClass?:string;
 }
 

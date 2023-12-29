@@ -5,8 +5,8 @@ import { ICard } from 'Card';
 import styles from './ProductInfoDescr.module.scss'
 
 interface ProductDescrProps {
-	loading:any;
-	success:any;
+	loading:boolean;
+	success:boolean;
 	product:ICard;
 }
 

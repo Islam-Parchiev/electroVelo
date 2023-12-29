@@ -2,12 +2,10 @@ import React from 'react'
 
 import styles from './HeaderSearch.module.scss'
 
-interface HeaderSearchProps {
-}
 
-const HeaderSearch: React.FC<HeaderSearchProps> = props => {
-	const {
-	} = props
+
+const HeaderSearch: React.FC = () => {
+
 	return (
 		<label className={styles.HeaderSearch}>
 			<input type="text" className={'input-reset'} placeholder="Поиск"/>

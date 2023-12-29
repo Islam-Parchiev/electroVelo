@@ -10,35 +10,33 @@ import Button from '@components/Button/Button';
 
 import styles from './PersonalData.module.scss'
 
-interface PersonalDataProps {}
+
 interface IAddress {
-	city:any;
-	street:any;
-	house:any;
-	floor:any;
-	flat:any;
+	city:string;
+	street:string;
+	house:string;
+	floor:string;
+	flat:string;
 }
 interface IFormData {
 	 	name: string;
 	  email: string;
-		password: any;
-		confirmPassword: any;
-		phone:any;
+		password: string;
+		confirmPassword: string;
+		phone:string;
 		address:IAddress;
 }
-const PersonalData:React.FC<PersonalDataProps> = (props) => {
-	const {} = props;
+const PersonalData:React.FC = () => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		reset,
-		watch,
 	} = useForm<IFormData>({
 		mode: 'onChange',
 	})
 
-	const onSubmit: SubmitHandler<any> = data => {
+	const onSubmit: SubmitHandler<IFormData> = data => {
 		alert(`Your name ${data}`)
 		console.log(data);
 		console.log(AuthService.registration({

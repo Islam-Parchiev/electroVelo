@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 import styles from './HeaderMenu.module.scss'
 
 interface HeaderMenuProps {
-	value?:boolean;
-	handleOpen?:any;
-	children:any;
+	handleOpen:(value:boolean)=>void;
+	children:ReactNode;
 }
 
 const HeaderMenu:React.FC<HeaderMenuProps> = (props) => {

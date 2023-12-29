@@ -25,7 +25,7 @@ export class ProductService  {
 		&available=${available}`)
 	 }
 	 async getKitItems() {
-		return axios.get(`${this.URL}/product?categories=Kit&materials=Carbon&page=1&limit=15&sortByPrice=DESC&available=false`)
+		return axios.get<{data:ICard[]}>(`${this.URL}/product?categories=Kit&materials=Carbon&page=1&limit=15&sortByPrice=DESC&available=false`)
 	 }
 	 async getProductsByCategories(category:string) {
 		return await axios.get(`${this.URL}/product/byCategories/${category}`)

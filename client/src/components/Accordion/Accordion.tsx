@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 import styles from './Accordion.module.scss'
 
 interface AccordionProps {
 	accordionTitle:string;
-	children:any;
+	children:ReactNode;
 }
 
 const Accordion: React.FC<AccordionProps> = props => {

@@ -11,9 +11,13 @@ import FormInput from '@components/FormInput/FormInput'
 import styles from './RegistrationForm.module.scss'
 
 interface RegistrationFormProps {
-	handleActiveForm: any
+	handleActiveForm: (value:ActiveForm)=>void;
 }
-
+type SubmitDataType = {
+	name: string; 
+	email: string;
+	password: string; 
+	confirmPassword: string }
 const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 	const { handleActiveForm } = props
 
@@ -23,11 +27,12 @@ const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 		formState: { errors },
 		reset,
 		watch,
-	} = useForm<{ name: string; email: string; password: any; confirmPassword: any }>({
+	} = useForm<SubmitDataType>({
 		mode: 'onChange',
 	})
 
-	const onSubmit: SubmitHandler<any> = data => {
+
+	const onSubmit: SubmitHandler<SubmitDataType> = data => {
 		alert(`Your name ${data}`)
 		console.log(data);
 		console.log(AuthService.registration({

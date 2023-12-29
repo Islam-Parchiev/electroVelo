@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 import styles from './HeaderModal.module.scss'
 
 interface HeaderModalProps {
-	children:any;
-	otherClasses?:any;
+	children:ReactNode;
+	otherClasses?:string;
 }
 
 const HeaderModal:React.FC<HeaderModalProps> = (props) => {

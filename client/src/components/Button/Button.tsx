@@ -4,7 +4,7 @@ import styles from './Button.module.scss'
 
 interface ButtonProps {
 	otherClass?: string
-	children: any
+	children: React.ReactNode
 	handleClick?: () => void
 }
 

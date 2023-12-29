@@ -3,9 +3,9 @@ import React from 'react'
 import styles from './Modal.module.scss'
 
 interface ModalProps {
-	value: any
-	handleOpen: any
-	children: any
+	value: boolean
+	handleOpen: (value:boolean)=>void;
+	children: React.ReactNode
 }
 
 const Modal: React.FC<ModalProps> = props => {

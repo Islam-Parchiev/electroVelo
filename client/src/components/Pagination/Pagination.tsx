@@ -87,7 +87,9 @@ const Pagination: React.FC<PaginationProps> = props => {
 			</button>
 			<ul className={`list-reset ${styles.Pagination__list}`}>
 				 {
-					arrPages.map((pageNum:any)=><li className={`${styles.Pagination__item} ${page===pageNum+1&&styles.active}`} onClick={()=>setPage(pageNum+1)}>{pageNum+1}</li>)
+					arrPages.map((pageNum:number)=><li 
+						className={`${styles.Pagination__item} ${page===pageNum+1&&styles.active}`} 
+						onClick={()=>setPage(pageNum+1)}>{pageNum+1}</li>)
 				 }
 			</ul>
 			<button className={`btn-reset ${styles.Pagination__next}`} onClick={()=> setPage(page+1)}>
