@@ -101,6 +101,7 @@ export class ProductService {
     const { skip, take } = calculatePagination(page, limit);
   
     const queryBuilder = this.productRepository.createQueryBuilder('product')
+    // .relation()
     .skip(skip)
     .take(take)
     if(categories) {
@@ -108,20 +109,7 @@ export class ProductService {
       queryBuilder.where('product.category = :category').where('category IN (:...categories)', { categories }).andWhere('material IN (:...materials)', { materials })
       console.log('dasd');
     } 
-    // async getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<Product[]> {
-    //   const query = this.productRepository.createQueryBuilder('product')
-    //     .innerJoin('product.category', 'category')
-    //     .innerJoin('product.material', 'material')
-    //     .where('category.name IN (:...categories)', { categories })
-    //     .andWhere('material.name IN (:...materials)', { materials });
-  
-    //   return query.getMany();
-    // }
-    // if(materials) {
-    //   // .where('product.category = :category',{category:category})
-    //    queryBuilder.where('product.material = :material').where('material IN (:...materials)', { materials });
-    //   console.log('dasd');
-    // } 
+   
     if(available==='true'){
        queryBuilder.where('product.available = :available',{available:available})
     }

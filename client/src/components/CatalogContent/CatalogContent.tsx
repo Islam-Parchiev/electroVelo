@@ -7,7 +7,7 @@ import Card from '@components/Card/Card'
 import Pagination from '@components/Pagination/Pagination'
 
 
-import { ICard } from 'Card'
+// import { ICard } from 'Product'
 
 import { useCatalog } from './useCatalog'
 
@@ -31,7 +31,7 @@ const CatalogContent: React.FC = () => {
 								{isLoading
 									? 'Loading...'
 									: isSuccess
-										? products.map((item: ICard) => (
+										? products.map((item) => (
 											<Card
 												type="secondary"
 												id={item.id}

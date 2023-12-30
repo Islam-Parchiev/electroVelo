@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Button from '@components/Button/Button'
 
 import styles from './Card.module.scss'
-interface ICard {
+export interface ICard {
 	id: number
 	type: 'primary' | 'secondary'
 	title: string

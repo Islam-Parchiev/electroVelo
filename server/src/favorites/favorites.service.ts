@@ -34,9 +34,9 @@ export class FavoritesService {
     // let cartItem = cart.items.find((item) =>  item.product.id === productId);
     
     if (favorite.items.find((item) =>  item.product.id === productId)) {
-      // let favoriteItem =favorite.items.find((item) =>  item.product.id === productId);
-      favorite.items.filter((item)=>item.id!==productId)
-
+      let filteredItems =favorite.items.filter((item)=>item.product.id!==productId);
+      // console.log(favorite.items.filter((item)=>item.product.id!==productId));
+      favorite.items=[...filteredItems];
       // .filter(item=> item!==1);
     } else {
       const product = await this.productRepository.findOne({where:{id:productId}});

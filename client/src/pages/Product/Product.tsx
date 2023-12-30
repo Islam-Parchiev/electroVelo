@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 
 import productService  from '@services/product.service'
-import cartService from '@services/cart.service'
+// import cartService from '@services/cart.service'
 
 import Header from '@components/Header/Header'
 import ProductMain from '@components/ProductMain/ProductMain'
