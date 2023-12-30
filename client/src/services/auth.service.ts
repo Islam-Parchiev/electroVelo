@@ -8,7 +8,7 @@ export const AuthService = {
 		return data
 	},
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 	async login(userData: IAuthUserData): Promise<IUser | undefined> {
 		const { data } = await instance.post<IUser>('auth/login', userData)
 		return data

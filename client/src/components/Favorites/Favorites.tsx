@@ -22,7 +22,7 @@ interface FavoritesData {
 }
 const Favorites: React.FC<FavoritesProps> = props => {
 	const {} = props
-	// const {data,isLoading,isSuccess} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
+
 
 	const { data, isLoading, isSuccess } = useQuery<FavoritesData>({
 		queryKey: ['favorites'],
@@ -34,61 +34,6 @@ const Favorites: React.FC<FavoritesProps> = props => {
 			<div className={styles.Favorites__wrapper}>
 				<ProfileTitle>Список желаний</ProfileTitle>
 				<ul className={`list-reset ${styles.Favorites__items}`}>
-					{/* <Card 
-						id={0} 
-						type={'primary'}
-						images={['pre1.1.png']} 
-						available={true}
-						countrySrc={'France.png'}
-						price="123"
-						title="Test"
-						key={1}
-						otherClass={styles.Favorites__item}
-					/>
-					<Card 
-						id={0} 
-						type={'primary'}
-						images={['pre1.1.png']} 
-						available={true}
-						countrySrc={'France.png'}
-						price="123"
-						title="Test"
-						key={1}
-						otherClass={styles.Favorites__item}
-					/>
-					<Card 
-						id={0} 
-						type={'primary'}
-						images={['pre1.1.png']} 
-						available={true}
-						countrySrc={'France.png'}
-						price="123"
-						title="Test"
-						key={1}
-						otherClass={styles.Favorites__item}
-					/>
-					<Card 
-						id={0} 
-						type={'primary'}
-						images={['pre1.1.png']} 
-						available={true}
-						countrySrc={'France.png'}
-						price="123"
-						title="Test"
-						key={1}
-						otherClass={styles.Favorites__item}
-					/>
-					<Card 
-						id={0} 
-						type={'primary'}
-						images={['pre1.1.png']} 
-						available={true}
-						countrySrc={'France.png'}
-						price="123"
-						title="Test"
-						key={1}
-						otherClass={styles.Favorites__item}
-					/> */}
 					{isLoading
 						? 'loading'
 						: isSuccess

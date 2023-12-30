@@ -31,7 +31,7 @@ const CartItem: React.FC<CartItemProps> = props => {
 	console.log('testtt',count)
 	const [countt, setCountt] = React.useState(count)
 	const queryClient = useQueryClient();
-	const debounced = useDebounce(countt,300)
+	const debounced = useDebounce<number>(countt,300)
 	const {isSuccess,mutate} = useMutation({
    	 mutationFn: (id:number) => {
       	return cartService.deleteCartItem(id)
@@ -42,7 +42,9 @@ const CartItem: React.FC<CartItemProps> = props => {
   	})
 	const changeQ = useMutation({
 		mutationFn:()=> {
-			return cartService.changeQuantity(id,countt)
+			const data =cartService.changeQuantity(id,countt);
+			console.log('changeQ',data)
+			return data
 		},
 		onSuccess:()=>queryClient.invalidateQueries({queryKey:['cartItems']}),
 		mutationKey:['cartItem update',countt],

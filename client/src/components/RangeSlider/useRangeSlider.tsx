@@ -2,8 +2,26 @@ import React from 'react';
 
 import { useAppDispatch, useAppSelector } from '@redux/store';
 import { changePrice } from '@redux/slices/filtersSlice'
+	
+interface IReturnDataUseRangeSlider {
+	handleMaxChange:(value:React.ChangeEvent<HTMLInputElement>)=>void;
+	handleMinChange:(value:React.ChangeEvent<HTMLInputElement>)=>void;
+	minPos:number;
+	maxPos:number;
+	priceValue:{
+		min: number;
+	max: number;}
+}
+	
 
-export function useRangeSlider(value:any,step:any,min:any,max:any,onChange:any) {
+export function useRangeSlider(
+	value:{min: number;
+				max: number;},
+	step:number,
+	min:number,
+	max:number,
+	onChange: (value:{min: number;max: number;})=>void):IReturnDataUseRangeSlider {
+
 	const dispatch = useAppDispatch();
 	const priceValue = useAppSelector((state)=>state.filters.price);
 console.log(priceValue,'slicePrice');
@@ -17,7 +35,7 @@ console.log(priceValue,'slicePrice');
 		}
 	}, [value]);
 	
-	const handleMinChange = (e:any) => {
+	const handleMinChange = (e:React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
 		const newMinVal = Math.min(+e.target.value, maxValue - step);
 		if (!value) setMinValue(newMinVal);
@@ -25,7 +43,7 @@ console.log(priceValue,'slicePrice');
 		dispatch(changePrice({min:newMinVal,max: maxValue}));
 	};
 	
-	const handleMaxChange = (e:any) => {
+	const handleMaxChange = (e:React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
 		const newMaxVal = Math.max(+e.target.value, minValue + step);
 		if (!value) setMaxValue(newMaxVal);

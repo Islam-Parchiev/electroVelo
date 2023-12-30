@@ -40,7 +40,7 @@ export const filtersSlice = createSlice({
 				state.selectedCategories.push(category);
 			}
 		},
-		changePrice:(state,action:PayloadAction<any>)=> {
+		changePrice:(state,action:PayloadAction<{min: number;max: number;}>)=> {
       	state.price={...action.payload}
 		},
 		changeBrand:(state,action:PayloadAction<string>)=> {
@@ -68,7 +68,7 @@ export const filtersSlice = createSlice({
 				state.selectedColors.push(color);
 			}
 		},
-		resetFilters:(state,action: PayloadAction<any>)=> {
+		resetFilters:(state)=> {
 			state.available=false;
 			state.price={min:0,max:1000000}
 			state.selectedBrands=[]

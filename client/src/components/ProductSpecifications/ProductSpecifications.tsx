@@ -2,8 +2,16 @@ import React from 'react'
 
 import styles from './ProductSpecifications.module.scss'
 
+interface IProductSpecification {
+	brand:string; 
+	category:string;
+	country:string;
+	id: number;
+	material:string;
+	year: number;
+}
 interface ProductSpecificationsProps {
-	productSpecifications:any;
+	productSpecifications:IProductSpecification[];
 	loading:boolean;
 	success:boolean;
 }
@@ -14,6 +22,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 		loading,
 		success,
 	} = props;
+	console.log('specccccccs',productSpecifications);
 	return (
 		<section className={styles.ProductSpecifications}>
 			<div className="container">

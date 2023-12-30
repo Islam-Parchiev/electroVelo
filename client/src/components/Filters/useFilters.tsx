@@ -43,17 +43,7 @@ export function useFilters(){
 		dispatch(changePrice({...priceValue,max:+e.target.value}));
 	}
 	const handleButtonReset = ()=> {
-		dispatch(resetFilters({
-			available:false,
-			selectedCategories:[],
-			price:{
-				min:0,
-				max:1000000,
-			},
-			selectedBrands:[],
-			selectedMaterials:[],
-			selectedColors:[],
-		}))
+		dispatch(resetFilters())
 	}
 	const [value, setValue] = React.useState({ min: priceValue.min, max: priceValue.max })
 	const [val, setVal] = React.useState(1);
