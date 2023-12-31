@@ -1,0 +1,75 @@
+.CreateOrderForm {
+	display: grid;
+	grid-auto-rows: minmax(76px,auto);
+	grid-column-gap: 6px;
+	grid-row-gap: 0px;
+	grid-template-areas:
+		"ione ione ione ione itwo itwo itwo itwo"
+		"ithree ithree ifour ifour ifour ifour ifive isix"
+		"iseven iseven iseven iseven ieight ieight ieight ieight"
+		"inine inine inine inine inine inine inine inine"
+		"inine inine inine inine inine inine inine inine";
+	grid-template-columns: repeat(8,76px);
+	width: 100%;
+	&__wrapper {
+border: 1px solid var(--3-grey, #E5E5E5);
+		border-radius: 10px;
+		padding: 40px;
+		width: 60%;
+	}
+	&__title {
+/* desk h3 */
+font-family: Bebas Neue Cyrillic;
+font-weight: 400;
+font-style: normal;
+font-size: 40px;
+line-height: 123%; /* 49.2px */
+letter-spacing: 2px;
+		color: var(--bl, #101010);
+	}
+	&__input {
+		width: auto;
+		&:nth-child(1) {
+			grid-area: ione;
+		}
+		&:nth-child(2) {
+			grid-area: itwo;
+		}
+		&:nth-child(3) {
+			grid-area: ithree;
+		}
+		&:nth-child(4) {
+			grid-area: ifour;
+		}
+		&:nth-child(5) {
+			grid-area: ifive;
+		}
+		&:nth-child(6) {
+			grid-area: isix;
+		}
+		&:nth-child(7) {
+			grid-area: iseven;
+		}
+		&:nth-child(8) {
+			grid-area: ieight;
+		}
+		
+	}
+	&__textt {
+		grid-area: inine;
+		border: none;
+		border-radius: 10px;
+		padding: 5px;
+		background-color: var(--bg, #685f5f);
+		resize: none;
+		&::placeholder {
+/* desk mob text 16 */
+font-family: Inter;
+font-weight: 400;
+font-style: normal;
+font-size: 16px;
+line-height: 160%; /* 25.6px */
+			color: var(--light-grey, #B3B3B3);
+		}
+	}
+}
