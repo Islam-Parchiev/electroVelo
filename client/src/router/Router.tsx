@@ -5,6 +5,7 @@ import Layout from '@pages/Layout/Layout';
 import Catalog from '@pages/Catalog/Catalog';
 import Product from '@pages/Product/Product';
 import Cart from '@pages/Cart/Cart';
+import CreateOrder from '@pages/CreateOrder/CreateOrder';
 import Profile from '@pages/Profile/Profile';
 
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
 						element:<Favorites/>,
 					},
 				],
+			},
+			{
+				path:'create-order',
+				element:<CreateOrder/>,
 			},
 		],
 	},
