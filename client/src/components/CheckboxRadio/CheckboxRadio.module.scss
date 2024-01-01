@@ -1,0 +1,21 @@
+.CheckboxRadio {
+  display: grid;
+  grid-template-columns: 1em auto;
+	cursor: pointer;
+  gap: 0.5em;
+	input[type="radio"] {
+		display: grid;
+  place-content: center;
+
+		border: 0.15em solid #F57520;
+		border-radius: 50%;
+		width: 1.15em;
+		height: 1.15em;
+		background-color: #fff;
+		transform: translateY(-0.075em);
+	}
+	input[type="radio"]:checked {
+		border: 0.40em solid #F57520;
+		transition: all 0.3s ease-in-out;
+	}
+}
