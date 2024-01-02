@@ -79,11 +79,13 @@ const PersonalData:React.FC = () => {
 				 className={`${styles.PersonalData__form} ${styles.Form}`}>
 					<div className={styles.Form__header}>
 						<FormInput 
+							inputType="primary"
 							labelTitle="Имя" 
 							type="text"
 							validationSchema={valName}
 							error={errors?.name?.message}/>
 						<FormInput 
+							inputType="primary"
 							labelTitle="Фамилия" 
 							type="text"
 							validationSchema={valName}
@@ -91,27 +93,32 @@ const PersonalData:React.FC = () => {
 					</div>
 					<div className={styles.Form__body}>
 						<FormInput 
+							inputType="primary"
 							labelTitle="Отображаемое имя" 
 							type="text"
 							validationSchema={valName}
 							error={errors?.name?.message}/>
 						<FormInput 
+							inputType="primary"
 							labelTitle="E-mail" 
 							type="email"
 							validationSchema={valEmail}
 							error={errors?.email?.message}/>
 						<FormInput 
+							inputType="primary"
 							labelTitle="Телефон" 
 							type="phone"
 							validationSchema={valPhone}
 							error={errors?.phone?.message}/>
 						<FormInput 
+							inputType="primary"
 							labelTitle="Город" 
 							type="text"
 							validationSchema={valAddress}
 							error={errors?.address?.message}
 						/>
 						<FormInput 
+							inputType="primary"
 							labelTitle="Улица" 
 							type="text"
 							validationSchema={valAddress}
@@ -119,18 +126,21 @@ const PersonalData:React.FC = () => {
 					</div>
 					<div className={styles.Form__footer}>
 						<FormInput 
+							inputType="primary"
 							labelTitle="Дом" 
 							type="text"
 							validationSchema={valAddress}
 							error={errors?.address?.message}
 						/>
 						<FormInput 
+							inputType="primary"
 							labelTitle="Этаж" 
 							type="text"
 							validationSchema={valAddress}
 							error={errors?.address?.message}
 						/>
 						<FormInput 
+							inputType="primary"
 							labelTitle="Квартира" 
 							type="text"
 							validationSchema={valAddress}

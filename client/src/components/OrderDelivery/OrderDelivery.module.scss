@@ -1,0 +1,59 @@
+.OrderDelivery {
+	border: 1px solid var(--3-grey, #E5E5E5);
+		border-radius: 10px;
+	padding: 40px;
+	width: 40%;
+	height: 100%;
+		&__title {
+/* desk h3 */
+font-family: Bebas Neue Cyrillic;
+font-weight: 400;
+font-style: normal;
+font-size: 40px;
+line-height: 123%; /* 49.2px */
+letter-spacing: 2px;
+		color: var(--bl, #101010);
+	}
+
+}
+.DeliveryMethod {
+	padding-top: 10px;
+	&__title {
+/* desk mob med 18 */
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 18px;
+line-height: 160%; /* 28.8px */
+letter-spacing: 0.18px;
+		color: var(--bl, #101010);
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		margin-top: 10px;
+		gap: 10px;
+	}
+}
+.formControl {
+  display: grid;
+  grid-template-columns: 1em auto;
+	cursor: pointer;
+  gap: 0.5em;
+	input[type="radio"] {
+		display: grid;
+  place-content: center;
+
+		border: 0.15em solid #F57520;
+		border-radius: 50%;
+		width: 1.15em;
+		height: 1.15em;
+		background-color: #fff;
+		transform: translateY(-0.075em);
+	}
+	input[type="radio"]:checked {
+		border: 0.40em solid #F57520;
+		transition: all 0.3s ease-in-out;
+	}
+}

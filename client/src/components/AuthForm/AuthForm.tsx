@@ -90,6 +90,7 @@ const AuthForm: React.FC<AuthFormProps> = props => {
 
 			<form className={styles.AuthForm__form} onSubmit={handleSubmit(onSubmit)}>
 				<FormInput 
+					inputType="primary"
 					labelTitle="Email" 
 					validationSchema={valEmail} 
 					error={errors?.email?.message}
@@ -97,6 +98,7 @@ const AuthForm: React.FC<AuthFormProps> = props => {
 				/>
 
 				<FormInput 
+					inputType="primary"
 					labelTitle="Пароль" 
 					validationSchema={valPassword} 
 					error={errors?.password?.message}

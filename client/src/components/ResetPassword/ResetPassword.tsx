@@ -58,14 +58,16 @@ const ResetPassword:React.FC = () => {
 				<form 
 					className={styles.ResetPassword__form}
 					onSubmit={handleSubmit(onSubmit)}>
-					<FormInput 
+					<FormInput
+						inputType="primary" 
 						labelTitle="Старый пароль" 
 						validationSchema={valOldPassword} 
 						error={errors?.oldPassword?.message}
 						type="password"
 						anotherClass={styles.ResetPassword__input}
 					/>
-					<FormInput 
+					<FormInput
+						inputType="primary" 
 						labelTitle="Новый пароль" 
 						validationSchema={valNewPassword} 
 						error={errors?.newPassword?.message}
@@ -73,6 +75,7 @@ const ResetPassword:React.FC = () => {
 						anotherClass={styles.ResetPassword__input}
 					/>
 					<FormInput
+						inputType="primary"
 						labelTitle="Повторите новый пароль"
 						validationSchema={valConfirmPassword}
 						error={errors?.confirmPassword?.message}

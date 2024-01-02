@@ -11,11 +11,13 @@
 		"inine inine inine inine inine inine inine inine";
 	grid-template-columns: repeat(8,76px);
 	width: 100%;
+	
 	&__wrapper {
 border: 1px solid var(--3-grey, #E5E5E5);
 		border-radius: 10px;
 		padding: 40px;
 		width: 60%;
+		height: 100%;
 	}
 	&__title {
 /* desk h3 */

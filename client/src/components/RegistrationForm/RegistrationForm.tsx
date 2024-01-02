@@ -80,20 +80,23 @@ const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 			<form
 				className={styles.RegistrationForm__form}
 				onSubmit={handleSubmit(onSubmit)}>
-				<FormInput 
+				<FormInput
+					inputType="primary" 
 					labelTitle="Имя пользователя" 
 					validationSchema={valName} 
 					error={errors?.name?.message}
 					type="text"
 				/>
-				<FormInput 
+				<FormInput
+					inputType="primary" 
 					labelTitle="Email" 
 					validationSchema={valEmail} 
 					error={errors?.email?.message}
 					type="email"
 				/>
 
-				<FormInput 
+				<FormInput
+					inputType="primary" 
 					labelTitle="Пароль" 
 					validationSchema={valPassword} 
 					error={errors?.password?.message}
@@ -101,6 +104,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 				/>
 
 				<FormInput
+					inputType="primary"
 					labelTitle="Подтвердите пароль"
 					validationSchema={valConfirmPassword}
 					error={errors?.confirmPassword?.message}
