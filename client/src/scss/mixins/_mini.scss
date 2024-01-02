@@ -57,9 +57,10 @@ $browser-context: 16; // Default
   background-image: url("#{$pathToImage}.jpg");
   /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
   background-image: image-set(
+		/*после конвертирования изображений расскомментировать avif и webp*/
     /* stylelint-disable-next-line function-comma-newline-after */
-    "#{$pathToImage}.avif"type("image/avif"),
-    "#{$pathToImage}.webp"type("image/webp"),
+   /* "#{$pathToImage}.avif"type("image/avif"),
+   "#{$pathToImage}.webp"type("image/webp"),*/
     "#{$pathToImage}.jpg"type("image/jpg")
   );
 }

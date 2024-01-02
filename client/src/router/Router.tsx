@@ -7,6 +7,7 @@ import Product from '@pages/Product/Product';
 import Cart from '@pages/Cart/Cart';
 import CreateOrder from '@pages/CreateOrder/CreateOrder';
 import Profile from '@pages/Profile/Profile';
+import Contacts from '@pages/Contacts/Contacts';
 
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
 			{
 				path:'create-order',
 				element:<CreateOrder/>,
+			},
+			{
+				path:'contacts',
+				element:<Contacts/>,
 			},
 		],
 	},
