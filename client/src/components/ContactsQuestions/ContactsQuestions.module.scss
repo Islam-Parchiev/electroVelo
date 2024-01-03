@@ -1,0 +1,22 @@
+.ContactsQuestions {
+	min-height: 300px;
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		padding-top: 40px;
+	}
+	&__title {
+
+/* desk h3 */
+font-family: Bebas Neue Cyrillic;
+font-weight: 400;
+font-style: normal;
+font-size: 40px;
+line-height: 123%; /* 49.2px */
+letter-spacing: 2px;
+		color: var(--bl, #101010);
+	}
+	&__accordions {
+		padding-top: 40px;
+	}
+}
