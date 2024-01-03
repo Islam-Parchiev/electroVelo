@@ -8,6 +8,7 @@ import Cart from '@pages/Cart/Cart';
 import CreateOrder from '@pages/CreateOrder/CreateOrder';
 import Profile from '@pages/Profile/Profile';
 import Contacts from '@pages/Contacts/Contacts';
+import Workshop from '@pages/Workshop/Workshop';
 
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
 			{
 				path:'contacts',
 				element:<Contacts/>,
+			},
+			{
+				path:'workshop',
+				element:<Workshop/>,
 			},
 		],
 	},
