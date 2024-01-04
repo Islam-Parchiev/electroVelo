@@ -1,0 +1,72 @@
+@import "../../scss/mixins/mini";
+.AboutUsInfo {
+	&__title {
+/* desk h1 */
+font-family: Bebas Neue Cyrillic;
+font-weight: 400;
+font-style: normal;
+font-size: 110px;
+line-height: 123%;
+letter-spacing: 2.2px;
+		color: var(--bl, #101010);
+		span {
+			color: var(--orange, #F57520);
+		}
+	}
+	&__inner {
+		@include flex-column-start;
+		padding: 30px 0;
+		gap: 30px;
+	}
+	&__cards {
+		@include flex-v-center;
+		gap: 15px;
+	}
+}
+.AboutUsCard {
+	@include flex-column-start;
+position: relative;
+overflow: hidden;
+	border-radius: 10px;
+	padding: 32px;
+	width: 400px;
+	height: 334px;
+background: var(--dark, #34312D);
+svg {
+position: absolute;
+right: 0;
+bottom: 0;
+display: block;
+}
+	&__title {
+/* desk mob 24 */
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 24px;
+line-height: 160%; /* 38.4px */
+letter-spacing: 0.24px;
+		color: var(--white, #FFF);
+	}
+	p {
+/* desk mob 16 light */
+font-family: Inter;
+font-weight: 300;
+font-style: normal;
+font-size: 16px;
+line-height: 160%; /* 25.6px */
+		color: var(--3-grey, #E5E5E5);
+	}
+	&__btn {
+/* desk mob cta */
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 16px;
+line-height: 123%; /* 19.68px */
+		color: var(--white, #FFF);
+	}
+	&:hover {
+		background: var(--orange);
+	}
+}

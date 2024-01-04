@@ -9,6 +9,7 @@ import CreateOrder from '@pages/CreateOrder/CreateOrder';
 import Profile from '@pages/Profile/Profile';
 import Contacts from '@pages/Contacts/Contacts';
 import Workshop from '@pages/Workshop/Workshop';
+import AboutUs from '@pages/AboutUs/AboutUs';
 
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
@@ -77,6 +78,10 @@ export const router = createBrowserRouter([
 			{
 				path:'workshop',
 				element:<Workshop/>,
+			},
+			{
+				path:'aboutUs',
+				element:<AboutUs/>,
 			},
 		],
 	},
