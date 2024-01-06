@@ -1,0 +1,46 @@
+@import "../../scss/mixins/mini";
+.AboutUsBest {
+	&__title {
+width: 1000px;
+/* desk h2 */
+font-family: Bebas Neue Cyrillic;
+font-weight: 400;
+font-style: normal;
+font-size: 64px;
+line-height: 123%; /* 78.72px */
+letter-spacing: 3.2px;
+		color: var(--bl, #101010);
+	}
+	&__descr {
+		@include flex-all-sb;
+		p	 {
+/* desk mob text 16 */
+font-family: Inter;
+font-weight: 400;
+font-style: normal;
+font-size: 16px;
+line-height: 160%; /* 25.6px */
+			color: var(--2-grey, #777);
+		}
+	}
+	&__footer {
+		
+		h6 {
+			margin-left: 313px;
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 24px;
+line-height: 160%; /* 38.4px */
+letter-spacing: 0.24px;
+			color: var(--bl, #101010);
+		}
+	}
+	&__list{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		padding: 0 20px;
+gap: 20px;
+	}
+}
