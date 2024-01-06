@@ -1,5 +1,7 @@
 import React from 'react'
 
+import AboutUsSubtitle from '@components/AboutUsSubtitle/AboutUsSubtitle'
+
 import styles from './AboutUsBusiness.module.scss'
 
 const AboutUsBusiness: React.FC = () => {
@@ -8,9 +10,10 @@ const AboutUsBusiness: React.FC = () => {
 			<div className="container">
 				<div className={styles.AboutUsBusiness__inner}>
 					<div className={styles.AboutUsBusiness__info}>
-						<h2 className={styles.AboutUsBusiness__title}>
+						<AboutUsSubtitle variant="light">
 							НЕСКОЛЬКО СЛОВ О НАС И НАШЕМ ДЕЛЕ
-						</h2>
+						</AboutUsSubtitle>
+						
 						<div className={styles.AboutUsBusiness__descr}>
 							<p>
 								Велосипед — это не просто средство передвижения.

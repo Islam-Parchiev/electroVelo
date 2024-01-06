@@ -5,6 +5,8 @@ import AboutUsPreview from '@components/AboutUsPreview/AboutUsPreview';
 import AboutUsInfo from '@components/AboutUsInfo/AboutUsInfo';
 import AboutUsBusiness from '@components/AboutUsBusiness/AboutUsBusiness';
 import AboutUsBest from '@components/AboutUsBest/AboutUsBest';
+import AboutUsQuestions from '@components/AboutUsQuestions/AboutUsQuestions';
+import AboutUsTeam from '@components/AboutUsTeam/AboutUsTeam';
 import Brands from '@components/Brands/Brands';
 import Subscribe from '@components/Subscribe/Subscribe';
 import ContactsInfo from '@components/ContactsInfo/ContactsInfo';
@@ -19,6 +21,8 @@ const AboutUs:React.FC = () => {
 				<AboutUsInfo/>
 				<AboutUsBusiness/>
 				<AboutUsBest/>
+				<AboutUsQuestions/>
+				<AboutUsTeam/>
 				<ContactsInfo/>
 				<Brands/>
 				<Subscribe/>

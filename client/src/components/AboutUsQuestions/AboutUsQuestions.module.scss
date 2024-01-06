@@ -1,0 +1,37 @@
+@import "../../scss/mixins/mini";
+.AboutUsQuestions {
+	@include image-set("../../../public/images/AboutUs/questions");
+	@include bg-cover;
+	width: 100%;
+	height: 385px;
+	background-color: var(--orange);
+	&__inner {
+		@include flex-column-start;
+		padding-top: 30px;
+	}
+	span {
+/* desk mob 20 */
+font-family: Inter;
+font-size: 20px;
+line-height: 160%; /* 32px */
+letter-spacing: 0.2px;
+		color: var(--white, #FFF);
+	}
+	a {
+/* desk h2 */
+font-family: Bebas Neue Cyrillic;
+font-size: 64px;
+line-height: 123%; /* 78.72px */
+letter-spacing: 3.2px;
+text-decoration: none;
+		color: var(--white, #FFF);
+	}
+	p {
+		width: 500px;
+/* desk mob text 16 */
+font-family: Inter;
+font-size: 16px;
+line-height: 160%; /* 25.6px */
+		color: var(--white, #FFF);
+	}
+}

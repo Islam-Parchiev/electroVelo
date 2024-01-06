@@ -1,6 +1,7 @@
 import React from 'react'
 
 import BestCard from '@components/BestCard/BestCard'
+import AboutUsSubtitle from '@components/AboutUsSubtitle/AboutUsSubtitle'
 
 import styles from './AboutUsBest.module.scss'
 
@@ -12,9 +13,9 @@ const AboutUsBest: React.FC<AboutUsBestProps> = props => {
 		<section className={styles.AboutUsBest}>
 			<div className="container">
 				<div className={styles.AboutUsBest__inner}>
-					<h2 className={styles.AboutUsBest__title}>
+					<AboutUsSubtitle variant="black">
 						МЫ СОБРАЛИ ДЛЯ ВАС ЛУЧШЕЕ ИЗ ВЕЛОСИПЕДНОГО МирА
-					</h2>
+					</AboutUsSubtitle>
 					<div className={styles.AboutUsBest__descr}>
 						<p>
 							World-Bike специализируется на продаже и обслуживании
