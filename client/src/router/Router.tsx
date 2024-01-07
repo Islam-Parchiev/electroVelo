@@ -11,6 +11,7 @@ import Contacts from '@pages/Contacts/Contacts';
 import Workshop from '@pages/Workshop/Workshop';
 import AboutUs from '@pages/AboutUs/AboutUs';
 import Terms from '@pages/Terms/Terms';
+import Guarantees from '@pages/Guarantees/Guarantees';
 
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
@@ -87,6 +88,10 @@ export const router = createBrowserRouter([
 			{
 				path:'terms',
 				element:<Terms/>,
+			},
+			{
+				path:'guarantees',
+				element:<Guarantees/>,
 			},
 		],
 	},

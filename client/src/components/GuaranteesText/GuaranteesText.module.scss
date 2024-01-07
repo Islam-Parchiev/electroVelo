@@ -1,0 +1,15 @@
+@import "./../../scss/mixins/mini";
+.GuaranteesText {
+&__inner {
+	@include flex-all-sb;
+	gap: 30px;
+	p {
+/* desk mob 16 200 */
+font-family: Inter;
+font-size: 16px;
+line-height: 200%; /* 32px */
+		color: var(--1-grey, #4C4C4C);
+	}
+}	
+
+}
