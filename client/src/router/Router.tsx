@@ -10,6 +10,7 @@ import Profile from '@pages/Profile/Profile';
 import Contacts from '@pages/Contacts/Contacts';
 import Workshop from '@pages/Workshop/Workshop';
 import AboutUs from '@pages/AboutUs/AboutUs';
+import Terms from '@pages/Terms/Terms';
 
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
 			{
 				path:'aboutUs',
 				element:<AboutUs/>,
+			},
+			{
+				path:'terms',
+				element:<Terms/>,
 			},
 		],
 	},
