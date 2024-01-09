@@ -1,3 +1,26 @@
+@import "../../scss/mixins/mini";
 .GuaranteesInfo {
-	
+	&__inner {
+		@include flex-all-sb;
+	}
+	&__item {
+		@include flex-all-sb;
+		
+		padding: 0 20px;
+		width: 620px;
+		height: 77px;
+		&:not(:last-child) {
+			border-bottom: 1px solid var(--bg, #F8F8F8);
+		}
+		&:nth-child(2n+1) {
+			background: var(--bg, #F8F8F8);
+		}
+
+	}
+	&__list {
+		@include flex-column-center;
+		overflow: hidden;
+		border: 1px solid #f8f7f7;
+		border-radius: 15px;
+	}
 }
