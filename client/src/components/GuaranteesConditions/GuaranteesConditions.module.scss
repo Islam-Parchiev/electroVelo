@@ -1,0 +1,55 @@
+.GuaranteesConditions {
+	&__title {
+
+		/* desk mob 24 */
+		margin-top: 40px;
+		font-family: Inter;
+		font-size: 21px;
+		line-height: 160%;
+		/* 38.4px */
+		letter-spacing: 0.24px;
+		color: var(--black-color);
+	}
+	&__list {
+		margin-top: 40px;
+	}
+
+	&__item {
+		/* desk mob 16 light */
+		font-family: Inter;
+		font-weight: 300;
+		font-style: normal;
+		font-size: 16px;
+		line-height: 160%;
+		/* 25.6px */
+		color: var(--bl, #101010);
+
+		&::before {
+			content: "✓";
+			margin-right: 5px;
+			/* desktop/header reg */
+			font-family: Open Sans;
+			font-weight: 900;
+			font-size: 20px;
+			line-height: 160%;
+			/* 28.8px */
+			color: var(--orange, #F57520);
+		}
+	}
+	&__text {
+		margin-top: 40px;
+		border-radius: 10px;
+padding: 24px;
+		width: 100%;
+background: var(--bg, #F8F8F8);
+p {
+/* desk mob 16 200 */
+font-family: Inter;
+font-size: 16px;
+line-height: 200%; /* 32px */
+	color: var(--bl, #101010);
+}
+	}
+
+
+}

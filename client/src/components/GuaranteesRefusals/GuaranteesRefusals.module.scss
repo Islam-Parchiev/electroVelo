@@ -1,0 +1,68 @@
+.GuaranteesRefusals {
+	&__title {
+		margin-top: 30px;
+font-family: Inter;
+font-size: 24px;
+line-height: 160%;
+letter-spacing: 0.24px;
+		color: var(--bl, #101010);
+span {
+font-family: Inter;
+font-size: 24px;
+line-height: 160%;
+letter-spacing: 0.24px;
+	color: var(--red, #F53A20);
+}
+	}
+	&__inner {
+		display: grid;
+		column-gap: 30px;
+		grid-template-columns: repeat(4,390px);
+		grid-template-rows: repeat(3,135px);
+		padding-top: 40px;
+		width: 100%;
+		row-gap: 16px;
+	}
+	&__info {
+		grid-column: 2 span;
+		grid-row: 2 span;
+		border-radius: 10px;
+padding-top: 10px;
+background: var(--orange, #F57520);
+	}
+	&__text{
+display: flex;
+align-items: center;
+		grid-column: 2 span;
+		grid-row: 3 span;
+		border-radius: 10px;
+text-align: center;
+background: var(--bg, #F8F8F8);
+p {
+font-family: Inter;
+font-size: 16px;
+line-height: 160%; 
+	color: var(--bl, #101010);
+}
+	}
+	&__item {
+font-family: Inter;
+font-size: 16px;
+line-height: 160%; 
+		color:var(--light-color);
+	}
+
+	&__image {
+		grid-column: 1 span;
+		grid-row: 3 span;
+		border-radius: 10px;
+		height: 470px;
+		img {
+			display: block;
+			border-radius: 10px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
