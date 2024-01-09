@@ -18,6 +18,7 @@ import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
 import PersonalData from '@components/PersonalData/PersonalData';
 import ResetPassword from '@components/ResetPassword/ResetPassword';
 import Favorites from '@components/Favorites/Favorites';
+import Storage from '@pages/Storage/Storage';
 
 export const router = createBrowserRouter([
 	{
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
 			{
 				path:'guarantees',
 				element:<Guarantees/>,
+			},
+			{
+				path:'storage',
+				element:<Storage/>,
 			},
 		],
 	},

@@ -1,0 +1,49 @@
+@import "./../../scss/mixins/mini";
+.StoragePreview {
+	@include image-set("../../../public/images/Storage/storagePreview");
+	@include bg-cover;
+	height: 280px;
+	&__inner {
+		padding-top: 30px;
+	}
+	&__title {
+		margin-top: 20px;
+/* desk h2 */
+font-family: Bebas Neue Cyrillic;
+font-weight: 400;
+font-style: normal;
+font-size: 64px;
+line-height: 123%; /* 78.72px */
+letter-spacing: 3.2px;
+		color: var(--white, #FFF);
+	}
+}
+.Breadcrumbs {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	&__item {
+a {
+		position: relative;
+		font-family: Inter;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 15px;
+		line-height: 160%; /* 22.4px */
+		color: var(--light-color, #FFF);
+&:hover {
+	color: var(--orange, #F57520);
+}
+}
+	}
+}
+.Breadcrumbs__item:not(:last-child) {
+a::before{
+			content: "/";
+			position: absolute;
+			right: -6px;
+			top: -2px;
+} 
+	 
+	
+}

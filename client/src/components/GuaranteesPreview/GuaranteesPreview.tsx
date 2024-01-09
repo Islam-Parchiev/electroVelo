@@ -2,10 +2,8 @@ import React from 'react'
 
 import styles from './GuaranteesPreview.module.scss'
 
-interface GuaranteesPreviewProps {}
+const GuaranteesPreview: React.FC = () => {
 
-const GuaranteesPreview: React.FC<GuaranteesPreviewProps> = props => {
-	const {} = props
 	return (
 		<section className={styles.GuaranteesPreview}>
 			<div className="container">
