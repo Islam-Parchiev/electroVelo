@@ -1,0 +1,50 @@
+@import "../../scss/mixins/mini";
+.PaymentInfo {
+	&__inner {
+		padding-top: 50px;
+	}
+	&__title {
+font-family: Bebas Neue Cyrillic;
+font-weight: 400;
+font-size: 40px;
+line-height: 123%; 
+letter-spacing: 2px;
+		color: var(--bl, #101010);
+	}
+	&__text {
+		max-width: 900px;
+		p {
+font-family: Inter;
+font-weight: 400;
+font-size: 16px;
+line-height: 160%; 
+			color: var(--bl, #101010);
+		}
+		span {
+font-family: Inter;
+font-weight: 400;
+font-size: 16px;
+line-height: 160%;
+			color: var(--bl, #101010);
+		}
+		a {
+font-family: Inter;
+font-weight: 500;
+font-size: 16px;
+line-height: 123%;
+			color: #E66000;
+		}
+	}
+	&__accordion {
+		@include flex-column-start;
+		padding: 30px 0;
+		gap: 30px;
+		span {
+font-family: Inter;
+font-weight: 400;
+font-size: 16px;
+line-height: 160%; 
+			color: var(--1-grey, #4C4C4C);
+		}
+	}
+}

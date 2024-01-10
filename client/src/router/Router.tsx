@@ -12,13 +12,14 @@ import Workshop from '@pages/Workshop/Workshop';
 import AboutUs from '@pages/AboutUs/AboutUs';
 import Terms from '@pages/Terms/Terms';
 import Guarantees from '@pages/Guarantees/Guarantees';
+import Storage from '@pages/Storage/Storage';
+import Delivery from '@pages/Delivery/Delivery';
 
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
 import PersonalData from '@components/PersonalData/PersonalData';
 import ResetPassword from '@components/ResetPassword/ResetPassword';
 import Favorites from '@components/Favorites/Favorites';
-import Storage from '@pages/Storage/Storage';
 
 export const router = createBrowserRouter([
 	{
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
 			{
 				path:'storage',
 				element:<Storage/>,
+			},
+			{
+				path:'delivery',
+				element:<Delivery/>,
 			},
 		],
 	},
