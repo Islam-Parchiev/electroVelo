@@ -4,14 +4,14 @@ import ReviewsItem from '@components/ReviewsItem/ReviewsItem'
 
 import styles from './Reviews.module.scss'
 
-interface ReviewsProps {}
 
-const Reviews: React.FC<ReviewsProps> = props => {
+
+const Reviews: React.FC = () => {
 	const tag = {
 		text: '#обзор',
 		url: '/',
 	}
-	const {} = props
+
 	return (
 		<section className={styles.Reviews}>
 			<div className={`container ${styles.Reviews__container}`}>

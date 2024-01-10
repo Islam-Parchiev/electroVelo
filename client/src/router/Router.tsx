@@ -14,6 +14,7 @@ import Terms from '@pages/Terms/Terms';
 import Guarantees from '@pages/Guarantees/Guarantees';
 import Storage from '@pages/Storage/Storage';
 import Delivery from '@pages/Delivery/Delivery';
+import Blog from '@pages/Blog/Blog';
 
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
@@ -102,6 +103,10 @@ export const router = createBrowserRouter([
 			{
 				path:'delivery',
 				element:<Delivery/>,
+			},
+			{
+				path:'blog',
+				element:<Blog/>,
 			},
 		],
 	},
