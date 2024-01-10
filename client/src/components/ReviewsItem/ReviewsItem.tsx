@@ -1,13 +1,15 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom';
+
 import styles from './ReviewsItem.module.scss'
 
 interface ReviewsItemProps {
+	id:number;
 	imageUrl:string;
 	date:string;
 	dateTime:string;
 	text:string;
-	url:string;
 	tag:{
     text: string;
     url: string;
@@ -16,11 +18,11 @@ interface ReviewsItemProps {
 
 const ReviewsItem: React.FC<ReviewsItemProps> = props => {
 	const {
+		id,
 		imageUrl,
 		date,
 		dateTime,
 		text,
-		url,
 		tag,
 	} = props
 	return (
@@ -39,9 +41,9 @@ const ReviewsItem: React.FC<ReviewsItemProps> = props => {
 					</span>
 				</div>
 
-				<a href={url} className={styles.ReviewsItem__more}>
+				<Link to={`/blog/${id}`} className={styles.ReviewsItem__more}>
 					Подробнее
-				</a>
+				</Link>
 			</div>
 		</li>
 	)

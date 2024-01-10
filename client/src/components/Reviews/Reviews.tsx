@@ -18,28 +18,28 @@ const Reviews: React.FC = () => {
 				<h2 className="title">Последние обзоры</h2>
 				<ul className={`list-reset ${styles.Reviews__list}`}>
 					<ReviewsItem
+						id={1}
 						imageUrl="/images/Reviews/1.jpg"
 						dateTime="2023-1-25"
 						date="18 ноября 2015"
 						tag={tag}
 						text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
-						url="/"
 					/>
 					<ReviewsItem
+						id={2}
 						imageUrl="/images/Reviews/1.jpg"
 						dateTime="2023-1-25"
 						date="18 ноября 2015"
 						tag={tag}
 						text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
-						url="/"
 					/>
 					<ReviewsItem
+						id={3}
 						imageUrl="/images/Reviews/1.jpg"
 						dateTime="2023-1-25"
 						date="18 ноября 2015"
 						tag={tag}
 						text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
-						url="/"
 					/>
 				</ul>
 			</div>
