@@ -1,0 +1,17 @@
+@import "../../scss/mixins/mini";
+.GuaranteesInfoItem {
+
+		@include flex-all-sb;
+		
+		padding: 0 20px;
+		width: 620px;
+		height: 77px;
+		&:not(:last-child) {
+			border-bottom: 1px solid var(--bg, #F8F8F8);
+		}
+		&:nth-child(2n+1) {
+			background: var(--bg, #F8F8F8);
+		}
+
+	
+}
