@@ -1,30 +1,23 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 import styles from './ReviewsItem.module.scss'
 
 interface ReviewsItemProps {
-	id:number;
-	imageUrl:string;
-	date:string;
-	dateTime:string;
-	text:string;
-	tag:{
-    text: string;
-    url: string;
-};
+	id: number
+	imageUrl: string
+	date: string
+	dateTime: string
+	text: string
+	tag: {
+		text: string
+		url: string
+	}
 }
 
 const ReviewsItem: React.FC<ReviewsItemProps> = props => {
-	const {
-		id,
-		imageUrl,
-		date,
-		dateTime,
-		text,
-		tag,
-	} = props
+	const { id, imageUrl, date, dateTime, text, tag } = props
 	return (
 		<li className={styles.ReviewsItem}>
 			<div className={styles.ReviewsItem__img}>
@@ -36,9 +29,7 @@ const ReviewsItem: React.FC<ReviewsItemProps> = props => {
 					<a href={tag.url} className={styles.ReviewsItem__tag}>
 						{tag.text}
 					</a>
-					<span className={styles.ReviewsItem__text}>
-						{text}
-					</span>
+					<span className={styles.ReviewsItem__text}>{text}</span>
 				</div>
 
 				<Link to={`/blog/${id}`} className={styles.ReviewsItem__more}>

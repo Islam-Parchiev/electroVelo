@@ -1,4 +1,5 @@
 @import "../../scss/mixins/mini";
+
 .HeaderNav {
 	&_list {
 		@include flex-v-center;
@@ -6,52 +7,39 @@
 	}
 
 	&_link {
-
 		text-decoration: none;
 		color: var(--light-color);
 
 		&:hover {
-
 			color: var(--orange, #F57520);
-
 		}
-
 	}
 
 	&_item {
 		position: relative;
-
-
 	}
-	&__modalOne {
 
-		width: 650px;
+	&__modalOne {
 		z-index: 10;
 		display: flex;
 		align-items: start;
 		justify-content: space-between;
+		width: 650px;
 
 		&_list {
-			// display: flex;
-			// flex-direction: column;
-			// gap: 20px;
-			// flex-wrap: wrap;
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
 
 			li {
-				color: var(--3-grey, #E5E5E5);
-				/* desk mob 14 */
-				font-family: Inter;
-				font-size: 14px;
-				font-style: normal;
-				font-weight: 400;
-				line-height: 160%;
-				/* 22.4px */
 				display: flex;
 				align-items: center;
 				justify-content: start;
+				font-family: Inter;
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 160%;
 				text-align: start;
+				color: var(--3-grey, #E5E5E5);
 
 				a {
 					color: var(--3-grey, #E5E5E5);

@@ -1,33 +1,32 @@
 import React from 'react'
 
-import { ISortListItem } from 'Sort';
-import { RootState, useAppDispatch,useAppSelector } from '@redux/store';
-import { changeSortType } from '@redux/slices/sortSlice';
+import { ISortListItem } from 'Sort'
+import { RootState, useAppDispatch, useAppSelector } from '@redux/store'
+import { changeSortType } from '@redux/slices/sortSlice'
 
 import styles from './CatalogSort.module.scss'
 
-
-const sortList:ISortListItem[] = [
-	{name:'По популярности',sortProperty:'popular'},
-	{name:'По рейтингу',sortProperty:'rating'},
-	{name:'Цены: по возрастанию',sortProperty:'&sortByPrice=ASC'},
-	{name:'Цены: по убыванию',sortProperty:'&sortByPrice=DESC'},
-	{name:'По названию',sortProperty:'&sortByName=DESC'},
-] 
+const sortList: ISortListItem[] = [
+	{ name: 'По популярности', sortProperty: 'popular' },
+	{ name: 'По рейтингу', sortProperty: 'rating' },
+	{ name: 'Цены: по возрастанию', sortProperty: '&sortByPrice=ASC' },
+	{ name: 'Цены: по убыванию', sortProperty: '&sortByPrice=DESC' },
+	{ name: 'По названию', sortProperty: '&sortByName=DESC' },
+]
 
 const CatalogSort: React.FC = () => {
-	const [open,setOpen] = React.useState<boolean>(false);
-	const sortValue = useAppSelector((state:RootState)=> state.sort)
-	const dispatch = useAppDispatch();
+	const [open, setOpen] = React.useState<boolean>(false)
+	const sortValue = useAppSelector((state: RootState) => state.sort)
+	const dispatch = useAppDispatch()
 
-	console.log(sortValue);
-	const handleClickSortItem = (item:ISortListItem)=> {
-		dispatch(changeSortType(item));
-		setOpen(false);
+	console.log(sortValue)
+	const handleClickSortItem = (item: ISortListItem) => {
+		dispatch(changeSortType(item))
+		setOpen(false)
 	}
 	return (
-		<div className={`${styles.CatalogSort} ${open&&styles.active}`}>
-			<div className={styles.CatalogSort__header} 	onClick={()=> setOpen(!open)}>
+		<div className={`${styles.CatalogSort} ${open && styles.active}`}>
+			<div className={styles.CatalogSort__header} onClick={() => setOpen(!open)}>
 				<span>{sortValue.sort}</span>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -61,9 +60,12 @@ const CatalogSort: React.FC = () => {
 			</div>
 			<div className={styles.CatalogSort__body}>
 				<ul className={`list-reset ${styles.CatalogSort__list}`}>
-					{sortList.map((item)=>  (
-						<li className={styles.CatalogSort__item}
-							onClick={()=>handleClickSortItem(item)}>{item.name}</li>
+					{sortList.map(item => (
+						<li
+							className={styles.CatalogSort__item}
+							onClick={() => handleClickSortItem(item)}>
+							{item.name}
+						</li>
 					))}
 				</ul>
 			</div>

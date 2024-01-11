@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './BlogPreview.module.scss'
 
-const BlogPreview:React.FC = () => {
+const BlogPreview: React.FC = () => {
 	return (
 		<section className={styles.BlogPreview}>
 			<div className="container">

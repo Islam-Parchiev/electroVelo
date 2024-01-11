@@ -2,10 +2,7 @@ import React from 'react'
 
 import styles from './GuaranteesText.module.scss'
 
-interface GuaranteesTextProps {}
-
-const GuaranteesText:React.FC<GuaranteesTextProps> = (props) => {
-	const {} = props;
+const GuaranteesText:React.FC= () => {
 	return (
 		<section className={styles.GuaranteesText}>
 			<div className="container">

@@ -2,8 +2,7 @@ import React from 'react'
 
 import styles from './ProductDelivery.module.scss'
 
-
-const ProductDelivery:React.FC = () => {
+const ProductDelivery: React.FC = () => {
 	return (
 		<section className={styles.ProductDelivery}>
 			<div className="container">
@@ -13,24 +12,29 @@ const ProductDelivery:React.FC = () => {
 						<img src="/images/Product/deliveryBg.jpg" alt="" />
 					</div>
 					<div className={styles.ProductDelivery__info}>
-						<h4>Для удобства покупателей действует несколько способов доставки товаров</h4>
+						<h4>
+							Для удобства покупателей действует несколько способов
+							доставки товаров
+						</h4>
 						<ul className={styles.ProductDelivery__list}>
 							<li className={styles.ProductDelivery__item}>
-							Доставка по Москве, в пределах МКАД
+								Доставка по Москве, в пределах МКАД
 							</li>
 							<li className={styles.ProductDelivery__item}>
-							Доставка по Москве, в пределах МКАД
+								Доставка по Москве, в пределах МКАД
 							</li>
 							<li className={styles.ProductDelivery__item}>
-							Доставка по Москве, в пределах МКАД
+								Доставка по Москве, в пределах МКАД
 							</li>
-
 						</ul>
 						<span className={styles.ProductDelivery__notice}>
-						Любой из способов доступен при оформление заказа через сайт или у операторов
+							Любой из способов доступен при оформление заказа
+							через сайт или у операторов
 						</span>
 						<span className={styles.ProductDelivery__phone}>
-						На любые вопросы по правилам и стоимости доставки ответят оператор: <a href="tel:+74950557586">+7 (495) 055-75-86</a>
+							На любые вопросы по правилам и стоимости доставки
+							ответят оператор:{' '}
+							<a href="tel:+74950557586">+7 (495) 055-75-86</a>
 						</span>
 					</div>
 				</div>

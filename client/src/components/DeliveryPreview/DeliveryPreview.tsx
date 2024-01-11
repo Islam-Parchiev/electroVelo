@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './DeliveryPreview.module.scss'
 
-const DeliveryPreview:React.FC = () => {
+const DeliveryPreview: React.FC = () => {
 	return (
 		<section className={styles.DeliveryPreview}>
 			<div className="container">
@@ -15,7 +15,9 @@ const DeliveryPreview:React.FC = () => {
 							<a href="/">Доставка и оплата</a>
 						</li>
 					</ul>
-					<h1 className={styles.DeliveryPreview__title}>Доставка и оплата</h1>
+					<h1 className={styles.DeliveryPreview__title}>
+						Доставка и оплата
+					</h1>
 				</div>
 			</div>
 		</section>

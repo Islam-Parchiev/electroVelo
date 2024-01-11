@@ -4,7 +4,7 @@ import styles from './Modal.module.scss'
 
 interface ModalProps {
 	value: boolean
-	handleOpen: (value:boolean)=>void;
+	handleOpen: (value: boolean) => void
 	children: React.ReactNode
 }
 
@@ -14,7 +14,9 @@ const Modal: React.FC<ModalProps> = props => {
 		<div className={styles.Modal}>
 			<div className={styles.Modal__content}>
 				{children}
-				<button onClick={() => handleOpen(!value)} className={`btn-reset ${styles.Modal__close}`}>
+				<button
+					onClick={() => handleOpen(!value)}
+					className={`btn-reset ${styles.Modal__close}`}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="26"

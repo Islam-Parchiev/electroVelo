@@ -11,7 +11,7 @@ export function useCatalog() {
 	const availableValue = useAppSelector(state => state.filters.available)
 	const categoriesValue = useAppSelector(state => state.filters.selectedCategories)
 	const materialsValue = useAppSelector(state => state.filters.selectedMaterials)
-	const {data,isLoading,isSuccess} = useQuery<{ data: any }>({
+	const { data, isLoading, isSuccess } = useQuery<{ data: any }>({
 		queryKey: [
 			'catalogProducts',
 			page,
@@ -30,8 +30,8 @@ export function useCatalog() {
 				materialsValue,
 			),
 	})
-	const products:ICard[] =data?.data.data;
-	console.log('useCatalog',products);
-	const totalPages:number = data?.data.totalPages;
-	return {products,totalPages,page,setPage,isLoading,isSuccess}
+	const products: ICard[] = data?.data.data
+	console.log('useCatalog', products)
+	const totalPages: number = data?.data.totalPages
+	return { products, totalPages, page, setPage, isLoading, isSuccess }
 }

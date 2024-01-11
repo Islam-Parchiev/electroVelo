@@ -11,12 +11,13 @@ export interface ICard {
 	title: string
 	price: string
 	available: boolean
-	previewImage: string;
+	previewImage: string
 	otherClass?: string
 	countrySrc: string
 }
 const Card: React.FC<ICard> = props => {
-	const { id, type, title, price, available, previewImage, otherClass, countrySrc } = props
+	const { id, type, title, price, available, previewImage, otherClass, countrySrc } =
+		props
 	// console.log('iii',images)
 
 	return (

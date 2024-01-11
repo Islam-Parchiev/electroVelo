@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './StoragePreview.module.scss'
 
-const StoragePreview:React.FC = () => {
+const StoragePreview: React.FC = () => {
 	return (
 		<section className={styles.StoragePreview}>
 			<div className="container">
@@ -15,7 +15,9 @@ const StoragePreview:React.FC = () => {
 							<a href="/">Хранение велосипеда</a>
 						</li>
 					</ul>
-					<h1 className={styles.StoragePreview__title}>Хранение велосипеда</h1>
+					<h1 className={styles.StoragePreview__title}>
+						Хранение велосипеда
+					</h1>
 				</div>
 			</div>
 		</section>

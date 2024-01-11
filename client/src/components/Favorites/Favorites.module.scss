@@ -1,31 +1,36 @@
+@import "../../scss/mixins/mini";
+
 .Favorites {
 	width: 100%;
 	min-height: 500px;
+
 	&__wrapper {
 		height: 100%;
 	}
+
 	&__items {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
 	}
+
 	&__item {
 		border: 1px solid #ece3e3;
 		width: 400px;
 	}
+
 	&__empty {
-		display: flex;
+		@include flex-all-center;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 		width: 100%;
 		height: 50vh;
-/* desk mob 16 light */
-font-family: Inter;
-font-weight: 300;
-font-style: normal;
-font-size: 16px;
-line-height: 160%; /* 25.6px */
+		/* desk mob 16 light */
+		font-family: Inter;
+		font-weight: 300;
+		font-style: normal;
+		font-size: 16px;
+		line-height: 160%;
+		/* 25.6px */
 		color: var(--light-grey, #B3B3B3);
 	}
 }

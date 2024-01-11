@@ -3,42 +3,27 @@ import React from 'react'
 import Counter from '@components/Counter/Counter'
 
 import styles from './CartItem.module.scss'
-import { useCartItem } from './useCartItem';
+import { useCartItem } from './useCartItem'
 interface CartItemProps {
-	id:number;
-	imageUrl:string;
-	title:string;
-	price:number;
-	count:number;
-	prevPrice?:number;
+	id: number
+	imageUrl: string
+	title: string
+	price: number
+	count: number
+	prevPrice?: number
 }
 
 const CartItem: React.FC<CartItemProps> = props => {
-	const {
-		id,
-		imageUrl,
-		title,
-		price,
-		prevPrice,
-		count,
-	} = props;
-	const {
-		debounced,
-		isSuccess,
-		mutate,
-		onClickMinus,
-		onClickPlus,
-		countt,
-	} = useCartItem(count,id);
+	const { id, imageUrl, title, price, prevPrice, count } = props
+	const { debounced, isSuccess, mutate, onClickMinus, onClickPlus, countt } =
+		useCartItem(count, id)
 	return (
 		<li className={styles.CartItem}>
 			{debounced}
 			<div className={styles.CartItem__image}>
 				<img src={`/images/Product/${imageUrl}`} alt="" />
 			</div>
-			<h4 className={styles.CartItem__title}>
-				{title}
-			</h4>
+			<h4 className={styles.CartItem__title}>{title}</h4>
 			<Counter
 				count={countt}
 				onClickMinus={onClickMinus}
@@ -46,9 +31,13 @@ const CartItem: React.FC<CartItemProps> = props => {
 			/>
 			<div className={styles.CartItem__price}>
 				<span className={styles.CartItem__currentPrice}>{price} ₽</span>
-				{prevPrice&&<span className={styles.CartItem__prevPrice}>{prevPrice} ₽</span>}
+				{prevPrice && (
+					<span className={styles.CartItem__prevPrice}>{prevPrice} ₽</span>
+				)}
 			</div>
-			<button className={`btn-reset ${styles.CartItem__delete}`} onClick={()=> mutate(id)}>
+			<button
+				className={`btn-reset ${styles.CartItem__delete}`}
+				onClick={() => mutate(id)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="17"
@@ -73,7 +62,7 @@ const CartItem: React.FC<CartItemProps> = props => {
 					/>
 				</svg>
 			</button>
-			{isSuccess&&'deleted'}
+			{isSuccess && 'deleted'}
 		</li>
 	)
 }

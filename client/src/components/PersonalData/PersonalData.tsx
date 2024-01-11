@@ -4,29 +4,28 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 
 import { AuthService } from '@services/auth.service'
 
-import ProfileTitle from '@components/ProfileTitle/ProfileTitle';
-import FormInput from '@components/FormInput/FormInput';
-import Button from '@components/Button/Button';
+import ProfileTitle from '@components/ProfileTitle/ProfileTitle'
+import FormInput from '@components/FormInput/FormInput'
+import Button from '@components/Button/Button'
 
 import styles from './PersonalData.module.scss'
 
-
 interface IAddress {
-	city:string;
-	street:string;
-	house:string;
-	floor:string;
-	flat:string;
+	city: string
+	street: string
+	house: string
+	floor: string
+	flat: string
 }
 interface IFormData {
-	 	name: string;
-	  email: string;
-		password: string;
-		confirmPassword: string;
-		phone:string;
-		address:IAddress;
+	name: string
+	email: string
+	password: string
+	confirmPassword: string
+	phone: string
+	address: IAddress
 }
-const PersonalData:React.FC = () => {
+const PersonalData: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
@@ -38,110 +37,125 @@ const PersonalData:React.FC = () => {
 
 	const onSubmit: SubmitHandler<IFormData> = data => {
 		alert(`Your name ${data}`)
-		console.log(data);
-		console.log(AuthService.registration({
-			name:data.name,
-			email:data.email,
-			password:data.password,
-		}))
+		console.log(data)
+		console.log(
+			AuthService.registration({
+				name: data.name,
+				email: data.email,
+				password: data.password,
+			}),
+		)
 		reset()
 	}
-	const valName =		{...register('name', {
-		required: 'Name is require fielddddd!',
-		maxLength: {value:10,message:'test'},
-		minLength: 2,
-	})}
-	const valEmail = 	{...register('email', {
-		required: 'Email is require field!',
+	const valName = {
+		...register('name', {
+			required: 'Name is require fielddddd!',
+			maxLength: { value: 10, message: 'test' },
+			minLength: 2,
+		}),
+	}
+	const valEmail = {
+		...register('email', {
+			required: 'Email is require field!',
 
-		pattern: {
-			value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+			pattern: {
+				value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
 
-			message: 'Please enter valid email!',
-		},
-	})}
-	
-	const valPhone = {...register('phone',{
-		required:'Phone is require field!',
-	})}
-	const valAddress = {...register('address.city', {
+				message: 'Please enter valid email!',
+			},
+		}),
+	}
 
-		required: 'This is require field!',
-	})}
-	
+	const valPhone = {
+		...register('phone', {
+			required: 'Phone is require field!',
+		}),
+	}
+	const valAddress = {
+		...register('address.city', {
+			required: 'This is require field!',
+		}),
+	}
+
 	return (
 		<div className={styles.PersonalData}>
 			<div className={styles.PersonalData__wrapper}>
 				<ProfileTitle>Персональные данные</ProfileTitle>
 
 				<form
-				 onSubmit={handleSubmit(onSubmit)} 
-				 className={`${styles.PersonalData__form} ${styles.Form}`}>
+					onSubmit={handleSubmit(onSubmit)}
+					className={`${styles.PersonalData__form} ${styles.Form}`}>
 					<div className={styles.Form__header}>
-						<FormInput 
+						<FormInput
 							inputType="primary"
-							labelTitle="Имя" 
+							labelTitle="Имя"
 							type="text"
 							validationSchema={valName}
-							error={errors?.name?.message}/>
-						<FormInput 
+							error={errors?.name?.message}
+						/>
+						<FormInput
 							inputType="primary"
-							labelTitle="Фамилия" 
+							labelTitle="Фамилия"
 							type="text"
 							validationSchema={valName}
-							error={errors?.name?.message}/>
+							error={errors?.name?.message}
+						/>
 					</div>
 					<div className={styles.Form__body}>
-						<FormInput 
+						<FormInput
 							inputType="primary"
-							labelTitle="Отображаемое имя" 
+							labelTitle="Отображаемое имя"
 							type="text"
 							validationSchema={valName}
-							error={errors?.name?.message}/>
-						<FormInput 
+							error={errors?.name?.message}
+						/>
+						<FormInput
 							inputType="primary"
-							labelTitle="E-mail" 
+							labelTitle="E-mail"
 							type="email"
 							validationSchema={valEmail}
-							error={errors?.email?.message}/>
-						<FormInput 
+							error={errors?.email?.message}
+						/>
+						<FormInput
 							inputType="primary"
-							labelTitle="Телефон" 
+							labelTitle="Телефон"
 							type="phone"
 							validationSchema={valPhone}
-							error={errors?.phone?.message}/>
-						<FormInput 
+							error={errors?.phone?.message}
+						/>
+						<FormInput
 							inputType="primary"
-							labelTitle="Город" 
+							labelTitle="Город"
 							type="text"
 							validationSchema={valAddress}
 							error={errors?.address?.message}
 						/>
-						<FormInput 
+						<FormInput
 							inputType="primary"
-							labelTitle="Улица" 
+							labelTitle="Улица"
 							type="text"
 							validationSchema={valAddress}
-							error={errors?.address?.message}/>
+							error={errors?.address?.message}
+						/>
 					</div>
 					<div className={styles.Form__footer}>
-						<FormInput 
+						<FormInput
 							inputType="primary"
-							labelTitle="Дом" 
+							labelTitle="Дом"
 							type="text"
 							validationSchema={valAddress}
 							error={errors?.address?.message}
 						/>
-						<FormInput 
+						<FormInput
 							inputType="primary"
-							labelTitle="Этаж" 
+							labelTitle="Этаж"
 							type="text"
 							validationSchema={valAddress}
 							error={errors?.address?.message}
 						/>
-						<FormInput 
+						<FormInput
 							inputType="primary"
-							labelTitle="Квартира" 
+							labelTitle="Квартира"
 							type="text"
 							validationSchema={valAddress}
 							error={errors?.address?.city?.message}

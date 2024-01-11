@@ -1,48 +1,54 @@
+@import "../../scss/mixins/mini";
+
 .Subscribe {
-  height: 275px;
-	background-image: url("../../../public/images/Main/bgSubscribe.jpg");
-	background-position:center;
-	background-size: cover;
-	background-repeat: no-repeat;	
-	h2{
-		color:var(--light-color);
+	@include bg-cover;
+	@include image-set("../../../public/images/Main/bgSubscribe");
+	height: 275px;
+
+	h2 {
+		color: var(--light-color);
 	}
+
 	&__form {
 		display: flex;
 		align-items: start;
 		margin-top: 15px;
 	}
+
 	&__inputs {
-		display: flex;
-		flex-direction: column;
-		align-items: start;
+		@include flex-column-start;
 	}
+
 	&__input {
-border-radius: 5px;
+		border-radius: 5px;
 		width: 346px;
 		background-color: var(--light-color);
+
 		input {
 			border-radius: 5px;
 			padding: 10px 16px;
 			width: 100%;
 			height: 100%;
 			font-family: Inter;
-font-weight: 400;
-font-style: normal;
-font-size: 16px;
-line-height: 160%; /* 25.6px */
-		color: var(--light-grey, #B3B3B3);
+			font-weight: 400;
+			font-style: normal;
+			font-size: 16px;
+			line-height: 160%;
+			/* 25.6px */
+			color: var(--light-grey, #B3B3B3);
 		}
 	}
+
 	&__checkbox {
 		margin-top: 10px;
-		color:var(--light-color);
+		color: var(--light-color);
+
 		label {
-			display: flex;
-			align-items: center;
+			@include flex-v-center;
 			margin-top: 15px;
 			background-color: var(--light-color);
 		}
+
 		div {
 			margin-right: 10px;
 		}

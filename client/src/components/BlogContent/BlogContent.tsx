@@ -12,7 +12,6 @@ const BlogContent: React.FC = () => {
 	return (
 		<section className={styles.BlogContent}>
 			<div className="container">
-			
 				<div className={styles.BlogContent__inner}>
 					<ul className={`list-reset ${styles.BlogContent__list}`}>
 						<ReviewsItem
@@ -22,7 +21,6 @@ const BlogContent: React.FC = () => {
 							date="18 ноября 2015"
 							tag={tag}
 							text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
-							
 						/>
 						<ReviewsItem
 							id={2}
@@ -31,7 +29,6 @@ const BlogContent: React.FC = () => {
 							date="18 ноября 2015"
 							tag={tag}
 							text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
-							
 						/>
 						<ReviewsItem
 							id={3}
@@ -40,7 +37,6 @@ const BlogContent: React.FC = () => {
 							date="18 ноября 2015"
 							tag={tag}
 							text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
-							
 						/>
 						<ReviewsItem
 							id={4}
@@ -49,7 +45,6 @@ const BlogContent: React.FC = () => {
 							date="18 ноября 2015"
 							tag={tag}
 							text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
-							
 						/>
 						<ReviewsItem
 							id={5}
@@ -58,7 +53,6 @@ const BlogContent: React.FC = () => {
 							date="18 ноября 2015"
 							tag={tag}
 							text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
-							
 						/>
 						<ReviewsItem
 							id={6}
@@ -67,7 +61,6 @@ const BlogContent: React.FC = () => {
 							date="18 ноября 2015"
 							tag={tag}
 							text="BMC Kaius 01 идеальный гоночный гравийный велосипед"
-							
 						/>
 					</ul>
 				</div>

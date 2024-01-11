@@ -1,6 +1,9 @@
+@import "../../scss/mixins/mini";
+
 .ProductSlider {
 	width: 635px;
 	height: 720px;
+
 	&__slide {
 		img {
 			width: 100%;
@@ -9,67 +12,65 @@
 		}
 	}
 }
+
 .swiper {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .swiper-slide {
 
-  /* Center slide text vertically */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  text-align: center;
-  background: #fff;
+	/* Center slide text vertically */
+	@include flex-all-center;
+	font-size: 18px;
+	text-align: center;
+	background: #fff;
 }
 
 .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 
 
 .swiper {
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
-  height: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 100%;
+	height: 300px;
 }
 
 .swiper-slide {
-  background-position: center;
-  background-size: cover;
+	@include bg-cover;
 }
 
 .mySwiper2 {
-  width: 100%;
-  height: 80%;
+	width: 100%;
+	height: 80%;
 }
 
 .mySwiper {
-  padding: 10px 0;
-  height: 22%;
-  box-sizing: border-box;
+	padding: 10px 0;
+	height: 22%;
+	box-sizing: border-box;
 }
 
 .mySwiper .swiper-slide {
-  width: 25%;
-  height: 100%;
-  opacity: 0.4;
+	width: 25%;
+	height: 100%;
+	opacity: 0.4;
 }
 
 .mySwiper .swiper-slide-thumb-active {
-  opacity: 1;
+	opacity: 1;
 }
 
 .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }

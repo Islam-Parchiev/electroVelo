@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import Checkbox from '@components/Checkbox/Checkbox'
-import Button from '@components/Button/Button';
+import Button from '@components/Button/Button'
 
 import styles from './Subscribe.module.scss'
 
-
 const Subscribe: React.FC = () => {
-	const [check,setCheck] = React.useState(true);
-	const [value,setValue]=React.useState(1);
-	console.log('ccccc',check);
+	const [check, setCheck] = React.useState(true)
+	const [value, setValue] = React.useState(1)
+	console.log('ccccc', check)
 	return (
 		<section className={styles.Subscribe}>
 			<div className={`container ${styles.Subscribe__container}`}>
@@ -26,16 +25,19 @@ const Subscribe: React.FC = () => {
 							/>
 						</label>
 						{/* TODO:fix Checkbox */}
-						<Checkbox 
+						<Checkbox
 							text="Согласен(на) на обработку персональных данных"
 							otherClass={styles.Subscribe__checkbox}
 							check={check}
 							setCheck={setCheck}
 							value={value}
-							setValue={setValue}/>
+							setValue={setValue}
+						/>
 					</div>
-					{/* <button className={`btn-reset btn ${styles.Subscribe__btn}`}>Подписаться</button> */}
-					<Button handleClick={()=>console.log('click')}>Подписаться</Button>
+
+					<Button handleClick={() => console.log('click')}>
+						Подписаться
+					</Button>
 				</form>
 			</div>
 		</section>

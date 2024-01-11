@@ -48,8 +48,12 @@ const ContactsForm: React.FC = () => {
 								anotherClass={styles.Form__input}
 							/>
 						</div>
-						<textarea className={styles.Form__textarea} placeholder="Сообщение"></textarea>
-						<Button otherClass={styles.Form__submit}>Задать вопрос</Button>
+						<textarea
+							className={styles.Form__textarea}
+							placeholder="Сообщение"></textarea>
+						<Button otherClass={styles.Form__submit}>
+							Задать вопрос
+						</Button>
 					</form>
 				</div>
 			</div>

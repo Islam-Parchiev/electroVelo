@@ -1,37 +1,27 @@
 @import "../../scss/mixins/mini";
+
 .GuaranteesInfo {
 	&__inner {
 		@include flex-all-sb;
 	}
-	&__item {
-		@include flex-all-sb;
-		
-		padding: 0 20px;
-		width: 620px;
-		height: 77px;
-		&:not(:last-child) {
-			border-bottom: 1px solid var(--bg, #F8F8F8);
-		}
-		&:nth-child(2n+1) {
-			background: var(--bg, #F8F8F8);
-		}
 
-	}
 	&__list {
 		@include flex-column-center;
 		overflow: hidden;
 		border: 1px solid #f8f7f7;
 		border-radius: 15px;
 	}
+
 	&__title {
 
-/* desk h3 */
-font-family: Bebas Neue Cyrillic;
-font-weight: 400;
-font-style: normal;
-font-size: 40px;
-line-height: 123%; /* 49.2px */
-letter-spacing: 2px;
+		/* desk h3 */
+		font-family: Bebas Neue Cyrillic;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 40px;
+		line-height: 123%;
+		/* 49.2px */
+		letter-spacing: 2px;
 		text-transform: uppercase;
 		color: var(--bl, #101010);
 	}

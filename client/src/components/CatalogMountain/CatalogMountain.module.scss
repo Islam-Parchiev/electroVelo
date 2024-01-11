@@ -1,6 +1,9 @@
+@import "../../scss/mixins/mini";
 .CatalogMountain {
+	@include image-set('../../../public/images/Catalog/bg');
 	height: 280px;
-	background-image: url("../../../public/images/Catalog/bg.jpg");
+	background-color: #4e4b4b;
+
 	&__wrapper {
 		padding-top: 50px;
 		h1 {
@@ -10,8 +13,7 @@
 	}
 }
 .Breadcrumbs {
-	display: flex;
-	align-items: center;
+	@include flex-v-center;
 	gap: 10px;
 	&__item {
 a {

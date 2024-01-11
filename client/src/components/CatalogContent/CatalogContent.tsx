@@ -28,7 +28,7 @@ const CatalogContent: React.FC = () => {
 								{isLoading
 									? 'Loading...'
 									: isSuccess
-										? products.map((item) => (
+										? products.map(item => (
 											<Card
 												type="secondary"
 												id={item.id}
@@ -38,7 +38,9 @@ const CatalogContent: React.FC = () => {
 												price={item.price}
 												title={item.title}
 												available={item.available}
-												previewImage={item.previewImage}
+												previewImage={
+													item.previewImage
+												}
 												countrySrc={item.country}
 												key={item.id}
 											/>

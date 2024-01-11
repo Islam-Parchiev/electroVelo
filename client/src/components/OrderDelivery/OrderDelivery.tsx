@@ -4,7 +4,6 @@ import CheckboxRadio from '@components/CheckboxRadio/CheckboxRadio'
 
 import styles from './OrderDelivery.module.scss'
 
-
 const OrderDelivery: React.FC = () => {
 	return (
 		<div className={styles.OrderDelivery}>
@@ -14,10 +13,19 @@ const OrderDelivery: React.FC = () => {
 					<h4 className={styles.DeliveryMethod__title}>Способ доставки</h4>
 					<ul className={`list-reset ${styles.DeliveryMethod__list}`}>
 						<li className={styles.DeliveryMethod__item}>
-							<CheckboxRadio radioName="delivery-variant" radioValue="delivery-one" checked={true} title="Курьерская доставка"/>
+							<CheckboxRadio
+								radioName="delivery-variant"
+								radioValue="delivery-one"
+								checked={true}
+								title="Курьерская доставка"
+							/>
 						</li>
 						<li className={styles.DeliveryMethod__item}>
-							<CheckboxRadio radioName="delivery-variant" radioValue="delivery-two" title="Самовывоз"/>
+							<CheckboxRadio
+								radioName="delivery-variant"
+								radioValue="delivery-two"
+								title="Самовывоз"
+							/>
 						</li>
 					</ul>
 				</div>
@@ -25,16 +33,32 @@ const OrderDelivery: React.FC = () => {
 					<h4 className={styles.DeliveryMethod__title}>Способ оплаты</h4>
 					<ul className={`list-reset ${styles.DeliveryMethod__list}`}>
 						<li className={styles.DeliveryMethod__item}>
-							<CheckboxRadio radioName="payment-variant" radioValue="payment-one" title="Оплата онлайн, на сайте"/>
+							<CheckboxRadio
+								radioName="payment-variant"
+								radioValue="payment-one"
+								title="Оплата онлайн, на сайте"
+							/>
 						</li>
 						<li className={styles.DeliveryMethod__item}>
-							<CheckboxRadio radioName="payment-variant" radioValue="payment-two" title="Оплата курьеру картой"/>
+							<CheckboxRadio
+								radioName="payment-variant"
+								radioValue="payment-two"
+								title="Оплата курьеру картой"
+							/>
 						</li>
 						<li className={styles.DeliveryMethod__item}>
-							<CheckboxRadio radioName="payment-variant" radioValue="payment-three" title="Оплата курьеру наличными"/>
+							<CheckboxRadio
+								radioName="payment-variant"
+								radioValue="payment-three"
+								title="Оплата курьеру наличными"
+							/>
 						</li>
 						<li className={styles.DeliveryMethod__item}>
-							<CheckboxRadio radioName="payment-variant" radioValue="payment-four" title="Оплата в магазине"/>
+							<CheckboxRadio
+								radioName="payment-variant"
+								radioValue="payment-four"
+								title="Оплата в магазине"
+							/>
 						</li>
 					</ul>
 				</div>

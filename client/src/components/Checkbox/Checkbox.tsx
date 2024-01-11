@@ -1,37 +1,38 @@
-import { FC,useState } from 'react'
+import { FC } from 'react'
 
 import styles from './Checkbox.module.scss'
 interface ICheckbox {
-	text:string;
-	otherClass?:string;
-	check:boolean;
-	setCheck:(value:boolean)=>void;
-	value:any;
-	setValue:any;
-	count?:number;
-	countClass?:string;
+	text: string
+	otherClass?: string
+	check: boolean
+	setCheck: (value: boolean) => void
+	value: any
+	setValue: any
+	count?: number
+	countClass?: string
 }
-const Checkbox:FC<ICheckbox> = (props) => {
-	
+const Checkbox: FC<ICheckbox> = props => {
 	const {
 		text,
-		otherClass='',
+		otherClass = '',
 		value,
 		setValue,
 		check,
 		setCheck,
 		count,
 		countClass,
-		
-	} = props;
+	} = props
 	return (
-		<label className={`${styles.customCheckbox} ${otherClass}`} onClick={()=>setValue(value)}>
-			<input 
-				className={styles.hiddenCheckbox} 
-				type="checkbox" 
+		<label
+			className={`${styles.customCheckbox} ${otherClass}`}
+			onClick={() => setValue(value)}>
+			<input
+				className={styles.hiddenCheckbox}
+				type="checkbox"
 				checked={check}
 				value={value}
-				onChange={()=>setCheck(!check)}/>
+				onChange={() => setCheck(!check)}
+			/>
 			<div className={styles.checkbox}>
 				<svg
 					className={styles.checkmark}
@@ -39,17 +40,11 @@ const Checkbox:FC<ICheckbox> = (props) => {
 					viewBox="0 0 24 25"
 					fill="none">
 					<rect y="0.5" width="24" height="24" rx="4" fill="#F57520" />
-					<path
-						d="M4.5 13L9 17.5L19 6.5"
-						stroke="white"
-						strokeWidth="2"
-					/>
+					<path d="M4.5 13L9 17.5L19 6.5" stroke="white" strokeWidth="2" />
 				</svg>
 			</div>
 			<span>{text}</span>
-			{
-				count && <span className={countClass}>({count})</span>
-			}
+			{count && <span className={countClass}>({count})</span>}
 		</label>
 	)
 }

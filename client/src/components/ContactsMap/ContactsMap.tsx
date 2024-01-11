@@ -2,10 +2,8 @@ import React from 'react'
 
 import styles from './ContactsMap.module.scss'
 
-interface ContactsMapProps {}
+const ContactsMap: React.FC= () => {
 
-const ContactsMap: React.FC<ContactsMapProps> = props => {
-	const {} = props
 	return (
 		<section className={styles.ContactsMap}>
 			<div className={styles.ContactsMap__top}>

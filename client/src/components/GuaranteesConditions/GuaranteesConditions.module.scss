@@ -10,6 +10,7 @@
 		letter-spacing: 0.24px;
 		color: var(--black-color);
 	}
+
 	&__list {
 		margin-top: 40px;
 	}
@@ -36,19 +37,22 @@
 			color: var(--orange, #F57520);
 		}
 	}
+
 	&__text {
 		margin-top: 40px;
 		border-radius: 10px;
-padding: 24px;
+		padding: 24px;
 		width: 100%;
-background: var(--bg, #F8F8F8);
-p {
-/* desk mob 16 200 */
-font-family: Inter;
-font-size: 16px;
-line-height: 200%; /* 32px */
-	color: var(--bl, #101010);
-}
+		background: var(--bg, #F8F8F8);
+
+		p {
+			/* desk mob 16 200 */
+			font-family: Inter;
+			font-size: 16px;
+			line-height: 200%;
+			/* 32px */
+			color: var(--bl, #101010);
+		}
 	}
 
 

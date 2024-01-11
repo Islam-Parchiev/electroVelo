@@ -1,29 +1,25 @@
 import React from 'react'
-import { Link,useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import { useAppDispatch } from '@redux/store';
+import { useAppDispatch } from '@redux/store'
 
-import { logout } from '@redux/slices/userSlice';
+import { logout } from '@redux/slices/userSlice'
 
-import { removeTokenFromLocalStorage } from '../../helpers/localStorage.helper';
-
+import { removeTokenFromLocalStorage } from '../../helpers/localStorage.helper'
 
 import styles from './MyAccount.module.scss'
 
 interface MyAccountProps {
-	anotherClass?:string;
+	anotherClass?: string
 }
 
-const MyAccount:React.FC<MyAccountProps> = (props) => {
-	const {
-		anotherClass='',
-	} = props;
+const MyAccount: React.FC<MyAccountProps> = props => {
+	const { anotherClass = '' } = props
 	const dispatch = useAppDispatch()
 	const handleLogout = () => {
 		removeTokenFromLocalStorage('token')
 		dispatch(logout())
 	}
-	// const r = useLocation()
 	return (
 		<div className={`${styles.MyAccount} ${anotherClass}`}>
 			<h2 className={styles.MyAccount__title}>Мой аккаунт</h2>
@@ -41,7 +37,11 @@ const MyAccount:React.FC<MyAccountProps> = (props) => {
 					<Link to="profile/favorites">Список желаний</Link>
 				</li>
 			</ul>
-			<button className={`btn-reset ${styles.MyAccount__logout}`} onClick={handleLogout}>Выйти</button>
+			<button
+				className={`btn-reset ${styles.MyAccount__logout}`}
+				onClick={handleLogout}>
+				Выйти
+			</button>
 		</div>
 	)
 }

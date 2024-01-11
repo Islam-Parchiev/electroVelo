@@ -1,37 +1,35 @@
 import React from 'react'
 
-import { Swiper,SwiperSlide } from 'swiper/react';
-import { A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { A11y } from 'swiper/modules'
 
-import productService from '@services/product.service';
-import { useQuery } from '@tanstack/react-query';
+import productService from '@services/product.service'
+import { useQuery } from '@tanstack/react-query'
 
-import { ICard } from 'Card';
+import { ICard } from 'Card'
 
-import SliderControls from '@components/SliderControls/SliderControls';
-import Card from '@components/Card/Card';
+import SliderControls from '@components/SliderControls/SliderControls'
+import Card from '@components/Card/Card'
 
 import styles from './SimilarGoods.module.scss'
 interface SimilarGoodsProps {
-	category:string;
+	category: string
 }
 
-const SimilarGoods:React.FC<SimilarGoodsProps> = (props) => {
-	const {
-		category,
-	} = props;
+const SimilarGoods: React.FC<SimilarGoodsProps> = props => {
+	const { category } = props
 
-	const {data,isLoading,isSuccess} = useQuery({ queryKey: ['similarProducts',category], 
-		queryFn:()=> productService.getProductsByCategories(category),
-		
+	const { data, isLoading, isSuccess } = useQuery({
+		queryKey: ['similarProducts', category],
+		queryFn: () => productService.getProductsByCategories(category),
 	})
-	console.log('similar',data);
+	console.log('similar', data)
 	return (
 		<section className={styles.SimilarGoods}>
 			<div className="container">
 				<div className={styles.SimilarGoods__wrapper}>
 					<h2 className={styles.SimilarGoods__title}>Похожие товары</h2>
-		
+
 					{isLoading ? (
 						'Loading...'
 					) : isSuccess ? (
@@ -44,10 +42,7 @@ const SimilarGoods:React.FC<SimilarGoodsProps> = (props) => {
 							onSlideChange={() => console.log('slide change')}>
 							{data?.data.map((product: ICard) => (
 								<SwiperSlide key={product.id}>
-									<div
-										className={
-											styles.SimilarGoods__slide
-										}>
+									<div className={styles.SimilarGoods__slide}>
 										<Card
 											id={product.id}
 											type="secondary"

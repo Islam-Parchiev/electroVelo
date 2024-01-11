@@ -1,29 +1,22 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 import HeaderSearch from '@components/HeaderSearch/HeaderSearch'
 
 import styles from './HeaderRight.module.scss'
 
 interface HeaderRightProps {
-	setSearch:(value:boolean)=>void;
-	search:boolean;
-	setProfileMenu:(value:boolean)=>void;
-	profileMenu:boolean;
-	setMenu:(value:boolean)=>void;
-	menu:boolean;
+	setSearch: (value: boolean) => void
+	search: boolean
+	setProfileMenu: (value: boolean) => void
+	profileMenu: boolean
+	setMenu: (value: boolean) => void
+	menu: boolean
 }
 
 const HeaderRight: React.FC<HeaderRightProps> = props => {
-	const {
-		setSearch,
-		search,
-		setProfileMenu,
-		profileMenu,
-		setMenu,
-		menu,
-	} = props
+	const { setSearch, search, setProfileMenu, profileMenu, setMenu, menu } = props
 	return (
 		<div className={styles.HeaderRight}>
 			<ul className={`list-reset ${styles.HeaderRight__list}`}>

@@ -1,22 +1,16 @@
 import React from 'react'
 
-
 import styles from './Counter.module.scss'
 
 interface ICounter {
-	onClickMinus:()=>void;
-	onClickPlus:()=>void;
-	count:number;
+	onClickMinus: () => void
+	onClickPlus: () => void
+	count: number
 }
 
-const Counter: React.FC<ICounter> = (props) => {
-	const {
-		count,
-		onClickPlus,
-		onClickMinus,
-		
-	}=props;
-		// TODO:Fix Counter 
+const Counter: React.FC<ICounter> = props => {
+	const { count, onClickPlus, onClickMinus } = props
+	// TODO:Fix Counter
 	return (
 		<div className={styles.Counter}>
 			<button

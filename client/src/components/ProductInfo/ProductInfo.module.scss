@@ -1,33 +1,39 @@
 @import "../../scss/mixins/mini";
+
 .ProductInfo {
 	width: 100%;
+
 	&__top {
-		@include  flex-column-start;
-		
+		@include flex-column-start;
+
 	}
-	
+
 	&__bottom {
 		@include flex-v-center;
 		padding-top: 20px;
 		gap: 20px;
 	}
+
 	&__addToFavorites {
 		@include flex-all-center;
 		border-radius: 10px;
 		padding: 0;
-width: 52px;
-height: 52px;
-background: var(--light-color);
-svg {
-	fill: none;
-}
-&:hover {
-	background-color:  var(--light-color);
-}
-&.active {
-	svg {
-		fill: var(--orange);
-	}
-}
+		width: 52px;
+		height: 52px;
+		background: var(--light-color);
+
+		svg {
+			fill: none;
+		}
+
+		&:hover {
+			background-color: var(--light-color);
+		}
+
+		&.active {
+			svg {
+				fill: var(--orange);
+			}
+		}
 	}
 }

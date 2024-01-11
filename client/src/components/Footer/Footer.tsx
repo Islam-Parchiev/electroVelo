@@ -1,14 +1,12 @@
 import React from 'react'
 
-import Modal from '@components/Modal/Modal';
+import Modal from '@components/Modal/Modal'
 
 import styles from './Footer.module.scss'
 
-interface FooterProps {}
+const Footer: React.FC = () => {
+	const [modal, setModal] = React.useState(false)
 
-const Footer: React.FC<FooterProps> = props => {
-	const [modal,setModal] = React.useState(false);
-	const {} = props
 	return (
 		<footer className={styles.Footer}>
 			<div className={`container ${styles.Footer__container}`}>
@@ -184,7 +182,8 @@ const Footer: React.FC<FooterProps> = props => {
 							</li>
 						</ul>
 					</div>
-					<div className={`${styles.Footer__info} ${styles.Footer__info_contacts}`}>
+					<div
+						className={`${styles.Footer__info} ${styles.Footer__info_contacts}`}>
 						<h4 className={styles.Footer__info_title}>Контакты</h4>
 						<ul className={`list-reset ${styles.Footer__list}`}>
 							<li className={styles.Footer__list_item}>
@@ -279,10 +278,14 @@ const Footer: React.FC<FooterProps> = props => {
 				<div className={styles.Footer__copyright}>
 					<span>© 2023 world bike</span>
 					<a href="/">Пользовательское соглашение</a>
-					<button onClick={()=>setModal(!modal)}>test modal</button>
+					<button onClick={() => setModal(!modal)}>test modal</button>
 				</div>
 			</div>
-			{modal&&<Modal value={modal}handleOpen={setModal}>Content</Modal>}
+			{modal && (
+				<Modal value={modal} handleOpen={setModal}>
+					Content
+				</Modal>
+			)}
 		</footer>
 	)
 }

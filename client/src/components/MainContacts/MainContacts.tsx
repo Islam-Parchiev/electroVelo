@@ -2,10 +2,7 @@ import React from 'react'
 
 import styles from './MainContacts.module.scss'
 
-interface MainContactsProps {}
-
-const MainContacts: React.FC<MainContactsProps> = props => {
-	const {} = props
+const MainContacts: React.FC = () => {
 	return (
 		<section className={styles.MainContacts}>
 			<div className="container">
@@ -96,7 +93,6 @@ const MainContacts: React.FC<MainContactsProps> = props => {
 						</svg>
 						<div className={styles.ContactsItem__info}>
 							<a href="/">order@world-bike.ru</a>
-						
 						</div>
 					</li>
 					<li className={styles.ContactsItem}>

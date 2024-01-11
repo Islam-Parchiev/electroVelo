@@ -1,7 +1,7 @@
-import {FC} from 'react'
+import { FC } from 'react'
 
-import styles from './MainVideoItem.module.scss';
-const MainVideoItem:FC = () => {
+import styles from './MainVideoItem.module.scss'
+const MainVideoItem: FC = () => {
 	return (
 		<li className={styles.MainVideoItem}>
 			<div className={styles.MainVideoItem__header}>

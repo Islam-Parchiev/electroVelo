@@ -3,17 +3,13 @@ import React from 'react'
 import styles from './MountainBikesItem.module.scss'
 
 interface MountainBikesItemProps {
-	title:string;
-	description:string;
-	imageUrl:string;
+	title: string
+	description: string
+	imageUrl: string
 }
 
 const MountainBikesItem: React.FC<MountainBikesItemProps> = props => {
-	const {
-		title,
-		description,
-		imageUrl,
-	} = props
+	const { title, description, imageUrl } = props
 	return (
 		<li className={styles.MountainBikesItem}>
 			<div className={styles.MountainBikesItem__top}>
@@ -21,9 +17,7 @@ const MountainBikesItem: React.FC<MountainBikesItemProps> = props => {
 				<img src={imageUrl} alt="Icon" />
 			</div>
 			<div className={styles.MountainBikesItem__descr}>
-				<p>
-					{description}
-				</p>
+				<p>{description}</p>
 			</div>
 		</li>
 	)

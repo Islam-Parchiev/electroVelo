@@ -3,21 +3,16 @@ import React from 'react'
 import styles from './Pagination.module.scss'
 
 interface PaginationProps {
-	totalPages:number;
-	setPage:(pageNum:number)=> void;
-	page:number;
+	totalPages: number
+	setPage: (pageNum: number) => void
+	page: number
 }
 
 const Pagination: React.FC<PaginationProps> = props => {
-	const {
-		totalPages,
-		setPage,
-		page,
-	} = props
-	const arrPages = [];
-	for(let i =0;i<totalPages;i++) 
-	{
-		arrPages.push(i);
+	const { totalPages, setPage, page } = props
+	const arrPages = []
+	for (let i = 0; i < totalPages; i++) {
+		arrPages.push(i)
 	}
 	return (
 		<div className={styles.Pagination}>
@@ -63,7 +58,9 @@ const Pagination: React.FC<PaginationProps> = props => {
 					/>
 				</svg>
 			</button>
-			<button className={`btn-reset ${styles.Pagination__prev}`} onClick={()=> setPage(page-1)}>
+			<button
+				className={`btn-reset ${styles.Pagination__prev}`}
+				onClick={() => setPage(page - 1)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="10"
@@ -86,13 +83,19 @@ const Pagination: React.FC<PaginationProps> = props => {
 				</svg>
 			</button>
 			<ul className={`list-reset ${styles.Pagination__list}`}>
-				 {
-					arrPages.map((pageNum:number)=><li 
-						className={`${styles.Pagination__item} ${page===pageNum+1&&styles.active}`} 
-						onClick={()=>setPage(pageNum+1)}>{pageNum+1}</li>)
-				 }
+				{arrPages.map((pageNum: number) => (
+					<li
+						className={`${styles.Pagination__item} ${
+							page === pageNum + 1 && styles.active
+						}`}
+						onClick={() => setPage(pageNum + 1)}>
+						{pageNum + 1}
+					</li>
+				))}
 			</ul>
-			<button className={`btn-reset ${styles.Pagination__next}`} onClick={()=> setPage(page+1)}>
+			<button
+				className={`btn-reset ${styles.Pagination__next}`}
+				onClick={() => setPage(page + 1)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="10"

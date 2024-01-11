@@ -1,18 +1,14 @@
+@import '../../scss/mixins/mini';
 .BestModels {
+	@include bg-cover;
+	@include image-set("../../../public/images/Main/bestModelsBg");
 	min-height: 770px;
-	background-image: url("../../../public/images/Main/bestModelsBg.jpg");
-	background-position:center;
-	background-size: cover;
-	background-repeat: no-repeat;
 	&__container {
-		display: flex;
-		flex-direction: column;
-		align-items: start;
+		@include flex-column-start;
 		padding-top: 30px;
 	}
 	&__items {
-		display: flex;
-		align-items: center;
+		@include flex-v-center;
 		padding-top: 30px;
 		width: 100%;
 		gap: 20px;

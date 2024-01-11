@@ -10,16 +10,18 @@
 	font-size: 70px;
 	white-space: nowrap;
 
-		animation: ticker 10s linear infinite;
+	animation: ticker 10s linear infinite;
 	user-select: none;
-	
-	
+
+
 }
+
 @keyframes ticker {
 	0% {
-			transform:translate3d(0);
+		transform: translate3d(0);
 	}
+
 	100% {
-		transform:translate3d(-100%,0,0);
+		transform: translate3d(-100%, 0, 0);
 	}
 }

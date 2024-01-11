@@ -1,27 +1,18 @@
 import React from 'react'
 
-import OrderItem from '@components/OrderItem/OrderItem';
+import OrderItem from '@components/OrderItem/OrderItem'
 
 import styles from './Order.module.scss'
 
 interface OrderProps {
-	date:string;
-	orderNumber:number;
-	orderPrice:number;
-	orderStatus:string;
+	date: string
+	orderNumber: number
+	orderPrice: number
+	orderStatus: string
 }
-// 22.01.2023
-// 789563678
-// 605 370
-// Новый заказ
 const Order: React.FC<OrderProps> = props => {
-	const {
-		date,
-		orderNumber,
-		orderPrice,
-		orderStatus,
-	} = props;
-	const [active,setActive]= React.useState(false);
+	const { date, orderNumber, orderPrice, orderStatus } = props
+	const [active, setActive] = React.useState(false)
 	return (
 		<div className={styles.Order}>
 			<div className={`${styles.Order__header} ${active ? styles.active : ''} `}>
@@ -65,22 +56,22 @@ const Order: React.FC<OrderProps> = props => {
 			</div>
 			<div className={`${styles.Order__body} ${active ? styles.active : ''}`}>
 				<ul className={styles.Order__list}>
-					<OrderItem 
-						imageUrl="pre1.1.png" 
-						title="Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018" 
-						price={435000} 
+					<OrderItem
+						imageUrl="pre1.1.png"
+						title="Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018"
+						price={435000}
 						prevPrice={522000}
 					/>
-					<OrderItem 
-						imageUrl="pre1.1.png" 
-						title="Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018" 
-						price={435000} 
+					<OrderItem
+						imageUrl="pre1.1.png"
+						title="Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018"
+						price={435000}
 						prevPrice={522000}
 					/>
-					<OrderItem 
-						imageUrl="pre1.1.png" 
-						title="Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018" 
-						price={435000} 
+					<OrderItem
+						imageUrl="pre1.1.png"
+						title="Look 977 BLACK FLUO YELLOW GREEN XT 2x11S AMC 2018"
+						price={435000}
 						prevPrice={522000}
 					/>
 				</ul>

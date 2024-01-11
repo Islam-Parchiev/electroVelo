@@ -1,50 +1,59 @@
 .SingleBlogContent {
 
 	&__title {
-margin-top: 30px;
-font-family: Bebas Neue Cyrillic;
-font-weight: 400;
-font-size: 40px;
-line-height: 123%; /* 49.2px */
-letter-spacing: 2px;
+		margin-top: 30px;
+		font-family: Bebas Neue Cyrillic;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 123%;
+		/* 49.2px */
+		letter-spacing: 2px;
 		color: var(--bl, #101010);
 	}
 }
+
 .Paragraph {
 	padding-top: 50px;
+
 	&__title {
 		font-family: Inter;
 		font-weight: 500;
 		font-size: 24px;
-		line-height: 160%; /* 38.4px */
+		line-height: 160%;
+		/* 38.4px */
 		letter-spacing: 0.24px;
 		color: var(--bl, #101010);
 	}
+
 	&__text {
 		flex-grow: 2;
 		flex-shrink: 0;
 		flex-basis: 400px;
 		order: 1;
+
 		p {
-font-family: Inter;
-font-weight: 400;
-font-size: 16px;
-line-height: 200%; 
+			font-family: Inter;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 200%;
 			color: var(--dark-grey, #2E2E2E);
 		}
 	}
+
 	&__content {
 		display: flex;
 		min-height: 280px;
 		max-height: 500px;
 		gap: 40px;
 	}
+
 	&__image {
 		flex-grow: 0;
 		flex-shrink: 0;
 		flex-basis: 400px;
 		order: 0;
 		border-radius: 10px;
+
 		img {
 			display: block;
 			border-radius: 10px;
@@ -53,11 +62,13 @@ line-height: 200%;
 			object-fit: cover;
 		}
 	}
+
 	&:nth-child(2n+1) {
 		.Paragraph__text {
 			order: 0;
 		}
-		.Paragraph__image{
+
+		.Paragraph__image {
 			order: 1;
 		}
 	}
@@ -68,28 +79,32 @@ line-height: 200%;
 	align-items: center;
 	margin-top: 20px;
 	gap: 10px;
+
 	&__item {
-a {
-		position: relative;
-		font-family: Inter;
-		font-weight: 400;
-		font-style: normal;
-		font-size: 15px;
-		line-height: 160%; /* 22.4px */
-		color: var(--1-grey, #4C4C4C);
-&:hover {
-	color: var(--orange, #F57520);
-}
-}
+		a {
+			position: relative;
+			font-family: Inter;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 15px;
+			line-height: 160%;
+			/* 22.4px */
+			color: var(--1-grey, #4C4C4C);
+
+			&:hover {
+				color: var(--orange, #F57520);
+			}
+		}
 	}
 }
+
 .Breadcrumbs__item:not(:last-child) {
-a::before{
-			content: "/";
-			position: absolute;
-			right: -6px;
-			top: -2px;
-} 
-	 
-	
+	a::before {
+		content: "/";
+		position: absolute;
+		right: -6px;
+		top: -2px;
+	}
+
+
 }

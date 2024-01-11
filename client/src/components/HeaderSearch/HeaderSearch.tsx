@@ -2,13 +2,10 @@ import React from 'react'
 
 import styles from './HeaderSearch.module.scss'
 
-
-
 const HeaderSearch: React.FC = () => {
-
 	return (
 		<label className={styles.HeaderSearch}>
-			<input type="text" className={'input-reset'} placeholder="Поиск"/>
+			<input type="text" className={'input-reset'} placeholder="Поиск" />
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"

@@ -6,23 +6,28 @@ import Card from '@components/Card/Card'
 
 import styles from './BestModels.module.scss'
 const BestModels: FC = () => {
-	const {data} = useQuery({ queryKey: ['bestProducts'], queryFn:()=> productService.getProductsByLimit(3,3)  })
+	const { data } = useQuery({
+		queryKey: ['bestProducts'],
+		queryFn: () => productService.getProductsByLimit(3, 3),
+	})
 	return (
 		<section className={styles.BestModels}>
 			<div className={`container ${styles.BestModels__container}`}>
-				<h2 className={`title ${styles.BestModels__title}`}>Лучшие модели для зимней езды</h2>
+				<h2 className={`title ${styles.BestModels__title}`}>
+					Лучшие модели для зимней езды
+				</h2>
 				<ul className={`list-reset ${styles.BestModels__items}`}>
-					{
-						data?.data.map((item)=>(
-							<Card type="primary" 
-								countrySrc={item.country} 
-								price={item.price} 
-								title={item.title} 
-								available={item.available} 
-								previewImage={item.previewImage} 
-								id={item.id}/>
-						))
-			 }
+					{data?.data.map(item => (
+						<Card
+							type="primary"
+							countrySrc={item.country}
+							price={item.price}
+							title={item.title}
+							available={item.available}
+							previewImage={item.previewImage}
+							id={item.id}
+						/>
+					))}
 				</ul>
 			</div>
 		</section>

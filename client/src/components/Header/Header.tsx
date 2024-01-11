@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-
 import HeaderMenu from '@components/HeaderMenu/HeaderMenu'
 import AuthForm from '@components/AuthForm/AuthForm'
 import RegistrationForm from '@components/RegistrationForm/RegistrationForm'
@@ -9,24 +8,23 @@ import HeaderNav from '@components/HeaderNav/HeaderNav'
 import MyAccount from '@components/MyAccount/MyAccount'
 import HeaderRight from '@components/HeaderRight/HeaderRight'
 
-import { useAuth } from '../../hooks/useAuth';
-
+import { useAuth } from '../../hooks/useAuth'
 
 import styles from './Header.module.scss'
 interface Props {
 	otherClass?: string
 }
 export enum ActiveForm {
-	Auth='auth',
-	Registr='registr'
+	Auth = 'auth',
+	Registr = 'registr',
 }
 const Header: FC<Props> = props => {
 	const { otherClass } = props
 	const [menu, setMenu] = useState(false)
 	const [profileMenu, setProfileMenu] = useState(false)
 	const [search, setSearch] = useState(false)
-	const [form,setForm]=useState<ActiveForm>(ActiveForm.Auth);
-	const auth = useAuth();
+	const [form, setForm] = useState<ActiveForm>(ActiveForm.Auth)
+	const auth = useAuth()
 	return (
 		<header className={`${styles.Header} ${otherClass}`}>
 			<div className={`container ${styles.Header__container}`}>
@@ -145,10 +143,16 @@ const Header: FC<Props> = props => {
 							fill="white"
 						/>
 					</svg>
-				
 				</Link>
-				<HeaderNav/>
-				<HeaderRight menu={menu} setMenu={setMenu} profileMenu={profileMenu} setProfileMenu={setProfileMenu} search={search} setSearch={setSearch}/>
+				<HeaderNav />
+				<HeaderRight
+					menu={menu}
+					setMenu={setMenu}
+					profileMenu={profileMenu}
+					setProfileMenu={setProfileMenu}
+					search={search}
+					setSearch={setSearch}
+				/>
 			</div>
 			{menu && (
 				<HeaderMenu handleOpen={setMenu}>
@@ -188,7 +192,13 @@ const Header: FC<Props> = props => {
 			)}
 			{profileMenu && (
 				<HeaderMenu handleOpen={setProfileMenu}>
-					{auth ? <MyAccount/> :form ===ActiveForm.Auth ?	<AuthForm handleActiveForm={setForm}/>:<RegistrationForm handleActiveForm={setForm}/>}
+					{auth ? (
+						<MyAccount />
+					) : form === ActiveForm.Auth ? (
+						<AuthForm handleActiveForm={setForm} />
+					) : (
+						<RegistrationForm handleActiveForm={setForm} />
+					)}
 				</HeaderMenu>
 			)}
 		</header>

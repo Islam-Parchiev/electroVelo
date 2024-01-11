@@ -6,18 +6,17 @@ import OrderFinish from '@components/OrderFinish/OrderFinish'
 
 import styles from './CreateOrderBody.module.scss'
 
-
 const CreateOrderBody: React.FC = () => {
 	return (
 		<section className={styles.CreateOrderBody}>
 			<div className="container">
 				<div className={styles.CreateOrderBody__wrapper}>
 					<div className={styles.CreateOrderBody__top}>
-						<CreateOrderForm/>
-						<OrderDelivery/>
+						<CreateOrderForm />
+						<OrderDelivery />
 					</div>
 					<div className={styles.CreateOrderBody__bottom}>
-						<OrderFinish/>
+						<OrderFinish />
 					</div>
 				</div>
 			</div>

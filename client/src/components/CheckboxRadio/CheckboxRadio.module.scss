@@ -1,27 +1,30 @@
 .CheckboxRadio {
-  display: grid;
+	display: grid;
 	align-items: center;
-  grid-template-columns: 1em auto;
-/* desk mob text 16 */
-font-family: Inter;
-font-weight: 400;
-font-style: normal;
-font-size: 16px;
-line-height: 160%; /* 25.6px */
+	grid-template-columns: 1em auto;
+	/* desk mob text 16 */
+	font-family: Inter;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 160%;
+	/* 25.6px */
 	color: var(--2-grey, #777);
 	cursor: pointer;
-  gap: 0.5em;
+	gap: 0.5em;
+
 	input[type="radio"] {
 		display: grid;
-  place-content: center;
+		place-content: center;
 
 		border: 0.15em solid var(--orange);
 		border-radius: 50%;
 		width: 1.15em;
 		height: 1.15em;
-		background-color:var( --light-color);
+		background-color: var(--light-color);
 		transform: translateY(-0.075em);
 	}
+
 	input[type="radio"]:checked {
 		border: 0.40em solid var(--orange);
 		transition: all 0.3s ease-in-out;

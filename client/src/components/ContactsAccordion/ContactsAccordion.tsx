@@ -3,22 +3,23 @@ import React, { ReactNode } from 'react'
 import styles from './ContactsAccordion.module.scss'
 
 interface ContactsAccordionProps {
-	accordionTitle:string;
-	children:ReactNode;
+	accordionTitle: string
+	children: ReactNode
 }
 
 const ContactsAccordion: React.FC<ContactsAccordionProps> = props => {
-	const {
-		accordionTitle,
-		children,
-	} = props;
-	const [open,setOpen] = React.useState<boolean>(false);
-	const handleClick = ()=> {
+	const { accordionTitle, children } = props
+	const [open, setOpen] = React.useState<boolean>(false)
+	const handleClick = () => {
 		setOpen(!open)
 	}
 	return (
 		<div className={`${styles.ContactsAccordion} ${open && styles.active}`}>
-			<div className={`${styles.ContactsAccordion__header} ${open && styles.active}`} onClick={handleClick}>
+			<div
+				className={`${styles.ContactsAccordion__header} ${
+					open && styles.active
+				}`}
+				onClick={handleClick}>
 				<h4 className={styles.ContactsAccordion__title}>{accordionTitle}</h4>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +56,10 @@ const ContactsAccordion: React.FC<ContactsAccordionProps> = props => {
 					</defs>
 				</svg>
 			</div>
-			<div className={`${styles.ContactsAccordion__body} ${open && styles.active}`}>
+			<div
+				className={`${styles.ContactsAccordion__body} ${
+					open && styles.active
+				}`}>
 				{children}
 			</div>
 		</div>

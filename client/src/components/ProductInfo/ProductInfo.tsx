@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useAppDispatch,useAppSelector } from '@redux/store'
+import { useAppDispatch, useAppSelector } from '@redux/store'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 
@@ -23,45 +23,57 @@ import { IProduct } from 'Card'
 import styles from './ProductInfo.module.scss'
 
 const ProductInfo: React.FC = () => {
-	const {id} = useParams();
+	const { id } = useParams()
 	//@ts-ignore
-	const {data,isSuccess,isLoading} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
-	const product:IProduct =isSuccess&& data.data;
+	const { data, isSuccess, isLoading } = useQuery<any>({queryKey: ['product', id],queryFn: () => productService.getProductById(+id)})
+	const product: IProduct = isSuccess && data.data
 	const dispatch = useAppDispatch()
-	const productCount= useAppSelector((state)=> state.product.count);
-	const onClickPlus = ()=> {
+	const productCount = useAppSelector(state => state.product.count)
+	const onClickPlus = () => {
 		dispatch(changeCount(1))
-	 }
-	 const onClickMinus = ()=> {
+	}
+	const onClickMinus = () => {
 		dispatch(changeCount(-1))
-	 }
-	 if(productCount<1) {
+	}
+	if (productCount < 1) {
 		dispatch(changeCount(1))
 	}
-	const addToCart=()=> {
+	const addToCart = () => {
 		// @ts-ignore
-		const data = cartService.addToCart(+product.id,1);
-		data.then(data=>console.log(data));
+		const data = cartService.addToCart(+product.id, 1)
+		data.then(data => console.log(data))
 	}
-	const addToFavorites = ()=> {
-		const data = favoritesService.addToFavorites(+product.id);
-		data.then(data=> console.log(data));
+	const addToFavorites = () => {
+		const data = favoritesService.addToFavorites(+product.id)
+		data.then(data => console.log(data))
 	}
 	return (
 		<div className={styles.ProductInfo}>
 			<div className={styles.ProductInfo__top}>
-				<h1 className={styles.ProductInfo__title}>{isLoading?'loading':product.title}</h1>
-				<ProductSocial/>
+				<h1 className={styles.ProductInfo__title}>
+					{isLoading ? 'loading' : product.title}
+				</h1>
+				<ProductSocial />
 				<ProductPrice />
-				<ProductInfoDescr/>
-				<ProductSizes/>
-				<ProductColors/>
+				<ProductInfoDescr />
+				<ProductSizes />
+				<ProductColors />
 			</div>
 			<div className={styles.ProductInfo__bottom}>
 				{/* TODO:Fix Counter */}
-				<Counter onClickPlus={onClickPlus} onClickMinus={onClickMinus} count={productCount}/>
-				<Button otherClass={styles.ProductInfo__addToCart} handleClick={addToCart}>В корзину</Button>
-				<Button otherClass={`${styles.ProductInfo__addToFavorites}`} handleClick={addToFavorites}>
+				<Counter
+					onClickPlus={onClickPlus}
+					onClickMinus={onClickMinus}
+					count={productCount}
+				/>
+				<Button
+					otherClass={styles.ProductInfo__addToCart}
+					handleClick={addToCart}>
+					В корзину
+				</Button>
+				<Button
+					otherClass={`${styles.ProductInfo__addToFavorites}`}
+					handleClick={addToFavorites}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="32"

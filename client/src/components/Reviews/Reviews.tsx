@@ -4,8 +4,6 @@ import ReviewsItem from '@components/ReviewsItem/ReviewsItem'
 
 import styles from './Reviews.module.scss'
 
-
-
 const Reviews: React.FC = () => {
 	const tag = {
 		text: '#обзор',

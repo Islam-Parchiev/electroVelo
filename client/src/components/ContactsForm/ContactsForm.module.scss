@@ -1,48 +1,58 @@
 @import "../../scss/mixins/mini";
+
 .ContactsForm {
 	@include bg-cover;
 	@include image-set('../../../public/images/Contacts/form');
-	height:636px;
+	height: 636px;
+
 	&__inner {
 		@include flex-column-start;
 	}
+
 	&__title {
-width: 600px;
-/* desk h2 */
-font-family: Bebas Neue Cyrillic;
-font-weight: 400;
-font-style: normal;
-font-size: 64px;
-line-height: 123%; /* 78.72px */
-letter-spacing: 3.2px;
+		width: 600px;
+		/* desk h2 */
+		font-family: Bebas Neue Cyrillic;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 64px;
+		line-height: 123%;
+		/* 78.72px */
+		letter-spacing: 3.2px;
 		color: var(--white, #FFF);
 	}
 }
+
 .Form {
 	width: 610px;
+
 	&__top {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
 	}
+
 	&__textarea {
-border-radius: 10px;
-padding: 10px 16px;
+		border-radius: 10px;
+		padding: 10px 16px;
 		width: 608px;
-height: 154px;
-background: var(--white, #FFF);
-resize: none;
+		height: 154px;
+		background: var(--white, #FFF);
+		resize: none;
 	}
+
 	&__input {
 		width: 300px;
 	}
+
 	&__submit {
 		width: 100%;
 		font-size: 18px;
-		color:var(--orange);
+		color: var(--orange);
 		background-color: var(--light-color);
+
 		&:hover {
-			color:var(--light-color);
+			color: var(--light-color);
 			background-color: var(--orange);
 		}
 	}

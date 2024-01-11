@@ -3,7 +3,6 @@ import React from 'react'
 import styles from './GuaranteesPreview.module.scss'
 
 const GuaranteesPreview: React.FC = () => {
-
 	return (
 		<section className={styles.GuaranteesPreview}>
 			<div className="container">

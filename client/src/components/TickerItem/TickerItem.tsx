@@ -1,22 +1,14 @@
-import {FC, ReactNode} from 'react'
+import { FC, ReactNode } from 'react'
 
-
-import styles from './TickerItem.module.scss';
+import styles from './TickerItem.module.scss'
 interface TickerItemProps {
-	children:ReactNode;
-	anotherClass?:string;
+	children: ReactNode
+	anotherClass?: string
 }
-const TickerItem:FC<TickerItemProps> = (props) => {
-	const {
-		children,
-		anotherClass='',
-	}= props;
+const TickerItem: FC<TickerItemProps> = props => {
+	const { children, anotherClass = '' } = props
 
-	return (
-		<div className={`${styles.Ticker__item} ${anotherClass}`}>
-			{children}
-		</div>
-	)
+	return <div className={`${styles.Ticker__item} ${anotherClass}`}>{children}</div>
 }
 
 export default TickerItem

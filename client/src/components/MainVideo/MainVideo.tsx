@@ -1,6 +1,6 @@
 import { FC, useState, useRef } from 'react'
 
-import MainVideoItem from '../MainVideoItem/MainVideoItem';
+import MainVideoItem from '../MainVideoItem/MainVideoItem'
 
 import styles from './MainVideo.module.scss'
 const MainVideo: FC = () => {
@@ -18,11 +18,8 @@ const MainVideo: FC = () => {
 	return (
 		<section className={styles.MainVideo}>
 			<div className={styles.MainVideo__header}>
-				<div
-					className={`container ${styles.MainVideo__header_container}`}>
-					<h2 className="title">
-						Ничего не сможет остановить вас
-					</h2>
+				<div className={`container ${styles.MainVideo__header_container}`}>
+					<h2 className="title">Ничего не сможет остановить вас</h2>
 					<div className={styles.MainVideo__info}>
 						<p>
 							Наша компания специализируется на продаже товаров
@@ -63,10 +60,10 @@ const MainVideo: FC = () => {
 			<div className={styles.MainVideo__footer}>
 				<div className={`container ${styles.MainVideo__footer_container}`}>
 					<ul className={`list-reset ${styles.MainVideo__items}`}>
-						<MainVideoItem/>
-						<MainVideoItem/>
-						<MainVideoItem/>
-						<MainVideoItem/>
+						<MainVideoItem />
+						<MainVideoItem />
+						<MainVideoItem />
+						<MainVideoItem />
 					</ul>
 				</div>
 			</div>

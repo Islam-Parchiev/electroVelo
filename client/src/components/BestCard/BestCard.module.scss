@@ -1,37 +1,43 @@
 .BestCard {
 	flex-grow: 1;
-		flex-shrink: 0;
-		flex-basis: 300px;
+	flex-shrink: 0;
+	flex-basis: 300px;
 	border-radius: 10px;
-	padding: 40px; 
+	padding: 40px;
 	height: 216px;
-background: var(--dark-grey, #2E2E2E);
+	background: var(--dark-grey, #2E2E2E);
 	user-select: none;
-&__title {
-/* desk mob 24 */
-font-family: Inter;
-font-weight: 500;
-font-style: normal;
-font-size: 24px;
-line-height: 160%; /* 38.4px */
-letter-spacing: 0.24px;
-	color: var(--white, #FFF);
-}
-ul {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 15px;
-	li {
-		/* desk mob subhead */
+
+	&__title {
+		/* desk mob 24 */
 		font-family: Inter;
-		font-weight: 100;
-		font-size: 16px;
-		line-height: 160%; /* 28.8px */
-		letter-spacing: 0.18px;
+		font-weight: 500;
+		font-style: normal;
+		font-size: 24px;
+		line-height: 160%;
+		/* 38.4px */
+		letter-spacing: 0.24px;
 		color: var(--white, #FFF);
 	}
-}
-&:hover {
-	background-color: var(--orange);
-}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px;
+
+		li {
+			/* desk mob subhead */
+			font-family: Inter;
+			font-weight: 100;
+			font-size: 16px;
+			line-height: 160%;
+			/* 28.8px */
+			letter-spacing: 0.18px;
+			color: var(--white, #FFF);
+		}
+	}
+
+	&:hover {
+		background-color: var(--orange);
+	}
 }

@@ -9,14 +9,12 @@ import { IProduct } from 'Card'
 
 import styles from './ProductSocial.module.scss'
 
-
 const ProductSocial: React.FC = () => {
-
-	const {id} = useParams();
+	const { id } = useParams()
 	//@ts-ignore
-	const {data,isSuccess,isLoading} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
-	const product:IProduct =isSuccess && data.data;
-	
+	const { data, isSuccess, isLoading } = useQuery<any>({queryKey: ['product', id],queryFn: () => productService.getProductById(+id)})
+	const product: IProduct = isSuccess && data.data
+
 	return (
 		<div className={styles.ProductSocial}>
 			<div>
@@ -25,7 +23,11 @@ const ProductSocial: React.FC = () => {
 				</span>
 				<span>
 					Артикул :{' '}
-					{isLoading ? 'loading...' : isSuccess ? product.articul : 'Error'}
+					{isLoading
+						? 'loading...'
+						: isSuccess
+							? product.articul
+							: 'Error'}
 				</span>
 				<span className={styles.ProductSocial__available}>В наличии</span>
 			</div>

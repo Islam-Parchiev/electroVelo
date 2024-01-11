@@ -29,7 +29,7 @@ const Filters: React.FC = () => {
 		selectedColors,
 		handleColorChange,
 		handleButtonReset,
-	} = useFilters();
+	} = useFilters()
 	return (
 		<div className={styles.Filters}>
 			<SwitchCheckbox
@@ -186,13 +186,19 @@ const Filters: React.FC = () => {
 			</Accordion>
 			<Accordion accordionTitle="Цвет">
 				<ul className={`list-reset ${styles.Filters__colors}`}>
-
-					{colors.map((color:string)=> (<FiltersColor color={color} selectedColors={selectedColors} changeColor={handleColorChange}/>) )}
-				
+					{colors.map((color: string) => (
+						<FiltersColor
+							color={color}
+							selectedColors={selectedColors}
+							changeColor={handleColorChange}
+						/>
+					))}
 				</ul>
 			</Accordion>
-			<button className={`btn-reset ${styles.Filters__reset}`} onClick={handleButtonReset}>
-			Сбросить фильтры
+			<button
+				className={`btn-reset ${styles.Filters__reset}`}
+				onClick={handleButtonReset}>
+				Сбросить фильтры
 			</button>
 		</div>
 	)

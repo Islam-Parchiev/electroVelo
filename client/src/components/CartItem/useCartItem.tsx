@@ -1,51 +1,51 @@
 import React from 'react'
 
-import { UseMutateFunction, useMutation, useQueryClient } from '@tanstack/react-query';
+import { UseMutateFunction, useMutation, useQueryClient } from '@tanstack/react-query'
 
-import cartService from '@services/cart.service';
+import cartService from '@services/cart.service'
 
-import { useDebounce } from '../../hooks/useDebounce';
+import { useDebounce } from '../../hooks/useDebounce'
 
 interface IReturnDataUseCartItem {
-	debounced:number;
-	isSuccess:boolean;
-	mutate:UseMutateFunction<any, Error, number, unknown>;
-	onClickMinus:() => void;
-	onClickPlus:() => void;
-	countt:number;
+	debounced: number
+	isSuccess: boolean
+	mutate: UseMutateFunction<any, Error, number, unknown>
+	onClickMinus: () => void
+	onClickPlus: () => void
+	countt: number
 }
 
-export function useCartItem(count:number,id:number):IReturnDataUseCartItem {
+export function useCartItem(count: number, id: number): IReturnDataUseCartItem {
 	const [countt, setCountt] = React.useState(count)
-	const queryClient = useQueryClient();
-	const debounced = useDebounce<number>(countt,300)
-	const {isSuccess,mutate} = useMutation({
-   	 mutationFn: (id:number) => {
-      	return cartService.deleteCartItem(id)
-   	 },
+	const queryClient = useQueryClient()
+	const debounced = useDebounce<number>(countt, 300)
+	const { isSuccess, mutate } = useMutation({
+		mutationFn: (id: number) => {
+			return cartService.deleteCartItem(id)
+		},
 
-		mutationKey:['cartItem delete'],
-		onSuccess:()=>queryClient.invalidateQueries({queryKey:['cartItems']}),
-  	})
+		mutationKey: ['cartItem delete'],
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['cartItems'] }),
+	})
 	const changeQ = useMutation({
-		mutationFn:()=> {
-			const data =cartService.changeQuantity(id,countt);
-			console.log('changeQ',data)
+		mutationFn: () => {
+			const data = cartService.changeQuantity(id, countt)
+			console.log('changeQ', data)
 			return data
 		},
-		onSuccess:()=>queryClient.invalidateQueries({queryKey:['cartItems']}),
-		mutationKey:['cartItem update',countt],
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['cartItems'] }),
+		mutationKey: ['cartItem update', countt],
 	})
 
 	const onClickMinus = () => {
 		setCountt(prev => prev - 1)
 		changeQ.mutate()
-		console.log('-');
+		console.log('-')
 	}
 	const onClickPlus = () => {
 		setCountt(prev => prev + 1)
 		changeQ.mutate()
-		console.log('+');
+		console.log('+')
 	}
 	return {
 		debounced,

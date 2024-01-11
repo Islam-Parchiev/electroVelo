@@ -4,10 +4,7 @@ import ContactsAccordion from '@components/ContactsAccordion/ContactsAccordion'
 
 import styles from './ContactsQuestions.module.scss'
 
-interface ContactsQuestionsProps {}
-
-const ContactsQuestions: React.FC<ContactsQuestionsProps> = props => {
-	const {} = props
+const ContactsQuestions: React.FC = () => {
 	return (
 		<section className={styles.ContactsQuestions}>
 			<div className="container">
