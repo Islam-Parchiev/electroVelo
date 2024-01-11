@@ -27,7 +27,7 @@ const Modal: React.FC<ModalProps> = props => {
 							x2="23.4849"
 							y2="23.4853"
 							stroke="#B3B3B3"
-							stroke-width="2"
+							strokeWidth="2"
 						/>
 						<line
 							x1="23.3341"
@@ -35,7 +35,7 @@ const Modal: React.FC<ModalProps> = props => {
 							x2="0.706641"
 							y2="23.3345"
 							stroke="#B3B3B3"
-							stroke-width="2"
+							strokeWidth="2"
 						/>
 					</svg>
 				</button>

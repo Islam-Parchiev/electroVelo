@@ -1,11 +1,14 @@
 import React from 'react'
 
 import { useAppDispatch,useAppSelector } from '@redux/store'
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
 
 import { changeCount } from '@redux/slices/productSlice'
 
 import cartService from '@services/cart.service'
 import favoritesService from '@services/favorites.service'
+import productService from '@services/product.service'
 
 import Button from '@components/Button/Button'
 import ProductPrice from '@components/ProductPrice/ProductPrice'
@@ -15,20 +18,15 @@ import ProductSizes from '@components/ProductSizes/ProductSizes'
 import ProductColors from '@components/ProductColors/ProductColors'
 import Counter from '@components/Counter/Counter'
 
-import { ICard } from 'Card'
+import { IProduct } from 'Card'
 
 import styles from './ProductInfo.module.scss'
 
-
-interface ProductInfoProps {
-	loading: boolean
-	success: boolean
-	product: ICard;
-}
-
-const ProductInfo: React.FC<ProductInfoProps> = props => {
-
-	const { loading, success, product } = props
+const ProductInfo: React.FC = () => {
+	const {id} = useParams();
+	//@ts-ignore
+	const {data,isSuccess,isLoading} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
+	const product:IProduct =isSuccess&& data.data;
 	const dispatch = useAppDispatch()
 	const productCount= useAppSelector((state)=> state.product.count);
 	const onClickPlus = ()=> {
@@ -52,12 +50,12 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 	return (
 		<div className={styles.ProductInfo}>
 			<div className={styles.ProductInfo__top}>
-				<h1 className={styles.ProductInfo__title}>{product.title}</h1>
-				<ProductSocial loading={loading} success={success} product={product}/>
-				<ProductPrice loading={loading} success={success} product={product}/>
-				<ProductInfoDescr loading={loading} success={success} product={product}/>
-				<ProductSizes loading={loading} success={success} product={product}/>
-				<ProductColors loading={loading} success={success} product={product}/>
+				<h1 className={styles.ProductInfo__title}>{isLoading?'loading':product.title}</h1>
+				<ProductSocial/>
+				<ProductPrice />
+				<ProductInfoDescr/>
+				<ProductSizes/>
+				<ProductColors/>
 			</div>
 			<div className={styles.ProductInfo__bottom}>
 				{/* TODO:Fix Counter */}
@@ -75,8 +73,8 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 							4.19112C13.274 2.84531 11.4916 2.08923 9.63294 2.08923C5.76255 2.08923 2.625 5.30217 2.625 9.26553C2.625 11.1688 
 							3.36333 12.9941 4.67757 14.34Z"
 							stroke="#F57520"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+							strokeLinecap="round"
+							strokeLinejoin="round"
 						/>
 					</svg>
 				</Button>

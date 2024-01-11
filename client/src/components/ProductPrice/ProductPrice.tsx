@@ -1,24 +1,23 @@
 import React from 'react'
 
-import { ICard } from 'Card';
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+
+import productService from '@services/product.service'
+
+import { IProduct } from 'Card';
 
 import styles from './ProductPrice.module.scss'
 
-interface ProductPriceProps {
-	loading:boolean;
-	success:boolean;
-	product:ICard;
-}
 
-const ProductPrice: React.FC<ProductPriceProps> = props => {
-	const {
-		success,
-		loading,
-		product,
-	} = props
+const ProductPrice: React.FC= () => {
+	const {id} = useParams();
+	//@ts-ignore
+	const {data,isSuccess,isLoading} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
+	const product:IProduct = isSuccess&&data.data;
 	return (
 		<div className={styles.ProductPrice}>
-			<span>{loading ? 'loading...' : success ? product.price : 'Error'}₽</span>
+			<span>{isLoading ? 'loading...' : isSuccess ? product.price : 'Error'}₽</span>
 			{product&&product.prevPrice&&<span className={styles.ProductPrice__prevPrice}>{product.prevPrice} ₽</span>}
 		</div>
 	)

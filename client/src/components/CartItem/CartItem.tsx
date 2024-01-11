@@ -91,7 +91,7 @@ const CartItem: React.FC<CartItemProps> = props => {
 						x2="15.656"
 						y2="15.8235"
 						stroke="#B3B3B3"
-						stroke-width="1.33333"
+						strokeWidth="1.33333"
 					/>
 					<line
 						x1="15.5554"
@@ -99,7 +99,7 @@ const CartItem: React.FC<CartItemProps> = props => {
 						x2="0.470443"
 						y2="15.723"
 						stroke="#B3B3B3"
-						stroke-width="1.33333"
+						strokeWidth="1.33333"
 					/>
 				</svg>
 			</button>

@@ -14,32 +14,27 @@ import Card from '@components/Card/Card';
 import styles from './SimilarGoods.module.scss'
 interface SimilarGoodsProps {
 	category:string;
-	loading:boolean;
-	success:boolean;
 }
 
 const SimilarGoods:React.FC<SimilarGoodsProps> = (props) => {
 	const {
 		category,
-		loading,
-		success,
-		
 	} = props;
 
-	const query = useQuery({ queryKey: ['similarProducts',category], 
+	const {data,isLoading,isSuccess} = useQuery({ queryKey: ['similarProducts',category], 
 		queryFn:()=> productService.getProductsByCategories(category),
 		
 	})
-	console.log('similar',query);
+	console.log('similar',data);
 	return (
 		<section className={styles.SimilarGoods}>
 			<div className="container">
 				<div className={styles.SimilarGoods__wrapper}>
 					<h2 className={styles.SimilarGoods__title}>Похожие товары</h2>
 		
-					{loading ? (
+					{isLoading ? (
 						'Loading...'
-					) : success ? (
+					) : isSuccess ? (
 						<Swiper
 							className={styles.SimilarGoods__slider}
 							slidesPerView={3}
@@ -47,8 +42,8 @@ const SimilarGoods:React.FC<SimilarGoodsProps> = (props) => {
 							spaceBetween={0}
 							scrollbar={{ draggable: true }}
 							onSlideChange={() => console.log('slide change')}>
-							{query.data?.data.map((product: ICard) => (
-								<SwiperSlide>
+							{data?.data.map((product: ICard) => (
+								<SwiperSlide key={product.id}>
 									<div
 										className={
 											styles.SimilarGoods__slide

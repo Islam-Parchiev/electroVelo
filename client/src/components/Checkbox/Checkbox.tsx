@@ -42,7 +42,7 @@ const Checkbox:FC<ICheckbox> = (props) => {
 					<path
 						d="M4.5 13L9 17.5L19 6.5"
 						stroke="white"
-						stroke-width="2"
+						strokeWidth="2"
 					/>
 				</svg>
 			</div>

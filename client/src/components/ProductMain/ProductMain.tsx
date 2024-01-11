@@ -1,5 +1,10 @@
 import React from 'react'
 
+import { useQuery } from '@tanstack/react-query'
+import { useParams } from 'react-router-dom'
+
+import productService  from '@services/product.service'
+
 import ProductSlider from '@components/ProductSlider/ProductSlider'
 import ProductInfo from '@components/ProductInfo/ProductInfo'
 
@@ -7,14 +12,13 @@ import { ICard } from 'Card'
 
 import styles from './ProductMain.module.scss'
 
-interface ProductMainProps {
-	product: ICard
-	loading: boolean
-	success: boolean
-}
+const ProductMain: React.FC = () => {
 
-const ProductMain: React.FC<ProductMainProps> = props => {
-	const { product, loading, success} = props
+	const {id} = useParams();
+	//@ts-ignore
+	const {data,isLoading,isSuccess} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
+	const product:ICard = isSuccess&&data.data;
+	console.log('maxin',data);
 	return (
 		<section className={styles.ProductMain}>
 			<div className="container">
@@ -30,9 +34,9 @@ const ProductMain: React.FC<ProductMainProps> = props => {
 					</li>
 					<li className={styles.Breadcrumbs__item}>
 						<a href="/">
-							{loading
+							{isLoading
 								? 'loading'
-								: success
+								: isSuccess
 									? product.title
 									: 'Error'}
 						</a>
@@ -40,12 +44,7 @@ const ProductMain: React.FC<ProductMainProps> = props => {
 				</ul>
 				<div className={styles.ProductMain__wrapper}>
 					<ProductSlider />
-					<ProductInfo
-						product={product}
-						loading={loading}
-						success={success}
-				
-					/>
+					<ProductInfo/>
 				</div>
 			</div>
 		</section>

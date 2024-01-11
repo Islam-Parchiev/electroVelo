@@ -36,7 +36,7 @@ const Cart:FC = () => {
 						<CartInfo totalPrice={data?.totalPrice} discount={data?.discount}/>
 					</div>
 				</section>
-				<SimilarGoods loading={false} success={true} category={'City'}/>
+				<SimilarGoods category={'City'}/>
 				<Subscribe/>
 			</main>
 		</>

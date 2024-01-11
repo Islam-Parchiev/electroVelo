@@ -25,15 +25,15 @@ const Footer: React.FC<FooterProps> = props => {
 									d="M20.8637 22.3305C23.0006 22.3305 24.7328 20.5545 24.7328 18.3638C24.7328 16.1731 23.0006 
 							14.3972 20.8637 14.3972C18.7269 14.3972 16.9946 16.1731 16.9946 18.3638C16.9946 20.5545 18.7269 22.3305 20.8637 22.3305Z"
 									stroke="white"
-									stroke-width="0.731399"
-									stroke-miterlimit="10"
+									strokeWidth="0.731399"
+									strokeMiterlimit="10"
 								/>
 								<path
 									d="M23.9585 10.2722C26.0953 10.2722 27.8276 8.49626 27.8276 6.30555C27.8276 4.11485 26.0953 2.33893 
 							23.9585 2.33893C21.8216 2.33893 20.0894 4.11485 20.0894 6.30555C20.0894 8.49626 21.8216 10.2722 23.9585 10.2722Z"
 									stroke="white"
-									stroke-width="0.731399"
-									stroke-miterlimit="10"
+									strokeWidth="0.731399"
+									strokeMiterlimit="10"
 								/>
 								<path
 									d="M24.1096 6.74202C24.1406 6.73996 24.1708 6.73128 24.1981 6.71656C24.2254 6.70184 24.2493 6.68142 
@@ -85,8 +85,8 @@ const Footer: React.FC<FooterProps> = props => {
 							 12.6696 21.7569 12.6761Z"
 									fill="white"
 									stroke="white"
-									stroke-width="0.2438"
-									stroke-miterlimit="10"
+									strokeWidth="0.2438"
+									strokeMiterlimit="10"
 								/>
 								<path
 									d="M65.6303 41.2972L67.3101 36.8307L63.4995 34.0465H68.3731L69.9309 29.6216L71.2012 
@@ -98,8 +98,8 @@ const Footer: React.FC<FooterProps> = props => {
 									fill="white"
 								/>
 								<path
-									fill-rule="evenodd"
-									clip-rule="evenodd"
+									fillRule="evenodd"
+									clipRule="evenodd"
 									d="M52.7383 48.7628L54.2502 44.0493H71.4145L71.7135 44.0495C72.1615 44.05 72.5882 
 							44.0505 72.9986 44.0403C75.29 43.9169 77.3833 42.6646 78.9995 41.0182C80.6744 
 							39.3121 81.6131 37.0157 81.6134 34.6235C81.6135 32.2156 80.6631 29.9051 
@@ -199,16 +199,16 @@ const Footer: React.FC<FooterProps> = props => {
 										8.66667 28H19.3333C20.8061 28 22 26.8061 22 25.3333V6.66667C22 5.19391 20.8061 4 
 										19.3333 4Z"
 										stroke="#4C4C4C"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
+										strokeWidth="1.5"
+										strokeLinecap="round"
+										strokeLinejoin="round"
 									/>
 									<path
 										d="M14 24.0133V24"
 										stroke="#4C4C4C"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
+										strokeWidth="1.5"
+										strokeLinecap="round"
+										strokeLinejoin="round"
 									/>
 								</svg>
 								<div>
@@ -223,13 +223,13 @@ const Footer: React.FC<FooterProps> = props => {
 									height="32"
 									viewBox="0 0 33 32"
 									fill="none">
-									<g clip-path="url(#clip0_1926_501)">
+									<g clipPath="url(#clip0_1926_501)">
 										<path
 											d="M21.4038 29.8148L24.6542 5.51823L5.23796 20.4815L15.3209 21.684L21.4038 29.8148Z"
 											stroke="#4C4C4C"
-											stroke-width="1.5"
-											stroke-linecap="round"
-											stroke-linejoin="round"
+											strokeWidth="1.5"
+											strokeLinecap="round"
+											strokeLinejoin="round"
 										/>
 									</g>
 									<defs>
@@ -259,16 +259,16 @@ const Footer: React.FC<FooterProps> = props => {
 										 30 24.7367 30 24.0003V8.00033C30 7.63214 29.8508 7.29881 29.6095 7.05751C29.3681 6.81623 
 										 29.0348 6.66699 28.6667 6.66699Z"
 										stroke="#4C4C4C"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
+										strokeWidth="1.5"
+										strokeLinecap="round"
+										strokeLinejoin="round"
 									/>
 									<path
 										d="M6.39062 7.05762L16.1145 16.7814C17.1558 17.8229 18.8444 17.8229 19.8857 16.7814L29.6096 7.05762"
 										stroke="#4C4C4C"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
+										strokeWidth="1.5"
+										strokeLinecap="round"
+										strokeLinejoin="round"
 									/>
 								</svg>
 								<a href="/">order@world-bike.ru</a>

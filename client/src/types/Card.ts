@@ -1,3 +1,11 @@
+interface ICardSpecification {
+	brand:string; 
+	category:string;
+	country:string;
+	id: number;
+	material:string;
+	year: number;
+}
 interface ICardImage {
 	id:number;
 	srcPath:string;
@@ -25,4 +33,8 @@ export interface ICard {
 	country:string;
 	sizes:ICardSize[];
 	colors:ICardColor[];
+}
+export interface IProduct extends ICard {
+	specifications:ICardSpecification[];
+	category:any;
 }

@@ -27,7 +27,7 @@ const ContactsAccordion: React.FC<ContactsAccordionProps> = props => {
 					viewBox="0 0 18 11"
 					fill="none"
 					className={`${open && styles.active}`}>
-					<g clip-path="url(#clip0_1972_248)">
+					<g clipPath="url(#clip0_1972_248)">
 						<path
 							d="M15.8248 7.01787L9.5248 1.00002C9.4498 0.928589 9.36856 
 								0.878113 9.28105 0.848589C9.19355 0.818589 9.0998 0.803589 

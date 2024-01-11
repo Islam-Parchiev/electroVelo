@@ -1,24 +1,23 @@
 import React from 'react'
 
-import { ICard } from 'Card';
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+
+import productService from '@services/product.service'
+
+import { IProduct } from 'Card';
 
 import { useAppDispatch, useAppSelector } from '@redux/store';
 import { changeColor } from '@redux/slices/productSlice';
 
 import styles from './ProductColors.module.scss'
 
-interface ProductColorsProps {
-	loading:boolean;
-	success:boolean;
-	product:ICard;
-}
+const ProductColors: React.FC = () => {
+	const {id} = useParams();
+	//@ts-ignore
+	const {data,isSuccess,isLoading} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
+	const product:IProduct =isSuccess&& data.data;
 
-const ProductColors: React.FC<ProductColorsProps> = props => {
-	const {
-		loading,
-		success,
-		product,
-	} = props;
 	const productColor= useAppSelector((state)=> state.product.color);
 	
 	const dispatch = useAppDispatch();
@@ -27,7 +26,7 @@ const ProductColors: React.FC<ProductColorsProps> = props => {
 	 }
 
 	 React.useEffect(()=>{
-		if(success&&product&&product.colors){
+		if(isSuccess&&product&&product.colors){
 
 			dispatch(changeColor(product.colors[0].color))
 		}
@@ -36,11 +35,12 @@ const ProductColors: React.FC<ProductColorsProps> = props => {
 		<div className={styles.ProductColors}>
 			<h3>Цвет:</h3>
 			<ul className={`list-reset ${styles.ProductColors__list}`}>
-				{loading
+				{isLoading
 					? 'Loading...'
-					: success
+					: isSuccess
 						? product.colors?.map(color => (
 							<li
+								key={color.id}
 								style={{
 									backgroundColor: color.hexColor,
 								}}

@@ -1,28 +1,23 @@
 import React from 'react'
 
+
+import { useQuery } from '@tanstack/react-query'
+import { useParams } from 'react-router-dom'
+
+import productService  from '@services/product.service'
+
+import { IProduct } from 'Card'
+
 import styles from './ProductSpecifications.module.scss'
 
-interface IProductSpecification {
-	brand:string; 
-	category:string;
-	country:string;
-	id: number;
-	material:string;
-	year: number;
-}
-interface ProductSpecificationsProps {
-	productSpecifications:IProductSpecification[];
-	loading:boolean;
-	success:boolean;
-}
+const ProductSpecifications:React.FC = () => {
 
-const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
-	const {
-		productSpecifications,
-		loading,
-		success,
-	} = props;
-	console.log('specccccccs',productSpecifications);
+	const {id} = useParams();
+	//@ts-ignore
+	const {data,isLoading,isSuccess} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
+	const product:IProduct =isSuccess&& data.data;
+	
+	console.log('specccccccs',product);
 	return (
 		<section className={styles.ProductSpecifications}>
 			<div className="container">
@@ -35,7 +30,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 							<h5 className={styles.SpecificationsItem__title}>Бренд</h5>
 							<span className={styles.SpecificationsItem__value}>
 								{
-									loading ? 'Загрузка...':success?productSpecifications[0].brand:'Error'
+									isLoading ? 'Загрузка...':isSuccess?product.specifications[0].brand:'Error'
 								}		
 							</span>
 						</li>
@@ -43,7 +38,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 							<h5 className={styles.SpecificationsItem__title}>Категория</h5>
 							<span className={styles.SpecificationsItem__value}>
 								{
-									loading ? 'Загрузка...':success?productSpecifications[0].category:'Error'
+									isLoading ? 'Загрузка...':isSuccess?product.specifications[0].category:'Error'
 								}		
 								
 								
@@ -53,7 +48,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 							<h5 className={styles.SpecificationsItem__title}>Материал</h5>
 							<span className={styles.SpecificationsItem__value}>
 								{
-									loading ? 'Загрузка...':success?productSpecifications[0].material:'Error'
+									isLoading ? 'Загрузка...':isSuccess?product.specifications[0].material:'Error'
 								}	
 							
 							</span>
@@ -62,7 +57,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 							<h5 className={styles.SpecificationsItem__title}>Год</h5>
 							<span className={styles.SpecificationsItem__value}>
 								{
-									loading ? 'Загрузка...':success?productSpecifications[0].year:'Error'
+									isLoading ? 'Загрузка...':isSuccess?product.specifications[0].year:'Error'
 								}	
 							
 							</span>
@@ -71,7 +66,7 @@ const ProductSpecifications:React.FC<ProductSpecificationsProps> = (props) => {
 							<h5 className={styles.SpecificationsItem__title}>Страна</h5>
 							<span className={styles.SpecificationsItem__value}>
 								{
-									loading ? 'Загрузка...':success?productSpecifications[0].country:'Error'
+									isLoading ? 'Загрузка...':isSuccess?product.specifications[0].country:'Error'
 								}
 								
 							</span>

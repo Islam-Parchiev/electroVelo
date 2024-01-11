@@ -67,9 +67,9 @@ const Favorites: React.FC<FavoritesProps> = props => {
 							36.1833L125.066 21.0734C125.066 21.0734 125.066 21.0733 125.066 21.0733C133.758 12.0274 
 							145.486 7 157.652 7C182.919 7 203.875 28.399 203.875 55.3901C203.875 68.312 198.94 80.6511 190.239 89.7069Z"
 							stroke="#F57520"
-							stroke-width="14"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+							strokeWidth="14"
+							strokeLinecap="round"
+							strokeLinejoin="round"
 						/>
 					</svg>
 					<span>В списке пока нет ни одного избранного товара</span>

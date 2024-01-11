@@ -1,30 +1,31 @@
 import React from 'react'
 
-import { ICard } from 'Card';
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+
+import productService from '@services/product.service'
+
+import { IProduct } from 'Card'
 
 import styles from './ProductSocial.module.scss'
 
-interface ProductSocialProps {
-	loading:boolean;
-	success:boolean;
-	product:ICard;
-}
 
-const ProductSocial: React.FC<ProductSocialProps> = props => {
-	const {
-		loading,
-		success,
-		product,
-	} = props
+const ProductSocial: React.FC = () => {
+
+	const {id} = useParams();
+	//@ts-ignore
+	const {data,isSuccess,isLoading} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
+	const product:IProduct =isSuccess && data.data;
+	
 	return (
 		<div className={styles.ProductSocial}>
 			<div>
 				<span>
-					{loading ? 'loading...' : success ? product.brand : 'Error'}
+					{isLoading ? 'loading...' : isSuccess ? product.brand : 'Error'}
 				</span>
 				<span>
 					Артикул :{' '}
-					{loading ? 'loading...' : success ? product.articul : 'Error'}
+					{isLoading ? 'loading...' : isSuccess ? product.articul : 'Error'}
 				</span>
 				<span className={styles.ProductSocial__available}>В наличии</span>
 			</div>

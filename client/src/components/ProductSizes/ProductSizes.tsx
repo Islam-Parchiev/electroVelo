@@ -1,31 +1,30 @@
 import React from 'react'
 
-import { ICard } from 'Card';
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+
+import productService from '@services/product.service'
+
+import { IProduct } from 'Card';
 
 import { useAppDispatch, useAppSelector } from '@redux/store';
 import { changeSize } from '@redux/slices/productSlice';
 
 import styles from './ProductSizes.module.scss'
 
-interface ProductSizesProps {
-	success:boolean;
-	loading:boolean;
-	product:ICard;
-}
+const ProductSizes: React.FC = () => {
+	const {id} = useParams();
+	//@ts-ignore
+	const {data,isSuccess,isLoading} =  useQuery<any>({queryKey:['product',id],queryFn:()=>productService.getProductById(+id)});
+	const product:IProduct =isSuccess&& data.data;
 
-const ProductSizes: React.FC<ProductSizesProps> = props => {
-	const {
-		success,
-		loading,
-		product,
-	} = props;
 	const dispatch =useAppDispatch();
 	const productSize = useAppSelector((state)=> state.product.size);
 	const handleClickSize = (size:string)=> {
 		dispatch(changeSize(size));
 	 }
 	 React.useEffect(()=>{
-		if(success&&product&&product.sizes){
+		if(isSuccess&&product&&product.sizes){
 			dispatch(changeSize(product.sizes[0].size))
 		}
 	 },[])
@@ -33,11 +32,12 @@ const ProductSizes: React.FC<ProductSizesProps> = props => {
 		<div className={styles.ProductSizes}>
 			<h3>Размер:</h3>
 			<ul className={`list-reset ${styles.ProductSizes__list}`}>
-				{loading
+				{isLoading
 					? 'Loading...'
-					: success
+					: isSuccess
 						? product.sizes?.map(item => (
 							<li
+								key={item.id}
 								className={`${styles.ProductSizes__item} ${
 									item.size === productSize && styles.active
 								}`}
