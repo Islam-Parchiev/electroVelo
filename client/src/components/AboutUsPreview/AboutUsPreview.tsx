@@ -2,10 +2,8 @@ import React from 'react'
 
 import styles from './AboutUsPreview.module.scss'
 
-interface AboutUsPreviewProps {}
+const AboutUsPreview: React.FC= () => {
 
-const AboutUsPreview: React.FC<AboutUsPreviewProps> = props => {
-	const {} = props
 	return (
 		<section className={styles.AboutUsPreview}>
 			<div className="container">

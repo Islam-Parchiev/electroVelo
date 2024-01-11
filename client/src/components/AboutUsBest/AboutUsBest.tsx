@@ -5,10 +5,7 @@ import AboutUsSubtitle from '@components/AboutUsSubtitle/AboutUsSubtitle'
 
 import styles from './AboutUsBest.module.scss'
 
-interface AboutUsBestProps {}
-
-const AboutUsBest: React.FC<AboutUsBestProps> = props => {
-	const {} = props
+const AboutUsBest: React.FC = () => {
 	return (
 		<section className={styles.AboutUsBest}>
 			<div className="container">

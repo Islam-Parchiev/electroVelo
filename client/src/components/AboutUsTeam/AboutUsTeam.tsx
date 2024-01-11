@@ -4,8 +4,7 @@ import AboutUsSubtitle from '@components/AboutUsSubtitle/AboutUsSubtitle'
 
 import styles from './AboutUsTeam.module.scss'
 
-const AboutUsTeam: React.FC= () => {
-
+const AboutUsTeam: React.FC = () => {
 	return (
 		<section className={styles.AboutUsTeam}>
 			<div className="container">

@@ -2,13 +2,10 @@ import React from 'react'
 
 import AboutUsSubtitle from '@components/AboutUsSubtitle/AboutUsSubtitle';
 
-
 import styles from './AboutUsContacts.module.scss'
 
-interface AboutUsContactsProps {}
 
-const AboutUsContacts:React.FC<AboutUsContactsProps> = (props) => {
-	const {} = props;
+const AboutUsContacts:React.FC = () => {
 	return (
 		<section className={styles.AboutUsContacts}>
 			<div className="container">

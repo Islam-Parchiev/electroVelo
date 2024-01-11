@@ -6,10 +6,7 @@ import AboutUsSubtitle from '@components/AboutUsSubtitle/AboutUsSubtitle';
 
 import styles from './AboutUsGallery.module.scss'
 
-interface AboutUsGalleryProps {}
-
-const AboutUsGallery:React.FC<AboutUsGalleryProps> = (props) => {
-	const {} = props;
+const AboutUsGallery:React.FC = () => {
 	return (
 		<section className={styles.AboutUsGallery}>
 			<div className="container">

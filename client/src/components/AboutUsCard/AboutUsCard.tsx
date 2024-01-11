@@ -12,9 +12,7 @@ const AboutUsCard: React.FC<AboutUsCardProps> = props => {
 	return (
 		<li className={styles.AboutUsCard}>
 			<h4 className={styles.AboutUsCard__title}>{title}</h4>
-			<p>
-				{description}
-			</p>
+			<p>{description}</p>
 			<button className={`btn-reset ${styles.AboutUsCard__btn}`}>
 				Подробнее
 			</button>

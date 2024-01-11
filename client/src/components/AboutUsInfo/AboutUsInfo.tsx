@@ -14,21 +14,20 @@ const AboutUsInfo: React.FC = () => {
 						передвижения!
 					</h2>
 					<ul className={`list-reset ${styles.AboutUsInfo__cards}`}>
-						
-						<AboutUsCard 
-							title="Хранение" 
+						<AboutUsCard
+							title="Хранение"
 							description="Любишь кататься — люби и велосипед в квартире на
 								зиму парковать или сдавай к нам на хранение и
 								обслуживание."
 						/>
-						<AboutUsCard 
-							title="Хранение" 
+						<AboutUsCard
+							title="Хранение"
 							description="Любишь кататься — люби и велосипед в квартире на
 								зиму парковать или сдавай к нам на хранение и
 								обслуживание."
 						/>
-						<AboutUsCard 
-							title="Хранение" 
+						<AboutUsCard
+							title="Хранение"
 							description="Любишь кататься — люби и велосипед в квартире на
 								зиму парковать или сдавай к нам на хранение и
 								обслуживание."

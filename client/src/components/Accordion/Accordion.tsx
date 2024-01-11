@@ -3,17 +3,14 @@ import React, { ReactNode } from 'react'
 import styles from './Accordion.module.scss'
 
 interface AccordionProps {
-	accordionTitle:string;
-	children:ReactNode;
+	accordionTitle: string
+	children: ReactNode
 }
 
 const Accordion: React.FC<AccordionProps> = props => {
-	const {
-		accordionTitle,
-		children,
-	} = props;
-	const [open,setOpen] = React.useState<boolean>(false);
-	const handleClick = ()=> {
+	const { accordionTitle, children } = props
+	const [open, setOpen] = React.useState<boolean>(false)
+	const handleClick = () => {
 		setOpen(!open)
 	}
 	return (
