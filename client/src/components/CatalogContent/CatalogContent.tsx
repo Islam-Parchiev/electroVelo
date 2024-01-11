@@ -6,9 +6,6 @@ import CatalogView from '@components/CatalogView/CatalogView'
 import Card from '@components/Card/Card'
 import Pagination from '@components/Pagination/Pagination'
 
-
-// import { ICard } from 'Product'
-
 import { useCatalog } from './useCatalog'
 
 import styles from './CatalogContent.module.scss'

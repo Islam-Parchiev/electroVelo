@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './CatalogView.module.scss'
 
-const CatalogView: React.FC = props => {
+const CatalogView: React.FC = () => {
 	const [viewType,setViewType] = React.useState(1);
 	return (
 		<ul className={`list-reset ${styles.CatalogView}`}>

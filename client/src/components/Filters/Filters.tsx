@@ -9,9 +9,7 @@ import FiltersColor from '@components/FiltersColor/FiltersColor'
 import styles from './Filters.module.scss'
 import { useFilters } from './useFilters'
 
-interface FiltersProps {}
-
-const Filters: React.FC<FiltersProps> = props => {
+const Filters: React.FC = () => {
 	const {
 		availableValue,
 		handleAvailable,
@@ -32,7 +30,6 @@ const Filters: React.FC<FiltersProps> = props => {
 		handleColorChange,
 		handleButtonReset,
 	} = useFilters();
-	const {} = props
 	return (
 		<div className={styles.Filters}>
 			<SwitchCheckbox

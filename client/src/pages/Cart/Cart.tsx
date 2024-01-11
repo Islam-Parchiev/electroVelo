@@ -21,8 +21,6 @@ const Cart:FC = () => {
 		queryFn: () =>cartService.getCart(),
 	})
 	
-	// const totalPrice = data?.items.reduce((prev,curr)=>prev+(curr.product.price*curr.quantity),0);
-	// const discount = data?.items.reduce((prev,curr)=>prev+((curr.product.prevPrice-curr.product.price)*curr.quantity),0);
 	
 	return (
 		<>
