@@ -32,7 +32,8 @@ const Favorites: React.FC = () => {
 										type={'primary'}
 										previewImage={item.product.previewImage}
 										available={item.product.available}
-										countrySrc={item.product.country}
+										country={item.product.country}
+										prevPrice={item.product.prevPrice}
 										price={item.product.price}
 										title={item.product.title}
 										key={item.id}

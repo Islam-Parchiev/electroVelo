@@ -7,13 +7,11 @@ import PaymentInfo from '@components/PaymentInfo/PaymentInfo';
 import Brands from '@components/Brands/Brands'
 import Subscribe from '@components/Subscribe/Subscribe'
 
-import styles from './Delivery.module.scss';
-
 const Delivery:FC = () => {
 	return (
 		<>
-			<Header otherClass={styles.Delivery__header}/>
-			<main className={styles.Delivery}>
+			<Header otherClass="FixedHeader"/>
+			<main className="Delivery">
 				<DeliveryPreview/>
 				<DeliveryInfo/>
 				<PaymentInfo/>

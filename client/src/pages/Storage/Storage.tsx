@@ -6,13 +6,11 @@ import StoragePreview from '@components/StoragePreview/StoragePreview';
 import StorageContent from '@components/StorageContent/StorageContent';
 import Subscribe from '@components/Subscribe/Subscribe'
 
-import styles from './Storage.module.scss';
-
 const Storage:FC = () => {
 	return (
 		<>
-			<Header otherClass={styles.Storage__header}/>
-			<main className={styles.Storage}>
+			<Header otherClass="FixedHeader"/>
+			<main className="Storage">
 				<StoragePreview/>
 				<StorageContent/>
 				<Brands/>

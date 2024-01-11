@@ -1,4 +1,4 @@
-interface ICardSpecification {
+interface IProductSpecification {
 	brand:string; 
 	category:string;
 	country:string;
@@ -6,35 +6,38 @@ interface ICardSpecification {
 	material:string;
 	year: number;
 }
-interface ICardImage {
+interface IProductImage {
 	id:number;
 	srcPath:string;
 }
-interface ICardSize {	
+interface IProductSize {	
 	id: number;
 	size:string;
 }
-interface ICardColor {
+interface IProductColor {
 	id: number;
 	color:string; 
 	hexColor: string;
 }
 export interface ICard {
-	articul:string;
-	available:boolean;
-	brand:string;
-	description:string;
-	id:number;
-	images:ICardImage[];
 	prevPrice:string | null;
-	price:string;
-	title:string;
-	previewImage:string;
-	country:string;
-	sizes:ICardSize[];
-	colors:ICardColor[];
+	id: number
+	type: 'primary' | 'secondary'
+	title: string
+	price: string
+	available: boolean
+	previewImage: string
+	otherClass?: string
+	country: string
 }
 export interface IProduct extends ICard {
-	specifications:ICardSpecification[];
+	specifications:IProductSpecification[];
 	category:any;
+	articul:string;
+	brand:string;
+	description:string;
+	images:IProductImage[];
+	sizes:IProductSize[];
+	colors:IProductColor[];
 }
+// country,available,previewImage,price,prevPrice,title,id

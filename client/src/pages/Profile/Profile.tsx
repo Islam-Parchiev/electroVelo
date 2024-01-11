@@ -11,7 +11,7 @@ import	styles from './Profile.module.scss';
 const Profile:FC = () => {
 	return (
 		<>
-			<Header otherClass={styles.Profile__header}/>
+			<Header otherClass="FixedHeader"/>
 			<main className={styles.Profile}>
 				<div className="container">
 					<div className={styles.Profile__wrapper}>

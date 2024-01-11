@@ -8,13 +8,10 @@ import ProductDelivery from '@components/ProductDelivery/ProductDelivery'
 import SimilarGoods from '@components/SimilarGoods/SimilarGoods'
 import Subscribe from '@components/Subscribe/Subscribe'
 
-
-import styles from './Product.module.scss';
-
 const Product:React.FC = () => {
 	return (
 		<>
-		  <Header otherClass={styles.Product__header}/>
+		  <Header otherClass="FixedHeader"/>
 			<main className="Product">
 			
 				<ProductMain/>

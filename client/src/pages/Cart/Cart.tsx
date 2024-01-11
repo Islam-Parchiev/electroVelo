@@ -24,7 +24,7 @@ const Cart:FC = () => {
 	
 	return (
 		<>
-			<Header otherClass={styles.Cart__header}/>
+			<Header otherClass="FixedHeader"/>
 			<main className={styles.Cart}>
 				<CartTop/>
 				<section className={styles.Cart__body}>

@@ -41,7 +41,8 @@ const CatalogContent: React.FC = () => {
 												previewImage={
 													item.previewImage
 												}
-												countrySrc={item.country}
+												prevPrice={item.prevPrice}
+												country={item.country}
 												key={item.id}
 											/>
 									  ))

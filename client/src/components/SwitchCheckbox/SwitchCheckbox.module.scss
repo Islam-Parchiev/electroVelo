@@ -1,3 +1,4 @@
+@import "../../scss/mixins/mini";
 .switchCheckbox {
 	@include flex-all-sb;
 	position: relative;

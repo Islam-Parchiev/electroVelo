@@ -8,13 +8,11 @@ import WorkshopTop from '@components/WorkshopTop/WorkshopTop';
 import BasicServices from '@components/BasicServices/BasicServices';
 import AdditionalServices from '@components/AdditionalServices/AdditionalServices';
 
-import styles from './Workshop.module.scss';
-
 const Workshop:React.FC = () => {
 	return (
 		<>
-		  <Header otherClass={styles.Workshop__header}/>
-			<main className={styles.Workshop}>
+		  <Header otherClass="FixedHeader"/>
+			<main className="Workshop">
 				<WorkshopTop/>
 				<BasicServices/>
 				<AdditionalServices/>

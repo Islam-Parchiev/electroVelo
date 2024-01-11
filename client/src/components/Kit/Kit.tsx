@@ -36,7 +36,8 @@ const Kit: React.FC= () => {
 									title={item.title}
 									available={item.available}
 									previewImage={item.previewImage}
-									countrySrc={item.country}
+									country={item.country}
+									prevPrice={item.prevPrice}
 									id={item.id}
 								/>
 							</div>

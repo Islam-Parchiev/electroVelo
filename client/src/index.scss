@@ -36,3 +36,7 @@ h1,h2,h3,h4,h5,h6 {
 .swiper-button-next,.swiper-button-prev {
 	color:var(--orange, #F57520);
 }
+.FixedHeader {
+	position: initial;
+	background-color: var(--bl, #101010);
+}

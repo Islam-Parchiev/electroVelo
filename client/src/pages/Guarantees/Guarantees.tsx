@@ -9,13 +9,11 @@ import GuaranteesRefusals from '@components/GuaranteesRefusals/GuaranteesRefusal
 import Brands from '@components/Brands/Brands'
 import Subscribe from '@components/Subscribe/Subscribe'
 
-import styles from './Guarantees.module.scss';
-
 const Guarantees:FC = () => {
 	return (
 		<>
-			<Header otherClass={styles.Guarantees__header}/>
-			<main className={styles.Guarantees}>
+			<Header otherClass="FixedHeader"/>
+			<main className="Guarantees">
 				<GuaranteesPreview/>
 				<GuaranteesText/>
 				<GuaranteesInfo/>

@@ -47,7 +47,8 @@ const SimilarGoods: React.FC<SimilarGoodsProps> = props => {
 											id={product.id}
 											type="secondary"
 											available={product.available}
-											countrySrc={product.country}
+											country={product.country}
+											prevPrice={product.prevPrice}
 											previewImage={product.previewImage}
 											price={product.price}
 											title={product.title}

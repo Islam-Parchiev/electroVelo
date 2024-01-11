@@ -7,13 +7,12 @@ import BlogContent from '@components/BlogContent/BlogContent';
 import Brands from '@components/Brands/Brands'
 import Subscribe from '@components/Subscribe/Subscribe'
 
-import styles from './Blog.module.scss';
 
 const Blog:FC = () => {
 	return (
 		<>
-			<Header otherClass={styles.Blog__header}/>
-			<main className={styles.Blog}>
+			<Header otherClass="FixedHeader"/>
+			<main className="Blog">
 				<BlogPreview/>
 				<BlogContent/>
 				<Brands/>

@@ -1,22 +1,15 @@
 import React from 'react'
 
+import { ICard } from 'Card'
+
 import { Link } from 'react-router-dom'
 
 import Button from '@components/Button/Button'
 
 import styles from './Card.module.scss'
-export interface ICard {
-	id: number
-	type: 'primary' | 'secondary'
-	title: string
-	price: string
-	available: boolean
-	previewImage: string
-	otherClass?: string
-	countrySrc: string
-}
+
 const Card: React.FC<ICard> = props => {
-	const { id, type, title, price, available, previewImage, otherClass, countrySrc } =
+	const { id, type, title, price, available, previewImage, otherClass, country,prevPrice } =
 		props
 	// console.log('iii',images)
 
@@ -24,7 +17,7 @@ const Card: React.FC<ICard> = props => {
 		<li className={`${styles.Card} Card--${type} ${otherClass}`}>
 			<div className={styles.Card__header}>
 				<div className={styles.Card__country}>
-					<img src={`/images/Card/${countrySrc}`} alt="" />
+					<img src={`/images/Card/${country}`} alt="" />
 				</div>
 				<div className={styles.Card__status}>
 					<span>{available ? 'В наличии' : 'Нет в наличии'} </span>
@@ -35,7 +28,10 @@ const Card: React.FC<ICard> = props => {
 			</div>
 			<div className={styles.Card__footer}>
 				<h4 className={styles.Card__title}>{title || 'Title'}</h4>
-				<span className={styles.Card__price}>{price || '100'} ₽</span>
+				<div className={styles.Card__price}>
+					<span className={styles.Card__currentPrice}>{price || '100'} ₽</span>
+					<span className={styles.Card__prevPrice}>{prevPrice ? prevPrice+' ₽':''} </span>
+				</div>
 
 				<Button otherClass={styles.Card__btn}>
 					<Link to={`/product/${id}`}>

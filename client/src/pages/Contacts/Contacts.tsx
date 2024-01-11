@@ -8,13 +8,12 @@ import ContactsQuestions from '@components/ContactsQuestions/ContactsQuestions';
 import Subscribe from '@components/Subscribe/Subscribe';
 import Brands from '@components/Brands/Brands';
 
-import styles from './Contacts.module.scss';
 
 const Contacts:React.FC = () => {
 	return (
 		<>
-		  <Header otherClass={styles.Contacts__header}/>
-			<main className={styles.Contacts}>
+		  <Header otherClass="FixedHeader"/>
+			<main className="Contacts">
 				<ContactsMap/>
 				<ContactsInfo/>
 				<ContactsForm/>

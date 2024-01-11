@@ -20,7 +20,8 @@ const BestModels: FC = () => {
 					{data?.data.map(item => (
 						<Card
 							type="primary"
-							countrySrc={item.country}
+							country={item.country}
+							prevPrice={item.prevPrice}
 							price={item.price}
 							title={item.title}
 							available={item.available}

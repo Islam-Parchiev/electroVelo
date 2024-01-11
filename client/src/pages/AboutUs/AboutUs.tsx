@@ -13,12 +13,10 @@ import ContactsInfo from '@components/ContactsInfo/ContactsInfo';
 import Brands from '@components/Brands/Brands';
 import Subscribe from '@components/Subscribe/Subscribe';
 
-
-import styles from './AboutUs.module.scss';
 const AboutUs:React.FC = () => {
 	return (
 		<>
-			<Header otherClass={styles.AboutUsHeader}/>
+			<Header otherClass="FixedHeader"/>
 			<main className="AboutUs">
 				<AboutUsPreview/>
 				<AboutUsInfo/>

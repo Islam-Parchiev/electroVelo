@@ -7,13 +7,11 @@ import Subscribe from '@components/Subscribe/Subscribe'
 import Header from '@components/Header/Header'
 import TermsContent from '@components/TermsContent/TermsContent';
 
-import styles from './Terms.module.scss';
-
 const Terms:FC = () => {
 	return (
 		<>
-			<Header otherClass={styles.Terms__header}/>
-			<main className={styles.Terms}>
+			<Header otherClass="FixedHeader"/>
+			<main className="Terms">
 				<TermsContent/>
 				<Brands/>
 				<Subscribe/>

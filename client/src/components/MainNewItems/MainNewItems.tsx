@@ -20,7 +20,8 @@ const MainNewItems: FC = () => {
 					{data?.data.map((item: ICard) => (
 						<Card
 							type="primary"
-							countrySrc={item.country}
+							country={item.country}
+							prevPrice={item.prevPrice}
 							price={item.price}
 							title={item.title}
 							available={item.available}
