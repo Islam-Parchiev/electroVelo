@@ -1,14 +1,6 @@
 import React from 'react'
 
-import { AxiosError } from 'axios'
-
 import { Link } from 'react-router-dom'
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { useAppDispatch } from '@redux/store'
-
-
-import { login } from '@redux/slices/userSlice'
-import { AuthService } from '@services/auth.service'
 
 import Checkbox from '@components/Checkbox/Checkbox'
 import Button from '@components/Button/Button'
@@ -16,9 +8,8 @@ import FormInput from '@components/FormInput/FormInput'
 
 import { ActiveForm } from '@components/Header/Header'
 
-import { setTokenToLocalStorage } from '../../helpers/localStorage.helper'
-
 import styles from './AuthForm.module.scss'
+import { useAuthForm } from './useAuthForm'
 
 interface AuthFormProps {
 	handleActiveForm: (value:ActiveForm)=>void;
@@ -26,56 +17,17 @@ interface AuthFormProps {
 
 const AuthForm: React.FC<AuthFormProps> = props => {
 	const { handleActiveForm } = props
-	const dispatch = useAppDispatch();
-	const [check,setCheck] = React.useState(true);
-	const [value,setValue]=React.useState(1);
-
 	const {
-		register,
+		check,
+		errors,
 		handleSubmit,
-		formState: { errors },
-		reset,
-	} = useForm<{ email: string; password: string; }>(
-		{
-			mode: 'onChange',
-		},
-	)
-
-	type SubmitDataType ={
-		email:string;
-		password:string;
-	}
-	const onSubmit: SubmitHandler<SubmitDataType> = async (data) => {
-		try{
-			alert(`Your name ${data}`)
-			console.log(data)
-			const rdata = await AuthService.login({email: data.email,password: data.password})
-			console.log('rdata',rdata);
-			if(rdata) {
-				setTokenToLocalStorage('token',rdata.token)
-				dispatch(login(rdata))
-			}
-		}catch(err){
-			if(err instanceof AxiosError){
-				const error  =err.response?.data.message;
-				console.log('autherror',error);
-			}
-		}finally {
-			reset()
-		}
-	}
-	const valEmail = 	{...register('email', {
-		required: 'Email is require field!',
-
-		pattern: {
-			value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
-
-			message: 'Please enter valid email!',
-		},
-	})}
-	const valPassword = {...register('password', {
-		required: 'Password is require field!',
-	})}
+		onSubmit,
+		setCheck,
+		setValue,
+		valEmail,
+		valPassword,
+		value,
+	} = useAuthForm();
 
 	return (
 		<div className={styles.AuthForm}>
