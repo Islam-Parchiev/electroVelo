@@ -1,19 +1,14 @@
 import React from 'react'
 
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+
 import styles from './TermsContent.module.scss'
 
 const TermsContent: React.FC = () => {
 	return (
 		<section className={styles.TermsContent}>
 			<div className="container">
-				<ul className={`list-reset ${styles.Breadcrumbs}`}>
-					<li className={styles.Breadcrumbs__item}>
-						<a href="/">Главная</a>
-					</li>
-					<li className={styles.Breadcrumbs__item}>
-						<a href="/">Пользовательское соглашение</a>
-					</li>
-				</ul>
+				<Breadcrumbs paths={['Главная','Пользовательское соглашение']} color="b"/>
 				<div className={styles.TermsContent__inner}>
 					<h1 className={styles.TermsContent__title}>
 						Пользовательское соглашение

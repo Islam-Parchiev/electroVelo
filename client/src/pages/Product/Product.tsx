@@ -8,12 +8,13 @@ import ProductDelivery from '@components/ProductDelivery/ProductDelivery'
 import SimilarGoods from '@components/SimilarGoods/SimilarGoods'
 import Subscribe from '@components/Subscribe/Subscribe'
 
+
 const Product:React.FC = () => {
 	return (
 		<>
 		  <Header otherClass="FixedHeader"/>
 			<main className="Product">
-			
+				
 				<ProductMain/>
 				<ProductDescription/>
 				<ProductSpecifications/>

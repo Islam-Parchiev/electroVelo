@@ -9,6 +9,7 @@ import productService from '@services/product.service'
 
 import ProductSlider from '@components/ProductSlider/ProductSlider'
 import ProductInfo from '@components/ProductInfo/ProductInfo'
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
 
 import { ResponseProduct } from 'Card'
 
@@ -23,22 +24,7 @@ const ProductMain: React.FC = () => {
 	return (
 		<section className={styles.ProductMain}>
 			<div className="container">
-				<ul className={`list-reset ${styles.Breadcrumbs}`}>
-					<li className={styles.Breadcrumbs__item}>
-						<a href="/">Главная</a>
-					</li>
-					<li className={styles.Breadcrumbs__item}>
-						<a href="/">Велосипеды</a>
-					</li>
-					<li className={styles.Breadcrumbs__item}>
-						<a href="/">Горные велосипеды</a>
-					</li>
-					<li className={styles.Breadcrumbs__item}>
-						<a href="/">
-							{productTitle}
-						</a>
-					</li>
-				</ul>
+				<Breadcrumbs color="b" paths={['Главная','Велосипеды','Горные велосипеды',productTitle]}/>
 				<div className={styles.ProductMain__wrapper}>
 					<ProductSlider />
 					<ProductInfo />

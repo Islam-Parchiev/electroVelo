@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+
 import styles from './DeliveryPreview.module.scss'
 
 const DeliveryPreview: React.FC = () => {
@@ -7,14 +9,7 @@ const DeliveryPreview: React.FC = () => {
 		<section className={styles.DeliveryPreview}>
 			<div className="container">
 				<div className={styles.DeliveryPreview__inner}>
-					<ul className={`list-reset ${styles.Breadcrumbs}`}>
-						<li className={styles.Breadcrumbs__item}>
-							<a href="/">Главная</a>
-						</li>
-						<li className={styles.Breadcrumbs__item}>
-							<a href="/">Доставка и оплата</a>
-						</li>
-					</ul>
+					<Breadcrumbs paths={['Главная','Доставка и оплата']} color="l"/>
 					<h1 className={styles.DeliveryPreview__title}>
 						Доставка и оплата
 					</h1>

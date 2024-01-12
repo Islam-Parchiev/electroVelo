@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+
 import styles from './CreateOrderTop.module.scss'
 
 const CreateOrderTop: React.FC = () => {
@@ -7,14 +9,7 @@ const CreateOrderTop: React.FC = () => {
 		<section className={styles.CreateOrderTop}>
 			<div className="container">
 				<div className={styles.CreateOrderTop__wrapper}>
-					<ul className={`list-reset ${styles.Breadcrumbs}`}>
-						<li className={styles.Breadcrumbs__item}>
-							<a href="/">Главная</a>
-						</li>
-						<li className={styles.Breadcrumbs__item}>
-							<a href="/"> Оформление заказа</a>
-						</li>
-					</ul>
+					<Breadcrumbs paths={['Главная','Оформление заказа']} color="l"/>
 					<h1 className={styles.CreateOrderTop__title}>
 						Оформление заказа
 					</h1>

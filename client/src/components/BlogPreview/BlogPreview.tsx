@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+
 import styles from './BlogPreview.module.scss'
 
 const BlogPreview: React.FC = () => {
@@ -7,14 +9,7 @@ const BlogPreview: React.FC = () => {
 		<section className={styles.BlogPreview}>
 			<div className="container">
 				<div className={styles.BlogPreview__inner}>
-					<ul className={`list-reset ${styles.Breadcrumbs}`}>
-						<li className={styles.Breadcrumbs__item}>
-							<a href="/">Главная</a>
-						</li>
-						<li className={styles.Breadcrumbs__item}>
-							<a href="/">Блог</a>
-						</li>
-					</ul>
+					<Breadcrumbs paths={['Главная','Блог']} color="l"/>
 					<h1 className={styles.BlogPreview__title}>Блог</h1>
 				</div>
 			</div>

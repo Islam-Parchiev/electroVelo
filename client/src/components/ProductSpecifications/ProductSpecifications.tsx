@@ -13,7 +13,7 @@ const ProductSpecifications: React.FC = () => {
 	const { id } = useParams()
 	//@ts-ignore
 	const { data, isLoading, isSuccess } = useQuery<any>({queryKey: ['product', id],queryFn: () => productService.getProductById(+id)})
-	const product:ResponseProduct = data.data
+	const product:ResponseProduct =isSuccess&& data.data
 
 	console.log('specccccccs', product)
 	return (

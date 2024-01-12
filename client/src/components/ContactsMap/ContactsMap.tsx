@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+
 import styles from './ContactsMap.module.scss'
 
 const ContactsMap: React.FC= () => {
@@ -9,14 +11,7 @@ const ContactsMap: React.FC= () => {
 			<div className={styles.ContactsMap__top}>
 				<div className="container">
 					<div className={styles.ContactsMap__inner}>
-						<ul className={`list-reset ${styles.Breadcrumbs}`}>
-							<li className={styles.Breadcrumbs__item}>
-								<a href="/">Главная</a>
-							</li>
-							<li className={styles.Breadcrumbs__item}>
-								<a href="/">Контакты</a>
-							</li>
-						</ul>
+						<Breadcrumbs paths={['Главная','Контакты']} color="l"/>
 						<h1 className={styles.ContactsMap__title}>
 							Контакты
 						</h1>

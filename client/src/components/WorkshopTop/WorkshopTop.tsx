@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+
 import styles from './WorkshopTop.module.scss'
 
 const WorkshopTop: React.FC = () => {
@@ -8,14 +10,7 @@ const WorkshopTop: React.FC = () => {
 			<div className={styles.WorkshopTop__preview}>
 				<div className="container">
 					<div className={styles.WorkshopTop__preview_inner}>
-						<ul className={`list-reset ${styles.Breadcrumbs}`}>
-							<li className={styles.Breadcrumbs__item}>
-								<a href="/">Главная</a>
-							</li>
-							<li className={styles.Breadcrumbs__item}>
-								<a href="/">Веломастерская</a>
-							</li>
-						</ul>
+						<Breadcrumbs paths={['Главная','Веломастерская']} color="l"/>
 						<h1 className={styles.WorkshopTop__title}>
 							Веломастерская
 						</h1>

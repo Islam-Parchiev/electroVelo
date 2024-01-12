@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+
 import styles from './StoragePreview.module.scss'
 
 const StoragePreview: React.FC = () => {
@@ -7,14 +9,7 @@ const StoragePreview: React.FC = () => {
 		<section className={styles.StoragePreview}>
 			<div className="container">
 				<div className={styles.StoragePreview__inner}>
-					<ul className={`list-reset ${styles.Breadcrumbs}`}>
-						<li className={styles.Breadcrumbs__item}>
-							<a href="/">Главная</a>
-						</li>
-						<li className={styles.Breadcrumbs__item}>
-							<a href="/">Хранение велосипеда</a>
-						</li>
-					</ul>
+					<Breadcrumbs paths={['Главная','Хранение велосипеда']} color="l"/>
 					<h1 className={styles.StoragePreview__title}>
 						Хранение велосипеда
 					</h1>

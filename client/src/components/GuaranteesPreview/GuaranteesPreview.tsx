@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+
 import styles from './GuaranteesPreview.module.scss'
 
 const GuaranteesPreview: React.FC = () => {
@@ -7,14 +9,7 @@ const GuaranteesPreview: React.FC = () => {
 		<section className={styles.GuaranteesPreview}>
 			<div className="container">
 				<div className={styles.GuaranteesPreview__inner}>
-					<ul className={`list-reset ${styles.Breadcrumbs}`}>
-						<li className={styles.Breadcrumbs__item}>
-							<a href="/">Главная</a>
-						</li>
-						<li className={styles.Breadcrumbs__item}>
-							<a href="/">Гарантии</a>
-						</li>
-					</ul>
+					<Breadcrumbs paths={['Главная','Гарантии']} color="l"/>
 					<h1 className={styles.GuaranteesPreview__title}>Гарантии</h1>
 				</div>
 			</div>

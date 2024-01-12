@@ -1,26 +1,17 @@
 import React from 'react'
 
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+
 import styles from './SingleBlogContent.module.scss'
 
 const SingleBlogContent: React.FC = () => {
 	return (
 		<section className={styles.SingleBlogContent}>
 			<div className="container">
-				<ul className={`list-reset ${styles.Breadcrumbs}`}>
-					<li className={styles.Breadcrumbs__item}>
-						<a href="/">Главная</a>
-					</li>
-					<li className={styles.Breadcrumbs__item}>
-						<a href="/">Блог</a>
-					</li>
-					<li className={styles.Breadcrumbs__item}>
-						<a href="/">
-							Pinarello Dogma F развивает карбоновый шоссейный
-							велосипед следующего поколения, сохраняя возможность
-							выбора ободного тормоза!
-						</a>
-					</li>
-				</ul>
+				<Breadcrumbs 
+					paths={['Главная','Блог','Pinarello Dogma F развивает карбоновый шоссейный велосипед следующего поколения, сохраняя возможность выбора ободного тормоза!']}
+					color="b"
+				/>
 				<h1 className={styles.SingleBlogContent__title}>
 					Pinarello Dogma F развивает карбоновый шоссейный велосипед
 					следующего поколения, сохраняя возможность выбора ободного
