@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 import productService from '@services/product.service'
 
-import { IProduct } from 'Card'
+import { ResponseProduct } from 'Card'
 
 import styles from './ProductSpecifications.module.scss'
 
@@ -13,7 +13,7 @@ const ProductSpecifications: React.FC = () => {
 	const { id } = useParams()
 	//@ts-ignore
 	const { data, isLoading, isSuccess } = useQuery<any>({queryKey: ['product', id],queryFn: () => productService.getProductById(+id)})
-	const product: IProduct = isSuccess && data.data
+	const product:ResponseProduct = data.data
 
 	console.log('specccccccs', product)
 	return (

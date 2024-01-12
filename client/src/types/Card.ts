@@ -40,4 +40,5 @@ export interface IProduct extends ICard {
 	sizes:IProductSize[];
 	colors:IProductColor[];
 }
+export type ResponseProduct = Omit<IProduct, 'otherClass'>
 // country,available,previewImage,price,prevPrice,title,id
