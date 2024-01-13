@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+import Title from '@components/Title/Title'
 
 import styles from './DeliveryPreview.module.scss'
 
@@ -10,9 +11,7 @@ const DeliveryPreview: React.FC = () => {
 			<div className="container">
 				<div className={styles.DeliveryPreview__inner}>
 					<Breadcrumbs paths={['Главная','Доставка и оплата']} color="l"/>
-					<h1 className={styles.DeliveryPreview__title}>
-						Доставка и оплата
-					</h1>
+					<Title type="light">Доставка и оплата</Title>
 				</div>
 			</div>
 		</section>

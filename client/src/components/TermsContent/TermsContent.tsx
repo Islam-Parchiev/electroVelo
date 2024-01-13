@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+import Title from '@components/Title/Title'
 
 import styles from './TermsContent.module.scss'
 
@@ -10,9 +11,7 @@ const TermsContent: React.FC = () => {
 			<div className="container">
 				<Breadcrumbs paths={['Главная','Пользовательское соглашение']} color="b"/>
 				<div className={styles.TermsContent__inner}>
-					<h1 className={styles.TermsContent__title}>
-						Пользовательское соглашение
-					</h1>
+					<Title type="black">Пользовательское соглашение</Title>
 					<div className={styles.TermsContent__info}>
 						<span>
 							Интернет-магазин «http://world-bike.ru», расположенный

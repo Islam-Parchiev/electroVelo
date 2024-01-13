@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+import Title from '@components/Title/Title'
 
 import styles from './GuaranteesPreview.module.scss'
 
@@ -10,7 +11,7 @@ const GuaranteesPreview: React.FC = () => {
 			<div className="container">
 				<div className={styles.GuaranteesPreview__inner}>
 					<Breadcrumbs paths={['Главная','Гарантии']} color="l"/>
-					<h1 className={styles.GuaranteesPreview__title}>Гарантии</h1>
+					<Title type="light">Гарантии</Title>
 				</div>
 			</div>
 		</section>

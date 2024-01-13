@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+import Title from '@components/Title/Title'
 
 import styles from './ContactsMap.module.scss'
 
@@ -12,9 +13,7 @@ const ContactsMap: React.FC= () => {
 				<div className="container">
 					<div className={styles.ContactsMap__inner}>
 						<Breadcrumbs paths={['Главная','Контакты']} color="l"/>
-						<h1 className={styles.ContactsMap__title}>
-							Контакты
-						</h1>
+						<Title type="light">Контакты</Title>
 					</div>
 				</div>
 			</div>

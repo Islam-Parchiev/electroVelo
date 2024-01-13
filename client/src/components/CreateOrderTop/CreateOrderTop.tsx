@@ -2,6 +2,8 @@ import React from 'react'
 
 import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
 
+import Title from '@components/Title/Title'
+
 import styles from './CreateOrderTop.module.scss'
 
 const CreateOrderTop: React.FC = () => {
@@ -10,9 +12,7 @@ const CreateOrderTop: React.FC = () => {
 			<div className="container">
 				<div className={styles.CreateOrderTop__wrapper}>
 					<Breadcrumbs paths={['Главная','Оформление заказа']} color="l"/>
-					<h1 className={styles.CreateOrderTop__title}>
-						Оформление заказа
-					</h1>
+					<Title type="black">Оформление заказа</Title>
 				</div>
 			</div>
 		</section>
