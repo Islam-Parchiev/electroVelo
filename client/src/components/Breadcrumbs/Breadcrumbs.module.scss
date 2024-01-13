@@ -1,3 +1,4 @@
+@import "../../scss/mixins/mini";
 .Breadcrumbs {
 	display: flex;
 	align-items: center;
@@ -41,4 +42,14 @@
 	}
 
 
+}
+.Breadcrumbs__item:last-child {
+	user-select: none;
+	cursor: default;
+	pointer-events: none;
+	a {
+		pointer-events: none;
+		user-select: none;
+		cursor: default;
+	}
 }

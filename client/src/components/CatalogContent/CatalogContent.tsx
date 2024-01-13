@@ -5,12 +5,14 @@ import CatalogSort from '@components/CatalogSort/CatalogSort'
 import CatalogView from '@components/CatalogView/CatalogView'
 import Card from '@components/Card/Card'
 import Pagination from '@components/Pagination/Pagination'
+import Skeleton from '@components/Skeleton/Skeleton'
 
 import { useCatalog } from './useCatalog'
 
 import styles from './CatalogContent.module.scss'
 
 const CatalogContent: React.FC = () => {
+	const fakeArr = [...Array(6)]
 	const { products, totalPages, page, setPage, isLoading, isSuccess } = useCatalog()
 	return (
 		<section className={styles.CatalogContent}>
@@ -26,7 +28,7 @@ const CatalogContent: React.FC = () => {
 							<ul
 								className={`list-reset ${styles.CatalogGoods__list}`}>
 								{isLoading
-									? 'Loading...'
+									? fakeArr.map((item)=><Skeleton key={item} type="seconadry"/>)
 									: isSuccess
 										? products.map(item => (
 											<Card

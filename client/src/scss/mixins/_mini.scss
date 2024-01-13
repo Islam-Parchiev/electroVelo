@@ -1,4 +1,11 @@
 /* stylelint-disable */
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
 
 @mixin bg-cover {
   background-position: center;

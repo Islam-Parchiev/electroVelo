@@ -2,15 +2,18 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { A11y } from 'swiper/modules'
 
-import Card from '@components/Card/Card'
-import SliderControls from '@components/SliderControls/SliderControls'
 import { useQuery } from '@tanstack/react-query'
 import productService from '@services/product.service'
 
+import Card from '@components/Card/Card'
+import SliderControls from '@components/SliderControls/SliderControls'
+import Skeleton from '@components/Skeleton/Skeleton'
+
 import styles from './Kit.module.scss'
 
-const Kit: React.FC= () => {
-	const { data } = useQuery({
+const Kit: React.FC = () => {
+	const fakeArr = [...Array(10)]
+	const { data, isLoading, isSuccess } = useQuery({
 		queryKey: ['kitProducts'],
 		queryFn: () => productService.getKitItems(),
 	})
@@ -26,23 +29,33 @@ const Kit: React.FC= () => {
 					spaceBetween={0}
 					scrollbar={{ draggable: true }}
 					onSlideChange={() => console.log('slide change')}>
-					{data?.data.data?.map(item => (
-						<SwiperSlide>
-							<div className={styles.Kit__slide}>
-								<Card
-									type="secondary"
-									otherClass={styles.Kit__slide_card}
-									price={item.price}
-									title={item.title}
-									available={item.available}
-									previewImage={item.previewImage}
-									country={item.country}
-									prevPrice={item.prevPrice}
-									id={item.id}
-								/>
-							</div>
-						</SwiperSlide>
-					))}
+					{isLoading
+						? fakeArr.map(item => (
+							<SwiperSlide>
+								<div className={styles.Kit__slide}>
+									<Skeleton key={item} type="primary" />
+								</div>
+							</SwiperSlide>
+						  ))
+						: isSuccess
+							? data?.data.data?.map(item => (
+								<SwiperSlide>
+									<div className={styles.Kit__slide}>
+										<Card
+											type="secondary"
+											otherClass={styles.Kit__slide_card}
+											price={item.price}
+											title={item.title}
+											available={item.available}
+											previewImage={item.previewImage}
+											country={item.country}
+											prevPrice={item.prevPrice}
+											id={item.id}
+										/>
+									</div>
+								</SwiperSlide>
+						  ))
+							: 'Error'}
 					<SliderControls type="prev" className={styles.Kit__prev}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
