@@ -1,3 +1,6 @@
+@import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
+
 .Footer {
 	min-height: 300px;
 	background: var(--bl, #101010);
@@ -10,32 +13,24 @@
 	}
 
 	&__logo {
-		display: flex;
-		flex-direction: column;
-		align-items: start;
+		@include flex-column-start;
 		width: 290px;
 
 		span {
-			/* desk mob 16 light */
 			font-family: Inter;
 			font-weight: 300;
-			font-style: normal;
 			font-size: 16px;
 			line-height: 160%;
-			/* 25.6px */
 			color: var(--light-grey, #B3B3B3);
 		}
 	}
 
 	&__info {
 		&_title {
-			/* desk mob 24 */
 			font-family: Inter;
 			font-weight: 500;
-			font-style: normal;
 			font-size: 24px;
 			line-height: 160%;
-			/* 38.4px */
 			letter-spacing: 0.24px;
 			color: var(--light-color, #FFF);
 		}
@@ -55,6 +50,19 @@
 			address {
 				color: var(--light-color);
 			}
+
+			@include mobile {
+				h4 {
+					display: none;
+				}
+			}
+		}
+
+		@include mobile {
+			&:not(:last-child) {
+				display: none;
+			}
+
 		}
 	}
 
@@ -78,6 +86,11 @@
 		display: flex;
 		justify-content: space-between;
 		padding-top: 50px;
+
+		@include mobile {
+			flex-direction: column;
+			gap: 20px;
+		}
 	}
 
 	&__copyright {

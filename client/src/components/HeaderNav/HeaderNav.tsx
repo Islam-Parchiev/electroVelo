@@ -6,10 +6,7 @@ import NavItem from '@components/NavItem/NavItem'
 
 import styles from './HeaderNav.module.scss'
 
-interface HeaderNavProps {}
-
-const HeaderNav: React.FC<HeaderNavProps> = props => {
-	const {} = props
+const HeaderNav: React.FC = () => {
 	return (
 		<nav className={styles.HeaderNav}>
 			<ul className={`list-reset ${styles.HeaderNav_list}`}>
@@ -24,7 +21,7 @@ const HeaderNav: React.FC<HeaderNavProps> = props => {
 							<Link to={'/catalog'}>Горные велосипеды</Link>
 						</li>
 						<li>
-							{' '}
+						
 							<Link to={'/catalog'}>Городские велосипеды</Link>
 						</li>
 						<li>

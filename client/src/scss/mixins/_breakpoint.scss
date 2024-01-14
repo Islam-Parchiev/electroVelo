@@ -32,6 +32,11 @@
     @content;
   }
 }
+@mixin pre-big-tablet {
+  @media (max-width: (1001px)) {
+    @content;
+  }
+}
 @mixin middle-tablet {
   @media (max-width:(923px)) {
     @content;

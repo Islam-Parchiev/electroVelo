@@ -35,7 +35,7 @@ const Subscribe: React.FC = () => {
 						/>
 					</div>
 
-					<Button handleClick={() => console.log('click')}>
+					<Button otherClass={styles.Subscribe__submit}handleClick={() => console.log('click')}>
 						Подписаться
 					</Button>
 				</form>

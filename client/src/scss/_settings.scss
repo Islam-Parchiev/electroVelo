@@ -1,3 +1,4 @@
+@import "./mixins/breakpoint";
 html {
   box-sizing: border-box;
 }
@@ -157,7 +158,7 @@ a {
 
 .title {
 	/* desk h2 */
-	font-family: "Bebas Neue Cyrillic";
+	font-family:Bebas Neue Cyrillic;
 	font-weight: 400;
 	font-style: normal;
 	font-size: 64px;
@@ -165,6 +166,11 @@ a {
 	letter-spacing: 3.2px;
 	text-transform: uppercase;
 	color: var(--bl, #101010);
+	@include mobile {
+font-size: 50px;
+line-height: 105%; 
+letter-spacing: 2.5px;
+	}
 
 }
 .descr {

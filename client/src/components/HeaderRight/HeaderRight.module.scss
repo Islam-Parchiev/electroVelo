@@ -1,5 +1,5 @@
 @import "../../scss/mixins/mini";
-
+@import "../../scss/mixins/breakpoint";
 .HeaderRight {
 
 	@include flex-v-center;
@@ -8,6 +8,9 @@
 	&__list {
 		@include flex-v-center;
 		gap: 25px;
+		@include mobile {
+			gap: 35px;
+		}
 	}
 
 	&__item {

@@ -1,8 +1,13 @@
 @import '../../scss/mixins/mini';
+@import "../../scss/mixins/breakpoint";
 .BestModels {
 	@include bg-cover;
 	@include image-set("../../../public/images/Main/bestModelsBg");
 	min-height: 770px;
+	// временно отключил
+	@include middle-tablet {
+		display: none;
+	}
 	&__container {
 		@include flex-column-start;
 		padding-top: 30px;

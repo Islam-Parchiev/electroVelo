@@ -1,6 +1,11 @@
+@import "../../scss/mixins/breakpoint";
 .MountainBikes {
 	height: 100vh;
 	background: var(--bg, #F8F8F8);
+	// временно отключил
+	@include middle-tablet {
+		display: none;
+	}
 	&__container {
 		padding-top: 50px;
 	}

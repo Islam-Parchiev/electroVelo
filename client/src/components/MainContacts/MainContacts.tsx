@@ -11,8 +11,8 @@ const MainContacts: React.FC = () => {
 			<div className={styles.MainContacts__map}>
 				<img src="/images/Main/map.jpg" alt="Map" />
 			</div>
-			<div className={`container ${styles.MainContacts__cotnainer}`}>
-				<ul className={`list-reset ${styles.MainContacts__list}`}>
+			<div className="container">
+				<ul className="list-reset">
 					<li className={styles.ContactsItem}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

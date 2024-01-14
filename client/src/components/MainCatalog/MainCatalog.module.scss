@@ -1,4 +1,5 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 
 .MainCatalog {
 	padding-bottom: 200px;
@@ -34,14 +35,12 @@
 	grid-template-columns: repeat(3, 1fr);
 	height: 770px;
 	max-width: 100%;
-
 	&__item {
 		overflow: hidden;
 		border-radius: 10px;
 		color: #fff;
 		background-color: #000;
 		transition: all 0.3s ease-in-out;
-
 		&_img {
 			height: 100%;
 
@@ -50,6 +49,9 @@
 				width: 100%;
 				height: 100%;
 				object-fit: contain;
+			}
+			@include mobile {
+				display: none;
 			}
 		}
 
@@ -63,11 +65,11 @@
 			/* 78.72px */
 			letter-spacing: 3.2px;
 			color: var(--light-color, #FFF);
-		}
-
-		&:hover {
-			background-color: #F57520;
-			transition: all 0.3s ease-in-out;
+			@include mobile {
+				font-weight: 700;
+				font-size: 24px;
+				letter-spacing: 1.2px;
+			}
 		}
 
 		&:nth-child(1) {
@@ -83,6 +85,11 @@
 			.Grid__item_title {
 				width: 30%;
 			}
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+			}
 		}
 
 		&:nth-child(2) {
@@ -90,7 +97,6 @@
 			grid-area: two;
 			padding-top: 30px;
 			text-align: center;
-
 			.Grid__item_img {
 				position: absolute;
 				right: 0;
@@ -105,6 +111,11 @@
 					object-fit: cover;
 				}
 			}
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+			}
 		}
 
 		&:nth-child(3) {
@@ -114,7 +125,6 @@
 			justify-content: center;
 			grid-area: three;
 			padding-left: 30px;
-
 			.Grid__item_img {
 				position: absolute;
 				right: 0;
@@ -129,6 +139,11 @@
 					object-fit: cover;
 				}
 			}
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+			}
 
 		}
 
@@ -138,7 +153,6 @@
 			overflow: hidden;
 			padding-top: 30px;
 			text-align: center;
-
 			.Grid__item_img {
 				position: absolute;
 				right: 0;
@@ -153,6 +167,11 @@
 					object-fit: cover;
 				}
 			}
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+			}
 
 		}
 
@@ -161,7 +180,11 @@
 			flex-direction: column-reverse;
 			align-items: center;
 			grid-area: five;
-
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+			}
 		}
 
 		&:nth-child(6) {
@@ -169,7 +192,6 @@
 			position: relative;
 			grid-area: six;
 			padding-left: 30px;
-
 			.Grid__item_img {
 				position: absolute;
 				right: 0;
@@ -184,8 +206,34 @@
 					object-fit: cover;
 				}
 			}
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+			}
 
 		}
+		@include hover {
+		&:hover {
+			background-color: #F57520;
+			transition: all 0.3s ease-in-out;
+		}
+	}
+		@include mobile {
+			padding: 0;
+			text-align: center;
+			background: rgb(2,0,36);
+			background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(245,117,32,1) 13%, rgba(188,90,33,1) 77%, rgba(2,0,36,1) 100%);
+		}
+	}
+	@include mobile {
+		grid-template-areas:
+		"one one"
+		"two two"
+		"three four"
+		"five six";
+		grid-template-columns: repeat(2, 1fr);
+		width: 100%;
 	}
 
 

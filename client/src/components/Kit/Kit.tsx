@@ -24,11 +24,16 @@ const Kit: React.FC = () => {
 				<h2 className="title">Экипировка</h2>
 				<Swiper
 					className={styles.Kit__slider}
-					slidesPerView={3}
+					slidesPerView={1}
 					modules={[A11y]}
 					spaceBetween={0}
 					scrollbar={{ draggable: true }}
-					onSlideChange={() => console.log('slide change')}>
+					onSlideChange={() => console.log('slide change')}
+					breakpoints={{
+						577:{
+							slidesPerView:3,
+						},
+					}}>
 					{isLoading
 						? fakeArr.map(item => (
 							<SwiperSlide>

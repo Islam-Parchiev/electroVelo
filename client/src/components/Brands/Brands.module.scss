@@ -1,18 +1,12 @@
+@import "../../scss/mixins/breakpoint";
 .Brands {
 	margin-bottom: 30px;
 
 	height: 200px;
-}
-.Ticker {
-	position: relative;
-	overflow: hidden;
-	height: 100%;
+	@include mobile {
+		height: 150px;
+	}
 
-}
-.Ticker__wrapper {
-	display: flex;
-	align-items: start;
-	height: 100%;
 }
 
 

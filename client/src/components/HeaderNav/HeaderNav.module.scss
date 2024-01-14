@@ -1,4 +1,5 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 
 .HeaderNav {
 	&_list {
@@ -50,5 +51,8 @@
 				}
 			}
 		}
+	}
+	@include pre-big-tablet {
+		display: none;
 	}
 }

@@ -1,5 +1,10 @@
+@import "../../scss/mixins/breakpoint";
 .MainNewItems {
 	margin-bottom: 200px;
+	// временно отключил
+	@include middle-tablet {
+		display: none;
+	}
 	&__container {
 		padding-bottom: 200px;
 	}
