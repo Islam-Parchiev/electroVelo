@@ -17,6 +17,9 @@
 	&__container {
 		@include flex-column-start;
 	}
+	@include mobile {
+		padding-bottom: 50px;
+	}
 }
 
 .Grid {

@@ -17,9 +17,10 @@ const MainVideo: FC = () => {
 	}
 	return (
 		<section className={styles.MainVideo}>
-			<div className={styles.MainVideo__header}>
-				<div className={`container ${styles.MainVideo__header_container}`}>
-					<h2 className="title">Ничего не сможет остановить вас</h2>
+		
+			<div className="container">
+				<div className={styles.MainVideo__inner}>			
+					<h2 className="title">Ничего не&nbsp;сможет остановить вас</h2>
 					<div className={styles.MainVideo__info}>
 						<p>
 							Наша компания специализируется на продаже товаров
@@ -30,8 +31,10 @@ const MainVideo: FC = () => {
 						<button className={`btn-reset ${styles.MainVideo__btn}`}>
 							Подробнее
 						</button>
+				
 					</div>
 				</div>
+				
 			</div>
 			<div className={styles.MainVideo__body}>
 				<video
@@ -42,8 +45,7 @@ const MainVideo: FC = () => {
 				{play === false && (
 					<button className="btn-reset" onClick={onPlay}>
 						<svg
-							width="53"
-							height="60"
+						
 							viewBox="0 0 53 60"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg">

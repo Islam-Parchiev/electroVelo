@@ -1,9 +1,11 @@
+@import "../../scss/mixins/breakpoint";
 .ReviewsItem {
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 350px;
 	border-radius: 10px;
-	width: 350px;
 	height: 402px;
 	background: var(--bl, #101010);
-
 	&__img {
 		border-radius: 10px 10px 0 0;
 
@@ -72,5 +74,8 @@
 
 	&__bottom {
 		padding: 20px;
+	}
+	@include mobile {
+		scroll-snap-align: center;
 	}
 }

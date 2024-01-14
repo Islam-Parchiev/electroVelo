@@ -2,17 +2,17 @@
 .MountainBikes {
 	height: 100vh;
 	background: var(--bg, #F8F8F8);
-	// временно отключил
-	@include middle-tablet {
-		display: none;
-	}
-	&__container {
+	&__inner {
 		padding-top: 50px;
 	}
 	&__body  {
 
 		display: flex;
 		padding-top: 100px;
+		@include mobile {
+			flex-direction: column;
+			padding-top: 20px;
+		}
 		
 	}
 	&__list {
@@ -20,9 +20,22 @@
 		flex-wrap: wrap;
 		width: 50%;
 		gap: 15px;
+		@include mobile {
+			flex-wrap: nowrap;
+			overflow-x: scroll;
+			overflow-y: hidden;
+			width: 100%;
+			scroll-snap-type: x mandatory;
+		}
 	}
 	&__right {
 		padding-left: 100px;
 		width: 50%;
+		@include mobile {
+			padding-top: 30px;
+			padding-left: 0;
+			width: 100%;
+		}
 	}
+	
 }

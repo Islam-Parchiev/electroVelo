@@ -16,28 +16,32 @@ const BestModels: FC = () => {
 	})
 	return (
 		<section className={styles.BestModels}>
-			<div className={`container ${styles.BestModels__container}`}>
-				<h2 className={`title ${styles.BestModels__title}`}>
+			<div className="container">
+				<div className={styles.BestModels__inner}>
+
+				
+					<h2 className={`title ${styles.BestModels__title}`}>
 					Лучшие модели для зимней езды
-				</h2>
-				<ul className={`list-reset ${styles.BestModels__items}`}>
-					{isLoading
-						? fakeArr.map(item => <Skeleton key={item} type="primary"/>)
-						: isSuccess
-							? data?.data.map((item: ICard) => (
-								<Card
-									type="primary"
-									country={item.country}
-									prevPrice={item.prevPrice}
-									price={item.price}
-									title={item.title}
-									available={item.available}
-									previewImage={item.previewImage}
-									id={item.id}
-								/>
+					</h2>
+					<ul className={`list-reset ${styles.BestModels__items}`}>
+						{isLoading
+							? fakeArr.map(item => <Skeleton key={item} type="primary"/>)
+							: isSuccess
+								? data?.data.map((item: ICard) => (
+									<Card
+										type="primary"
+										country={item.country}
+										prevPrice={item.prevPrice}
+										price={item.price}
+										title={item.title}
+										available={item.available}
+										previewImage={item.previewImage}
+										id={item.id}
+									/>
 						  ))
-							: 'Error'}
-				</ul>
+								: 'Error'}
+					</ul>
+				</div>
 			</div>
 		</section>
 	)

@@ -1,4 +1,8 @@
+@import "../../scss/mixins/breakpoint";
 .MountainBikesItem {
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 302px;
 	border-radius: 10px;
 	padding: 30px 25px;
 	width: 302px;
@@ -34,5 +38,9 @@
 			/* 25.6px */
 			color: var(--light-color, #FFF);
 		}
+	}
+	@include mobile {
+		flex-basis: 360px;
+		scroll-snap-align: center;
 	}
 }

@@ -1,3 +1,4 @@
+@import "../../scss/mixins/breakpoint";
 .Advantages {
   &__body {
 		display: flex;
@@ -8,6 +9,16 @@
 		flex-wrap: wrap;
 		width: 700px;
 		gap: 20px;
+		@include mobile {
+			flex-wrap: nowrap;
+			overflow-x:scroll;
+			scroll-snap-type: x mandatory;
+		}
+	}
+	@include mobile {
+		&__img {
+			display: none;
+		}
 	}
 }
 

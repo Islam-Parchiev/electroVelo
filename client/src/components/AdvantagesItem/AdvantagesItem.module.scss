@@ -1,11 +1,13 @@
 @import "../../scss/mixins/mini";
-
+@import "../../scss/mixins/breakpoint";
 .AdvantagesItem {
 	@include flex-column-start;
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 290px;
 	justify-content: space-between;
 	border-radius: 10px;
 	padding: 30px;
-	width: 290px;
 	height: 267px;
 	background: var(--orange, #F57520);
 
@@ -41,5 +43,8 @@
 			/* 19.68px */
 			color: var(--light-color, #FFF);
 		}
+	}
+	@include mobile {
+		scroll-snap-align: center;
 	}
 }
