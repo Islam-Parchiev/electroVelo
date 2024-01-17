@@ -8,7 +8,7 @@ const Advantages: React.FC = () => {
 	return (
 		<section className={styles.Advantages}>
 			<div className="container">
-				<h2 className="title">Преимущества</h2>
+				<h2 className={`title ${styles.Advantages__title}`}>Преимущества</h2>
 			</div>
 			<div className={styles.Advantages__body}>
 				<div className={styles.Advantages__img}>

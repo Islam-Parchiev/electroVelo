@@ -10,6 +10,11 @@
 				justify-content: center;
 				padding-right: 30px;
 			}
+			@include middle-tablet {
+				h2 {
+					font-size: 55px;
+				}
+			}
 }
 	&__info {
 		p {

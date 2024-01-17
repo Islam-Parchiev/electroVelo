@@ -92,6 +92,10 @@
 				@include flex-all-center;
 				padding: 0;
 				text-align: center;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				background-image: url("../../../public/images/CatalogGrid/1.png");
 			}
 		}
 
@@ -118,6 +122,10 @@
 				@include flex-all-center;
 				padding: 0;
 				text-align: center;
+				background-repeat: no-repeat;
+				background-position: center 56px;
+				background-size: contain;
+				background-image: url("../../../public/images/CatalogGrid/2.png");
 			}
 		}
 
@@ -146,6 +154,10 @@
 				@include flex-all-center;
 				padding: 0;
 				text-align: center;
+				background-repeat: no-repeat;
+				background-position: right;
+				background-size: contain;
+				background-image: url("../../../public/images/CatalogGrid/3.png");
 			}
 
 		}
@@ -174,6 +186,8 @@
 				@include flex-all-center;
 				padding: 0;
 				text-align: center;
+				@include bg-cover;
+			background-image: url("../../../public/images/CatalogGrid/4.png");
 			}
 
 		}
@@ -183,10 +197,13 @@
 			flex-direction: column-reverse;
 			align-items: center;
 			grid-area: five;
+
 			@include mobile {
 				@include flex-all-center;
 				padding: 0;
 				text-align: center;
+				@include bg-cover;
+			background-image: url("../../../public/images/CatalogGrid/5.png");
 			}
 		}
 
@@ -213,6 +230,8 @@
 				@include flex-all-center;
 				padding: 0;
 				text-align: center;
+				@include bg-cover;
+			background-image: url("../../../public/images/CatalogGrid/6.png");
 			}
 
 		}
@@ -225,8 +244,8 @@
 		@include mobile {
 			padding: 0;
 			text-align: center;
-			background: rgb(2,0,36);
-			background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(245,117,32,1) 13%, rgba(188,90,33,1) 77%, rgba(2,0,36,1) 100%);
+			// background: rgb(2,0,36);
+			// background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(245,117,32,1) 13%, rgba(188,90,33,1) 77%, rgba(2,0,36,1) 100%);
 		}
 	}
 	@include mobile {

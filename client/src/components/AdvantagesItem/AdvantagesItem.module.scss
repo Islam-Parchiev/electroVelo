@@ -19,6 +19,9 @@
 		letter-spacing: 0.2px;
 		text-transform: uppercase;
 		color: var(--light-color, #FFF);
+		// @include big-desktop {
+		// 	font-size: 16px;
+		// }
 	}
 
 	p {
@@ -28,6 +31,9 @@
 		line-height: 160%;
 		/* 25.6px */
 		color: var(--light-color, #FFF);
+		// @include big-desktop {
+		// 	font-size: 12px;
+		// }
 	}
 
 	&__btn {
@@ -42,7 +48,21 @@
 			line-height: 123%;
 			/* 19.68px */
 			color: var(--light-color, #FFF);
+			// @include big-desktop {
+			// 	font-size: 12px;
+			// }
 		}
+	}
+	// @include huge-desktop {
+	// 	flex-basis: 290px;
+	// 	// height: 235px;
+	// }
+	// @include big-desktop {
+	// 	flex-basis: 250px;
+	// 	height: 210px;
+	// }
+	@include pre-mobile {
+		flex-basis: 270px;
 	}
 	@include mobile {
 		scroll-snap-align: center;

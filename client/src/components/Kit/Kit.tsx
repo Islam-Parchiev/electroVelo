@@ -36,7 +36,7 @@ const Kit: React.FC = () => {
 					}}>
 					{isLoading
 						? fakeArr.map(item => (
-							<SwiperSlide>
+							<SwiperSlide className={styles.Slide}>
 								<div className={styles.Kit__slide}>
 									<Skeleton key={item} type="primary" />
 								</div>
@@ -44,7 +44,7 @@ const Kit: React.FC = () => {
 						  ))
 						: isSuccess
 							? data?.data.data?.map(item => (
-								<SwiperSlide>
+								<SwiperSlide className={styles.Slide}>
 									<div className={styles.Kit__slide}>
 										<Card
 											type="secondary"
