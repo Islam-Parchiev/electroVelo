@@ -1,3 +1,4 @@
+@import "../../scss/mixins/breakpoint";
 .CatalogView {
 	display: flex;
 	align-items: center;
@@ -11,5 +12,8 @@
 		svg.active rect {
 		  fill:#4C4C4C;
 		}
+	@include mobile {
+		display: none;
+	}
 	
 }

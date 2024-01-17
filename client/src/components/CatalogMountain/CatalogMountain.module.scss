@@ -1,4 +1,5 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 .CatalogMountain {
 	@include image-set('../../../public/images/Catalog/bg');
 	@include bg-cover;
@@ -9,6 +10,9 @@
 		padding-top: 50px;
 		h1 {
 			margin-top: 30px;
+		}
+		@include mobile {
+			padding-top: 10px;
 		}
 	}
 }

@@ -9,7 +9,8 @@ import FiltersColor from '@components/FiltersColor/FiltersColor'
 import styles from './Filters.module.scss'
 import { useFilters } from './useFilters'
 
-const Filters: React.FC = () => {
+
+const Filters: React.FC<{anotherClass?:string}> = ({anotherClass}) => {
 	const {
 		availableValue,
 		handleAvailable,
@@ -31,7 +32,7 @@ const Filters: React.FC = () => {
 		handleButtonReset,
 	} = useFilters()
 	return (
-		<div className={styles.Filters}>
+		<div className={`${styles.Filters} ${anotherClass}`}>
 			<SwitchCheckbox
 				value={availableValue}
 				text="Только в наличии"
