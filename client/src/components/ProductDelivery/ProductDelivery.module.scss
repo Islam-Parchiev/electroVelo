@@ -1,4 +1,5 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 
 .ProductDelivery {
 	&__wrapper {
@@ -16,6 +17,9 @@
 		/* 49.2px */
 		letter-spacing: 2px;
 		color: var(--bl, #101010);
+		@include mobile {
+			font-size: 30px;
+		}
 	}
 
 	&__image {
@@ -46,6 +50,9 @@
 			/* 32px */
 			letter-spacing: 0.2px;
 			color: var(--bl, #101010);
+			@include mobile {
+				font-size: 16px;
+			}
 		}
 	}
 
@@ -57,6 +64,9 @@
 		line-height: 160%;
 		/* 25.6px */
 		color: var(--dark, #34312D);
+		@include mobile {
+			font-size: 13px;
+		}
 	}
 
 	&__notice {
@@ -72,6 +82,9 @@
 		/* 25.6px */
 		color: #000;
 		background: var(--bg, #F8F8F8);
+		@include mobile {
+			font-size: 14px;
+		}
 	}
 
 	&__phone {
@@ -84,7 +97,6 @@
 		line-height: 160%;
 		/* 25.6px */
 		color: var(--dark, #34312D);
-
 		a {
 			/* desk mob med 18 */
 			font-family: Inter;
@@ -94,6 +106,12 @@
 			line-height: 160%;
 			letter-spacing: 0.18px;
 			color: var(--orange, #F57520);
+			@include mobile {
+				font-size: 14px;
+			}
+		}
+		@include mobile {
+			font-size: 14px;
 		}
 	}
 }

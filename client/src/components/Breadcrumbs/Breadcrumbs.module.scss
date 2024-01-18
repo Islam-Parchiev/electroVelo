@@ -1,9 +1,9 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 .Breadcrumbs {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-
 	&__item {
 		a {
 			position: relative;
@@ -12,13 +12,18 @@
 			font-style: normal;
 			font-size: 15px;
 			line-height: 160%;
-			/* 22.4px */
-			// color: var(--1-grey, #4C4C4C);
 
 			&:hover {
 				color: var(--orange, #F57520);
 			}
+			@include mobile {
+				font-size: 12px;
+				text-wrap: nowrap;
+			}
 		}
+	}
+	@include mobile {
+		flex-wrap: wrap;
 	}
 }
 .l {
@@ -44,12 +49,12 @@
 
 }
 .Breadcrumbs__item:last-child {
-	user-select: none;
 	cursor: default;
 	pointer-events: none;
+	user-select: none;
 	a {
+		cursor: default;
 		pointer-events: none;
 		user-select: none;
-		cursor: default;
 	}
 }

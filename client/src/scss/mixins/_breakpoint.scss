@@ -37,18 +37,28 @@
     @content;
   }
 }
+@mixin pre-big-tablet{
+  @media (max-width: (1090px)) {
+    @content;
+  }
+}
 @mixin tablet {
   @media (max-width: (1024px)) {
     @content;
   }
 }
-@mixin pre-big-tablet {
+@mixin pre-tablet {
   @media (max-width: (1001px)) {
     @content;
   }
 }
 @mixin middle-tablet {
   @media (max-width:(923px)) {
+    @content;
+  }
+}
+@mixin pre-middle-tablet {
+  @media (max-width:(823px)) {
     @content;
   }
 }

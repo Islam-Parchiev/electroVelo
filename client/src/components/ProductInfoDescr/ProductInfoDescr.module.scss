@@ -1,3 +1,4 @@
+@import "../../scss/mixins/breakpoint";
 .ProductInfoDescr{
 /* desk mob text 16 */
 font-family: Inter;
@@ -6,4 +7,5 @@ font-style: normal;
 font-size: 16px;
 line-height: 160%; /* 25.6px */
 		color: var(--1-grey, #4C4C4C);
+		
 	}

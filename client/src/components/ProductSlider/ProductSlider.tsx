@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, {  useState } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -42,10 +42,10 @@ const ProductSlider: React.FC = () => {
 				watchSlidesProgress={true}
 				modules={[FreeMode, Navigation, Thumbs]}
 				className={styles.mySwiper}>
-				<SwiperSlide>
+				<SwiperSlide className={styles.mySwiper__slide}>
 					<img src="/images/Card/1.1.png" alt="sliderImage"/>
 				</SwiperSlide>
-				<SwiperSlide>
+				<SwiperSlide className={styles.mySwiper__slide}>
 					<img src="/images/Card/1.1.png" alt="sliderImage"/>
 				</SwiperSlide>
 			</Swiper>

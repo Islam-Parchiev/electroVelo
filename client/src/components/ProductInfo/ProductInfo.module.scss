@@ -1,8 +1,14 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 
 .ProductInfo {
 	width: 100%;
 
+	// &__title {
+	// 	@include middle-mobile{
+	// 		font-size: 32px;
+	// 	}
+	// }
 	&__top {
 		@include flex-column-start;
 
@@ -12,6 +18,10 @@
 		@include flex-v-center;
 		padding-top: 20px;
 		gap: 20px;
+		@include mobile {
+			flex-direction: column;
+			align-items: start;
+		}
 	}
 
 	&__addToFavorites {
@@ -34,6 +44,11 @@
 			svg {
 				fill: var(--orange);
 			}
+		}
+	}
+	&__addToCart {
+		@include mobile {
+		width: 100%;
 		}
 	}
 }

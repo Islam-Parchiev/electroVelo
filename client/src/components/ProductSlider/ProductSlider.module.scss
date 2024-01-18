@@ -1,15 +1,28 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 
 .ProductSlider {
 	width: 635px;
 	height: 720px;
 
 	&__slide {
+		width: 100%;
 		img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			@include pre-big-tablet{
+				object-fit: contain;
+			}
 		}
+		
+	}
+	@include pre-big-tablet{
+		width: 500px;
+	}
+	@include middle-tablet {
+		width: 100%;
+		height: 600px;
 	}
 }
 
@@ -50,12 +63,31 @@
 .mySwiper2 {
 	width: 100%;
 	height: 80%;
+	@include  middle-tablet {
+		height: 60%;
+	}
 }
 
 .mySwiper {
 	padding: 10px 0;
 	height: 22%;
 	box-sizing: border-box;
+	@include  middle-tablet {
+		height: auto;
+		min-height: 22%;
+	}
+}
+.mySwiper__slide {
+	@include middle-tablet {
+		width: 120px !important;
+		height: auto;
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
 }
 
 .mySwiper .swiper-slide {

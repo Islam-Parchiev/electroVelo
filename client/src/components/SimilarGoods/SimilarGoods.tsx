@@ -10,6 +10,7 @@ import { ICard } from 'Card'
 
 import SliderControls from '@components/SliderControls/SliderControls'
 import Card from '@components/Card/Card'
+import Skeleton from '@components/Skeleton/Skeleton'
 
 import styles from './SimilarGoods.module.scss'
 interface SimilarGoodsProps {
@@ -17,6 +18,7 @@ interface SimilarGoodsProps {
 }
 
 const SimilarGoods: React.FC<SimilarGoodsProps> = props => {
+	const fakeArr = [...Array(3)];
 	const { category } = props
 
 	const { data, isLoading, isSuccess } = useQuery({
@@ -31,15 +33,26 @@ const SimilarGoods: React.FC<SimilarGoodsProps> = props => {
 					<h2 className={styles.SimilarGoods__title}>Похожие товары</h2>
 
 					{isLoading ? (
-						'Loading...'
+						fakeArr.map(item=> <Skeleton type="seconadry"/>)
 					) : isSuccess ? (
 						<Swiper
 							className={styles.SimilarGoods__slider}
-							slidesPerView={3}
+							slidesPerView={1}
 							modules={[A11y]}
 							spaceBetween={0}
 							scrollbar={{ draggable: true }}
-							onSlideChange={() => console.log('slide change')}>
+							onSlideChange={() => console.log('slide change')}
+							breakpoints={{
+								577:{
+									slidesPerView:1,
+								},
+								707:{
+									slidesPerView:2,
+								},
+								1027:{
+									slidesPerView:3,
+								},
+							}}>
 							{data?.data.map((product: ICard) => (
 								<SwiperSlide key={product.id}>
 									<div className={styles.SimilarGoods__slide}>

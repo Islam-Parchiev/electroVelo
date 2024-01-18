@@ -1,5 +1,5 @@
 @import "../../scss/mixins/mini";
-
+@import "../../scss/mixins/breakpoint";
 .ProductSpecifications {
 	&__title {
 		/* desk h3 */
@@ -11,6 +11,9 @@
 		/* 49.2px */
 		letter-spacing: 2px;
 		color: var(--bl, #101010);
+		@include mobile {
+			font-size: 30px;
+		}
 	}
 }
 

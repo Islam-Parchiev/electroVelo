@@ -10,11 +10,10 @@ import styles from './Card.module.scss'
 
 const Card: React.FC<ICard> = props => {
 	const { id, type, title, price, available, previewImage, otherClass, country,prevPrice } =
-		props
-	// console.log('iii',images)
-
+		props;
+	const typee = type==='primary'?styles.primary:styles.secondary;
 	return (
-		<li className={`${styles.Card} Card--${type} ${otherClass}`}>
+		<li className={`${styles.Card} ${typee} ${otherClass}`}>
 			<div className={styles.Card__header}>
 				<div className={styles.Card__country}>
 					<img src={`/images/Card/${country}`} alt="" />

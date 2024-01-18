@@ -96,3 +96,17 @@ text-decoration: line-through;
 			39px 235px 67px 0px rgba(186, 186, 186, 0.00);
 	}
 }
+.primary {
+	min-height:509px;
+	max-width: 400px;
+	button {
+		width: 100%;
+		max-width: 368px;
+	}
+}
+.secondary {
+	max-width: 290px;
+	button {
+		width: 100%;
+	}
+}

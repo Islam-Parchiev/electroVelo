@@ -68,6 +68,9 @@
 			/* 78.72px */
 			letter-spacing: 3.2px;
 			color: var(--light-color, #FFF);
+			@include tablet {
+				font-size: 51px;
+			}
 			@include mobile {
 				font-weight: 700;
 				font-size: 24px;
@@ -149,6 +152,18 @@
 					height: 100%;
 					object-fit: cover;
 				}
+				@include pre-middle-tablet {
+					display: none;
+				}
+			}
+			@include pre-middle-tablet {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+				background-repeat: no-repeat;
+				background-position: right;
+				background-size: contain;
+				background-image: url("../../../public/images/CatalogGrid/3.png");
 			}
 			@include mobile {
 				@include flex-all-center;
@@ -186,7 +201,9 @@
 				@include flex-all-center;
 				padding: 0;
 				text-align: center;
-				@include bg-cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
 			background-image: url("../../../public/images/CatalogGrid/4.png");
 			}
 
@@ -225,12 +242,26 @@
 					height: 100%;
 					object-fit: cover;
 				}
+				@include pre-middle-tablet {
+					display: none;
+				}
+			}
+			@include pre-middle-tablet {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+			background-image: url("../../../public/images/CatalogGrid/6.png");
 			}
 			@include mobile {
 				@include flex-all-center;
 				padding: 0;
 				text-align: center;
-				@include bg-cover;
+				background-position: right;
+				background-repeat: no-repeat;
+				background-size: contain;
 			background-image: url("../../../public/images/CatalogGrid/6.png");
 			}
 
@@ -258,5 +289,8 @@
 		width: 100%;
 	}
 
+	@include tablet {
+
+	}
 
 }

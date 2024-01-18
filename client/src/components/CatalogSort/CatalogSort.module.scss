@@ -1,4 +1,5 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 .CatalogSort {
 	overflow-y: hidden;
 	border: 1px solid var(--3-grey, #E5E5E5);
@@ -39,6 +40,7 @@
 		width: 1px;
 		height: 1px;
 		clip: rect(0 0 0 0);
+	
 	}
 
 	&__item {
@@ -52,6 +54,10 @@
 		/* 19.68px */
 		color: var(--2-grey, #777);
 		cursor: pointer;
+		@include mobile {
+			margin: 13px 5px;
+			padding: 13px 2px;
+		}
 	}
 
 	&.active {
@@ -67,6 +73,9 @@
 			width: initial;
 			height: initial;
 			clip: auto;
+			@include mobile {
+				padding: 0;
+			}
 
 		}
 
@@ -74,6 +83,9 @@
 			svg {
 				transform: rotate(0deg);
 			}
+		}
+		@include mobile {
+			max-height: 377px;
 		}
 	}
 }

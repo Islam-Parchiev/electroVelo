@@ -32,13 +32,15 @@ const CatalogContent: React.FC = () => {
 					<div className={styles.CatalogContent__right}>
 						<div className={styles.CatalogContent__top}>
 							<CatalogSort />
-							<CatalogView />
-							<button className={styles.Filters__open} onClick={()=>setOpen(true)}>
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-									<path d="M5.33301 5.33337L11.9997 16V24L19.9997 28V16L26.6663 5.33337H5.33301Z" stroke="#777777" 
-										stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-								</svg>
-							</button>
+							<div className={styles.CatalogView__wrapper}>
+								<CatalogView />
+								<button className={styles.Filters__open} onClick={()=>setOpen(true)}>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+										<path d="M5.33301 5.33337L11.9997 16V24L19.9997 28V16L26.6663 5.33337H5.33301Z" stroke="#777777" 
+											stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+									</svg>
+								</button>
+							</div>
 						</div>
 						<div className={styles.CatalogGoods}>
 							<ul
