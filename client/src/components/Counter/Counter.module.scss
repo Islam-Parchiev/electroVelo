@@ -1,4 +1,5 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 
 .Counter {
 	@include flex-all-center;
@@ -22,5 +23,8 @@
 		width: 30%;
 		height: 100%;
 		text-align: center;
+	}
+	@include big-mobile {
+		height: 30px;
 	}
 }

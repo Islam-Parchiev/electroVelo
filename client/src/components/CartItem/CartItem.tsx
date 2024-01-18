@@ -15,15 +15,19 @@ interface CartItemProps {
 
 const CartItem: React.FC<CartItemProps> = props => {
 	const { id, imageUrl, title, price, prevPrice, count } = props
-	const { debounced, isSuccess, mutate, onClickMinus, onClickPlus, countt } =
-		useCartItem(count, id)
+	const { isSuccess, mutate, onClickMinus, onClickPlus, countt } = useCartItem(
+		count,
+		id,
+	)
 	return (
 		<li className={styles.CartItem}>
-			{debounced}
-			<div className={styles.CartItem__image}>
-				<img src={`/images/Product/${imageUrl}`} alt="" />
+			<div className={styles.CartItem__left}>
+				<div className={styles.CartItem__image}>
+					<img src={`/images/Product/${imageUrl}`} alt="" />
+				</div>
+				<h4 className={styles.CartItem__title}>{title}</h4>
 			</div>
-			<h4 className={styles.CartItem__title}>{title}</h4>
+			<div className={styles.CartItem__right}>
 			<Counter
 				count={countt}
 				onClickMinus={onClickMinus}
@@ -34,6 +38,7 @@ const CartItem: React.FC<CartItemProps> = props => {
 				{prevPrice && (
 					<span className={styles.CartItem__prevPrice}>{prevPrice} ₽</span>
 				)}
+			</div>
 			</div>
 			<button
 				className={`btn-reset ${styles.CartItem__delete}`}
