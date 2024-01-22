@@ -32,6 +32,11 @@
     @content;
   }
 }
+@mixin pre-mini-desktop {
+  @media (max-width:(1200px)) {
+    @content;
+  }
+}
 @mixin big-tablet{
   @media (max-width: (1130px)) {
     @content;
@@ -85,6 +90,11 @@
 }
 @mixin mobile {
   @media (max-width: (576px)) {
+    @content;
+  }
+}
+@mixin mini-mobile {
+  @media (max-width: (496px)) {
     @content;
   }
 }

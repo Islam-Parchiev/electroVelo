@@ -1,4 +1,5 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 
 .OrderFinish {
 	position: relative;
@@ -32,6 +33,11 @@
 		flex-grow: 1;
 		flex-shrink: 1;
 		flex-basis: 120px;
+		@include middle-tablet {
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: 50%;
+		}
 	}
 
 	&__title {
@@ -42,6 +48,10 @@
 		/* 49.2px */
 		letter-spacing: 2px;
 		color: var(--bl, #101010);
+		@include mobile {
+			font-size: 32px;
+			line-height: 105%;
+		}
 	}
 
 	&__delivery {
@@ -70,12 +80,25 @@
 			span {
 				margin-right: 10px;
 			}
+			@include mobile {
+				display: flex;
+				justify-content: space-between;
+				margin-top: 10px;
+			}
+		}
+		@include mobile {
+			padding-top: 30px;
 		}
 	}
 
 	&__total {
 		&_top {
 			@include flex-all-sb;
+			@include mobile {
+				flex-direction: column;
+				align-items: start;
+				padding-top: 20px;
+			}
 		}
 
 		&_count {
@@ -113,10 +136,17 @@
 			a {
 				color: var(--orange, #F57520);
 			}
+			@include mobile {
+				padding-top: 30px;
+			}
 		}
 	}
 
 	&__submit {
 		text-transform: uppercase;
+	}
+	@include middle-tablet {
+		flex-direction: column;
+		height: auto;
 	}
 }

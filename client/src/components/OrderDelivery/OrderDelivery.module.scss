@@ -1,4 +1,5 @@
 @import "../../scss/mixins/mini";
+@import "../../scss/mixins/breakpoint";
 
 .OrderDelivery {
 	border: 1px solid var(--3-grey, #E5E5E5);
@@ -6,7 +7,20 @@
 	padding: 40px;
 	width: 40%;
 	height: 100%;
-
+	&__inner {
+		@include small-tablet{
+			display: flex;
+			align-items: start;
+			justify-content: space-between;
+		}
+		@include mobile	 {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			justify-content: center;
+			gap: 30px;
+		}
+	}
 	&__title {
 		/* desk h3 */
 		font-family: Bebas Neue Cyrillic;
@@ -17,6 +31,13 @@
 		/* 49.2px */
 		letter-spacing: 2px;
 		color: var(--bl, #101010);
+		@include mobile {
+			font-size: 32px;
+			line-height: 105%;
+		}
+	}
+	@include small-tablet{
+		width: 100%;
 	}
 
 }

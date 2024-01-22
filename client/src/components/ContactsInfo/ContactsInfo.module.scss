@@ -1,10 +1,15 @@
 @import "../../scss/mixins/mini";
-
+@import "../../scss/mixins/breakpoint";
 .ContactsInfo {
 
 	&__inner {
 		@include flex-all-sb;
 		padding-bottom: 40px;
+		@include middle-mobile {
+			flex-direction: column;
+			align-items: start;
+			justify-content: center;
+		}
 	}
 
 	&__block {
