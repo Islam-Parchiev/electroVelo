@@ -1,5 +1,5 @@
 @import "./../../scss/mixins/mini";
-
+@import "../../scss/mixins/breakpoint";
 .AdditionalServices {
 	&__title {
 
@@ -12,6 +12,10 @@
 		/* 49.2px */
 		letter-spacing: 2px;
 		color: var(--bl, #101010);
+			@include mobile {
+			font-size: 32px;
+			line-height: 105%;
+		}
 	}
 
 	&__inner {

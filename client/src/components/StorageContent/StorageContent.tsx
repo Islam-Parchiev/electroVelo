@@ -2,10 +2,7 @@ import React from 'react'
 
 import styles from './StorageContent.module.scss'
 
-interface StorageContentProps {}
-
-const StorageContent: React.FC<StorageContentProps> = props => {
-	const {} = props
+const StorageContent: React.FC= () => {
 	return (
 		<section className={styles.StorageContent}>
 			<div className="container">

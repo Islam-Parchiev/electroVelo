@@ -1,3 +1,4 @@
+@import "../../scss/mixins/breakpoint";
 .SingleBlogContent {
 
 	&__title {
@@ -14,7 +15,6 @@
 
 .Paragraph {
 	padding-top: 50px;
-
 	&__title {
 		font-family: Inter;
 		font-weight: 500;
@@ -45,11 +45,16 @@
 		min-height: 280px;
 		max-height: 500px;
 		gap: 40px;
+		@include pre-middle-tablet {
+			flex-direction: column;
+			max-height: none;
+			gap: 0;
+		}
 	}
 
 	&__image {
 		flex-grow: 0;
-		flex-shrink: 0;
+		flex-shrink: 1;
 		flex-basis: 400px;
 		order: 0;
 		border-radius: 10px;
@@ -72,5 +77,13 @@
 			order: 1;
 		}
 	}
+@include middle-tablet {
+			padding-top: 50px;
+			padding-bottom: 100px;
+		}
+		@include pre-middle-tablet {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
 }
 

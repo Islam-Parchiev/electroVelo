@@ -1,4 +1,5 @@
 @import './../../scss/mixins/mini';
+@import "../../scss/mixins/breakpoint";
 .GuaranteesText {
 	&__inner {
 		@include flex-all-sb;
@@ -9,6 +10,11 @@
 			font-size: 16px;
 			line-height: 200%; /* 32px */
 			color: var(--1-grey, #4c4c4c);
+		}
+		@include small-tablet {
+			flex-direction: column;
+			align-items: center;
+			gap: 0px;
 		}
 	}
 }
