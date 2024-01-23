@@ -160,32 +160,45 @@ const Header: FC<Props> = props => {
 						<h2 className={styles.Header__menu_title}>
 							Доп. Информация
 						</h2>
+						
 						<ul className={`list-reset ${styles.Header__menu_list}`}>
 							<li className={styles.Header__menu_item}>
-								<a href="/">О нас</a>
+								<Link to="/aboutus">О нас</Link>
 							</li>
 							<li className={styles.Header__menu_item}>
-								<a href="/">Веломастерская</a>
+								<Link to="/workshop">Веломастерская</Link>
 							</li>
 							<li className={styles.Header__menu_item}>
-								<a href="/">Хранение</a>
+								<Link to="/storage">Хранение</Link>
 							</li>
 
 							<li className={styles.Header__menu_item}>
-								<a href="/">Гарантии</a>
+								<Link to="/guarantees">Гарантии</Link>
 							</li>
 							<li className={styles.Header__menu_item}>
-								<a href="/">Пользовательское соглашение</a>
+								<Link to="/terms">Пользовательское соглашение</Link>
 							</li>
 							<li className={styles.Header__menu_item}>
-								<a href="/">Доставка и оплата</a>
+								<Link to="/delivery">Доставка и оплата</Link>
 							</li>
 							<li className={styles.Header__menu_item}>
-								<a href="/">Блог</a>
+								<Link to="/blog">Блог</Link>
 							</li>
 							<li className={styles.Header__menu_item}>
-								<a href="/">Контакты</a>
+								<Link to="/contacts">Контакты</Link>
 							</li>
+						</ul>
+						<ul className={`list-reset ${styles.Header__menu_list} ${styles.Header__menu_list_mobile}`}>
+							<li className={styles.Header__menu_item}>
+								<Link to="/catalog">Каталог</Link>
+							</li>
+							<li className={styles.Header__menu_item}>
+								<Link to="/favorites">Избранное</Link>
+							</li>
+							<li className={styles.Header__menu_item}>
+								<Link to="/profile/data">Мой аккаунт</Link>
+							</li>
+
 						</ul>
 					</div>
 				</HeaderMenu>

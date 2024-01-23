@@ -11,6 +11,9 @@
 		@include mobile {
 			gap: 35px;
 		}
+		@include micro-mobile {
+			display: none;
+		}
 	}
 
 	&__item {

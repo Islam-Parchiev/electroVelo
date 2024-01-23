@@ -1,5 +1,5 @@
 @import "../../scss/mixins/mini";
-
+@import "../../scss/mixins/breakpoint";
 .OrderItem {
 	@include flex-all-sb;
 	border-bottom: 1px solid var(--3-grey, #E5E5E5);
@@ -19,6 +19,7 @@
 	}
 
 	&__title {
+		width: 50%;
 		/* desk mob subhead */
 		font-family: Inter;
 		font-weight: 300;
@@ -55,4 +56,10 @@
 			color: var(--light-grey, #B3B3B3);
 		}
 	}
+@include mobile {
+	flex-direction: column;
+	align-items: start;
+	height: auto;
+	min-height: 200px;
+}
 }

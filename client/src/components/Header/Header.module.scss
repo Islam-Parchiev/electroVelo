@@ -1,4 +1,5 @@
 @import '../../scss/mixins/mini';
+@import "../../scss/mixins/breakpoint";
 
 .Header {
 	position: absolute;
@@ -54,6 +55,15 @@
 			@include flex-column-start;
 			text-align: left;
 			gap: 10px;
+			&_mobile {
+				display: none; 
+				li {
+					margin-top: 10px;
+				}
+				@include mobile {
+					display: block;
+				}
+			}
 		}
 
 		&_title {
@@ -76,12 +86,32 @@
 				line-height: 160%;
 				letter-spacing: 0.18px;
 				color: var(--bl, #101010);
-
+				@include hover{
 				&:hover {
 					text-decoration: underline;
 					color: var(--orange);
+					
 				}
 			}
+				@include mobile {
+					font-size: 14px;
+				}
+			}
+			@include mobile {
+				border-radius: 10px;
+				padding: 16px;
+				width: 90%;
+				height: 61px;
+background: var(--bg, #F8F8F8);
+			}
 		}
+		&_wrapper {
+		@include mobile {
+			overflow-y: scroll;
+			padding-bottom: 30px;
+			height: 100%;
+		}
+		}
+		
 	}
 }

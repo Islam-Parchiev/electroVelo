@@ -96,5 +96,11 @@
 @mixin mini-mobile {
   @media (max-width: (496px)) {
     @content;
+	}
   }
-}
+	@mixin micro-mobile {
+    @media (max-width:(370px)){
+			@content;
+		}
+	}
+

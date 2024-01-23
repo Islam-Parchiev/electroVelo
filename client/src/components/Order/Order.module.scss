@@ -1,5 +1,5 @@
 @import "../../scss/mixins/mini";
-
+@import "../../scss/mixins/breakpoint";
 .Order {
 	width: 100%;
 
@@ -28,12 +28,23 @@
 
 	&__body {
 		overflow: hidden;
+		overflow-y: scroll;
 		max-height: 0;
 		transition: max-height 1s ease-in-out;
 
 		&.active {
-			max-height: 300px;
+			max-height: 500px;
 			transition: max-height 1.3s ease-in-out;
+		}
+	}
+	&__status {
+		@include micro-mobile {
+			display: none;
+		}
+	}
+	&__number {
+		@include micro-mobile {
+			display: none;
 		}
 	}
 }
