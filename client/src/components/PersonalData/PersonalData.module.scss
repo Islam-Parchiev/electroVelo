@@ -1,28 +1,47 @@
+@import "../../scss/mixins/breakpoint";
 .PersonalData {
 	padding-bottom: 50px;
 }
 .Form{
-	width: 620px;
+	max-width: 620px;
 	&__header{
 		display: flex;
 		gap: 20px;
+		
 		label {
-			width: 50%;
+			flex-grow: 1;
+			flex-shrink: 1;
+			flex-basis:50%;
+			width: auto;
+		}
+		@include mobile {
+			flex-direction: column;
+			width: auto;
 		}
 	}
+	
 	&__body {
+		display: flex;
+		flex-direction: column;
 		label {
-			width: 100%;
+			flex-grow: 0;
+			flex-shrink: 1;
+			flex-basis: 100%;
+			width: auto;
 		}
 	}
 	&__footer {
 		display: flex;
 		gap: 20px;
 		label {
-			width: 196px;
+			flex-grow: 1;
+			flex-shrink: 1;
+			flex-basis: 196px;
+			width: auto;
 		}
 	}
 	&__submit {
 		margin-top: 20px;
 	}
 }
+

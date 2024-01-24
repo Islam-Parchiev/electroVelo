@@ -58,12 +58,18 @@
 			}
 		}
 
+		&:nth-child(2) {
+			@include middle-tablet {
+				display: none;
+			}
+		}
 		@include mobile {
 			&:not(:last-child) {
 				display: none;
 			}
 
 		}
+		
 	}
 
 	&__list {

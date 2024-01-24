@@ -1,5 +1,5 @@
 @import "../../scss/mixins/mini";
-
+@import "../../scss/mixins/breakpoint";
 .Favorites {
 	width: 100%;
 	min-height: 500px;
@@ -15,8 +15,15 @@
 	}
 
 	&__item {
+		flex-grow: 0;
+		flex-shrink: 1;
+		flex-basis: 45%;
 		border: 1px solid #ece3e3;
-		width: 400px;
+		width: auto;
+		max-width: none;
+		@include pre-mini-desktop {
+			max-width: 350px;
+		}
 	}
 
 	&__empty {
