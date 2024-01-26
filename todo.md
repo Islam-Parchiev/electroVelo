@@ -11,3 +11,12 @@
 сделать адаптацию
 добавить состояния:active,hover,focused для элементов
 сохранять параметры фильтрации в URL
+сделать в отдельной ветке миграцию на RTK-2.0
+
+примерный вариант параметров URL:
+http://localhost:3000/catalog?available=true&categories=Triatlone,Mountain&minPrice=30000&maxPrice=100000&brand=Bianci&materials=Steel&colors=Yellow,Green&sortBy=rating&view=primary&page=1
+
+imagemagick:
+ convert best.jpg -quality 80 result.jpg
+ Изменить размер изображения:
+ convert img.jpg -resize 100×150 img1.jpg
