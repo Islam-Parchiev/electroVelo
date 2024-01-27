@@ -13,7 +13,7 @@ import styles from './Favorites.module.scss'
 
 const Favorites: React.FC = () => {
 	const { data, isLoading, isSuccess } = useQuery<FavoritesData>({
-		queryKey: ['favorites'],
+		queryKey: ['favoritesItems'],
 		queryFn: () => favoritesService.findAllFavorites(),
 	})
 	console.log(data)

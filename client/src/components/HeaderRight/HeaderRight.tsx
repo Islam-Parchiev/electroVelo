@@ -65,7 +65,7 @@ const HeaderRight: React.FC<HeaderRightProps> = props => {
 					</svg>
 				</li>
 				<li className={styles.HeaderRight__item}>
-					<a href="/">
+					<Link to="/profile/favorites">
 						<svg
 							width="20"
 							height="18"
@@ -80,7 +80,7 @@ const HeaderRight: React.FC<HeaderRightProps> = props => {
 								strokeLinejoin="round"
 							/>
 						</svg>
-					</a>
+					</Link>
 				</li>
 				<li className={styles.HeaderRight__item}>
 					<Link to="/cart">

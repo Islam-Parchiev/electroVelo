@@ -2,8 +2,9 @@ import React from 'react'
 
 import { useAppDispatch, useAppSelector } from '@redux/store'
 import { useParams } from 'react-router-dom'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery,useQueryClient } from '@tanstack/react-query'
 
+import { FavoritesData } from 'Favorites'
 import { changeCount } from '@redux/slices/productSlice'
 
 import cartService from '@services/cart.service'
@@ -26,6 +27,13 @@ const ProductInfo: React.FC = () => {
 	const { id } = useParams()
 	//@ts-ignore
 	const { data, isSuccess, isLoading } = useQuery<any>({queryKey: ['product', id],queryFn: () => productService.getProductById(+id)})
+	const favoritesResponse = useQuery<FavoritesData>({
+		queryKey: ['favoritesItems'],
+		queryFn: () => favoritesService.findAllFavorites(),
+	})
+	const queryClient = useQueryClient();
+	// @ts-ignore
+	const inFavorites = favoritesResponse.data?.items.find((item)=>item.product.id===+id) ?true :false;
 	const product: IProduct = isSuccess && data.data
 	const dispatch = useAppDispatch()
 	const productCount = useAppSelector(state => state.product.count)
@@ -43,10 +51,14 @@ const ProductInfo: React.FC = () => {
 		const data = cartService.addToCart(+product.id, 1)
 		data.then(data => console.log(data))
 	}
-	const addToFavorites = () => {
-		const data = favoritesService.addToFavorites(+product.id)
-		data.then(data => console.log(data))
-	}
+	const {mutate} = useMutation({
+		mutationFn: () => {
+			return favoritesService.addToFavorites(+product.id)
+		},
+
+		mutationKey: ['addToFavorites'],
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['favoritesItems'] }),
+	})
 	return (
 		<div className={styles.ProductInfo}>
 			<div className={styles.ProductInfo__top}>
@@ -72,13 +84,14 @@ const ProductInfo: React.FC = () => {
 					В корзину
 				</Button>
 				<Button
-					otherClass={`${styles.ProductInfo__addToFavorites}`}
-					handleClick={addToFavorites}>
+					otherClass={`${styles.ProductInfo__addToFavorites} ${inFavorites?styles.active:''}`}
+					handleClick={mutate}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="32"
 						height="29"
-						viewBox="0 0 32 29">
+						viewBox="0 0 32 29"
+					>
 						<path
 							d="M4.67757 14.34L16.5 26.4464L28.3224 14.34C29.6367 12.9941 30.375 11.1688 30.375 9.26553C30.375 
 							5.30217 27.2374 2.08923 23.367 2.08923C21.5084 2.08923 19.7259 2.84531 18.4117 4.19112L16.5 6.14876L14.5883 
