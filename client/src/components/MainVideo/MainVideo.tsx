@@ -41,7 +41,9 @@ const MainVideo: FC = () => {
 					onClick={onStop}
 					ref={videoRef}
 					src="/vidtou.mp4"
-					poster="/images/Main/videoPreview.jpg"></video>
+					poster="/images/Main/videoPreview.jpg"
+					preload="none"
+				></video>
 				{play === false && (
 					<button className="btn-reset" onClick={onPlay}>
 						<svg

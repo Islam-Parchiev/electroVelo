@@ -8,7 +8,6 @@ import styles from './Subscribe.module.scss'
 const Subscribe: React.FC = () => {
 	const [check, setCheck] = React.useState(true)
 	const [value, setValue] = React.useState(1)
-	console.log('ccccc', check)
 	return (
 		<section className={styles.Subscribe}>
 			<div className={`container ${styles.Subscribe__container}`}>

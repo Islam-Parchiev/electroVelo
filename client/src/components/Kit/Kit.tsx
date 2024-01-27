@@ -17,7 +17,6 @@ const Kit: React.FC = () => {
 		queryKey: ['kitProducts'],
 		queryFn: () => productService.getKitItems(),
 	})
-	console.log(data)
 	return (
 		<section className={styles.Kit}>
 			<div className={`container ${styles.Kit__container}`}>
@@ -28,7 +27,6 @@ const Kit: React.FC = () => {
 					modules={[A11y]}
 					spaceBetween={0}
 					scrollbar={{ draggable: true }}
-					onSlideChange={() => console.log('slide change')}
 					breakpoints={{
 						641:{
 							slidesPerView:2,
@@ -38,16 +36,16 @@ const Kit: React.FC = () => {
 						},
 					}}>
 					{isLoading
-						? fakeArr.map(item => (
-							<SwiperSlide className={styles.Slide}>
+						? fakeArr.map((_,i) => (
+							<SwiperSlide className={styles.Slide} key={i}>
 								<div className={styles.Kit__slide}>
-									<Skeleton key={item} type="primary" />
+									<Skeleton type="primary" />
 								</div>
 							</SwiperSlide>
 						  ))
 						: isSuccess
 							? data?.data.data?.map(item => (
-								<SwiperSlide className={styles.Slide}>
+								<SwiperSlide className={styles.Slide} key={item.id}>
 									<div className={styles.Kit__slide}>
 										<Card
 											type="secondary"

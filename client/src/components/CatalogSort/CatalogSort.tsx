@@ -7,11 +7,11 @@ import { changeSortType } from '@redux/slices/sortSlice'
 import styles from './CatalogSort.module.scss'
 
 const sortList: ISortListItem[] = [
-	{ name: 'По популярности', sortProperty: 'popular' },
-	{ name: 'По рейтингу', sortProperty: 'rating' },
-	{ name: 'Цены: по возрастанию', sortProperty: '&sortByPrice=ASC' },
-	{ name: 'Цены: по убыванию', sortProperty: '&sortByPrice=DESC' },
-	{ name: 'По названию', sortProperty: '&sortByName=DESC' },
+	{ id:341,name: 'По популярности', sortProperty: 'popular' },
+	{ id:311,name: 'По рейтингу', sortProperty: 'rating' },
+	{ id:241,name: 'Цены: по возрастанию', sortProperty: '&sortByPrice=ASC' },
+	{id:141, name: 'Цены: по убыванию', sortProperty: '&sortByPrice=DESC' },
+	{ id:111,name: 'По названию', sortProperty: '&sortByName=DESC' },
 ]
 
 const CatalogSort: React.FC = () => {
@@ -63,7 +63,8 @@ const CatalogSort: React.FC = () => {
 					{sortList.map(item => (
 						<li
 							className={styles.CatalogSort__item}
-							onClick={() => handleClickSortItem(item)}>
+							onClick={() => handleClickSortItem(item)}
+							key={item.id}>
 							{item.name}
 						</li>
 					))}

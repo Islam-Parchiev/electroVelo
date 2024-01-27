@@ -25,7 +25,6 @@ const SimilarGoods: React.FC<SimilarGoodsProps> = props => {
 		queryKey: ['similarProducts', category],
 		queryFn: () => productService.getProductsByCategories(category),
 	})
-	console.log('similar', data)
 	return (
 		<section className={styles.SimilarGoods}>
 			<div className="container">
@@ -33,7 +32,7 @@ const SimilarGoods: React.FC<SimilarGoodsProps> = props => {
 					<h2 className={styles.SimilarGoods__title}>Похожие товары</h2>
 
 					{isLoading ? (
-						fakeArr.map(item=> <Skeleton type="seconadry"/>)
+						fakeArr.map((_,i)=> <Skeleton type="seconadry" key={i}/>)
 					) : isSuccess ? (
 						<Swiper
 							className={styles.SimilarGoods__slider}
@@ -41,7 +40,6 @@ const SimilarGoods: React.FC<SimilarGoodsProps> = props => {
 							modules={[A11y]}
 							spaceBetween={0}
 							scrollbar={{ draggable: true }}
-							onSlideChange={() => console.log('slide change')}
 							breakpoints={{
 								577:{
 									slidesPerView:1,

@@ -18,7 +18,7 @@ const SwitchCheckbox: React.FC<SwitchCheckboxProps> = props => {
 			<input
 				type="checkbox"
 				checked={value}
-				onClick={() => handleClick(!value)}
+				onChange={()=>handleClick(!value)}
 			/>
 			<span className={styles.switchCheckbox__switch}></span>
 		</label>

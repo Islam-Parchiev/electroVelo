@@ -187,11 +187,12 @@ const Filters: React.FC<{anotherClass?:string}> = ({anotherClass}) => {
 			</Accordion>
 			<Accordion accordionTitle="Цвет">
 				<ul className={`list-reset ${styles.Filters__colors}`}>
-					{colors.map((color: string) => (
+					{colors.map((color: string,i:number) => (
 						<FiltersColor
 							color={color}
 							selectedColors={selectedColors}
 							changeColor={handleColorChange}
+							key={i}
 						/>
 					))}
 				</ul>
@@ -206,4 +207,3 @@ const Filters: React.FC<{anotherClass?:string}> = ({anotherClass}) => {
 }
 
 export default Filters
-// 42

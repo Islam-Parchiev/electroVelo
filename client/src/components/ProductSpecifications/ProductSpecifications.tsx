@@ -14,8 +14,6 @@ const ProductSpecifications: React.FC = () => {
 	//@ts-ignore
 	const { data, isLoading, isSuccess } = useQuery<any>({queryKey: ['product', id],queryFn: () => productService.getProductById(+id)})
 	const product:ResponseProduct =isSuccess&& data.data
-
-	console.log('specccccccs', product)
 	return (
 		<section className={styles.ProductSpecifications}>
 			<div className="container">

@@ -31,7 +31,6 @@ export function useCatalog() {
 			),
 	})
 	const products: ICard[] = data?.data.data
-	console.log('useCatalog', products)
 	const totalPages: number = data?.data.totalPages
 	return { products, totalPages, page, setPage, isLoading, isSuccess }
 }

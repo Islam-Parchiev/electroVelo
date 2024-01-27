@@ -14,7 +14,6 @@ const MainNewItems: FC = () => {
 		queryKey: ['newProducts'],
 		queryFn: () => productService.getProductsByLimit(3, 0),
 	})
-	console.log(data)
 	return (
 		<section className={styles.MainNewItems}>
 			<div className={`container ${styles.MainNewItems__container}`}>
@@ -22,7 +21,7 @@ const MainNewItems: FC = () => {
 				<ul className={`list-reset ${styles.MainNewItems__cards}`}>
 					{/* <Skeleton /> */}
 					{isLoading
-						? fakeArr.map(item => <Skeleton key={item} type="primary"/>)
+						? fakeArr.map((_,i) => <Skeleton key={i} type="primary"/>)
 						: isSuccess
 							? data?.data.map((item: ICard) => (
 								<Card
@@ -34,6 +33,7 @@ const MainNewItems: FC = () => {
 									available={item.available}
 									previewImage={item.previewImage}
 									id={item.id}
+									key={item.id}
 								/>
 						  ))
 							: 'Error'}

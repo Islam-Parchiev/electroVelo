@@ -8,7 +8,6 @@ export function useFilters(){
 	const selectedCategories = useAppSelector(
 		(state: RootState) => state.filters.selectedCategories,
 	)
-	console.log(selectedCategories);
 
 	const selectedColors = useAppSelector((state:RootState)=>state.filters.selectedColors)
 	

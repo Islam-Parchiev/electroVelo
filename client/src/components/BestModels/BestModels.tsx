@@ -25,7 +25,7 @@ const BestModels: FC = () => {
 					</h2>
 					<ul className={`list-reset ${styles.BestModels__items}`}>
 						{isLoading
-							? fakeArr.map(item => <Skeleton key={item} type="primary"/>)
+							? fakeArr.map((_,i) => <Skeleton key={i} type="primary"/>)
 							: isSuccess
 								? data?.data.map((item: ICard) => (
 									<Card
@@ -37,6 +37,7 @@ const BestModels: FC = () => {
 										available={item.available}
 										previewImage={item.previewImage}
 										id={item.id}
+										key={item.id}
 									/>
 						  ))
 								: 'Error'}

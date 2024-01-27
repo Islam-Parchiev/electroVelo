@@ -88,7 +88,8 @@ const Pagination: React.FC<PaginationProps> = props => {
 						className={`${styles.Pagination__item} ${
 							page === pageNum + 1 && styles.active
 						}`}
-						onClick={() => setPage(pageNum + 1)}>
+						onClick={() => setPage(pageNum + 1)}
+						key={pageNum+117}>
 						{pageNum + 1}
 					</li>
 				))}
