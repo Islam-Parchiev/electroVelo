@@ -18,8 +18,24 @@ const NavItem: React.FC<NavItemProps> = props => {
 	const handleClickNavItem = ()=> {
 		setActive(!active)
 	}
+	const menuRef = React.useRef<HTMLLIElement>(null)
+
+	React.useEffect(() => {
+		function handleClickOutside(event: MouseEvent) {
+			// @ts-ignore
+			if (menuRef.current && !menuRef.current.contains(event.target)) {
+				setActive(false)
+			}
+		}
+		document.addEventListener('mousedown', handleClickOutside)
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+		// eslint-disable-next-line
+	}, [menuRef])
+
 	return (
-		<li className={styles.NavItem} onClick={handleClickNavItem}>
+		<li ref={menuRef} className={styles.NavItem} onClick={handleClickNavItem}>
 			<span className={styles.NavItem_link} onClick={handleClickNavItem}>
 				{text}
 			</span>
