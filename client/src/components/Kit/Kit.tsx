@@ -30,7 +30,10 @@ const Kit: React.FC = () => {
 					scrollbar={{ draggable: true }}
 					onSlideChange={() => console.log('slide change')}
 					breakpoints={{
-						577:{
+						641:{
+							slidesPerView:2,
+						},
+						1001:{
 							slidesPerView:3,
 						},
 					}}>

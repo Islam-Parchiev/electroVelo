@@ -16,6 +16,9 @@
 		@include flex-v-center;
 		width: 100%;
 		gap: 20px;
+		@include middle-tablet {
+			flex-wrap: wrap;
+		}
 		@include mobile {
 			flex-direction: column;
 

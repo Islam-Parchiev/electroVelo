@@ -1,6 +1,9 @@
 import React from 'react'
 
 import Modal from '@components/Modal/Modal'
+import ForClients from '@components/ForClients/ForClients'
+import FooterCatalog from '@components/FooterCatalog/FooterCatalog'
+import FooterContacts from '@components/FooterContacts/FooterContacts'
 
 import styles from './Footer.module.scss'
 
@@ -133,56 +136,10 @@ const Footer: React.FC = () => {
 							товаров для велосипедного спорта.
 						</span>
 					</div>
-					<div className={styles.Footer__info}>
-						<h4 className={styles.Footer__info_title}>Каталог</h4>
-						<ul className={`list-reset ${styles.Footer__list}`}>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Trade-in</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Велосипеды</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Экипировка</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Запчасти</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Велостанки</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Аксессуары</a>
-							</li>
-						</ul>
-					</div>
-					<div className={styles.Footer__info}>
-						<h4 className={styles.Footer__info_title}>Для клиента</h4>
-						<ul className={`list-reset ${styles.Footer__list}`}>
-							<li className={styles.Footer__list_item}>
-								<a href="/">О нас</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Доставка и оплата</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Блог</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Контакты</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Веломастерская</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Хранение</a>
-							</li>
-							<li className={styles.Footer__list_item}>
-								<a href="/">Гарантии</a>
-							</li>
-						</ul>
-					</div>
-					<div
+					<FooterCatalog/>
+					<ForClients/>
+					<FooterContacts/>
+					{/* <div
 						className={`${styles.Footer__info} ${styles.Footer__info_contacts}`}>
 						<h4 className={styles.Footer__info_title}>Контакты</h4>
 						<ul className={`list-reset ${styles.Footer__list}`}>
@@ -273,7 +230,7 @@ const Footer: React.FC = () => {
 								<a href="/">order@world-bike.ru</a>
 							</li>
 						</ul>
-					</div>
+					</div> */}
 				</div>
 				<div className={styles.Footer__copyright}>
 					<span>© 2023 world bike</span>

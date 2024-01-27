@@ -60,7 +60,7 @@
 				li {
 					margin-top: 10px;
 				}
-				@include mobile {
+				@include pre-tablet {
 					display: block;
 				}
 			}
