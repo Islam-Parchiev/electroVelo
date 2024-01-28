@@ -11,12 +11,24 @@ import styles from './Card.module.scss'
 const Card: React.FC<ICard> = props => {
 	const { id, type, title, price, available, previewImage, otherClass, country,prevPrice } =
 		props;
+		console.log(country);
 	const typee = type==='primary'?styles.primary:styles.secondary;
+	const slicedImageSrc = country.slice(0,-4);
+	const slicedPreviewImageSrc = previewImage.slice(0,-4);
+	console.log(slicedPreviewImageSrc);
 	return (
 		<li className={`${styles.Card} ${typee} ${otherClass}`}>
 			<div className={styles.Card__header}>
 				<div className={styles.Card__country}>
-					<img src={`/images/Card/${country}`} alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet={`/images/Card/${slicedImageSrc}.webp`}
+							media="(max-width:1920px)"
+						/>
+						<img src={`/images/Card/${slicedImageSrc}.png`} alt={slicedImageSrc} />
+			
+					</picture>
 				</div>
 				<div className={styles.Card__status}>
 					<span>{available ? 'В наличии' : 'Нет в наличии'} </span>
