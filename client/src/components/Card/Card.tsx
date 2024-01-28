@@ -35,7 +35,16 @@ const Card: React.FC<ICard> = props => {
 				</div>
 			</div>
 			<div className={styles.Card__body}>
-				<img src={`/images/Product/${previewImage}`} alt="" />
+				<picture>
+					<source 
+						type="image/webp"
+						srcSet={`/images/Product/${slicedPreviewImageSrc}.webp`}
+						media="(max-width:1920px)"
+					/>
+					<img src={`/images/Product/${slicedPreviewImageSrc}.png`} alt={slicedPreviewImageSrc} />
+			
+				</picture>
+				
 			</div>
 			<div className={styles.Card__footer}>
 				<h4 className={styles.Card__title}>{title || 'Title'}</h4>
