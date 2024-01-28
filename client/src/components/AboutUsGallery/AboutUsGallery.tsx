@@ -14,43 +14,147 @@ const AboutUsGallery:React.FC = () => {
 			</div>
 			<Ticker>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 				<TickerItem anotherClass={styles.AboutUsGallery__item}>
-					<img src="/images/AboutUs/gallery1.png" alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/AboutUs/gallery1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/AboutUs/gallery1.png" alt="" />
+			
+					</picture>
 				</TickerItem>
 			</Ticker>
 		</section>

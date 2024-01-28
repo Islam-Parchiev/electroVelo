@@ -45,7 +45,15 @@ const AboutUsTeam: React.FC = () => {
 							</div>
 						</div>
 						<div className={styles.AboutUsTeam__image}>
-							<img src="/images/aboutus/team.png" alt="" />
+							<picture>
+								<source 
+									type="image/webp"
+									srcSet="/images/AboutUs/team.webp"
+									media="(max-width:1920px)"
+								/>
+								<img src="/images/AboutUs/team.png" alt="" />
+			
+							</picture>
 						</div>
 					</div>
 				</div>

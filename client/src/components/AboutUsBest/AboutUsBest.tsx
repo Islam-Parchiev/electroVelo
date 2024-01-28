@@ -31,7 +31,20 @@ const AboutUsBest: React.FC = () => {
 				</div>
 			</div>
 			<div className={styles.AboutUsBest__image}>
-				<img src="/images/AboutUs/best.jpg" alt="" />
+				<picture>
+					<source 
+						type="image/webp"
+						srcSet="/images/AboutUs/best.webp"
+						media="(max-width:1920px)"
+					/>
+					<source 
+						type="image/jpeg"
+						srcSet="/images/AboutUs/bestMobile.jpg"
+						media="(max-width:500px)"
+					/>
+					<img src="/images/AboutUs/best.jpg" alt="" />
+			
+				</picture>
 			</div>
 
 			<div className="container">

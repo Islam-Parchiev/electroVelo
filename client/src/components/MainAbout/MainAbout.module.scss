@@ -26,6 +26,7 @@
 		height: 80%;
 		background-color: #000;
 		@include mobile {
+			@include image-set("../../../public/images/Main/mainAboutBgMobile");
 			height: 100%;
 		}
 	}

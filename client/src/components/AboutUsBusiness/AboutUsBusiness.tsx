@@ -231,7 +231,21 @@ const AboutUsBusiness: React.FC = () => {
 						</ul>
 					</div>
 					<div className={styles.AboutUsBusiness__image}>
-						<img src="/images/AboutUs/business.jpg" alt="" />
+						<picture>
+							<source 
+								type="image/webp"
+								srcSet="/images/AboutUs/business.webp"
+								media="(max-width:1920px)"
+							/>
+							<source 
+								type="image/jpeg"
+								srcSet="/images/AboutUs/businessMobile.jpg"
+								media="(max-width:600px)"
+							/>
+							<img src="/images/AboutUs/business.jpg" alt="" />
+			
+						</picture>
+						
 					</div>
 				</div>
 			</div>
