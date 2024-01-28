@@ -25,7 +25,16 @@ const SingleBlogContent: React.FC = () => {
 						</h4>
 						<div className={styles.Paragraph__content}>
 							<div className={styles.Paragraph__image}>
-								<img src="/images/Blog/1.png" alt="" />
+								<picture>
+									<source 
+										type="image/webp"
+										srcSet="/images/Blog/1.webp"
+										media="(max-width:1920px)"
+									/>
+				
+									<img src="/images/Blog/1.png" alt="" />
+				
+								</picture>
 							</div>
 							<div className={styles.Paragraph__text}>
 								<p>
@@ -59,7 +68,16 @@ const SingleBlogContent: React.FC = () => {
 						</h4>
 						<div className={styles.Paragraph__content}>
 							<div className={styles.Paragraph__image}>
-								<img src="/images/Blog/1.png" alt="" />
+								<picture>
+									<source 
+										type="image/webp"
+										srcSet="/images/Blog/1.webp"
+										media="(max-width:1920px)"
+									/>
+				
+									<img src="/images/Blog/1.png" alt="" />
+				
+								</picture>
 							</div>
 							<div className={styles.Paragraph__text}>
 								<p>
@@ -93,7 +111,16 @@ const SingleBlogContent: React.FC = () => {
 						</h4>
 						<div className={styles.Paragraph__content}>
 							<div className={styles.Paragraph__image}>
-								<img src="/images/Blog/1.png" alt="" />
+								<picture>
+									<source 
+										type="image/webp"
+										srcSet="/images/Blog/1.webp"
+										media="(max-width:1920px)"
+									/>
+				
+									<img src="/images/Blog/1.png" alt="" />
+				
+								</picture>
 							</div>
 							<div className={styles.Paragraph__text}>
 								<p>

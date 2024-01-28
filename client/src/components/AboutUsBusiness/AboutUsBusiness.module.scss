@@ -48,6 +48,16 @@
 		border-radius: 10px 0px 0px 10px;
 		height: 695px;
 		max-width: 51vw;
+		picture {
+			display: block;
+			border-radius: 10px 0px 0px 10px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			@include mobile {
+				border-radius: 10px;
+			}
+		}
 		img {
 			display: block;
 			border-radius: 10px 0px 0px 10px;

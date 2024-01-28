@@ -9,7 +9,24 @@ const MainContacts: React.FC = () => {
 				<h2 className="title">Контакты</h2>
 			</div>
 			<div className={styles.MainContacts__map}>
-				<img src="/images/Main/map.jpg" alt="Map" />
+				
+				<picture>
+					<source 
+						type="image/webp"
+						srcSet="/images/Contacts/map.webp"
+						media="(max-width:1920px)"
+					/>
+					<source 
+						type="image/jpeg"
+						srcSet="/images/Contacts/mapMobile.jpg"
+						media="(max-width:920px)"
+					/>
+				
+				
+					
+					<img src="/images/Contacts/map.jpg" alt="" />
+			
+				</picture>
 			</div>
 			<div className="container">
 				<ul className="list-reset">

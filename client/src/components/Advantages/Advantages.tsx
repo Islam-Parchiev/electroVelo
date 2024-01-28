@@ -12,7 +12,21 @@ const Advantages: React.FC = () => {
 			</div>
 			<div className={styles.Advantages__body}>
 				<div className={styles.Advantages__img}>
-					<img src="/images/Main/advantages1.jpg" alt="" />
+					<picture>
+						<source 
+							type="image/avif"
+							srcSet="/images/Main/advantages1.avif"
+							media="(max-width:1920px)"
+						/>
+						<source 
+							type="image/webp"
+							srcSet="/images/Main/advantages1.webp"
+							media="(max-width:1920px)"
+						/>
+				
+						<img src="/images/Main/advantages1.jpg" alt="" />
+				
+					</picture>
 				</div>
 				<ul className={`list-reset ${styles.Advantages__list}`}>
 					<AdvantagesItem title="БЕСПЛАТНАЯ ДОСТАВКА" description="Мы пользуемся всеми популярными видами доставки" url="https://www.google.com/"/>
@@ -21,7 +35,21 @@ const Advantages: React.FC = () => {
 					<AdvantagesItem title="ОНЛАЙН ОПЛАТА" description="Для удобства вы можете оплатить товар банковской картой через сайт" url="#"/>
 				</ul>
 				<div className={styles.Advantages__img}>
-					<img src="/images/Main/advantages2.jpg" alt="" />
+					<picture>
+						<source 
+							type="image/avif"
+							srcSet="/images/Main/advantages2.avif"
+							media="(max-width:1920px)"
+						/>
+						<source 
+							type="image/webp"
+							srcSet="/images/Main/advantages2.avif"
+							media="(max-width:1920px)"
+						/>
+				
+						<img src="/images/Main/advantages2.jpg" alt="" />
+				
+					</picture>
 				</div>
 			</div>
 		</section>
