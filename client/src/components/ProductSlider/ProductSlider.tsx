@@ -28,10 +28,27 @@ const ProductSlider: React.FC = () => {
 				modules={[FreeMode, Navigation, Thumbs]}
 				className={styles.mySwiper2}>
 				<SwiperSlide className={styles.ProductSlider__slide}>
-					<img src="/images/Card/1.1.png" alt="sliderImage"/>
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/Card/1.1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/Card/1.1.png" alt="sliderImage" />
+			
+					</picture>
+					
 				</SwiperSlide>
 				<SwiperSlide className={styles.ProductSlider__slide}>
-					<img src="/images/Card/1.1.png" alt="sliderImage"/>
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/Card/1.1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/Card/1.1.png" alt="sliderImage" />
+			
+					</picture>
 				</SwiperSlide>
 			</Swiper>
 			<Swiper
@@ -43,10 +60,26 @@ const ProductSlider: React.FC = () => {
 				modules={[FreeMode, Navigation, Thumbs]}
 				className={styles.mySwiper}>
 				<SwiperSlide className={styles.mySwiper__slide}>
-					<img src="/images/Card/1.1.png" alt="sliderImage"/>
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/Card/1.1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/Card/1.1.png" alt="sliderImage" />
+			
+					</picture>
 				</SwiperSlide>
 				<SwiperSlide className={styles.mySwiper__slide}>
-					<img src="/images/Card/1.1.png" alt="sliderImage"/>
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet="/images/Card/1.1.webp"
+							media="(max-width:1920px)"
+						/>
+						<img src="/images/Card/1.1.png" alt="sliderImage" />
+			
+					</picture>
 				</SwiperSlide>
 			</Swiper>
 		</div>

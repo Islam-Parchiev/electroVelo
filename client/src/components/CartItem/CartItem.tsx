@@ -19,26 +19,36 @@ const CartItem: React.FC<CartItemProps> = props => {
 		count,
 		id,
 	)
+	const slicedImageUrl = imageUrl.slice(0,-4);
+	console.log(slicedImageUrl);
 	return (
 		<li className={styles.CartItem}>
 			<div className={styles.CartItem__left}>
 				<div className={styles.CartItem__image}>
-					<img src={`/images/Product/${imageUrl}`} alt="" />
+					<picture>
+						<source 
+							type="image/webp"
+							srcSet={`/images/Product/${slicedImageUrl}.webp`}
+							media="(max-width:1920px)"
+						/>
+						<img src={`/images/Product/${slicedImageUrl}.png`} alt={slicedImageUrl} />
+			
+					</picture>
 				</div>
 				<h4 className={styles.CartItem__title}>{title}</h4>
 			</div>
 			<div className={styles.CartItem__right}>
-			<Counter
-				count={countt}
-				onClickMinus={onClickMinus}
-				onClickPlus={onClickPlus}
-			/>
-			<div className={styles.CartItem__price}>
-				<span className={styles.CartItem__currentPrice}>{price} ₽</span>
-				{prevPrice && (
-					<span className={styles.CartItem__prevPrice}>{prevPrice} ₽</span>
-				)}
-			</div>
+				<Counter
+					count={countt}
+					onClickMinus={onClickMinus}
+					onClickPlus={onClickPlus}
+				/>
+				<div className={styles.CartItem__price}>
+					<span className={styles.CartItem__currentPrice}>{price} ₽</span>
+					{prevPrice && (
+						<span className={styles.CartItem__prevPrice}>{prevPrice} ₽</span>
+					)}
+				</div>
 			</div>
 			<button
 				className={`btn-reset ${styles.CartItem__delete}`}

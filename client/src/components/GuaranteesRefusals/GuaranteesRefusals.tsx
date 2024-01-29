@@ -40,11 +40,11 @@ const GuaranteesRefusals: React.FC = () => {
 						</ul>
 					</div>
 					<div className={styles.GuaranteesRefusals__image}>
-						{/* <img src="/images/Guarantees/refusalImg.png" alt="" /> */}
+					
 						<picture>
-							{/* <source srcSet="/images/Guarantees/refusalImg-mob.png" media="(min-width: 600px)" /> */}
+							<source srcSet="/images/Guarantees/refusalImg.webp"/>
 						  <source srcSet="/images/Guarantees/refusalImg-mob.png" media="(max-width: 600px)" />
-  						<img src="/images/Guarantees/refusalImg.png" alt="MDN" />
+  						<img src="/images/Guarantees/refusalImg.png" alt="Bike" />
 						</picture>
 					</div>
 					<div className={styles.GuaranteesRefusals__text}>

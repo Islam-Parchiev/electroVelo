@@ -18,7 +18,15 @@ const ContactsMap: React.FC= () => {
 				</div>
 			</div>
 			<div className={styles.ContactsMap__bottom}>
-				<img src="/images/Contacts/map.jpg" alt="" />
+				<picture>
+					<source 
+						type="image/webp"
+						srcSet="/images/Contacts/map.webp"
+						media="(max-width:1920px)"
+					/>
+					<img src="/images/Contacts/map.jpg" alt="map" />
+			
+				</picture>
 			</div>
 		</section>
 	)
