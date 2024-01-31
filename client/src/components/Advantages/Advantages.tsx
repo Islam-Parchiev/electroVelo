@@ -24,7 +24,7 @@ const Advantages: React.FC = () => {
 							media="(max-width:1920px)"
 						/>
 				
-						<img src="/images/Main/advantages1.jpg" alt="" />
+						<img src="/images/Main/advantages1.jpg" alt="cyclist" loading="lazy"/>
 				
 					</picture>
 				</div>
@@ -43,11 +43,11 @@ const Advantages: React.FC = () => {
 						/>
 						<source 
 							type="image/webp"
-							srcSet="/images/Main/advantages2.avif"
+							srcSet="/images/Main/advantages2.webp"
 							media="(max-width:1920px)"
 						/>
 				
-						<img src="/images/Main/advantages2.jpg" alt="" />
+						<img src="/images/Main/advantages2.jpg" alt="" loading="lazy" />
 				
 					</picture>
 				</div>

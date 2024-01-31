@@ -4,7 +4,7 @@ import styles from './Pagination.module.scss'
 
 interface PaginationProps {
 	totalPages: number
-	setPage: (pageNum: number) => void
+	setPage: React.Dispatch<React.SetStateAction<number>>
 	page: number
 }
 
@@ -60,7 +60,7 @@ const Pagination: React.FC<PaginationProps> = props => {
 			</button>
 			<button
 				className={`btn-reset ${styles.Pagination__prev}`}
-				onClick={() => setPage(page - 1)}>
+				onClick={() => setPage((prev:number) => prev- 1)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="10"
@@ -96,7 +96,7 @@ const Pagination: React.FC<PaginationProps> = props => {
 			</ul>
 			<button
 				className={`btn-reset ${styles.Pagination__next}`}
-				onClick={() => setPage(page + 1)}>
+				onClick={() => setPage((prev:number) => prev + 1)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="10"

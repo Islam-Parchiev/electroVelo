@@ -8,6 +8,7 @@ import styles from './Brands.module.scss'
 const Brands: React.FC = () => {
 	return (
 		<section className={styles.Brands}>
+			<h2 className="visually-hidden">Бренды,Brands,Партнеры</h2>
 			<Ticker>
 				<TickerItem>
 					<picture>

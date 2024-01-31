@@ -9,7 +9,13 @@ const ProductDelivery: React.FC = () => {
 				<h2 className={styles.ProductDelivery__title}>Доставка</h2>
 				<div className={styles.ProductDelivery__wrapper}>
 					<div className={styles.ProductDelivery__image}>
-						<img src="/images/Product/deliveryBg.jpg" alt="" />
+						<picture>
+							<source 
+								type="image/webp"
+								srcSet="/images/Product/deliveryBg.webp"
+							/>
+							<img src="/images/Product/deliveryBg.jpg" alt="Доставка" loading="lazy"/>
+						</picture>
 					</div>
 					<div className={styles.ProductDelivery__info}>
 						<h4>

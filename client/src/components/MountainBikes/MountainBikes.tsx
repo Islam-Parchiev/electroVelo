@@ -36,10 +36,10 @@ const MountainBikes: React.FC = () => {
 						</ul>
 						<div className={styles.MountainBikes__right}>
 							<div className={styles.MountainBikes__img}>
-								<img
-									src="/images/Main/mountainImage.png"
-									alt=""
-								/>
+								<picture>
+									<source type="image/webp" srcSet="/images/Main/mountainImage.webp"/>
+									<img src="/images/Main/mountainImage.png" alt=""/>
+								</picture>
 							</div>
 							<div className={styles.MountainBikes__descr}>
 								<p>

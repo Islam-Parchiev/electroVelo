@@ -24,7 +24,7 @@ const MainContacts: React.FC = () => {
 				
 				
 					
-					<img src="/images/Contacts/map.jpg" alt="" />
+					<img src="/images/Contacts/map.jpg" alt="map" loading="lazy"/>
 			
 				</picture>
 			</div>

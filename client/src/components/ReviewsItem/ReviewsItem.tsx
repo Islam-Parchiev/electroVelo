@@ -21,7 +21,15 @@ const ReviewsItem: React.FC<ReviewsItemProps> = props => {
 	return (
 		<li className={styles.ReviewsItem}>
 			<div className={styles.ReviewsItem__img}>
-				<img src={imageUrl} alt="Review" />
+				<picture>
+					<source 
+						type="image/webp"
+						srcSet={`${imageUrl}.webp`}
+						media="(max-width:1920px)"
+					/>
+					<img src={`${imageUrl}.png`} alt="" />
+			
+				</picture>
 			</div>
 			<div className={styles.ReviewsItem__bottom}>
 				<div className={styles.ReviewsItem__info}>

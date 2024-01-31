@@ -17,7 +17,7 @@ const Reviews: React.FC = () => {
 				<ul className={`list-reset ${styles.Reviews__list}`}>
 					<ReviewsItem
 						id={1}
-						imageUrl="/images/Reviews/1.jpg"
+						imageUrl="/images/Reviews/1"
 						dateTime="2023-1-25"
 						date="18 ноября 2015"
 						tag={tag}
@@ -25,7 +25,7 @@ const Reviews: React.FC = () => {
 					/>
 					<ReviewsItem
 						id={2}
-						imageUrl="/images/Reviews/1.jpg"
+						imageUrl="/images/Reviews/1"
 						dateTime="2023-1-25"
 						date="18 ноября 2015"
 						tag={tag}
@@ -33,7 +33,7 @@ const Reviews: React.FC = () => {
 					/>
 					<ReviewsItem
 						id={3}
-						imageUrl="/images/Reviews/1.jpg"
+						imageUrl="/images/Reviews/1"
 						dateTime="2023-1-25"
 						date="18 ноября 2015"
 						tag={tag}
