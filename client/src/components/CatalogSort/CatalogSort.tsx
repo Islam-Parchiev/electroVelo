@@ -19,7 +19,7 @@ const CatalogSort: React.FC = () => {
 	const sortValue = useAppSelector((state: RootState) => state.sort)
 	const dispatch = useAppDispatch()
 
-	console.log(sortValue)
+	console.log('sortRender');
 	const handleClickSortItem = (item: ISortListItem) => {
 		dispatch(changeSortType(item))
 		setOpen(false)

@@ -41,7 +41,7 @@ const MainVideo: FC = () => {
 					onClick={onStop}
 					ref={videoRef}
 					src="/vidtou.mp4"
-					poster="/images/Main/videoPreview.jpg"
+					poster="/images/Main/videoPreview.webp"
 					preload="none"
 				></video>
 				{play === false && (
