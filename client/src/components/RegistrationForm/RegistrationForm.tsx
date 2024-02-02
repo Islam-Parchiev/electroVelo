@@ -129,10 +129,3 @@ const RegistrationForm: React.FC<RegistrationFormProps> = props => {
 }
 
 export default RegistrationForm
-// John22233
-// john1122@gmail.com
-// 11jj22jjA
-
-// test23455
-// testtt0005@gmail.com
-// test123123

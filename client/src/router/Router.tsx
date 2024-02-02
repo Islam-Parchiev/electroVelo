@@ -1,28 +1,30 @@
+import { lazy,Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import Main from '@pages/Main/Main';
 import Layout from '@pages/Layout/Layout';
-import Catalog from '@pages/Catalog/Catalog';
-import Product from '@pages/Product/Product';
-import Cart from '@pages/Cart/Cart';
-import CreateOrder from '@pages/CreateOrder/CreateOrder';
-import Profile from '@pages/Profile/Profile';
-import Contacts from '@pages/Contacts/Contacts';
-import Workshop from '@pages/Workshop/Workshop';
-import AboutUs from '@pages/AboutUs/AboutUs';
-import Terms from '@pages/Terms/Terms';
-import Guarantees from '@pages/Guarantees/Guarantees';
-import Storage from '@pages/Storage/Storage';
-import Delivery from '@pages/Delivery/Delivery';
-import Blog from '@pages/Blog/Blog';
-import SingleBlog from '@pages/SingleBlog/SingleBlog';
-
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
-import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
-import PersonalData from '@components/PersonalData/PersonalData';
-import ResetPassword from '@components/ResetPassword/ResetPassword';
-import Favorites from '@components/Favorites/Favorites';
+import Loading from '@components/Loading/Loading';
 
+
+const Catalog = lazy(() => import(/*webpackChunkName: "Catalog"*/'@pages/Catalog/Catalog'));
+const Product = lazy(()=>import(/*webpackChunkName: "Product"*/'@pages/Product/Product'));
+const Cart = lazy(()=>import(/*webpackChunkName: "Cart"*/'@pages/Cart/Cart'));
+const CreateOrder =lazy(()=>import(/*webpackChunkName: "CreateOrder"*/'@pages/CreateOrder/CreateOrder'));
+const Profile = lazy(()=>import(/*webpackChunkName: "Profile"*/'@pages/Profile/Profile'));
+const Contacts = lazy(()=>import(/*webpackChunkName: "Contacts"*/'@pages/Contacts/Contacts'));
+const Workshop = lazy(()=>import(/*webpackChunkName: "Workshop"*/'@pages/Workshop/Workshop'));
+const AboutUs = lazy(()=>import(/*webpackChunkName: "AboutUs"*/'@pages/AboutUs/AboutUs'));
+const Terms = lazy(()=>import(/*webpackChunkName: "Terms"*/'@pages/Terms/Terms'));
+const Guarantees = lazy(()=>import(/*webpackChunkName: "Guarantees"*/'@pages/Guarantees/Guarantees'));
+const Storage = lazy(()=>import(/*webpackChunkName: "Storage"*/'@pages/Storage/Storage'));
+const Delivery = lazy(()=>import(/*webpackChunkName: "Delivery"*/'@pages/Delivery/Delivery'));
+const Blog = lazy(()=>import(/*webpackChunkName: "Blog"*/'@pages/Blog/Blog'));
+const SingleBlog = lazy(()=>import(/*webpackChunkName: "SingleBlog"*/'@pages/SingleBlog/SingleBlog'));
+const OrdersHistory = lazy(()=>import(/*webpackChunkName: "OrdersHistory"*/'@components/OrdersHistory/OrdersHistory'));
+const PersonalData=lazy(()=>import(/*webpackChunkName: "PersonalData"*/'@components/PersonalData/PersonalData'));
+const ResetPassword=lazy(()=>import(/*webpackChunkName: "ResetPassword"*/'@components/ResetPassword/ResetPassword'));
+const Favorites = lazy(()=>import(/*webpackChunkName: "Favorites"*/'@components/Favorites/Favorites'));
 export const router = createBrowserRouter([
 	{
 		path:'/',
@@ -35,83 +37,136 @@ export const router = createBrowserRouter([
 			},
 			{
 				path:'catalog',
-				element:<Catalog/>,
+				element:
+					<Suspense fallback={<Loading/>}>
+						<Catalog/>
+					</Suspense>,
 			},
 			{
 				path:'product/:id',
-				element:<Product/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<Product/>
+				</Suspense>,
 			},
 			{
 				path:'cart',
 				element:
-				<ProtectedRoute>
-					<Cart/>
-				</ProtectedRoute>,
+				<Suspense fallback={<Loading/>}>
+					<ProtectedRoute>
+						<Cart/>
+					</ProtectedRoute>
+				</Suspense>,
 			},
 			{	
 				path:'/',
+
 				element:
-				<ProtectedRoute>
-					<Profile/>
-				</ProtectedRoute>,
+				<Suspense fallback={<Loading/>}>
+					<ProtectedRoute>
+						<Profile/>
+					</ProtectedRoute>
+				</Suspense>,
 				children:[
 					{
 						path:'profile/history',
-						element:<OrdersHistory/>,
+						element:
+						<Suspense fallback={<Loading/>}>
+							<OrdersHistory/>
+						</Suspense>,
 					},
 					{
 						path:'profile/data',
-						element:<PersonalData/>,
+						element:
+						<Suspense fallback={<Loading/>}>
+							<PersonalData/>
+						</Suspense>,
 					},
 					{
 						path:'profile/password',
-						element:<ResetPassword/>,
+						element:
+						<Suspense fallback={<Loading/>}>
+							<ResetPassword/>
+						</Suspense>,
 					},
 					{
 						path:'profile/favorites',
-						element:<Favorites/>,
+						element:
+						<Suspense fallback={<Loading/>}>
+							<Favorites/>
+						</Suspense>,
 					},
 				],
 			},
 			{
 				path:'create-order',
-				element:<CreateOrder/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<CreateOrder/>
+				</Suspense>,
 			},
 			{
 				path:'contacts',
-				element:<Contacts/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<Contacts/>
+				</Suspense>,
 			},
 			{
 				path:'workshop',
-				element:<Workshop/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<Workshop/>
+				</Suspense>,
 			},
 			{
 				path:'aboutUs',
-				element:<AboutUs/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<AboutUs/>
+				</Suspense>,
 			},
 			{
 				path:'terms',
-				element:<Terms/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<Terms/>
+				</Suspense>,
 			},
 			{
 				path:'guarantees',
-				element:<Guarantees/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<Guarantees/>
+				</Suspense>,
 			},
 			{
 				path:'storage',
-				element:<Storage/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<Storage/>
+				</Suspense>,
 			},
 			{
 				path:'delivery',
-				element:<Delivery/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<Delivery/>
+				</Suspense>,
 			},
 			{
 				path:'blog',
-				element:<Blog/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<Blog/>
+				</Suspense>,
 			},
 			{
 				path:'blog/:id',
-				element:<SingleBlog/>,
+				element:
+				<Suspense fallback={<Loading/>}>
+					<SingleBlog/>
+				</Suspense>,
 			},
 		],
 	},

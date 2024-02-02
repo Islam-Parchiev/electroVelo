@@ -14,7 +14,7 @@ const ProductSocial: React.FC = () => {
 	//@ts-ignore
 	const { data, isSuccess, isLoading } = useQuery<any>({queryKey: ['product', id],queryFn: () => productService.getProductById(+id)})
 	const product: IProduct = isSuccess && data.data
-
+	console.log('socialRender');
 	return (
 		<div className={styles.ProductSocial}>
 			<div>

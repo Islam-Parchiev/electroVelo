@@ -36,15 +36,15 @@ const PersonalData: React.FC = () => {
 	})
 
 	const onSubmit: SubmitHandler<IFormData> = data => {
-		alert(`Your name ${data}`)
-		console.log(data)
-		console.log(
-			AuthService.registration({
-				name: data.name,
-				email: data.email,
-				password: data.password,
-			}),
-		)
+		// alert(data)
+		// console.log(data)
+		// console.log(
+		// 	AuthService.registration({
+		// 		name: data.name,
+		// 		email: data.email,
+		// 		password: data.password,
+		// 	}),
+		// )
 		reset()
 	}
 	const valName = {

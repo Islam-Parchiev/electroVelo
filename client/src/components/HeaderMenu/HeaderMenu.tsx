@@ -11,7 +11,6 @@ const HeaderMenu: React.FC<HeaderMenuProps> = props => {
 	const { handleOpen, children } = props
 	const menuRef = React.useRef<HTMLDivElement>(null)
 
-	// TODO:Найти другие варианты решения вместо прямой работы с DOM
 	React.useEffect(() => {
 		function handleClickOutside(event: MouseEvent) {
 			// @ts-ignore

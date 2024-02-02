@@ -46,6 +46,7 @@ const ProductInfo: React.FC = () => {
 	if (productCount < 1) {
 		dispatch(changeCount(1))
 	}
+	console.log('productInfo render');
 	const addToCart = () => {
 		// @ts-ignore
 		const data = cartService.addToCart(+product.id, 1)
