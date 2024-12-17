@@ -5,7 +5,7 @@ import axios from 'axios'
 export class ProductService  {
 
 
-	private URL = 'http://localhost:4000'
+	private URL = 'http://localhost:4200'
 
 	 async getProductsByLimit(limit:number,skip:number) {
 		return axios.get<ICard[]>(`${this.URL}/product/l/limit/${limit}/skip/${skip}`)
