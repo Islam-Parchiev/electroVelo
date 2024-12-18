@@ -9,23 +9,23 @@ import Button from '@components/Button/Button'
 import styles from './Card.module.scss'
 
 const Card: React.FC<ICard> = props => {
-	const { id, type, title, price, available, previewImage, otherClass, country,prevPrice } =
+	const { id, type, title, price, available, previewImage, otherClass, country, prevPrice } =
 		props;
-	const typee = type==='primary'?styles.primary:styles.secondary;
-	const slicedImageSrc = country.slice(0,-4);
-	const slicedPreviewImageSrc = previewImage.slice(0,-4);
+	const typee = type === 'primary' ? styles.primary : styles.secondary;
+	// const slicedImageSrc = country.slice(0, -4);
+	// const slicedPreviewImageSrc = previewImage.slice(0,-1);
 	return (
 		<li className={`${styles.Card} ${typee} ${otherClass}`}>
 			<div className={styles.Card__header}>
 				<div className={styles.Card__country}>
 					<picture>
-						<source 
+						<source
 							type="image/webp"
-							srcSet={`/images/Card/${slicedImageSrc}.webp`}
+							srcSet={`/images/Card/${country}.webp`}
 							media="(max-width:1920px)"
 						/>
-						<img src={`/images/Card/${slicedImageSrc}.png`} alt={slicedImageSrc} />
-			
+						<img src={`/images/Card/${country}.png`} alt={country} />
+
 					</picture>
 				</div>
 				<div className={styles.Card__status}>
@@ -34,21 +34,21 @@ const Card: React.FC<ICard> = props => {
 			</div>
 			<div className={styles.Card__body}>
 				<picture>
-					<source 
+					<source
 						type="image/webp"
-						srcSet={`/images/Product/${slicedPreviewImageSrc}.webp`}
+						srcSet={`/images/Product/${previewImage}.webp`}
 						media="(max-width:1920px)"
 					/>
-					<img src={`/images/Product/${slicedPreviewImageSrc}.png`} alt={slicedPreviewImageSrc} />
-			
+					<img src={`/images/Product/${previewImage}.png`} alt={previewImage} />
+
 				</picture>
-				
+
 			</div>
 			<div className={styles.Card__footer}>
 				<h4 className={styles.Card__title}>{title || 'Title'}</h4>
 				<div className={styles.Card__price}>
 					<span className={styles.Card__currentPrice}>{price || '100'} ₽</span>
-					<span className={styles.Card__prevPrice}>{prevPrice ? prevPrice+' ₽':''} </span>
+					<span className={styles.Card__prevPrice}>{prevPrice ? prevPrice + ' ₽' : ''} </span>
 				</div>
 
 				<Button otherClass={styles.Card__btn}>

@@ -1,7 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Main from '@pages/Main/Main';
-import Layout from '@pages/Layout/Layout';
 import Catalog from '@pages/Catalog/Catalog';
 import Product from '@pages/Product/Product';
 import Cart from '@pages/Cart/Cart';
@@ -23,95 +22,97 @@ import PersonalData from '@components/PersonalData/PersonalData';
 import ResetPassword from '@components/ResetPassword/ResetPassword';
 import Favorites from '@components/Favorites/Favorites';
 
+import { Layout } from '../Layout'
+
 export const router = createBrowserRouter([
 	{
-		path:'/',
-		element:<Layout/>,
-		errorElement:<div>Error</div>,
-		children:[
+		path: '/',
+		element: <Layout />,
+		errorElement: <div>Error</div>,
+		children: [
 			{
-				index:true,
-				element:<Main/>,
+				index: true,
+				element: <Main />,
 			},
 			{
-				path:'catalog',
-				element:<Catalog/>,
+				path: 'catalog',
+				element: <Catalog />,
 			},
 			{
-				path:'product/:id',
-				element:<Product/>,
+				path: 'product/:id',
+				element: <Product />,
 			},
 			{
-				path:'cart',
+				path: 'cart',
 				element:
-				<ProtectedRoute>
-					<Cart/>
-				</ProtectedRoute>,
+					<ProtectedRoute>
+						<Cart />
+					</ProtectedRoute>,
 			},
-			{	
-				path:'/',
+			{
+				path: '/',
 				element:
-				<ProtectedRoute>
-					<Profile/>
-				</ProtectedRoute>,
-				children:[
+					<ProtectedRoute>
+						<Profile />
+					</ProtectedRoute>,
+				children: [
 					{
-						path:'profile/history',
-						element:<OrdersHistory/>,
+						path: 'profile/history',
+						element: <OrdersHistory />,
 					},
 					{
-						path:'profile/data',
-						element:<PersonalData/>,
+						path: 'profile/data',
+						element: <PersonalData />,
 					},
 					{
-						path:'profile/password',
-						element:<ResetPassword/>,
+						path: 'profile/password',
+						element: <ResetPassword />,
 					},
 					{
-						path:'profile/favorites',
-						element:<Favorites/>,
+						path: 'profile/favorites',
+						element: <Favorites />,
 					},
 				],
 			},
 			{
-				path:'create-order',
-				element:<CreateOrder/>,
+				path: 'create-order',
+				element: <CreateOrder />,
 			},
 			{
-				path:'contacts',
-				element:<Contacts/>,
+				path: 'contacts',
+				element: <Contacts />,
 			},
 			{
-				path:'workshop',
-				element:<Workshop/>,
+				path: 'workshop',
+				element: <Workshop />,
 			},
 			{
-				path:'aboutUs',
-				element:<AboutUs/>,
+				path: 'aboutUs',
+				element: <AboutUs />,
 			},
 			{
-				path:'terms',
-				element:<Terms/>,
+				path: 'terms',
+				element: <Terms />,
 			},
 			{
-				path:'guarantees',
-				element:<Guarantees/>,
+				path: 'guarantees',
+				element: <Guarantees />,
 			},
 			{
-				path:'storage',
-				element:<Storage/>,
+				path: 'storage',
+				element: <Storage />,
 			},
 			{
-				path:'delivery',
-				element:<Delivery/>,
+				path: 'delivery',
+				element: <Delivery />,
 			},
 			{
-				path:'blog',
-				element:<Blog/>,
+				path: 'blog',
+				element: <Blog />,
 			},
 			{
-				path:'blog/:id',
-				element:<SingleBlog/>,
+				path: 'blog/:id',
+				element: <SingleBlog />,
 			},
 		],
 	},

@@ -1,19 +1,15 @@
-import { useEffect } from 'react'
-import { RouterProvider } from 'react-router-dom'
+import { FC, useEffect } from 'react'
+import { Outlet } from 'react-router-dom'
 
+import Footer from '@components/Footer/Footer'
 import { useAppDispatch } from '@redux/store'
 
-import { AuthService } from '@services/auth.service'
 
+import { AuthService } from '@services/auth.service'
 import { login, logout } from '@redux/slices/userSlice'
 
-import { getTokenFromLocalStorage } from './helpers/localStorage.helper'
-
-import { router } from './router/Router'
-
-
-
-function App() {
+import { getTokenFromLocalStorage } from './../../helpers/localStorage.helper'
+export const Layout: FC = () => {
 	const dispatch = useAppDispatch()
 
 	const checkAuth = async () => {
@@ -36,7 +32,10 @@ function App() {
 	useEffect(() => {
 		checkAuth()
 	}, [])
-	return <RouterProvider router={router} />
+	return (
+		<>
+			<Outlet />
+			<Footer />
+		</>
+	)
 }
-
-export default App
