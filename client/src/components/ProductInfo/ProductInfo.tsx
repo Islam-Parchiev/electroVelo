@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useAppDispatch, useAppSelector } from '@redux/store'
 import { useParams } from 'react-router-dom'
-import { useMutation, useQuery,useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 import { FavoritesData } from 'Favorites'
 import { changeCount } from '@redux/slices/productSlice'
@@ -11,29 +11,29 @@ import cartService from '@services/cart.service'
 import favoritesService from '@services/favorites.service'
 import productService from '@services/product.service'
 
-import Button from '@components/Button/Button'
 import ProductPrice from '@components/ProductPrice/ProductPrice'
 import ProductSocial from '@components/ProductSocial/ProductSocial'
 import ProductInfoDescr from '@components/ProductInfoDescr/ProductInfoDescr'
 import ProductSizes from '@components/ProductSizes/ProductSizes'
 import ProductColors from '@components/ProductColors/ProductColors'
-import Counter from '@components/Counter/Counter'
 
 import { IProduct } from 'Card'
+
+import { Button, Counter } from '../../shared/ui'
 
 import styles from './ProductInfo.module.scss'
 
 const ProductInfo: React.FC = () => {
 	const { id } = useParams()
 	//@ts-ignore
-	const { data, isSuccess, isLoading } = useQuery<any>({queryKey: ['product', id],queryFn: () => productService.getProductById(+id)})
+	const { data, isSuccess, isLoading } = useQuery<any>({ queryKey: ['product', id], queryFn: () => productService.getProductById(+id) })
 	const favoritesResponse = useQuery<FavoritesData>({
 		queryKey: ['favoritesItems'],
 		queryFn: () => favoritesService.findAllFavorites(),
 	})
 	const queryClient = useQueryClient();
 	// @ts-ignore
-	const inFavorites = favoritesResponse.data?.items.find((item)=>item.product.id===+id) ?true :false;
+	const inFavorites = favoritesResponse.data?.items.find((item) => item.product.id === +id) ? true : false;
 	const product: IProduct = isSuccess && data.data
 	const dispatch = useAppDispatch()
 	const productCount = useAppSelector(state => state.product.count)
@@ -51,7 +51,7 @@ const ProductInfo: React.FC = () => {
 		const data = cartService.addToCart(+product.id, 1)
 		data.then(data => console.log(data))
 	}
-	const {mutate} = useMutation({
+	const { mutate } = useMutation({
 		mutationFn: () => {
 			return favoritesService.addToFavorites(+product.id)
 		},
@@ -84,7 +84,7 @@ const ProductInfo: React.FC = () => {
 					В корзину
 				</Button>
 				<Button
-					otherClass={`${styles.ProductInfo__addToFavorites} ${inFavorites?styles.active:''}`}
+					otherClass={`${styles.ProductInfo__addToFavorites} ${inFavorites ? styles.active : ''}`}
 					handleClick={mutate}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

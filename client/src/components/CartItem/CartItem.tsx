@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Counter from '@components/Counter/Counter'
+import { Counter } from '../../shared/ui'
 
 import styles from './CartItem.module.scss'
 import { useCartItem } from './useCartItem'
@@ -19,20 +19,20 @@ const CartItem: React.FC<CartItemProps> = props => {
 		count,
 		id,
 	)
-	const slicedImageUrl = imageUrl.slice(0,-4);
+	const slicedImageUrl = imageUrl.slice(0, -4);
 	console.log(slicedImageUrl);
 	return (
 		<li className={styles.CartItem}>
 			<div className={styles.CartItem__left}>
 				<div className={styles.CartItem__image}>
 					<picture>
-						<source 
+						<source
 							type="image/webp"
 							srcSet={`/images/Product/${slicedImageUrl}.webp`}
 							media="(max-width:1920px)"
 						/>
 						<img src={`/images/Product/${slicedImageUrl}.png`} alt={slicedImageUrl} />
-			
+
 					</picture>
 				</div>
 				<h4 className={styles.CartItem__title}>{title}</h4>

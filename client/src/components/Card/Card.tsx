@@ -4,7 +4,7 @@ import { ICard } from 'Card'
 
 import { Link } from 'react-router-dom'
 
-import Button from '@components/Button/Button'
+import { Button } from '../../shared/ui'
 
 import styles from './Card.module.scss'
 

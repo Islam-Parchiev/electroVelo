@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {AxiosResponse} from 'axios'
+import { AxiosResponse } from 'axios'
 
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
@@ -9,22 +9,23 @@ import productService from '@services/product.service'
 
 import ProductSlider from '@components/ProductSlider/ProductSlider'
 import ProductInfo from '@components/ProductInfo/ProductInfo'
-import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
 
 import { ResponseProduct } from 'Card'
+
+import { Breadcrumbs } from '../../shared/ui'
 
 import styles from './ProductMain.module.scss'
 
 const ProductMain: React.FC = () => {
 	const { id } = useParams()
 	// @ts-ignore
-	const { data, isLoading, isSuccess } = useQuery<AxiosResponse<ResponseProduct>>({queryKey: ['product', id],queryFn: () => productService.getProductById(+id)});
-	const productTitle = isLoading	? 'loading': isSuccess ? data.data.title: 'Error'
-	
+	const { data, isLoading, isSuccess } = useQuery<AxiosResponse<ResponseProduct>>({ queryKey: ['product', id], queryFn: () => productService.getProductById(+id) });
+	const productTitle = isLoading ? 'loading' : isSuccess ? data.data.title : 'Error'
+
 	return (
 		<section className={styles.ProductMain}>
 			<div className="container">
-				<Breadcrumbs color="b" paths={['Главная','Велосипеды','Горные велосипеды',productTitle]}/>
+				<Breadcrumbs color="b" paths={['Главная', 'Велосипеды', 'Горные велосипеды', productTitle]} />
 				<div className={styles.ProductMain__wrapper}>
 					<ProductSlider />
 					<ProductInfo />

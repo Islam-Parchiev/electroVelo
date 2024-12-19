@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
-import Title from '@components/Title/Title'
+import { Title, Breadcrumbs } from '../../shared/ui'
 
 import styles from './WorkshopTop.module.scss'
 
@@ -11,7 +10,7 @@ const WorkshopTop: React.FC = () => {
 			<div className={styles.WorkshopTop__preview}>
 				<div className="container">
 					<div className={styles.WorkshopTop__preview_inner}>
-						<Breadcrumbs paths={['Главная','Веломастерская']} color="l"/>
+						<Breadcrumbs paths={['Главная', 'Веломастерская']} color="l" />
 						<Title type="light">Веломастерская</Title>
 					</div>
 				</div>

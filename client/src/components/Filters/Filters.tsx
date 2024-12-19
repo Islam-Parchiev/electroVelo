@@ -1,16 +1,14 @@
 import React from 'react'
 
-import SwitchCheckbox from '@components/SwitchCheckbox/SwitchCheckbox'
-import Accordion from '@components/Accordion/Accordion'
-import Checkbox from '@components/Checkbox/Checkbox'
-import RangeSlider from '@components/RangeSlider/RangeSlider'
 import FiltersColor from '@components/FiltersColor/FiltersColor'
+
+import { SwitchCheckbox, Accordion, Checkbox, RangeSlider } from '../../shared/ui'
 
 import styles from './Filters.module.scss'
 import { useFilters } from './useFilters'
 
 
-const Filters: React.FC<{anotherClass?:string}> = ({anotherClass}) => {
+const Filters: React.FC<{ anotherClass?: string }> = ({ anotherClass }) => {
 	const {
 		availableValue,
 		handleAvailable,
@@ -187,7 +185,7 @@ const Filters: React.FC<{anotherClass?:string}> = ({anotherClass}) => {
 			</Accordion>
 			<Accordion accordionTitle="Цвет">
 				<ul className={`list-reset ${styles.Filters__colors}`}>
-					{colors.map((color: string,i:number) => (
+					{colors.map((color: string, i: number) => (
 						<FiltersColor
 							color={color}
 							selectedColors={selectedColors}

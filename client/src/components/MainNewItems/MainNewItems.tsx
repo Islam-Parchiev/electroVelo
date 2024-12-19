@@ -5,7 +5,8 @@ import { ICard } from 'Card'
 import productService from '@services/product.service'
 
 import Card from '@components/Card/Card'
-import Skeleton from '@components/Skeleton/Skeleton'
+
+import { Skeleton } from '../../shared/ui'
 
 import styles from './MainNewItems.module.scss'
 const MainNewItems: FC = () => {
@@ -21,7 +22,7 @@ const MainNewItems: FC = () => {
 				<ul className={`list-reset ${styles.MainNewItems__cards}`}>
 					{/* <Skeleton /> */}
 					{isLoading
-						? fakeArr.map((_,i) => <Skeleton key={i} type="primary"/>)
+						? fakeArr.map((_, i) => <Skeleton key={i} type="primary" />)
 						: isSuccess
 							? data?.data.map((item: ICard) => (
 								<Card
@@ -35,10 +36,10 @@ const MainNewItems: FC = () => {
 									id={item.id}
 									key={item.id}
 								/>
-						  ))
+							))
 							: 'Error'}
 
-			
+
 				</ul>
 			</div>
 		</section>

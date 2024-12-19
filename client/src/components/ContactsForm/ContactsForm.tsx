@@ -1,7 +1,6 @@
 import React from 'react'
 
-import FormInput from '@components/FormInput/FormInput'
-import Button from '@components/Button/Button'
+import { FormInput, Button } from '../../shared/ui'
 
 import styles from './ContactsForm.module.scss'
 

@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Checkbox from '@components/Checkbox/Checkbox'
-import Button from '@components/Button/Button'
+import { Button, Checkbox } from '../../shared/ui'
 
 import styles from './Subscribe.module.scss'
 
@@ -34,7 +33,7 @@ const Subscribe: React.FC = () => {
 						/>
 					</div>
 
-					<Button otherClass={styles.Subscribe__submit}handleClick={() => console.log('click')}>
+					<Button otherClass={styles.Subscribe__submit} handleClick={() => console.log('click')}>
 						Подписаться
 					</Button>
 				</form>

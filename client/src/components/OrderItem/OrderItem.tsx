@@ -19,7 +19,7 @@ const OrderItem: React.FC<OrderItemProps> = props => {
 	return (
 		<li className={styles.OrderItem}>
 			<div className={styles.OrderItem__image}>
-			{/* pre1.1.png */}
+				{/* pre1.1.png */}
 				<img src={`/images/Product/${imageUrl}`} alt="" />
 			</div>
 			<h3 className={styles.OrderItem__title}>

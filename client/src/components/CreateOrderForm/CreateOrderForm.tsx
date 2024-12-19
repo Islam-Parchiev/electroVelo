@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FormInput from '@components/FormInput/FormInput'
+import { FormInput } from '../../shared/ui'
 
 import styles from './CreateOrderForm.module.scss'
 

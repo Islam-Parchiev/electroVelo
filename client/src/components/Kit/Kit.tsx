@@ -7,7 +7,8 @@ import productService from '@services/product.service'
 
 import Card from '@components/Card/Card'
 import SliderControls from '@components/SliderControls/SliderControls'
-import Skeleton from '@components/Skeleton/Skeleton'
+
+import { Skeleton } from '../../shared/ui'
 
 import styles from './Kit.module.scss'
 
@@ -28,21 +29,21 @@ const Kit: React.FC = () => {
 					spaceBetween={0}
 					scrollbar={{ draggable: true }}
 					breakpoints={{
-						641:{
-							slidesPerView:2,
+						641: {
+							slidesPerView: 2,
 						},
-						1001:{
-							slidesPerView:3,
+						1001: {
+							slidesPerView: 3,
 						},
 					}}>
 					{isLoading
-						? fakeArr.map((_,i) => (
+						? fakeArr.map((_, i) => (
 							<SwiperSlide className={styles.Slide} key={i}>
 								<div className={styles.Kit__slide}>
 									<Skeleton type="primary" />
 								</div>
 							</SwiperSlide>
-						  ))
+						))
 						: isSuccess
 							? data?.data.data?.map(item => (
 								<SwiperSlide className={styles.Slide} key={item.id}>
@@ -60,7 +61,7 @@ const Kit: React.FC = () => {
 										/>
 									</div>
 								</SwiperSlide>
-						  ))
+							))
 							: 'Error'}
 					<SliderControls type="prev" className={styles.Kit__prev}>
 						<svg

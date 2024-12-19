@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
-import Title from '@components/Title/Title'
+import { Breadcrumbs, Title } from '../../shared/ui'
 
 import styles from './TermsContent.module.scss'
 
@@ -9,7 +8,7 @@ const TermsContent: React.FC = () => {
 	return (
 		<section className={styles.TermsContent}>
 			<div className="container">
-				<Breadcrumbs paths={['Главная','Пользовательское соглашение']} color="b"/>
+				<Breadcrumbs paths={['Главная', 'Пользовательское соглашение']} color="b" />
 				<div className={styles.TermsContent__inner}>
 					<Title type="black">Пользовательское соглашение</Title>
 					<div className={styles.TermsContent__info}>
@@ -149,13 +148,13 @@ const TermsContent: React.FC = () => {
 									</span>
 									<ul>
 										<li>
-									
+
 											фамилия, имя, отчество Покупателя
 											или указанного им лица
 											(получателя);
 										</li>
 										<li>
-							
+
 											адрес, по которому следует
 											доставить Товар (если доставка до
 											адреса Покупателя);

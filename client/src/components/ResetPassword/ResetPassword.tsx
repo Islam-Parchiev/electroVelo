@@ -3,8 +3,8 @@ import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import ProfileTitle from '@components/ProfileTitle/ProfileTitle'
-import FormInput from '@components/FormInput/FormInput'
-import Button from '@components/Button/Button'
+
+import { Button, FormInput } from '../../shared/ui'
 
 import styles from './ResetPassword.module.scss'
 

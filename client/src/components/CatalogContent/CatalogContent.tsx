@@ -4,40 +4,41 @@ import Filters from '@components/Filters/Filters'
 import CatalogSort from '@components/CatalogSort/CatalogSort'
 import CatalogView from '@components/CatalogView/CatalogView'
 import Card from '@components/Card/Card'
-import Pagination from '@components/Pagination/Pagination'
-import Skeleton from '@components/Skeleton/Skeleton'
+
 import HeaderMenu from '@components/HeaderMenu/HeaderMenu'
 import MobileFilters from '@components/MobileFilters/MobileFilters'
+
+import { Pagination, Skeleton } from '../../shared/ui'
 
 import { useCatalog } from './useCatalog'
 
 import styles from './CatalogContent.module.scss'
 
 const CatalogContent: React.FC = () => {
-	const [open,setOpen]=useState(false);
+	const [open, setOpen] = useState(false);
 	const fakeArr = [...Array(6)]
 	const { products, totalPages, page, setPage, isLoading, isSuccess } = useCatalog()
 	return (
 		<section className={styles.CatalogContent}>
 			<div className="container">
 				<div className={styles.CatalogContent__wrapper}>
-					<Filters anotherClass={styles.Desktop__filters}/>
-					{open&&<HeaderMenu handleOpen={setOpen}>
-						<MobileFilters 
+					<Filters anotherClass={styles.Desktop__filters} />
+					{open && <HeaderMenu handleOpen={setOpen}>
+						<MobileFilters
 							handleOpen={setOpen}
-						 	productsCount={isSuccess?products.length:0}
-						  loading={isLoading}
-							success={isSuccess}/>
+							productsCount={isSuccess ? products.length : 0}
+							loading={isLoading}
+							success={isSuccess} />
 					</HeaderMenu>}
 					<div className={styles.CatalogContent__right}>
 						<div className={styles.CatalogContent__top}>
 							<CatalogSort />
 							<div className={styles.CatalogView__wrapper}>
 								<CatalogView />
-								<button className={styles.Filters__open} onClick={()=>setOpen(true)}>
+								<button className={styles.Filters__open} onClick={() => setOpen(true)}>
 									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-										<path d="M5.33301 5.33337L11.9997 16V24L19.9997 28V16L26.6663 5.33337H5.33301Z" stroke="#777777" 
-											strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+										<path d="M5.33301 5.33337L11.9997 16V24L19.9997 28V16L26.6663 5.33337H5.33301Z" stroke="#777777"
+											strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 									</svg>
 								</button>
 							</div>
@@ -46,7 +47,7 @@ const CatalogContent: React.FC = () => {
 							<ul
 								className={`list-reset ${styles.CatalogGoods__list}`}>
 								{isLoading
-									? fakeArr.map((_,i)=><Skeleton key={i} type="seconadry"/>)
+									? fakeArr.map((_, i) => <Skeleton key={i} type="seconadry" />)
 									: isSuccess
 										? products.map(item => (
 											<Card
@@ -65,7 +66,7 @@ const CatalogContent: React.FC = () => {
 												country={item.country}
 												key={item.id}
 											/>
-									  ))
+										))
 										: 'Error'}
 							</ul>
 						</div>

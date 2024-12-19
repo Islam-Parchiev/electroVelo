@@ -1,9 +1,10 @@
 import React from 'react'
 
-import Modal from '@components/Modal/Modal'
 import ForClients from '@components/ForClients/ForClients'
 import FooterCatalog from '@components/FooterCatalog/FooterCatalog'
 import FooterContacts from '@components/FooterContacts/FooterContacts'
+
+import { Modal } from '../../shared/ui'
 
 import styles from './Footer.module.scss'
 
@@ -136,9 +137,9 @@ const Footer: React.FC = () => {
 							товаров для велосипедного спорта.
 						</span>
 					</div>
-					<FooterCatalog/>
-					<ForClients/>
-					<FooterContacts/>
+					<FooterCatalog />
+					<ForClients />
+					<FooterContacts />
 					{/* <div
 						className={`${styles.Footer__info} ${styles.Footer__info_contacts}`}>
 						<h4 className={styles.Footer__info_title}>Контакты</h4>

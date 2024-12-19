@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
-import Title from '@components/Title/Title'
+import { Breadcrumbs, Title } from '../../shared/ui'
 
 import styles from './CartTop.module.scss'
 
@@ -10,7 +9,7 @@ const CartTop: React.FC = () => {
 		<section className={styles.CartTop}>
 			<div className="container">
 				<div className={styles.CartTop__wrapper}>
-					<Breadcrumbs paths={['Главная','Корзина']} color="b"/>
+					<Breadcrumbs paths={['Главная', 'Корзина']} color="b" />
 					<Title type="black">Корзина</Title>
 				</div>
 			</div>

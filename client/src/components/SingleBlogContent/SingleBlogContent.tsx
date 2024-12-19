@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+import { Breadcrumbs } from '../../shared/ui'
 
 import styles from './SingleBlogContent.module.scss'
 
@@ -8,8 +8,8 @@ const SingleBlogContent: React.FC = () => {
 	return (
 		<section className={styles.SingleBlogContent}>
 			<div className="container">
-				<Breadcrumbs 
-					paths={['Главная','Блог','Pinarello Dogma F развивает карбоновый шоссейный велосипед следующего поколения, сохраняя возможность выбора ободного тормоза!']}
+				<Breadcrumbs
+					paths={['Главная', 'Блог', 'Pinarello Dogma F развивает карбоновый шоссейный велосипед следующего поколения, сохраняя возможность выбора ободного тормоза!']}
 					color="b"
 				/>
 				<h1 className={styles.SingleBlogContent__title}>
@@ -26,14 +26,14 @@ const SingleBlogContent: React.FC = () => {
 						<div className={styles.Paragraph__content}>
 							<div className={styles.Paragraph__image}>
 								<picture>
-									<source 
+									<source
 										type="image/webp"
 										srcSet="/images/Blog/1.webp"
 										media="(max-width:1920px)"
 									/>
-				
+
 									<img src="/images/Blog/1.png" alt="" />
-				
+
 								</picture>
 							</div>
 							<div className={styles.Paragraph__text}>
@@ -69,14 +69,14 @@ const SingleBlogContent: React.FC = () => {
 						<div className={styles.Paragraph__content}>
 							<div className={styles.Paragraph__image}>
 								<picture>
-									<source 
+									<source
 										type="image/webp"
 										srcSet="/images/Blog/1.webp"
 										media="(max-width:1920px)"
 									/>
-				
+
 									<img src="/images/Blog/1.png" alt="" />
-				
+
 								</picture>
 							</div>
 							<div className={styles.Paragraph__text}>
@@ -112,14 +112,14 @@ const SingleBlogContent: React.FC = () => {
 						<div className={styles.Paragraph__content}>
 							<div className={styles.Paragraph__image}>
 								<picture>
-									<source 
+									<source
 										type="image/webp"
 										srcSet="/images/Blog/1.webp"
 										media="(max-width:1920px)"
 									/>
-				
+
 									<img src="/images/Blog/1.png" alt="" />
-				
+
 								</picture>
 							</div>
 							<div className={styles.Paragraph__text}>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CheckboxRadio from '@components/CheckboxRadio/CheckboxRadio'
+import { CheckboxRadio } from '../../shared/ui'
 
 import styles from './OrderDelivery.module.scss'
 

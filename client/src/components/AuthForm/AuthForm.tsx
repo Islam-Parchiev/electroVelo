@@ -2,17 +2,16 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-import Checkbox from '@components/Checkbox/Checkbox'
-import Button from '@components/Button/Button'
-import FormInput from '@components/FormInput/FormInput'
-
 import { ActiveForm } from '@components/Header/Header'
+
+import {Checkbox,Button,FormInput} from '../../shared/ui'
+
 
 import styles from './AuthForm.module.scss'
 import { useAuthForm } from './useAuthForm'
 
 interface AuthFormProps {
-	handleActiveForm: (value:ActiveForm)=>void;
+	handleActiveForm: (value: ActiveForm) => void;
 }
 
 const AuthForm: React.FC<AuthFormProps> = props => {
@@ -41,18 +40,18 @@ const AuthForm: React.FC<AuthFormProps> = props => {
 			</div>
 
 			<form className={styles.AuthForm__form} onSubmit={handleSubmit(onSubmit)}>
-				<FormInput 
+				<FormInput
 					inputType="primary"
-					labelTitle="Email" 
-					validationSchema={valEmail} 
+					labelTitle="Email"
+					validationSchema={valEmail}
 					error={errors?.email?.message}
 					type="email"
 				/>
 
-				<FormInput 
+				<FormInput
 					inputType="primary"
-					labelTitle="Пароль" 
-					validationSchema={valPassword} 
+					labelTitle="Пароль"
+					validationSchema={valPassword}
 					error={errors?.password?.message}
 					type="password"
 				/>

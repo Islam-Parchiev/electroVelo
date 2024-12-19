@@ -3,8 +3,9 @@ import { FC } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, A11y } from 'swiper/modules'
 
-import Button from '@components/Button/Button'
 import InfoItem from '@components/InfoItem/InfoItem'
+
+import { Button } from '../../shared/ui'
 
 import 'swiper/css'
 import 'swiper/css/pagination'

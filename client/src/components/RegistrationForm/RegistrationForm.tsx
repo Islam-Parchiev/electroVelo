@@ -4,9 +4,10 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 
 import { AuthService } from '@services/auth.service'
 
-import Button from '@components/Button/Button'
 import { ActiveForm } from '@components/Header/Header'
-import FormInput from '@components/FormInput/FormInput'
+
+import { Button, FormInput } from '../../shared/ui'
+
 
 import styles from './RegistrationForm.module.scss'
 

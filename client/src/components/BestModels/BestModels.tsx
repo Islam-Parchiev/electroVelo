@@ -5,12 +5,13 @@ import productService from '@services/product.service'
 import { ICard } from 'Card'
 
 import Card from '@components/Card/Card'
-import Skeleton from '@components/Skeleton/Skeleton'
+
+import { Skeleton } from '../../shared/ui'
 
 import styles from './BestModels.module.scss'
 const BestModels: FC = () => {
 	const fakeArr = [...Array(3)]
-	const { data,isLoading,isSuccess } = useQuery({
+	const { data, isLoading, isSuccess } = useQuery({
 		queryKey: ['bestProducts'],
 		queryFn: () => productService.getProductsByLimit(3, 3),
 	})
@@ -19,13 +20,13 @@ const BestModels: FC = () => {
 			<div className="container">
 				<div className={styles.BestModels__inner}>
 
-				
+
 					<h2 className={`title ${styles.BestModels__title}`}>
-					Лучшие модели для зимней езды
+						Лучшие модели для зимней езды
 					</h2>
 					<ul className={`list-reset ${styles.BestModels__items}`}>
 						{isLoading
-							? fakeArr.map((_,i) => <Skeleton key={i} type="primary"/>)
+							? fakeArr.map((_, i) => <Skeleton key={i} type="primary" />)
 							: isSuccess
 								? data?.data.map((item: ICard) => (
 									<Card
@@ -39,7 +40,7 @@ const BestModels: FC = () => {
 										id={item.id}
 										key={item.id}
 									/>
-						  ))
+								))
 								: 'Error'}
 					</ul>
 				</div>

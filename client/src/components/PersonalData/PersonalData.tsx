@@ -5,8 +5,8 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { AuthService } from '@services/auth.service'
 
 import ProfileTitle from '@components/ProfileTitle/ProfileTitle'
-import FormInput from '@components/FormInput/FormInput'
-import Button from '@components/Button/Button'
+
+import { Button, FormInput } from '../../shared/ui'
 
 import styles from './PersonalData.module.scss'
 

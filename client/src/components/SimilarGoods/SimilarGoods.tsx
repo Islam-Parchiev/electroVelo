@@ -10,7 +10,8 @@ import { ICard } from 'Card'
 
 import SliderControls from '@components/SliderControls/SliderControls'
 import Card from '@components/Card/Card'
-import Skeleton from '@components/Skeleton/Skeleton'
+
+import { Skeleton } from '../../shared/ui'
 
 import styles from './SimilarGoods.module.scss'
 interface SimilarGoodsProps {
@@ -32,7 +33,7 @@ const SimilarGoods: React.FC<SimilarGoodsProps> = props => {
 					<h2 className={styles.SimilarGoods__title}>Похожие товары</h2>
 
 					{isLoading ? (
-						fakeArr.map((_,i)=> <Skeleton type="seconadry" key={i}/>)
+						fakeArr.map((_, i) => <Skeleton type="seconadry" key={i} />)
 					) : isSuccess ? (
 						<Swiper
 							className={styles.SimilarGoods__slider}
@@ -41,14 +42,14 @@ const SimilarGoods: React.FC<SimilarGoodsProps> = props => {
 							spaceBetween={0}
 							scrollbar={{ draggable: true }}
 							breakpoints={{
-								577:{
-									slidesPerView:1,
+								577: {
+									slidesPerView: 1,
 								},
-								707:{
-									slidesPerView:2,
+								707: {
+									slidesPerView: 2,
 								},
-								1027:{
-									slidesPerView:3,
+								1027: {
+									slidesPerView: 3,
 								},
 							}}>
 							{data?.data.map((product: ICard) => (

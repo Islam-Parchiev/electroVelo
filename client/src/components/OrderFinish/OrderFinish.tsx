@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-import Button from '@components/Button/Button'
-import Modal from '@components/Modal/Modal'
+import { Button, Modal } from '../../shared/ui'
 
 import styles from './OrderFinish.module.scss'
 
@@ -62,7 +61,7 @@ const OrderFinish: React.FC = () => {
 					<p>
 						Ваши личные данные будут использоваться для обработки ваших
 						заказов, упрощения вашей работы с сайтом и для других целей,
-						описанных в 
+						описанных в
 						<a href="/">нашей политике конфиденциальности</a>
 					</p>
 				</div>

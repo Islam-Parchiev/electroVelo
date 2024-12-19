@@ -1,7 +1,8 @@
 import React from 'react'
 
-import Button from '@components/Button/Button'
 import MountainBikesItem from '@components/MountainBikesItem/MountainBikesItem'
+
+import { Button } from '../../shared/ui'
 
 import styles from './MountainBikes.module.scss'
 
@@ -37,8 +38,8 @@ const MountainBikes: React.FC = () => {
 						<div className={styles.MountainBikes__right}>
 							<div className={styles.MountainBikes__img}>
 								<picture>
-									<source type="image/webp" srcSet="/images/Main/mountainImage.webp"/>
-									<img src="/images/Main/mountainImage.png" alt=""/>
+									<source type="image/webp" srcSet="/images/Main/mountainImage.webp" />
+									<img src="/images/Main/mountainImage.png" alt="" />
 								</picture>
 							</div>
 							<div className={styles.MountainBikes__descr}>
