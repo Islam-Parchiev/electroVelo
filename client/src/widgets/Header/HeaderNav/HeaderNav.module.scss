@@ -1,0 +1,59 @@
+@import "@scss/mixins/mini";
+@import "@scss/mixins/breakpoint";
+
+.HeaderNav {
+	&_list {
+		@include flex-v-center;
+		gap: 25px;
+	}
+
+	&_link {
+		text-decoration: none;
+		color: var(--light-color);
+
+		&:hover {
+			color: var(--orange, #F57520);
+		}
+	}
+
+	&_item {
+		position: relative;
+	}
+
+	&__modalOne {
+		z-index: 10;
+		display: flex;
+		align-items: start;
+		justify-content: space-between;
+		width: 650px;
+
+		&_list {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+
+			li {
+				display: flex;
+				align-items: center;
+				justify-content: start;
+				font-family: Inter;
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 160%;
+				text-align: start;
+				color: var(--3-grey, #E5E5E5);
+
+				a {
+					color: var(--3-grey, #E5E5E5);
+
+					&:hover {
+						color: var(--orange, #F57520);
+					}
+				}
+			}
+		}
+	}
+
+	@include pre-tablet {
+		display: none;
+	}
+}

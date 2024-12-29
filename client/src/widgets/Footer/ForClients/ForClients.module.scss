@@ -1,0 +1,57 @@
+@import "@scss/mixins/breakpoint";
+
+.ForClients {
+
+	&_title {
+		font-family: Inter;
+		font-weight: 500;
+		font-size: 24px;
+		line-height: 160%;
+		letter-spacing: 0.24px;
+		color: var(--light-color, #FFF);
+	}
+
+	&_contacts {
+		.Footer__list_item {
+			display: flex;
+			align-items: center;
+			margin-top: 10px;
+			gap: 10px;
+		}
+
+		div a {
+			display: block;
+		}
+
+		address {
+			color: var(--light-color);
+		}
+
+		@include mobile {
+			h4 {
+				display: none;
+			}
+		}
+	}
+
+	&__list {
+		&_item {
+			a {
+				/* desk mob 16 light */
+				font-family: Inter;
+				font-weight: 300;
+				font-style: normal;
+				font-size: 16px;
+				line-height: 160%;
+				/* 25.6px */
+				color: var(--light-color, #FFF);
+			}
+		}
+
+	}
+
+	@include middle-tablet {
+		display: none;
+	}
+
+}

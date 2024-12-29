@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { useAppDispatch, useAppSelector } from '@redux/store'
-import { changePrice } from '@redux/slices/filtersSlice'
+
+import { changePrice } from '../../../entities/Filters/model/filtersSlice'
 
 interface IReturnDataUseRangeSlider {
 	handleMaxChange: (value: React.ChangeEvent<HTMLInputElement>) => void

@@ -1,26 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import Main from '@pages/Main/Main';
-import Catalog from '@pages/Catalog/Catalog';
-import Product from '@pages/Product/Product';
-import Cart from '@pages/Cart/Cart';
-import CreateOrder from '@pages/CreateOrder/CreateOrder';
-import Profile from '@pages/Profile/Profile';
-import Contacts from '@pages/Contacts/Contacts';
-import Workshop from '@pages/Workshop/Workshop';
-import AboutUs from '@pages/AboutUs/AboutUs';
-import Terms from '@pages/Terms/Terms';
-import Guarantees from '@pages/Guarantees/Guarantees';
-import Storage from '@pages/Storage/Storage';
-import Delivery from '@pages/Delivery/Delivery';
-import Blog from '@pages/Blog/Blog';
-import SingleBlog from '@pages/SingleBlog/SingleBlog';
+import { Main, Catalog, Product, Cart, CreateOrder, Profile, Contacts, Workshop, AboutUs, Terms, Guarantees, Storage, Delivery, Blog, SingleBlog } from '../../pages';
 
-import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
-import OrdersHistory from '@components/OrdersHistory/OrdersHistory';
-import PersonalData from '@components/PersonalData/PersonalData';
-import ResetPassword from '@components/ResetPassword/ResetPassword';
-import Favorites from '@components/Favorites/Favorites';
+
+import ProtectedRoute from './../components/ProtectedRoute/ProtectedRoute';
+import OrdersHistory from '@pages/Profile/ui/OrdersHistory/OrdersHistory';
+import PersonalData from '@pages/Profile/ui/PersonalData/PersonalData';
+import ResetPassword from '@pages/Profile/ui/ResetPassword/ResetPassword';
+import Favorites from '@pages/Profile/ui/Favorites/Favorites';
 
 import { Layout } from '../Layout'
 

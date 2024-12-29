@@ -1,14 +1,14 @@
-import {configureStore} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
-import {useDispatch,useSelector,TypedUseSelectorHook} from 'react-redux';
+import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
 
-import filters from './slices/filtersSlice';
-import sort from './slices/sortSlice';
-import user from './slices/userSlice'
-import product from './slices/productSlice';
+import filters from '../entities/Filters/model/filtersSlice';
+import sort from '../entities/Sort/model/sortSlice';
+import user from '../entities/User/model/userSlice'
+import product from '../entities/Product/model/productSlice';
 
 export const store = configureStore({
-	reducer:{
+	reducer: {
 		filters,
 		sort,
 		user,
@@ -21,4 +21,4 @@ export type RootState = ReturnType<typeof store.getState>;
 type AppDispatch = typeof store.dispatch;
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
-export const useAppSelector:TypedUseSelectorHook<RootState> = useSelector;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

@@ -1,0 +1,31 @@
+@import "@scss/mixins/mini";
+
+.AboutUsPreview {
+
+	@include image-set("../../../../../public/images/AboutUs/preview");
+	@include bg-cover;
+	height: 280px;
+
+	&__inner {
+		padding-top: 30px;
+	}
+
+	&__descr {
+		height: 340px;
+		background-color: var(--dark-grey, #2E2E2E);
+
+		&_inner {
+			@include flex-all-sb;
+		}
+
+		p {
+			font-family: Inter;
+			font-weight: 300;
+
+			font-size: 16px;
+			line-height: 160%;
+			/* 25.6px */
+			color: var(--white, #FFF);
+		}
+	}
+}

@@ -1,0 +1,42 @@
+@import "@scss/mixins/mini";
+@import "@scss/mixins/breakpoint";
+
+.GuaranteesInfo {
+	&__inner {
+		@include flex-all-sb;
+		gap: 30px;
+
+		@include pre-tablet {
+			flex-direction: column;
+		}
+	}
+
+	&__column {
+		width: 50%;
+
+		@include pre-tablet {
+			width: 100%;
+		}
+	}
+
+	&__list {
+		@include flex-column-center;
+		overflow: hidden;
+		border: 1px solid #f8f7f7;
+		border-radius: 15px;
+	}
+
+	&__title {
+
+		/* desk h3 */
+		font-family: Bebas Neue Cyrillic;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 40px;
+		line-height: 123%;
+		/* 49.2px */
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: var(--bl, #101010);
+	}
+}

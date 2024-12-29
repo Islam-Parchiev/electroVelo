@@ -1,4 +1,4 @@
-@import "../../../scss/mixins/_mini";
+@import "@scss/mixins/mini";
 
 .FormInput {
 	@include flex-column-start;

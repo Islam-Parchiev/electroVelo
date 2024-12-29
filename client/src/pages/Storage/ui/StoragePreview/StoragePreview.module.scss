@@ -1,0 +1,12 @@
+@import "@scss/mixins/mini";
+
+.StoragePreview {
+	@include image-set("../../../../../public/images/Storage/storagePreview");
+	@include bg-cover;
+	height: 280px;
+
+	&__inner {
+		padding-top: 30px;
+	}
+
+}

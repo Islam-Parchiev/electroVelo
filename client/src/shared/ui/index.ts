@@ -12,3 +12,4 @@ export {Skeleton} from './Skeleton/Skeleton';
 export {SwitchCheckbox} from './SwitchCheckbox/SwitchCheckbox';
 export {TickerItem} from './TickerItem/TickerItem';
 export {Title} from './Title/Title';
+export {Card} from './Card/Card';
