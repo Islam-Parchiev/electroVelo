@@ -27,3 +27,5 @@ yarn-error.log*
 
 server/dist/tsconfig.build.tsbuildinfo
 server/dist
+yarn.lock
+.gitignore

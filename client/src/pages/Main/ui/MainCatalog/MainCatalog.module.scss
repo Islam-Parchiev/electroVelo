@@ -1,0 +1,316 @@
+@import "@scss/mixins/mini";
+@import "@scss/mixins/breakpoint";
+
+.MainCatalog {
+	padding-bottom: 200px;
+
+	&__title {
+		font-family: Bebas Neue;
+		font-weight: 700;
+		font-style: normal;
+		font-size: 64px;
+		line-height: 123%;
+		letter-spacing: 3.2px;
+		color: var(--bl, #101010);
+	}
+
+	&__container {
+		@include flex-column-start;
+	}
+
+	@include mobile {
+		padding-bottom: 50px;
+	}
+}
+
+.Grid {
+	display: grid;
+	grid-auto-rows: minmax(50px, auto);
+	grid-column-gap: 16px;
+	grid-row-gap: 16px;
+	grid-template-areas:
+		"one one one"
+		"two three four"
+		"two three four"
+		"two three four"
+		"two five four"
+		"two five six"
+		"two five six";
+	grid-template-columns: repeat(3, 1fr);
+	height: 770px;
+	max-width: 100%;
+
+	&__item {
+		overflow: hidden;
+		border-radius: 10px;
+		color: #fff;
+		background-color: #000;
+		transition: all 0.3s ease-in-out;
+
+		&_img {
+			height: 100%;
+
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+
+			@include mobile {
+				display: none;
+			}
+		}
+
+		&_title {
+			/* desk h2 */
+			font-family: Bebas Neue Cyrillic;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 64px;
+			line-height: 123%;
+			/* 78.72px */
+			letter-spacing: 3.2px;
+			color: var(--light-color, #FFF);
+
+			@include tablet {
+				font-size: 51px;
+			}
+
+			@include mobile {
+				font-weight: 700;
+				font-size: 24px;
+				letter-spacing: 1.2px;
+			}
+		}
+
+		&:nth-child(1) {
+			@include flex-v-center;
+			grid-area: one;
+			padding: 0 30px 0 50px;
+
+
+			.Grid__item_img {
+				width: 70%;
+			}
+
+			.Grid__item_title {
+				width: 30%;
+			}
+
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+				background-repeat: no-repeat;
+				background-position: bottom;
+				background-size: contain;
+				background-image: url("../../../../../public/images/CatalogGrid/1.png");
+			}
+		}
+
+		&:nth-child(2) {
+			position: relative;
+			grid-area: two;
+			padding-top: 30px;
+			text-align: center;
+
+			.Grid__item_img {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: 100%;
+				height: 300px;
+
+				img {
+					display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+				background-repeat: no-repeat;
+				background-position: center 56px;
+				background-size: contain;
+				background-image: url("../../../../../public/images/CatalogGrid/2.png");
+			}
+		}
+
+		&:nth-child(3) {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			grid-area: three;
+			padding-left: 30px;
+
+			.Grid__item_img {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: 120px;
+				height: 100%;
+
+				img {
+					display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+
+				@include pre-middle-tablet {
+					display: none;
+				}
+			}
+
+			@include pre-middle-tablet {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+				background-repeat: no-repeat;
+				background-position: right;
+				background-size: contain;
+				background-image: url("../../../../../public/images/CatalogGrid/3.png");
+			}
+
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+				background-repeat: no-repeat;
+				background-position: right;
+				background-size: contain;
+				background-image: url("../../../../../public/images/CatalogGrid/3.png");
+			}
+
+		}
+
+		&:nth-child(4) {
+			position: relative;
+			grid-area: four;
+			overflow: hidden;
+			padding-top: 30px;
+			text-align: center;
+
+			.Grid__item_img {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: 300px;
+				height: 200px;
+
+				img {
+					display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-image: url("../../../../../public/images/CatalogGrid/4.png");
+			}
+
+		}
+
+		&:nth-child(5) {
+			display: flex;
+			flex-direction: column-reverse;
+			align-items: center;
+			grid-area: five;
+
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+				@include bg-cover;
+				background-image: url("../../../../../public/images/CatalogGrid/5.png");
+			}
+		}
+
+		&:nth-child(6) {
+			@include flex-v-center;
+			position: relative;
+			grid-area: six;
+			padding-left: 30px;
+
+			.Grid__item_img {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: 100px;
+				height: 100px;
+
+				img {
+					display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+
+				@include pre-middle-tablet {
+					display: none;
+				}
+			}
+
+			@include pre-middle-tablet {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-image: url("../../../../../public/images/CatalogGrid/6.png");
+			}
+
+			@include mobile {
+				@include flex-all-center;
+				padding: 0;
+				text-align: center;
+				background-position: right;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-image: url("../../../../../public/images/CatalogGrid/6.png");
+			}
+
+		}
+
+		@include hover {
+			&:hover {
+				background-color: #F57520;
+				transition: all 0.3s ease-in-out;
+			}
+		}
+
+		@include mobile {
+			padding: 0;
+			text-align: center;
+			// background: rgb(2,0,36);
+			// background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(245,117,32,1) 13%, rgba(188,90,33,1) 77%, rgba(2,0,36,1) 100%);
+		}
+	}
+
+	@include mobile {
+		grid-template-areas:
+			"one one"
+			"two two"
+			"three four"
+			"five six";
+		grid-template-columns: repeat(2, 1fr);
+		width: 100%;
+	}
+
+	@include tablet {}
+
+}

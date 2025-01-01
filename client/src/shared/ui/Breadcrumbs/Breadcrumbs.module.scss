@@ -1,0 +1,76 @@
+@import "@scss/mixins/mini";
+@import "@scss/mixins/breakpoint";
+
+.Breadcrumbs {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	&__item {
+		a {
+			position: relative;
+			font-family: Inter;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 15px;
+			line-height: 160%;
+
+			&:hover {
+				color: var(--orange, #F57520);
+			}
+
+			@include mobile {
+				font-size: 12px;
+				text-wrap: nowrap;
+			}
+		}
+	}
+
+	@include mobile {
+		flex-wrap: wrap;
+	}
+}
+
+.l {
+	color: var(--light-color);
+
+	a {
+		color: var(--light-color);
+	}
+}
+
+.b {
+	color: var(--1-grey, #4C4C4C);
+
+	a {
+		color: var(--1-grey, #4C4C4C);
+	}
+}
+
+.Breadcrumbs__item:not(:last-child) {
+	a::before {
+		content: "/";
+		position: absolute;
+		right: -6px;
+		top: -2px;
+	}
+
+
+}
+
+.Breadcrumbs__item:last-child {
+	cursor: default;
+	pointer-events: none;
+	user-select: none;
+
+	a {
+		cursor: default;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	@include pre-mobile {
+		overflow-x: hidden;
+		max-width: 70%;
+	}
+}

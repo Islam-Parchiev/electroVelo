@@ -28,10 +28,11 @@
       "@services/*": ["services/*"],
       "@redux/*": ["redux/*"],
       "@images/*": ["../public/images/*"],
+      "@scss/*":["scss/*"],
       "*": ["types/*"]
     },
   },
   "include": [
     "src"
-, "src/types/declaration.d.ts"  ]
+, "src/shared/types/declaration.d.ts"  ]
 }
