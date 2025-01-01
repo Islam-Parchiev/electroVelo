@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-import CartItem from './../CartItem/CartItem'
-
-import { ICartItem } from 'Cart'
-
 import cartService from '../../../../shared/services/cart.service'
+
+import { ICartItem } from '../../../../shared/types/Cart'
+
+import CartItem from './../CartItem/CartItem'
 
 import styles from './CartContent.module.scss'
 

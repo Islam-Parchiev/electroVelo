@@ -1,4 +1,4 @@
-import { IResponseUserData, IUserData, IUser, IAuthUserData } from 'User'
+import { IResponseUserData, IUserData, IUser, IAuthUserData } from '../../shared/types/User'
 
 import { instance } from '../core/axios.api'
 

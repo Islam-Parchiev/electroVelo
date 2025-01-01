@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { ICard } from 'Card'
-
 import { Link } from 'react-router-dom'
 
 import { Button } from '..'
+
+import { ICard } from './../../types/Card'
 
 import styles from './Card.module.scss'
 

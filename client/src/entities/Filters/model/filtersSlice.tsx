@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { RootState } from '../../../redux/store';
+import { RootState } from '../../../app/store/hooks';
 interface InitialState {
 	available: boolean;
 	selectedCategories: string[];

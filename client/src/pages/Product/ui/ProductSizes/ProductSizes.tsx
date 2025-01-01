@@ -3,9 +3,9 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 
-import { IProduct } from 'Card';
+import { IProduct } from '../../../../shared/types/Card';
 
-import { useAppDispatch, useAppSelector } from '@redux/store';
+import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks';
 
 import productService from '../../../../shared/services/product.service'
 import { changeSize } from '../../../../entities/Product/model/productSlice';
@@ -39,7 +39,7 @@ const ProductSizes: React.FC = () => {
 							<li
 								key={item.id}
 								className={`${styles.ProductSizes__item} ${item.size === productSize && styles.active
-									}`}
+								}`}
 								onClick={() => handleClickSize(item.size)}>
 								{item.size}
 							</li>

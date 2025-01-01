@@ -1,15 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Main, Catalog, Product, Cart, CreateOrder, Profile, Contacts, Workshop, AboutUs, Terms, Guarantees, Storage, Delivery, Blog, SingleBlog } from '../../pages';
 
 
-import ProtectedRoute from './../components/ProtectedRoute/ProtectedRoute';
 import OrdersHistory from '@pages/Profile/ui/OrdersHistory/OrdersHistory';
 import PersonalData from '@pages/Profile/ui/PersonalData/PersonalData';
 import ResetPassword from '@pages/Profile/ui/ResetPassword/ResetPassword';
 import Favorites from '@pages/Profile/ui/Favorites/Favorites';
 
+import { Main, Catalog, Product, Cart, CreateOrder, Profile, Contacts, Workshop, AboutUs, Terms, Guarantees, Storage, Delivery, Blog, SingleBlog } from '../../pages';
+
 import { Layout } from '../Layout'
+
+import ProtectedRoute from './../components/ProtectedRoute/ProtectedRoute';
 
 export const router = createBrowserRouter([
 	{

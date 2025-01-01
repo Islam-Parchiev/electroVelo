@@ -5,9 +5,10 @@ import CatalogSort from '@pages/Catalog/ui/CatalogSort/CatalogSort'
 import CatalogView from '@pages/Catalog/ui/CatalogView/CatalogView'
 import MobileFilters from '@pages/Catalog/ui/Filters/MobileFilters/MobileFilters'
 
+import { Pagination, Skeleton, Card } from '../../../../shared/ui'
+
 import HeaderMenu from './../../../../widgets/Header/HeaderMenu/HeaderMenu'
 
-import { Pagination, Skeleton, Card } from '../../../../shared/ui'
 
 import { useCatalog } from './useCatalog'
 

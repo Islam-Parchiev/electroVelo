@@ -1,6 +1,7 @@
 
-import { ICard,ResponseProduct } from 'Card'
 import axios from 'axios'
+
+import { ICard,ResponseProduct } from '../../shared/types/Card'
 
 export class ProductService  {
 

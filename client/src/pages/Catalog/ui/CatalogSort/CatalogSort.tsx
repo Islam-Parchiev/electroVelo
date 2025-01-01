@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ISortListItem } from 'Sort'
-import { RootState, useAppDispatch, useAppSelector } from '@redux/store'
+import { ISortListItem } from '../../../../shared/types/Sort'
+import { RootState, useAppDispatch, useAppSelector } from '../../../../app/store/hooks'
 
 import { changeSortType } from '../../../../entities/Sort/model/sortSlice'
 

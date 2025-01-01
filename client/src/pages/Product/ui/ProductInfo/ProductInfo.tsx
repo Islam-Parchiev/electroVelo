@@ -1,13 +1,7 @@
 import React from 'react'
 
-import { useAppDispatch, useAppSelector } from '@redux/store'
 import { useParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-
-import { FavoritesData } from 'Favorites'
-
-
-import { IProduct } from 'Card'
 
 import ProductPrice from '@pages/Product/ui/ProductPrice/ProductPrice'
 import ProductSocial from '@pages/Product/ui/ProductSocial/ProductSocial'
@@ -15,14 +9,20 @@ import ProductInfoDescr from '@pages/Product/ui/ProductInfoDescr/ProductInfoDesc
 import ProductSizes from '@pages/Product/ui/ProductSizes/ProductSizes'
 import ProductColors from '@pages/Product/ui/ProductColors/ProductColors'
 
+import { IProduct } from '../../../../shared/types/Card'
+
+import { FavoritesData } from '../../../../shared/types/Favorites'
+
+import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks'
+
 import { changeCount } from '../../../../entities/Product/model/productSlice'
 
 import cartService from '../../../../shared/services/cart.service'
 import favoritesService from '../../../../shared/services/favorites.service'
 import productService from '../../../../shared/services/product.service'
-
-
 import { Button, Counter } from '../../../../shared/ui'
+
+
 
 import styles from './ProductInfo.module.scss'
 

@@ -2,9 +2,10 @@ import React from 'react'
 
 import { useForm, SubmitHandler } from 'react-hook-form'
 
+import ProfileTitle from '@pages/Profile/ui/ProfileTitle/ProfileTitle'
+
 import { AuthService } from '../../../../shared/services/auth.service'
 
-import ProfileTitle from '@pages/Profile/ui/ProfileTitle/ProfileTitle'
 
 import { Button, FormInput } from '../../../../shared/ui'
 

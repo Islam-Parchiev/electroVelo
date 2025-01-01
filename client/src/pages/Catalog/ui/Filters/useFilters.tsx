@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from 'react'
-import { RootState, useAppDispatch, useAppSelector } from '@redux/store'
+
+import { RootState, useAppDispatch, useAppSelector } from '../../../../app/store/hooks'
 
 import { changeCategory, toggleAvailable, changeBrand, changePrice, changeMaterial, changeColor, resetFilters } from '../../../../entities/Filters/model/filtersSlice'
 

@@ -18,14 +18,8 @@ export interface IResponseUser {
 	createdAt:string;
 	updatedAt:string;
 	password:string;
-	// __v?:number;
-	// message:string;
 }
 
-// export interface IResponseUserData {
-//  token:string
-//  user:IResponseUser
-// }
 export interface IResponseUserData {
 	id:number;
 	email:string;

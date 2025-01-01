@@ -1,1 +1,1 @@
-export {Terms} from "./ui/Terms"
+export {Terms} from './ui/Terms'

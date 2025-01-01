@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/order
 import React from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -5,7 +6,7 @@ import { A11y } from 'swiper/modules'
 
 import { useQuery } from '@tanstack/react-query'
 
-import { ICard } from 'Card'
+import { ICard } from '../../shared/types/Card'
 
 import SliderControls from '../../shared/ui/SliderControls/SliderControls'
 

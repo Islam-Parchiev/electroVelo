@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 import productService from '../../../../shared/services/product.service'
 
-import { ResponseProduct } from 'Card'
+import { ResponseProduct } from '../../../../shared/types/Card'
 
 import styles from './ProductSpecifications.module.scss'
 

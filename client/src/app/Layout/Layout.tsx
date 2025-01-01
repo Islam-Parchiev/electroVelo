@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 
 
-import { useAppDispatch } from '@redux/store'
+import { useAppDispatch } from '../store/hooks'
 
 
 import { login, logout } from '../../entities/User/model/userSlice'

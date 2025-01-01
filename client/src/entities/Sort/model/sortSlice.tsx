@@ -1,6 +1,8 @@
-import { RootState } from '@redux/store'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { ISortListItem } from 'Sort'
+
+import { ISortListItem } from '../../../shared/types/Sort'
+
+import { RootState } from '../../../app/store/hooks'
 
 interface InitialState {
 	sort: string

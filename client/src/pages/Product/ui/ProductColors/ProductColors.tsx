@@ -3,9 +3,9 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 
-import { IProduct } from 'Card'
+import { IProduct } from '../../../../shared/types/Card'
 
-import { useAppDispatch, useAppSelector } from '@redux/store'
+import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks'
 
 import productService from '../../../../shared/services/product.service'
 import { changeColor } from '../../../../entities/Product/model/productSlice'
@@ -44,7 +44,7 @@ const ProductColors: React.FC = () => {
 									backgroundColor: color.hexColor,
 								}}
 								className={`${styles.ProductColors__item} ${color.color === productColor && styles.active
-									}`}
+								}`}
 								onClick={() =>
 									handleClickColor(color.color)
 								}></li>

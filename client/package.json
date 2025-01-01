@@ -76,7 +76,7 @@
     "test": "node scripts/test.js",
     "component": "generate-react component",
     "stylelint": "npx stylelint '**/*.scss' --fix",
-    "lint": "eslint --fix --ext .js,.jsx,.tsx,.ts"
+    "lint": "eslint --ext '.' --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -97,7 +97,11 @@
     ]
   },
   "devDependencies": {
+    "@feature-sliced/eslint-config": "^0.1.1",
     "@types/css-modules": "^1.0.4",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-boundaries": "^5.0.1",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-storybook": "^0.6.15",
     "generate-react-cli": "^8.3.0",
     "sass": "^1.69.3",

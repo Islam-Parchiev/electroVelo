@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 import ProductSlider from '@pages/Product/ui/ProductSlider/ProductSlider'
 import ProductInfo from '@pages/Product/ui/ProductInfo/ProductInfo'
 
-import { ResponseProduct } from 'Card'
+import { ResponseProduct } from '../../../../shared/types/Card'
 
 import productService from '../../../../shared/services/product.service'
 

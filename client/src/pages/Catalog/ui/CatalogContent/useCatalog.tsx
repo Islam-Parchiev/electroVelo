@@ -1,11 +1,12 @@
 import { useState } from 'react'
 
-import { useAppSelector } from '@redux/store'
 import { useQuery } from '@tanstack/react-query'
 
-import { ICard } from 'Card'
+import { useAppSelector } from '../../../../app/store/hooks'
+
 
 import productService from '../../../../shared/services/product.service'
+import { ICard } from '../../../../shared/types/Card'
 
 
 export function useCatalog() {

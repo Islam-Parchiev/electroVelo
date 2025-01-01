@@ -2,11 +2,11 @@ import { FC } from 'react'
 
 import { useQuery } from '@tanstack/react-query'
 
-import { ICartData } from 'Cart';
-
 import CartTop from '@pages/Cart/ui/CartTop/CartTop';
 import CartContent from '@pages/Cart/ui/CartContent/CartContent';
 import CartInfo from '@pages/Cart/ui/CartInfo/CartInfo';
+
+import { ICartData } from '../../../shared/types/Cart';
 
 import SimilarGoods from '../../../widgets/SimilarGoods/SimilarGoods';
 import Subscribe from '../../../widgets/Subscribe/Subscribe';

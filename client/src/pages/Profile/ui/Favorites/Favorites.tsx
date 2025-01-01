@@ -2,11 +2,11 @@ import React from 'react'
 
 import { useQuery } from '@tanstack/react-query'
 
-
 import ProfileTitle from '@pages/Profile/ui/ProfileTitle/ProfileTitle'
-import { Card } from '../../../../shared/ui'
 
-import { FavoritesData } from 'Favorites'
+import { FavoritesData } from '../../../../shared/types/Favorites'
+
+import { Card } from '../../../../shared/ui'
 
 import favoritesService from '../../../../shared/services/favorites.service'
 

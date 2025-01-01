@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { useAppDispatch } from '@redux/store'
+import { useAppDispatch } from '../../../../app/store/hooks'
 
 import { logout } from '../../../../entities/User/model/userSlice'
 

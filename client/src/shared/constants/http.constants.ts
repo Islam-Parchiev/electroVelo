@@ -15,4 +15,4 @@
 // export enum ApiEndpointsType {
 	
 // }
-export const sayHello =()=>console.log("constants");
+export const sayHello =()=>console.log('constants');

@@ -1,14 +1,21 @@
 import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import HeaderMenu from './HeaderMenu/HeaderMenu'
-import AuthForm from '../../features/Auth/ui/AuthForm/AuthForm'
-import RegistrationForm from '../../features/Registration/RegistrationForm/RegistrationForm'
-import HeaderNav from './HeaderNav/HeaderNav'
 import MyAccount from '@pages/Profile/ui/MyAccount/MyAccount'
-import HeaderRight from './HeaderRight/HeaderRight'
+
+import AuthForm from '../../features/Auth/ui/AuthForm/AuthForm'
+
+import RegistrationForm from '../../features/Registration/RegistrationForm/RegistrationForm'
 
 import { useAuth } from '../../features/Auth/useAuth'
+
+import HeaderMenu from './HeaderMenu/HeaderMenu'
+
+import HeaderNav from './HeaderNav/HeaderNav'
+
+
+import HeaderRight from './HeaderRight/HeaderRight'
+
 
 import styles from './Header.module.scss'
 interface Props {

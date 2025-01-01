@@ -34,5 +34,5 @@
   },
   "include": [
     "src"
-, "src/types/declaration.d.ts"  ]
+, "src/shared/types/declaration.d.ts"  ]
 }

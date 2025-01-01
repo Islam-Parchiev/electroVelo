@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 
 import productService from '../../../../shared/services/product.service'
 
-import { IProduct } from 'Card'
+import { IProduct } from '../../../../shared/types/Card'
 
 import styles from './ProductSocial.module.scss'
 

@@ -1,1 +1,1 @@
-export {SingleBlog} from "./ui/SingleBlog";
+export {SingleBlog} from './ui/SingleBlog';

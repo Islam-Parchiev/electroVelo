@@ -1,1 +1,1 @@
-export {Delivery} from "./ui/Delivery"
+export {Delivery} from './ui/Delivery'

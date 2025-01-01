@@ -1,1 +1,1 @@
-export {Workshop} from "./ui/Workshop";
+export {Workshop} from './ui/Workshop';

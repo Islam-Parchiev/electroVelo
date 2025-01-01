@@ -1,4 +1,4 @@
-import { ICard } from 'Card'
+import { ICard } from './Card'
 
 export interface FavoritesItem {
 	id: number

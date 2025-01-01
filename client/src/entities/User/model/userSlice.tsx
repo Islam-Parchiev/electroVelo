@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IUser } from 'User'
+
+import { IUser } from '../../../shared/types/User'
 
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-import type { RootState } from '../../../redux/store'
+import type { RootState } from '../../../app/store/hooks'
 
 
 interface IUserState {

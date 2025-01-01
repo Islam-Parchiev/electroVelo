@@ -1,1 +1,1 @@
-export {Storage} from "./ui/Storage"
+export {Storage} from './ui/Storage'

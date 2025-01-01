@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { ICard } from 'Card'
+
+import { ICard } from '../../../../shared/types/Card'
 
 import productService from '../../../../shared/services/product.service'
 

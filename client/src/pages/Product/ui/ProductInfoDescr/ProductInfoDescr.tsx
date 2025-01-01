@@ -1,11 +1,13 @@
 import React from 'react'
 
 import { useParams } from 'react-router-dom'
+
 import { useQuery } from '@tanstack/react-query'
+
+import { IProduct } from '../../../../shared/types/Card';
 
 import productService from '../../../../shared/services/product.service'
 
-import { IProduct } from 'Card';
 
 import styles from './ProductInfoDescr.module.scss'
 

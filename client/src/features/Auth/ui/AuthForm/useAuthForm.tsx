@@ -3,13 +3,10 @@ import React from 'react'
 import { AxiosError } from 'axios'
 
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { useAppDispatch } from '@redux/store'
 
-
+import { useAppDispatch } from '../../../../app/store/hooks'
 import { login } from '../../../../entities/User/model/userSlice'
-
 import { AuthService } from '../../../../shared/services/auth.service'
-
 import { setTokenToLocalStorage } from '../../../../shared/helpers/localStorage.helper'
 
 export function useAuthForm() {

@@ -3,8 +3,10 @@ import { FC } from 'react'
 import { Outlet } from 'react-router-dom';
 
 import Header from '../../../widgets/Header/Header'
-import ProfileSidebar from './ProfileSidebar/ProfileSidebar';
+
 import Subscribe from '../../../widgets/Subscribe/Subscribe';
+
+import ProfileSidebar from './ProfileSidebar/ProfileSidebar';
 
 import styles from './Profile.module.scss';
 

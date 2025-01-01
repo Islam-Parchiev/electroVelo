@@ -5,6 +5,7 @@ import AboutUsSubtitle from '@pages/AboutUs/ui/AboutUsSubtitle/AboutUsSubtitle';
 import styles from './AboutUsContacts.module.scss'
 
 
+
 const AboutUsContacts: React.FC = () => {
 	return (
 		<section className={styles.AboutUsContacts}>

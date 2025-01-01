@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useAppDispatch, useAppSelector } from '@redux/store'
+import { useAppDispatch, useAppSelector } from '../../../app/store/hooks'
 
 import { changePrice } from '../../../entities/Filters/model/filtersSlice'
 
