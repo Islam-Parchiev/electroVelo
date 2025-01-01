@@ -8,7 +8,7 @@ import { IProduct } from '../../../../shared/types/Card'
 import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks'
 
 import productService from '../../../../shared/services/product.service'
-import { changeColor } from '../../../../entities/Product/model/productSlice'
+import { changeProductColor } from '../../../../entities/Product/model/productSlice'
 
 import styles from './ProductColors.module.scss'
 
@@ -22,12 +22,12 @@ const ProductColors: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 	const handleClickColor = (color: string) => {
-		dispatch(changeColor(color))
+		dispatch(changeProductColor(color))
 	}
 
 	React.useEffect(() => {
 		if (isSuccess && product && product.colors) {
-			dispatch(changeColor(product.colors[0].color))
+			dispatch(changeProductColor(product.colors[0].color))
 		}
 	}, [])
 	return (
@@ -44,7 +44,7 @@ const ProductColors: React.FC = () => {
 									backgroundColor: color.hexColor,
 								}}
 								className={`${styles.ProductColors__item} ${color.color === productColor && styles.active
-								}`}
+									}`}
 								onClick={() =>
 									handleClickColor(color.color)
 								}></li>

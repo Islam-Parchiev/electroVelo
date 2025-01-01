@@ -1,7 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-
-
 import OrdersHistory from '@pages/Profile/ui/OrdersHistory/OrdersHistory';
 import PersonalData from '@pages/Profile/ui/PersonalData/PersonalData';
 import ResetPassword from '@pages/Profile/ui/ResetPassword/ResetPassword';
