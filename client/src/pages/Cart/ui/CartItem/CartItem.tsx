@@ -19,8 +19,6 @@ const CartItem: React.FC<CartItemProps> = props => {
 		count,
 		id,
 	)
-	const slicedImageUrl = imageUrl.slice(0, -4);
-	console.log(slicedImageUrl);
 	return (
 		<li className={styles.CartItem}>
 			<div className={styles.CartItem__left}>
@@ -28,10 +26,10 @@ const CartItem: React.FC<CartItemProps> = props => {
 					<picture>
 						<source
 							type="image/webp"
-							srcSet={`/images/Product/${slicedImageUrl}.webp`}
+							srcSet={`/images/Product/${imageUrl}.webp`}
 							media="(max-width:1920px)"
 						/>
-						<img src={`/images/Product/${slicedImageUrl}.png`} alt={slicedImageUrl} />
+						<img src={`/images/Product/${imageUrl}.png`} alt={imageUrl} />
 
 					</picture>
 				</div>

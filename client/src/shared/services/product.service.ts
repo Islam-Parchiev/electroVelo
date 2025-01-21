@@ -6,7 +6,7 @@ import { ICard,ResponseProduct } from '../../shared/types/Card'
 export class ProductService  {
 
 
-	private URL = 'http://localhost:4200'
+	private URL = 'http://localhost:4000'
 
 	 async getProductsByLimit(limit:number,skip:number) {
 		return axios.get<ICard[]>(`${this.URL}/product/l/limit/${limit}/skip/${skip}`)
