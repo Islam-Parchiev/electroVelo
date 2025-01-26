@@ -5,6 +5,8 @@ import { Cart } from './entities/cart.entity';
 import { Repository } from 'typeorm';
 import { CartItem } from './entities/cartItem.entity';
 import { Product } from 'src/product/entities/product.entity';
+// import { prisma } from 'prisma/prisma';
+import { PrismaClient,cart, cart_item,Prisma } from '@prisma/client';
 
 @Injectable()
 export class CartService {
@@ -16,22 +18,27 @@ export class CartService {
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
   ) {}
+  private prisma = new PrismaClient();
 
-  async addToCart(userId: number, productId: number, quantity: number): Promise<Cart> {
+  async addToCart(userId: number, productId: number, quantity: number): Promise<cart|null> {
+    let cart = null
 
-    let cart = await this.cartRepository.findOne({ where: { user: { id: userId } },
-       relations: {items:{product:true}} });
-
-    if (!cart) {
-      cart = new Cart();
-      cart.user = { id: userId } as any;
-      cart.items = [];
+    if (await this.prisma.cart.findFirst({
+      where:{user:{id:userId}},
+      select:{id:true,userId:true,items:{select:{product:true}}}  
+    })) {
+      cart = await this.prisma.cart.findFirst({
+        where:{user:{id:userId}},
+        select:{id:true,userId:true,items:{select:{product:true}}}  
+      })
+      
+    }else {
+      cart =await this.prisma.cart.create({data:{items:null,userId:userId}});
     }
+  
     
-    // let cartItem = cart.items.find((item) =>  item.product.id === productId);
-    
-    if (cart.items.find((item) =>  item.product.id === productId)) {
-      let cartItem =cart.items.find((item) =>  item.product.id === productId);
+    if (cart.items.find((item) =>  item.product.product_id === productId)) {
+      let cartItem:cart_item|any =cart.items.find((item) =>  item.product.product_id === productId);
       cartItem.quantity += quantity;
     } else {
       const product = await this.productRepository.findOne({where:{id:productId}});
@@ -45,10 +52,11 @@ export class CartService {
         throw new Error('Product not found');
       }
     }
-
-    return this.cartRepository.save(cart);
+    return cart
+    // return this.cartRepository.save(cart);
   }
   async getCart(userId:number) {
+    
     let cart = await this.cartRepository.findOne({ where: { user: { id: userId } }, relations: {
       items:{product:true}
 
