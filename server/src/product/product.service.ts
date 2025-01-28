@@ -7,86 +7,86 @@ import { Image } from './entities/image.entity';
 import { Spec } from './entities/spec.entity';
 import { Size } from './entities/size.entity';
 import { Color } from './entities/color.entity';
-import { calculatePagination, calculateTotalPages } from '../helpers/helpers';
+import { Prisma, PrismaClient,product } from '@prisma/client';
+
+
+export interface GP { category: string; material: string; available: boolean; price: number; title: string; product_id: number; description: string; articul: string; prevPrice: number; previewImage: string; brand: string; country: string; }
 @Injectable()
 export class ProductService {
-  constructor(
-    @InjectRepository(Product)
-    private readonly productRepository:Repository<Product>,
-    @InjectRepository(Image)
-    private readonly imageRepository:Repository<Image>,
-    @InjectRepository(Spec)
-    private readonly specRepository:Repository<Spec>,
-    @InjectRepository(Size)
-    private readonly sizeRepository:Repository<Size>,
-    @InjectRepository(Color)
-    private readonly colorRepository:Repository<Color>,
-  ){}
-  // create(createProductDto: CreateProductDto) {
+  constructor(){}
+    private prisma = new PrismaClient();
 
-  //   return 'This action adds a new product';
-  // }
-  // const createdOrder = await this.orderRepository.save({...order,userId:{id},orderNumber:orderN});
-  async create(productData: Partial<Product>, 
+
+  async create(
+    productData: Partial<Product>,
     imageUrls: Image[],
-    specs:Spec[],
-    sizes:Size[],
-    colors:Color[]
-    ): Promise<Product> {
-    const product = await this.productRepository.create(productData);
-    const images =await imageUrls.map(image => this.imageRepository.create({ srcPath:image.srcPath }));
-    const speccs =await specs.map(spec => this.specRepository.create({
-                                                                  year:spec.year,
-                                                                  brand:spec.brand,
-                                                                  category:spec.category,
-                                                                  country:spec.country,
-                                                                  material:spec.material
-                                                                
-                                                                }))
-    const sizess =await sizes.map(size => this.sizeRepository.create({
-       size:size.size
-      
-    }))   
-    const colorrs =await colors.map(color => this.colorRepository.create({
-      color:color.color,
-      hexColor:color.hexColor
-     
-   }))                   
-    product.sizes = sizess;                                            
-    product.images = images;
-    product.specifications=speccs;
-    product.colors = colorrs;
-
-    await this.imageRepository.save(images);
-    await this.specRepository.save(speccs);
-    await this.sizeRepository.save(sizess);
-    await this.colorRepository.save(colorrs);
-    await this.productRepository.save(product);
-    return product;
+    specs: Spec[],
+    sizes: Size[],
+    colors: Color[]
+  ):Promise<any> {
+    return await this.prisma.product.create({
+      data: {
+        ...productData,
+        image: {
+          create: imageUrls.map(image => ({ srcPath: image.srcPath }))
+        },
+        spec: {
+          create: specs.map(spec => ({
+            year: spec.year,
+            brand: spec.brand,
+            category: spec.category,
+            country: spec.country,
+            material: spec.material
+          }))
+        },
+        size: {
+          create: sizes.map(size => ({
+            size: size.size
+          }))
+        },
+        color: {
+          create: colors.map(color => ({
+            color: color.color,
+            hexColor: color.hexColor
+          }))
+        }
+      },
+      include: {
+        // images: true,
+        // specifications: true,
+        // size: true,
+        // colors: true
+        image:true,
+        spec:true,
+        size:true,
+        color:true
+      }
+    });
   }
   async  findAll() {
-    const products = await this.productRepository.find({
-     
-      relations:{
-        images:true,
-        sizes:true,
-        specifications:true,
-        colors:true
+    const products = await this.prisma.product.findMany({
+      include:{
+        image:true,
+        size:true,
+        spec:true,
+        color:true
       }
     })
     if(!products) throw new NotFoundException('Transactions not found')
-    return products;
+      return products;
   }
 
   async getByLimit(limit:number,skip:number){
-      const products = this.productRepository.find({
+
+      const products = this.prisma.product.findMany({
         take:limit,
         skip:skip,
-        relations:{
-          images:true
+        include:{
+          image:true,
         }
       })
-      return products;
+      if(!products) throw new NotFoundException('Products not found')
+        return products;
   }
 
   async getProducts(
@@ -94,106 +94,128 @@ export class ProductService {
     sortByName: 'ASC' | 'DESC',
     page: number,
     limit: number,
-    available:string,
-    categories:string[],
-    materials:string[]
-  ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
-    const { skip, take } = calculatePagination(page, limit);
-  
-    const queryBuilder = this.productRepository.createQueryBuilder('product')
-    // .relation()
-    .skip(skip)
-    .take(take)
-    if(categories) {
-      // .where('product.category = :category',{category:category})
-      queryBuilder.where('product.category = :category').where('category IN (:...categories)', { categories }).andWhere('material IN (:...materials)', { materials })
-      console.log('dasd');
-    } 
-   
-    if(available==='true'){
-       queryBuilder.where('product.available = :available',{available:available})
-    }
-  
-    if (sortByPrice) {
-       queryBuilder.orderBy('product.price', sortByPrice);
-    }
-  
-   if (sortByName) {
-       queryBuilder.orderBy('product.title', sortByName);
-    }
-  
-
+    available: string,
+    categories: string[],
+    materials: string[]
+  ): Promise<{ data: GP[], currentPage: number, totalPages: number }> {
+    const skip = (page - 1) * limit;
     
-    const [data, totalItems] = await queryBuilder.getManyAndCount();
-    const totalPages = calculateTotalPages(totalItems, limit);
+    const whereClause: any = {};
+    
+    if (categories && categories.length > 0) {
+      whereClause.category = { in: categories };
+    }
+    
+    if (materials && materials.length > 0) {
+      whereClause.material = { in: materials };
+    }
+    
+    if (available === 'true') {
+      whereClause.available = true;
+    }
+  
+    const orderBy: any = {};
+    if (sortByPrice) {
+      orderBy.price = sortByPrice;
+    }
+    if (sortByName) {
+      orderBy.title = sortByName;
+    }
+  
+    const [data, totalItems] = await Promise.all([
+      this.prisma.product.findMany({
+        where: whereClause,
+        skip,
+        take: limit,
+        orderBy,
+      }),
+      this.prisma.product.count({ where: whereClause })
+    ]);
+  
+    const totalPages = Math.ceil(totalItems / limit);
     const currentPage = page;
   
     return { data, currentPage, totalPages };
   }
-
-
-
-  async getProductsByCategories(categories: string[]): Promise<Product[]> {
-    const query = this.productRepository.createQueryBuilder('product')
-      // .innerJoinAndSelect('product.category', 'category')
-      // .where('category IN (:...categories)', { categories });
-      query.andWhere('product.category = :category').where('category IN (:...categories)', { categories });
-    return query.getMany();
-  }
- async getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<Product[]> {
-      const query = this.productRepository.createQueryBuilder('product')
-        .andWhere('product.category  = :category')
-        .andWhere('product.material  = :material')
-        .where('category IN (:...categories)', { categories })
-        .andWhere('material IN (:...materials)', { materials });
-  
-      return query.getMany();
-    }
-  async findOne(id: number) {
-    const product = await this.productRepository.findOne({
+  async getProductsByCategories(categories: string[]) {
+    return this.prisma.product.findMany({
       where: {
-        id:id
+        category: {
+          in: categories
+        }
+        
       },
-      relations:{
-        images:true,
-        colors:true,
-        sizes:true,
-        specifications:true
+      include:{
+        size:true,
+        color:true,
+        image:true,
+        spec:true
+      }
+    });
+  }
+async getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<product[]> {
+  return await this.prisma.product.findMany({
+    where: {
+      AND: [
+        { category: { in: categories } },
+        { material: { in: materials } }
+      ]
+    }
+  });
+}
+
+  async findOne(id: number) {
+ 
+    const product = await this.prisma.product.findUnique({
+      where:{
+        product_id:id
+      },
+      include:{
+        image:true,
+        color:true,
+        size:true,
+        spec:true
       }
     })
     if(!product) throw new NotFoundException('Product not found')
-    // if()
     return product;
   }
 
-  async update(id:number,prevPrice:number|null,price:number) {
-    const product = await this.productRepository.findOne({
-      where: {id},
-    })
-    if(!product) throw new NotFoundException('Product not found')
-  
-    product.prevPrice=prevPrice;
-    product.price=price;
+  async update(id:number,updatedFields:any) {
+  const product = await this.prisma.product.findUnique({
+    where:{
+      product_id:id
+    }
+  })
+  const updatedProduct = await this.prisma.product.update({
+    where:{
+      product_id:id,
+    },
+    data:{
+      ...product,
+      ...updatedFields
+    }
+  })
 
-    const updatedProduct = await this.productRepository.save(product);
-
-    return updatedProduct
+return updatedProduct
   }
 
   async remove(id: number) {
-
-    const order = await this.productRepository.findOne({
-      where:{id},
-      relations:{
-        images:true,
-        specifications:true,
-        colors:true,
-        sizes:true
+    const product = await this.prisma.product.findUnique({
+      where:{
+        product_id:id,
+      },
+      include:{
+        color:true,
+        spec:true,
+        image:true,
+        size:true
       }
     })
-    if(!order) throw new NotFoundException('Product not found')
-      return await this.productRepository.delete(+id);
-    }
+    if(!product) throw new NotFoundException('Product not found')
+      return await this.prisma.product.delete({where:{product_id:+id}})
+
+
 }
 // "productData":{
 // 	"title":"TeSSSt",
@@ -207,4 +229,4 @@ export class ProductService {
 // 	"sizes":[{"size":"1"}],
 //   "colors":[{"color":"RED"}],
 // 	"specs":[{"year":"2016","country":"Russia","material":"Karbon","brand":"Scott","category":"Mountain"}],
-	
+}

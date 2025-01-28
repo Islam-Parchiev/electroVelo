@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseIntPipe, ParseArrayPipe } from '@nestjs/common';
-import { ProductService } from './product.service';
+import { GP, ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Product } from './entities/product.entity';
@@ -16,10 +16,10 @@ export class ProductController {
   
   @Post()
   async create(@Body() productData: Partial<Product>,
-               @Body('imageUrls') imageUrls: Image[],
-               @Body('sizes') sizes:Size[],
-               @Body('colors') colors:Color[],
-               @Body('specs') specs:Spec[]) {
+               @Body('image') imageUrls: Image[],
+               @Body('size') sizes:Size[],
+               @Body('color') colors:Color[],
+               @Body('spec') specs:Spec[]) {
     return this.productService.create(productData, imageUrls,specs,sizes,colors);
   }
   @Get()
@@ -31,7 +31,7 @@ export class ProductController {
     @Query('available') available: string,
     @Query('categories',new ParseArrayPipe({items:String})) categories:string[],
     @Query('materials',new ParseArrayPipe({items:String})) materials:string[]
-  ): Promise<{ data: Product[], currentPage: number, totalPages: number }> {
+  ): Promise<{ data: GP[], currentPage: number, totalPages: number }> {
     return this.productService.getProducts(sortByPrice, sortByName, page, limit,available,categories,materials);
   }
   @Get('byCategoriesAndMaterials/:categories/:materials')
@@ -43,7 +43,7 @@ export class ProductController {
   }
 
   @Get('byCategories/:categories')
-  getProductsByCategories(@Param('categories', new ParseArrayPipe({ items: String })) categories: string[]): Promise<Product[]> {
+  getProductsByCategories(@Param('categories', new ParseArrayPipe({ items: String })) categories: string[]) {
     return this.productService.getProductsByCategories(categories);
   }
 
@@ -56,7 +56,7 @@ export class ProductController {
   getByLimit(
     @Param('limit') limit: number=5,
     @Param('skip') skip: number=0,
-  ): Promise<Product[]> {
+  ){
     return this.productService.getByLimit(+limit,+skip);
   }
 
@@ -69,10 +69,9 @@ export class ProductController {
   // @UseGuards(JwtAuthGuard,AuthorGuard)
   update(
     @Param('id') id:string,
-    @Body('price') price:string,
-    @Body('prevPrice') prevPrice:string |null
+    @Body('updatedFields') updatedFields:any,
   ){
-    return this.productService.update(+id,+prevPrice,+price)
+    return this.productService.update(+id,updatedFields)
   }
 
   @Delete(':id')

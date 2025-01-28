@@ -44,7 +44,7 @@ model cart_item {
 model color {
   id         Int      @id(map: "PK_d15e531d60a550fbf23e1832343") @default(autoincrement())
   color      String   @db.VarChar
-  hex_color  String?  @db.VarChar
+  hexColor  String?  @db.VarChar
   product_id Int?
   product    product? @relation(fields: [product_id], references: [product_id], onUpdate: NoAction, map: "FK_6b398fc4538169fef9c175f2ee8")
 }
@@ -66,7 +66,7 @@ model favorite_item {
 
 model image {
   id         Int      @id(map: "PK_d6db1ab4ee9ad9dbe86c64e4cc3") @default(autoincrement())
-  src_path   String?  @db.VarChar
+  srcPath   String?  @db.VarChar
   product_id Int?
   product    product? @relation(fields: [product_id], references: [product_id], onUpdate: NoAction, map: "FK_e6a9e829e17fc47fc17d695af8e")
 }
@@ -77,7 +77,7 @@ model product {
   description   String?         @db.VarChar
   articul       String?         @db.VarChar
   price         Int?
-  prev_price    Int?
+  prevPrice    Int?
   available     Boolean?
   previewImage  String?         @db.VarChar
   brand         String?         @db.VarChar
