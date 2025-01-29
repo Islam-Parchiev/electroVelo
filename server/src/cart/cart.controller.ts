@@ -1,8 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
 import { CartService } from './cart.service';
-import { CreateCartDto } from './dto/create-cart.dto';
-import { UpdateCartDto } from './dto/update-cart.dto';
-import { IsNumber } from 'class-validator';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @Controller('cart')
@@ -10,13 +7,9 @@ export class CartController {
   constructor(private readonly cartService: CartService) {}
 
   @Post()
-  create(@Body() createCartDto: CreateCartDto) {
-    return this.cartService.create(createCartDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.cartService.findAll();
+  @UseGuards(JwtAuthGuard)
+  create(@Req() req,@Body("productId") productId:number|string,@Body("quantity") quantity:number|string) {
+    return this.cartService.addToCart(+req.user.id,+productId,+quantity);
   }
 
   @Get('get')
@@ -30,11 +23,6 @@ export class CartController {
   clearCart(@Req() req){
     return this.cartService.clearCart(+req.user.id)
   }
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateCartDto: UpdateCartDto) {
-  //   return this.cartService.update(+id, updateCartDto);
-  // }
-
   @Delete('delete/:id')
   @UseGuards(JwtAuthGuard)
   remove(@Req() req, @Param('id') id: any) {
@@ -50,8 +38,4 @@ export class CartController {
   changeQuantity(@Req() req, @Body('productId') productId: number,@Body('count') count:number){
     return this.cartService.changeQuantity(+req.user.id, +productId,+count)
   }
-  // @Get(':userId/items')
-  // getCartItems(@Param('userId') userId: number) {
-  //   return this.cartService.getCartItems(userId);
-  // }
 }

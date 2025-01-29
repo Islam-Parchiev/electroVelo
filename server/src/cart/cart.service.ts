@@ -1,23 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCartDto } from './dto/create-cart.dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Cart } from './entities/cart.entity';
-import { Repository } from 'typeorm';
 import { CartItem } from './entities/cartItem.entity';
-import { Product } from 'src/product/entities/product.entity';
-// import { prisma } from 'prisma/prisma';
-import { PrismaClient,cart, cart_item,Prisma } from '@prisma/client';
+import { PrismaClient,cart, cart_item } from '@prisma/client';
 
 @Injectable()
 export class CartService {
-  constructor(
-    @InjectRepository(Cart)
-    private cartRepository: Repository<Cart>,
-    @InjectRepository(CartItem)
-    private cartItemRepository: Repository<CartItem>,
-    @InjectRepository(Product)
-    private productRepository: Repository<Product>,
-  ) {}
+  constructor() {}
   private prisma = new PrismaClient();
 
   async addToCart(userId: number, productId: number, quantity: number): Promise<cart|null> {
@@ -182,23 +169,4 @@ export class CartService {
     }
   }
 	
-  create(createCartDto: CreateCartDto) {
-    return 'This action adds a new cart';
-  }
-
-  findAll() {
-    return `This action returns all cart`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} cart`;
-  }
-
-  // update(id: number, updateCartDto: UpdateCartDto) {
-  //   return `This action updates a #${id} cart`;
-  // }
-
-  remove(id: number) {
-    return `This action removes a #${id} cart`;
-  }
 }

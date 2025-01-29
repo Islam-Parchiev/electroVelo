@@ -1,13 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { UpdateProductDto } from './dto/update-product.dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
 import { Image } from './entities/image.entity';
 import { Spec } from './entities/spec.entity';
 import { Size } from './entities/size.entity';
 import { Color } from './entities/color.entity';
-import { Prisma, PrismaClient,product } from '@prisma/client';
+import { PrismaClient,product } from '@prisma/client';
 
 
 export interface GP { category: string; material: string; available: boolean; price: number; title: string; product_id: number; description: string; articul: string; prevPrice: number; previewImage: string; brand: string; country: string; }

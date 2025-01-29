@@ -1,17 +1,12 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { User } from './entities/user.entity';
 import * as argon2 from 'argon2';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaClient } from '@prisma/client';
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(User)
-    private userRepository: Repository<User>,
     private readonly jwtService:JwtService
   ) {}
 
@@ -54,16 +49,25 @@ export class UserService {
     return await this.prisma.user.update({where:{id},data:{...updateUserDto}})
   }
 
-
-   findAll(): Promise<User[]> {
-    return this.userRepository.find();
+  async findAll() {
+    const user = this.prisma.user.findMany();
+    if(!user) return "Error"
+    return user
   }
 
-  findOne(email: string): Promise<User> {
-    return this.userRepository.findOneBy({ email });
+  async findOne(email:string) {
+    const user = this.prisma.user.findFirst({where:{email:email}});
+    if(!user) return "Error"
+    return user;
   }
 
-  async remove(id: string): Promise<void> {
-    await this.userRepository.delete(id);
+  async remove(id: number): Promise<any> {
+    // await this.userRepository.delete(id);
+    const user = this.prisma.user.delete({
+      where:{
+        id:id
+      }
+    })
+    return user;
   }
 }
