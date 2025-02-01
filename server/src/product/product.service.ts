@@ -4,7 +4,7 @@ import { Image } from './entities/image.entity';
 import { Spec } from './entities/spec.entity';
 import { Size } from './entities/size.entity';
 import { Color } from './entities/color.entity';
-import { PrismaClient,product } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 
 
 export interface GP { category: string; material: string; available: boolean; price: number; title: string; product_id: number; description: string; articul: string; prevPrice: number; previewImage: string; brand: string; country: string; }
@@ -150,7 +150,7 @@ export class ProductService {
       }
     });
   }
-async getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<product[]> {
+async getProductsByCategoriesAndMaterials(categories: string[], materials: string[]): Promise<any[]> {
   return await this.prisma.product.findMany({
     where: {
       AND: [

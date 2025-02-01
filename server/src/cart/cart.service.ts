@@ -1,13 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { CartItem } from './entities/cartItem.entity';
-import { PrismaClient,cart, cart_item } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class CartService {
-  constructor() {}
-  private prisma = new PrismaClient();
+  private prisma:PrismaClient;
+  constructor() {
+    this.prisma = new PrismaClient()
+  }
 
-  async addToCart(userId: number, productId: number, quantity: number): Promise<cart|null> {
+  async addToCart(userId: number, productId: number, quantity: number): Promise<any> {
     let cart = null
 
     if (await this.prisma.cart.findFirst({
@@ -25,7 +27,7 @@ export class CartService {
   
     
     if (cart.items.find((item) =>  item.product.product_id === productId)) {
-      let cartItem:cart_item|any =cart.items.find((item) =>  item.product.product_id === productId);
+      let cartItem =cart.items.find((item) =>  item.product.product_id === productId);
       cartItem.quantity += quantity;
     } else {
       // const product = await this.productRepository.findOne({where:{id:productId}});

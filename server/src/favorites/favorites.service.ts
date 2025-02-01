@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 // import { Favorite } from './entities/favorite.entity';
-import { PrismaClient,favorite } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class FavoritesService {
@@ -8,7 +8,7 @@ export class FavoritesService {
   ) {}
 
    private prisma = new PrismaClient();
-  async addToFavorites(userId: number, productId: number): Promise<favorite|null> {
+  async addToFavorites(userId: number, productId: number): Promise<any> {
     let favorite = null;
   
     if (await this.prisma.favorite.findFirst({
