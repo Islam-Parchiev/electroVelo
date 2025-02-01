@@ -1,0 +1,30 @@
+@import '@scss/mixins/mini';
+
+.GuaranteesPreview {
+	@include image-set('../../../../../public/images/Guarantees/preview');
+	@include bg-cover;
+	height: 280px;
+
+	&__inner {
+		padding-top: 30px;
+	}
+
+	&__descr {
+		height: 340px;
+		background-color: var(--dark-grey, #2e2e2e);
+
+		&_inner {
+			@include flex-all-sb;
+		}
+
+		p {
+			font-family: Inter;
+			font-weight: 300;
+			font-style: normal;
+			font-size: 16px;
+			line-height: 160%;
+			/* 25.6px */
+			color: var(--white, #fff);
+		}
+	}
+}

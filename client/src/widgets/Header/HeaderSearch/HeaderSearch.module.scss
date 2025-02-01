@@ -1,0 +1,29 @@
+@import "@scss/mixins/mini";
+
+.HeaderSearch {
+	@include flex-v-center;
+	position: absolute;
+	left: -165px;
+	top: 30px;
+
+	border: 1px solid var(--1-grey, #4C4C4C);
+	border-radius: 5px;
+	padding: 5px 10px;
+	max-width: 230px;
+	background: var(--bl, #101010);
+
+	input {
+		flex: 1 0 0;
+		outline: none;
+		color: var(--light-color);
+
+		&::placeholder {
+			font-family: Inter;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 14px;
+			line-height: normal;
+			color: var(--2-grey, #777);
+		}
+	}
+}

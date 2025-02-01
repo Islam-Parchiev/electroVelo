@@ -1,0 +1,8 @@
+.MainVideoItem {
+	color:var(--light-color);
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+}

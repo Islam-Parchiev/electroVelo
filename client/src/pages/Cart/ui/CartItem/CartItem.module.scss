@@ -1,0 +1,118 @@
+@import "@scss/mixins/mini";
+@import "@scss/mixins/breakpoint";
+
+.CartItem {
+	@include flex-all-sb;
+	position: relative;
+	width: 100%;
+
+	&__title {
+		width: 50%;
+		/* desk mob subhead */
+		font-family: Inter;
+		font-weight: 300;
+		font-size: 18px;
+		line-height: 160%;
+		/* 28.8px */
+		letter-spacing: 0.18px;
+		color: var(--bl, #101010);
+	}
+
+	&__delete {
+		@include big-mobile {
+			position: absolute;
+			right: 0;
+			top: 8%;
+			z-index: 10;
+		}
+	}
+
+	&__left {
+		@include flex-v-center;
+		width: 50%;
+		gap: 30px;
+
+		@include big-mobile {
+			width: 100%;
+		}
+	}
+
+	&__right {
+		@include flex-v-center;
+		justify-content: start;
+		padding-left: 100px;
+		width: 50%;
+		gap: 40px;
+
+		@include big-mobile {
+			width: 100%;
+		}
+
+		@include pre-tablet {
+			padding-left: 0;
+		}
+	}
+
+	&__currentPrice {
+		/* desk mob 20 */
+		font-family: Inter;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 160%;
+		/* 32px */
+		letter-spacing: 0.2px;
+		color: var(--bl, #101010);
+	}
+
+	&__prevPrice {
+		font-family: Inter;
+		font-weight: 400;
+
+		font-size: 16px;
+		line-height: 160%;
+		/* 25.6px */
+		text-decoration: line-through;
+		color: var(--light-grey, #B3B3B3);
+	}
+
+	&__price {
+		text-align: left;
+
+		span {
+			display: block;
+		}
+
+		@include big-mobile {
+			@include flex-v-center;
+			gap: 10px;
+		}
+	}
+
+	&__image {
+		width: 180px;
+		height: 100%;
+
+		picture {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		@include big-mobile {
+			width: 150px;
+		}
+	}
+
+	@include big-mobile {
+		flex-direction: column;
+		align-items: start;
+	}
+}

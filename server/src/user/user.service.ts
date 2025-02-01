@@ -1,35 +1,35 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { User } from './entities/user.entity';
 import * as argon2 from 'argon2';
 import { JwtService } from '@nestjs/jwt';
+import { PrismaClient } from '@prisma/client';
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(User)
-    private userRepository: Repository<User>,
     private readonly jwtService:JwtService
   ) {}
 
+  private prisma = new PrismaClient();
+
+
   async create(createUserDto: CreateUserDto) {
-    const existUser = await this.userRepository.findOne({
+    const existUser = await this.prisma.user.findFirst({
       where:{
-        email:createUserDto.email,
+        email:createUserDto.email
       }
     })
-    if(existUser) {
+    console.log("serUs32",existUser);
+    if(existUser!==null) {
       throw new BadRequestException('This user already exist!')
     }
 
-    const user = await this.userRepository.save({
-      // email:createUserDto.email,
+    const user = await this.prisma.user.create({
+      data:{
       name:createUserDto.name,
       email:createUserDto.email,
-      //  password:createUserDto.password,
       password:await argon2.hash(createUserDto.password),
+      }
     })
 
     const token = this.jwtService.sign({ email:createUserDto.email })
@@ -37,38 +37,37 @@ export class UserService {
     return {user,token};
   }
 
+
+
+
   async update(id: number, updateUserDto: UpdateUserDto) {
-    const transaction = await this.userRepository.findOne({
-      where: {id},
+    const transaction = await this.prisma.user.findUnique({
+      where:{id:id}
     })
     if(!transaction) throw new NotFoundException('Transaction not found')
   
-  
-    return await this.userRepository.update(id,updateUserDto); 
+    return await this.prisma.user.update({where:{id},data:{...updateUserDto}})
   }
 
-  // findAll() {
-  //   return `This action returns all user`;
-  // }
-
-  // findOne(id: number) {
-  //   return `This action returns a #${id} user`;
-  // }
-
-
-  // remove(id: number) {
-  //   return `This action removes a #${id} user`;
-  // }
-
-   findAll(): Promise<User[]> {
-    return this.userRepository.find();
+  async findAll() {
+    const user = this.prisma.user.findMany();
+    if(!user) return "Error"
+    return user
   }
 
-  findOne(email: string): Promise<User> {
-    return this.userRepository.findOneBy({ email });
+  async findOne(email:string) {
+    const user = this.prisma.user.findFirst({where:{email:email}});
+    if(!user) return "Error"
+    return user;
   }
 
-  async remove(id: string): Promise<void> {
-    await this.userRepository.delete(id);
+  async remove(id: number): Promise<any> {
+    // await this.userRepository.delete(id);
+    const user = this.prisma.user.delete({
+      where:{
+        id:id
+      }
+    })
+    return user;
   }
 }

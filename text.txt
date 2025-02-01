@@ -1,0 +1,59 @@
+Сделать товары для секции и категорий Экиперовка Обязательно
+brands:
+Look
+
+country 
+Switzerland-Швейцария
+Italy-Италия
+France-Франция
+
+materials :
+Carbon
+Steel
+
+
+	{"color":"BLACK","hexColor":"#000"},
+		{"color":"YELLOW","hexColor":"#FEF95F"},
+		{"color":"GREEN","hexColor":"#25FD3C"}
+{"color":"WHITE","hexColor":"#FFF"},
+	{"color":"GREY","hexColor":"#808080"}
+
+
+        "sizes":[{"size":"S"},{"size":"M-L"},{"size":"M"},{"size":"L"},{"size":"XL"}],
+
+category:
+Mountain
+Triatlone
+City
+
+
+
+{
+	
+		"title":"Test2",
+		"description":"Test description",
+		"articul":"123213213",
+		"price":32123,
+		"prevPrice":2222,
+		"available":true,
+		"previewImage":"pre1.1",
+
+	"colors":[
+		{"color":"BLACK","hexColor":"#000"},
+		{"color":"YELLOW","hexColor":"#FEF95F"},
+		{"color":"GREEN","hexColor":"#25FD3C"}],
+	"specs":[
+		 {
+			"year":2020,
+			"country":"USA",
+			"material":"Carbon",
+			"brand":"Vedar",
+			"category":"Triatlone",
+			"material":"Aluminium"
+		  }],
+	"sizes":[
+		 {"size":"S"},{"size":"M-L"},{"size":"M"}],
+	"imageUrls":[
+		 {"srcPath":"pre1.1"}
+	]
+}

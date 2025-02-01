@@ -1,0 +1,26 @@
+// если вы хотите использовать sass-переменные - удалите root
+// colors
+:root {
+  --font-family: "Ubuntu", sans-serif;
+  --content-width: 1250px;
+  --container-offset: 15px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+  --light-color: #fff;
+  --black-color:#000000;
+	--banner-color:#131313;
+	--dark:#34312D;
+	--dark-grey:#2E2E2E;
+	--1-grey:#4C4C4C;
+	--2-grey:#777;
+	--3-grey:#E5E5E5;
+	--bg:#F8F8F8;
+	--orange:#F57520;
+	--or2:#EB6B16;
+	--or3:#E1610C;
+	--or4:#D75702;
+	--red:#F53A20;
+	--green:#4D932C;
+	--light-grey:#B3B3B3;
+}
+

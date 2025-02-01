@@ -1,0 +1,104 @@
+@import "@scss/mixins/mini";
+@import "@scss/mixins/breakpoint";
+
+.AboutUsBusiness {
+	position: relative;
+	margin: 300px 0;
+	min-height: 590px;
+	background-color: var(--bl, #101010);
+
+	&__inner {
+		@include flex-v-center;
+		padding-top: 30px;
+
+		@include mobile {
+			flex-direction: column-reverse;
+			padding: 30px 0;
+		}
+	}
+
+	&__descr {
+		p {
+			/* desk mob text 16 */
+			font-family: Inter;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 16px;
+			line-height: 160%;
+			/* 25.6px */
+			color: var(--3-grey, #E5E5E5);
+		}
+	}
+
+	&__info {
+		width: 40%;
+
+		@include mobile {
+			padding: 20px 0;
+			width: 100%;
+		}
+	}
+
+	&__social {
+		display: flex;
+		gap: 10px;
+	}
+
+	&__image {
+		position: absolute;
+		right: -0%;
+		top: -11%;
+		border-radius: 10px 0px 0px 10px;
+		height: 695px;
+		max-width: 51vw;
+
+		picture {
+			display: block;
+			border-radius: 10px 0px 0px 10px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+
+			@include mobile {
+				border-radius: 10px;
+			}
+		}
+
+		img {
+			display: block;
+			border-radius: 10px 0px 0px 10px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+
+			@include mobile {
+				border-radius: 10px;
+			}
+		}
+
+		@include pre-middle-tablet {
+			display: none;
+		}
+
+		@include mobile {
+			position: initial;
+			display: block;
+			border-radius: 10px;
+			width: 100%;
+			height: 300px;
+			max-width: none;
+		}
+	}
+
+	@include pre-middle-tablet {
+		@include image-set("../../../../../public/images/AboutUs/business");
+		@include bg-cover;
+		margin: 100px 0;
+		padding: 30px 0;
+	}
+
+	@include mobile {
+		margin: 50px 0;
+		background-image: none;
+	}
+}

@@ -1,0 +1,129 @@
+generator client {
+  provider = "prisma-client-js"
+  output = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// model cart {
+//   id        Int         @id(map: "PK_c524ec48751b9b5bcfbf6e59be7") @default(autoincrement())
+//   userId    Int?
+//   user      user?       @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_756f53ab9466eb52a52619ee019")
+//   cart_item cart_item[]  
+// }
+
+// model cart_item {
+//   id        Int      @id(map: "PK_bd94725aa84f8cf37632bcde997") @default(autoincrement())
+//   quantity  Int
+//   cartId    Int?
+//   productId Int?
+//   cart      cart?    @relation(fields: [cartId], references: [id], onDelete: Cascade, map: "FK_29e590514f9941296f3a2440d39")
+//   product   product? @relation(fields: [productId], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "FK_75db0de134fe0f9fe9e4591b7bf")
+// }
+model cart {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  items     cart_item[]
+
+  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model cart_item {
+    id Int @id @default(autoincrement())
+    cart   cart? @relation(fields: [cartId], references: [id], onDelete: NoAction) 
+    // @relation(fields: [favoriteId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_bba33684c6b4e254a08116b7dac")
+    cartId Int
+    productId Int?
+    product product? @relation(fields: [productId], references: [product_id])
+    quantity    Int
+}
+
+
+model color {
+  id         Int      @id(map: "PK_d15e531d60a550fbf23e1832343") @default(autoincrement())
+  color      String   @db.VarChar
+  hexColor  String?  @db.VarChar
+  product_id Int?
+  product    product? @relation(fields: [product_id], references: [product_id], onUpdate: NoAction, map: "FK_6b398fc4538169fef9c175f2ee8")
+}
+
+model favorite {
+  id            Int             @id(map: "PK_495675cec4fb09666704e4f610f") @default(autoincrement())
+  userId        Int?
+  user          user?           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_83b775fdebbe24c29b2b5831f2d")
+  favorite_item favorite_item[]
+}
+
+model favorite_item {
+  id         Int       @id(map: "PK_fa18c8a7e7b3aa288ebd18885d0") @default(autoincrement())
+  favoriteId Int?
+  productId  Int?
+  product    product?  @relation(fields: [productId], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "FK_886acc99303b9e5f7d7689c2b99")
+  favorite   favorite? @relation(fields: [favoriteId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_bba33684c6b4e254a08116b7dac")
+}
+
+model image {
+  id         Int      @id(map: "PK_d6db1ab4ee9ad9dbe86c64e4cc3") @default(autoincrement())
+  srcPath   String?  @db.VarChar
+  product_id Int?
+  product    product? @relation(fields: [product_id], references: [product_id], onUpdate: NoAction, map: "FK_e6a9e829e17fc47fc17d695af8e")
+}
+
+model product {
+  product_id    Int             @id(map: "PK_1de6a4421ff0c410d75af27aeee") @default(autoincrement())
+  title         String?         @db.VarChar
+  description   String?         @db.VarChar
+  articul       String?         @db.VarChar
+  price         Int?
+  prevPrice    Int?
+  available     Boolean?
+  previewImage  String?         @db.VarChar
+  brand         String?         @db.VarChar
+  country       String?         @db.VarChar
+  category      String?         @db.VarChar
+  material      String?         @db.VarChar
+  cart_item     cart_item[]
+  color         color[]
+  favorite_item favorite_item[]
+  image         image[]
+  size          size[]
+  spec          spec[]
+}
+
+model size {
+  id         Int      @id(map: "PK_66e3a0111d969aa0e5f73855c7a") @default(autoincrement())
+  size       String   @db.VarChar
+  product_id Int?
+  product    product? @relation(fields: [product_id], references: [product_id], onUpdate: NoAction, map: "FK_1f746c932c922d5e6dfbb7a0dbb")
+}
+
+model spec {
+  id         Int      @id(map: "PK_750ab65a0e1b51a805499dbfc13") @default(autoincrement())
+  year       Int
+  country    String   @db.VarChar
+  material   String   @db.VarChar
+  brand      String   @db.VarChar
+  category   String   @db.VarChar
+  product_id Int?
+  product    product? @relation(fields: [product_id], references: [product_id], onUpdate: NoAction, map: "FK_27d8610af03eb1b5a1b0ea9aa8b")
+}
+
+model user {
+  id           Int        @id(map: "PK_cace4a159ff9f2512dd42373760") @default(autoincrement())
+  name         String     @db.VarChar
+  surname      String?    @db.VarChar
+  showname     String?    @db.VarChar
+  email        String     @db.VarChar
+  phone_number String?    @db.VarChar
+  city         String?    @db.VarChar
+  street       String?    @db.VarChar
+  house        Int?
+  floor        Int?
+  flat_number  Int?
+  password     String     @db.VarChar
+  cart         cart[]
+  favorite     favorite[]
+}

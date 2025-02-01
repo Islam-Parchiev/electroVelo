@@ -1,0 +1,25 @@
+[*]
+end_of_line = crlf
+insert_final_newline = true
+
+
+
+# Используем табы для отступов (Не указываем размер)
+[*.tsx]
+indent_style = tab
+indent_size = 2
+[*.ts]
+indent_style = tab
+indent_size = 2
+[*.scss]
+indent_style = tab
+indent_size = 2
+# Перезависываем настройку отступов для js файлов в папке lib
+[lib/**.js]
+indent_style = space
+indent_size = 2
+
+# Только для файлов package.json or .travis.yml
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2

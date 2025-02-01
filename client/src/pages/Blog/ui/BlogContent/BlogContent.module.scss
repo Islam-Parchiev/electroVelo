@@ -1,0 +1,13 @@
+.BlogContent {
+
+	&__inner {
+		padding-top: 100px;
+	}
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 15px;
+	}
+}
+
