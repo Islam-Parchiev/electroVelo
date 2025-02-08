@@ -12,12 +12,10 @@ export class AuthService {
     ) {}
 private prisma = new PrismaClient();
   async validateUser(email:string, password: string){
-    const user = await this.prisma.user.findFirstOrThrow({ where: {email:email},select:{password:true} });
-console.log("15")
-console.log(user);
+    const user = await this.prisma.user.findFirstOrThrow({ where: {email:email}});
+
     const passwordIsMatch = await argon2.verify(user.password,password)
-console.log("ussss",user);
-console.log("pssssssssssssssssssssssssssssssssssssssssssssssss",passwordIsMatch);
+
     if (user && passwordIsMatch) {
      return user
     }

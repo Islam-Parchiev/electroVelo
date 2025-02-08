@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req,Request } from '@nestjs/common';
 import { CartService } from './cart.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
@@ -8,13 +8,14 @@ export class CartController {
 
   @Post()
   @UseGuards(JwtAuthGuard)
-  create(@Req() req,@Body("productId") productId:number|string,@Body("quantity") quantity:number|string) {
+  create(@Request() req,@Body("productId") productId:number|string,@Body("quantity") quantity:number|string) {
+    console.log("cart.controller 12:",req.user);
     return this.cartService.addToCart(+req.user.id,+productId,+quantity);
   }
 
   @Get('get')
   @UseGuards(JwtAuthGuard)
-  findOne(@Req() req) {
+  findOne(@Request() req) {
     return this.cartService.getCart(+req.user.id);
   }
 

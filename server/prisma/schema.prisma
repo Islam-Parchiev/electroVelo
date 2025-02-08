@@ -7,38 +7,25 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
-// model cart {
-//   id        Int         @id(map: "PK_c524ec48751b9b5bcfbf6e59be7") @default(autoincrement())
-//   userId    Int?
-//   user      user?       @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_756f53ab9466eb52a52619ee019")
-//   cart_item cart_item[]  
-// }
-
-// model cart_item {
-//   id        Int      @id(map: "PK_bd94725aa84f8cf37632bcde997") @default(autoincrement())
-//   quantity  Int
-//   cartId    Int?
-//   productId Int?
-//   cart      cart?    @relation(fields: [cartId], references: [id], onDelete: Cascade, map: "FK_29e590514f9941296f3a2440d39")
-//   product   product? @relation(fields: [productId], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "FK_75db0de134fe0f9fe9e4591b7bf")
-// }
 model cart {
   id        Int      @id @default(autoincrement())
   userId    Int
   items     cart_item[]
 
-  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user user? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime 
 }
 
 model cart_item {
     id Int @id @default(autoincrement())
     cart   cart? @relation(fields: [cartId], references: [id], onDelete: NoAction) 
-    // @relation(fields: [favoriteId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_bba33684c6b4e254a08116b7dac")
     cartId Int
     productId Int?
     product product? @relation(fields: [productId], references: [product_id])
     quantity    Int
+    createdAt DateTime  @default(now())
+    updatedAt DateTime 
 }
 
 
@@ -55,6 +42,8 @@ model favorite {
   userId        Int?
   user          user?           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_83b775fdebbe24c29b2b5831f2d")
   favorite_item favorite_item[]
+    createdAt DateTime  @default(now())
+    updatedAt DateTime 
 }
 
 model favorite_item {
@@ -63,6 +52,8 @@ model favorite_item {
   productId  Int?
   product    product?  @relation(fields: [productId], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "FK_886acc99303b9e5f7d7689c2b99")
   favorite   favorite? @relation(fields: [favoriteId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_bba33684c6b4e254a08116b7dac")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime 
 }
 
 model image {
@@ -79,7 +70,7 @@ model product {
   articul       String?         @db.VarChar
   price         Int?
   prevPrice    Int?
-  available     Boolean?
+  available     Boolean?        @default(true)
   previewImage  String?         @db.VarChar
   brand         String?         @db.VarChar
   country       String?         @db.VarChar
@@ -91,6 +82,8 @@ model product {
   image         image[]
   size          size[]
   spec          spec[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime 
 }
 
 model size {
@@ -120,10 +113,12 @@ model user {
   phone_number String?    @db.VarChar
   city         String?    @db.VarChar
   street       String?    @db.VarChar
-  house        Int?
+  house        Int?     
   floor        Int?
   flat_number  Int?
   password     String     @db.VarChar
   cart         cart[]
   favorite     favorite[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime 
 }

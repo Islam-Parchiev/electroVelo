@@ -11,6 +11,7 @@ export class AuthController {
   @Post('login')
   @UseGuards(LocalAuthGuard)
   async login(@Request() req) {
+    console.log("auth.controller 14:",req.user)
     return this.authService.login(req.user);
   }
   
@@ -19,12 +20,13 @@ export class AuthController {
   async getProfile(@Request() req): Promise<any> {
     try {
       const user = req.user;
+      console.log(req.userId)
       const profile = await this.userService.findOne(user.userId);
-
+      console.log(req.user);
        if (!profile) {
         throw new HttpException('User not found', HttpStatus.NOT_FOUND);
        }
-
+       console.log(profile);
       return profile
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);

@@ -10,40 +10,27 @@ export class CartService {
   }
 
   async addToCart(userId: number, productId: number, quantity: number): Promise<any> {
-    let cart = null
-
     if (await this.prisma.cart.findFirst({
-      where:{user:{id:userId}},
-      select:{id:true,userId:true,items:{select:{product:true}}}  
+      where:{user:{id:userId}},  
     })) {
-      cart = await this.prisma.cart.findFirst({
-        where:{user:{id:userId}},
-        select:{id:true,userId:true,items:{select:{product:true}}}  
+      console.log('cart.service 16')
+      const cart = await this.prisma.cart.findFirst({
+        where:{user:{id:userId}}, 
+        select:{id:true} 
       })
       
+      await this.prisma.cart_item.create({data:{quantity:quantity,updatedAt:new Date(),cartId:cart.id,productId:productId}})
+      return await this.prisma.cart.findFirst({
+        where:{user:{id:userId}},
+        include:{
+          items:true
+        } 
+      })
     }else {
-      cart =await this.prisma.cart.create({data:{items:null,userId:userId}});
+      console.log('cart.service 22')
+      return await this.prisma.cart.create({data:{items:{create:{quantity:quantity,updatedAt:new Date(),productId:productId}},userId:userId,updatedAt:new Date()}});
     }
   
-    
-    if (cart.items.find((item) =>  item.product.product_id === productId)) {
-      let cartItem =cart.items.find((item) =>  item.product.product_id === productId);
-      cartItem.quantity += quantity;
-    } else {
-      // const product = await this.productRepository.findOne({where:{id:productId}});
-      const product = await this.prisma.product.findUnique({where:{product_id:productId}})
-      if (product) {
-        let cartItem=null;
-        cartItem = new CartItem();
-        cartItem.product = product;
-        cartItem.quantity = quantity;
-        cart.items.push(cartItem);
-      } else {
-        throw new Error('Product not found');
-      }
-    }
-    return cart
-    // return this.cartRepository.save(cart);
   }
   async getCart(userId:number) {
 
@@ -126,7 +113,7 @@ export class CartService {
     if(!cart) {
       throw new Error('Cart not found');
     }
-    return this.prisma.cart.create({data:{items:null,userId:userId}})
+    return this.prisma.cart.create({data:{items:null,userId:userId,updatedAt:new Date()}})
 
   }
 	async changeQuantity(userId: number, productId: number, count: number) {

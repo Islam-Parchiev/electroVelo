@@ -6,7 +6,13 @@ import { Size } from './entities/size.entity';
 import { Color } from './entities/color.entity';
 import { PrismaClient } from '@prisma/client';
 
-
+export interface IP {
+  productData: Partial<Product>,
+    imageUrls: Image[],
+    specs: Spec[],
+    sizes: Size[],
+    colors: Color[]
+}
 export interface GP { category: string; material: string; available: boolean; price: number; title: string; product_id: number; description: string; articul: string; prevPrice: number; previewImage: string; brand: string; country: string; }
 @Injectable()
 export class ProductService {
@@ -24,6 +30,7 @@ export class ProductService {
     return await this.prisma.product.create({
       data: {
         ...productData,
+        updatedAt:new Date(),
         image: {
           create: imageUrls.map(image => ({ srcPath: image.srcPath }))
         },
@@ -60,6 +67,7 @@ export class ProductService {
       }
     });
   }
+
   async  findAll() {
     const products = await this.prisma.product.findMany({
       include:{
@@ -190,7 +198,8 @@ async getProductsByCategoriesAndMaterials(categories: string[], materials: strin
     },
     data:{
       ...product,
-      ...updatedFields
+      ...updatedFields,
+      updatedAt:new Date()
     }
   })
 
@@ -220,7 +229,7 @@ return updatedProduct
 // 	"articul": "7655-188",	
 // 		"price": "444",
 // 		"prewPrice": "555",
-	
+
 // },
 // 	"imageUrls":[{"srcPath":"1.1.hpg"}],
 // 	"sizes":[{"size":"1"}],

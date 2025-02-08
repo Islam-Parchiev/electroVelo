@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseIntPipe, ParseArrayPipe } from '@nestjs/common';
-import { GP, ProductService } from './product.service';
+import { GP, IP, ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Product } from './entities/product.entity';
@@ -22,6 +22,7 @@ export class ProductController {
                @Body('spec') specs:Spec[]) {
     return this.productService.create(productData, imageUrls,specs,sizes,colors);
   }
+
   @Get()
   async getProducts(
     @Query('sortByPrice') sortByPrice: 'ASC' | 'DESC',

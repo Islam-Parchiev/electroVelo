@@ -57,3 +57,5 @@ City
 		 {"srcPath":"pre1.1"}
 	]
 }
+
+http://localhost:4000/product?categories=City,Mountain,Triatlone,Kit&materials=Steel,Carbon,Aluminium&page=1&limit=10&available=false

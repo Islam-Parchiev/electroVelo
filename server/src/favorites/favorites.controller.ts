@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, UseGuards, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, UseGuards, Req,Request } from '@nestjs/common';
 import { FavoritesService } from './favorites.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
@@ -8,7 +8,7 @@ export class FavoritesController {
 
   @Post('add')
   @UseGuards(JwtAuthGuard)
-  addToFavorites(@Req() req,@Body("productId") product:number) {
+  addToFavorites(@Request() req,@Body("productId") product:number) {
     return this.favoritesService.addToFavorites(+req.user.id,+product);
   }
 

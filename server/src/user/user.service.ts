@@ -29,6 +29,7 @@ export class UserService {
       name:createUserDto.name,
       email:createUserDto.email,
       password:await argon2.hash(createUserDto.password),
+      updatedAt:new Date()
       }
     })
 
@@ -46,7 +47,7 @@ export class UserService {
     })
     if(!transaction) throw new NotFoundException('Transaction not found')
   
-    return await this.prisma.user.update({where:{id},data:{...updateUserDto}})
+    return await this.prisma.user.update({where:{id},data:{...updateUserDto,updatedAt:new Date()}})
   }
 
   async findAll() {

@@ -9,52 +9,34 @@ export class FavoritesService {
 
    private prisma = new PrismaClient();
   async addToFavorites(userId: number, productId: number): Promise<any> {
-    let favorite = null;
-  
+    if(await this.prisma.favorite.findFirst({where:{user:{id:userId}},include:{favorite_item:true}})) {
+      const test =await this.prisma.favorite.findFirst({where:{user:{id:userId}},include:{favorite_item:true}});
+      if(test.favorite_item.find((item)=>item.productId===productId)) {
+        // Already exists
+        const item =test.favorite_item.find((item)=>item.productId===productId);
+       await this.prisma.favorite_item.delete({where:{id:item.id}})
+        return await this.prisma.favorite.findFirst({where:{user:{id:userId}},include:{favorite_item:true}})
+      }
+     
+    }
     if (await this.prisma.favorite.findFirst({
-      where:{user:{id:userId}},
-      select:{id:true,userId:true,favorite_item:{select:{product:true}}}  
+      where:{user:{id:userId}},  
     })) {
-      favorite = await this.prisma.favorite.findFirst({
+      const favorite = await this.prisma.favorite.findFirst({
         where:{user:{id:userId}},
-        select:{id:true,userId:true,favorite_item:{select:{product:true}}}  
+        select:{id:true}  
+      })
+      await this.prisma.favorite_item.create({data:{updatedAt:new Date(),favoriteId:favorite.id,productId:productId}})
+      return await this.prisma.favorite.findFirst({
+        where:{user:{id:userId}},
+        include:{
+          favorite_item:true
+        }
       })
     }else {
-      favorite =await this.prisma.favorite.create({data:{favorite_item:null,userId:userId}});
+      return await this.prisma.favorite.create({data:{favorite_item:{create:{updatedAt:new Date(),productId:productId}},userId:userId,updatedAt:new Date()}});
     }
 
-    if (favorite.favorite_item.find((item)=> item.product.product_id===productId)) {
-      await this.prisma.favorite.update({
-        where: { id: favorite.id },
-        data: {
-          favorite_item: {
-            deleteMany: { productId }
-          }
-        }
-      });
-    } else {
-      const product = await this.prisma.product.findUnique({
-        where: { product_id: productId }
-      });
-  
-      if (!product) {
-        throw new Error('Product not found');
-      }
-  
-      await this.prisma.favorite.update({
-        where: { id: favorite.id },
-        data: {
-          favorite_item: {
-            create:{product:{connect:{product_id:productId}}}
-          }
-        }
-      });
-    }
-  
-    return await this.prisma.favorite.findUnique({
-      where: { id: favorite.id },
-      include: { favorite_item: { include: { product: true } } }
-    });
   }
   async findAll(userId:number) {
     let favorite = await this.prisma.favorite.findFirst({where:{user:{id:userId}},include:{favorite_item:{include:{product:true}}}})
