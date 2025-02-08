@@ -18,7 +18,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: any) { 
+  async validate(payload:JwtPayload) { 
     let configS = new ConfigService();
     console.log("jwt.strategy.ts 23:",configS.get('JWT_SECRET'));
     console.log("jwt.strategy.ts 24:", payload);

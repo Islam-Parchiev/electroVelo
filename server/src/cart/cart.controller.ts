@@ -26,7 +26,7 @@ export class CartController {
   }
   @Delete('delete/:id')
   @UseGuards(JwtAuthGuard)
-  remove(@Req() req, @Param('id') id: any) {
+  remove(@Req() req, @Param('id') id: string) {
     return this.cartService.removeCartItem(+req.user.id,+id);
   }
   @Post('add-item')

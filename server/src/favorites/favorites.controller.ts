@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, UseGuards, Req,Request } from '@nestjs/common';
+import { Controller, Get, Post, Body, UseGuards,Request } from '@nestjs/common';
 import { FavoritesService } from './favorites.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
@@ -14,7 +14,7 @@ export class FavoritesController {
 
   @Get('find')
   @UseGuards(JwtAuthGuard)
-  findAll(@Req() req) {
+  findAll(@Request() req) {
     return this.favoritesService.findAll(+req.user.id);
   }
 }
