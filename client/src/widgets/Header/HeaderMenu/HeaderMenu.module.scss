@@ -1,0 +1,27 @@
+.HeaderMenu {
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 10000;
+	display: flex;
+	justify-content: end;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.7);
+
+	&__content {
+		position: relative;
+		padding-top: 80px;
+		padding-left: 40px;
+		width: 450px;
+		height: 100%;
+		background-color: var(--light-color);
+	}
+
+	&__btn {
+		position: absolute;
+		right: 1%;
+		top: 3%;
+		transform: translate(-50%, -50%);
+	}
+}

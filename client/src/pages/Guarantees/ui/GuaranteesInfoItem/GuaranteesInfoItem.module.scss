@@ -1,0 +1,26 @@
+@import "@scss/mixins/mini";
+@import "@scss/mixins/breakpoint";
+
+.GuaranteesInfoItem {
+
+	@include flex-all-sb;
+
+	padding: 0 20px;
+	width: 100%;
+	height: 77px;
+
+	&:not(:last-child) {
+		border-bottom: 1px solid var(--bg, #F8F8F8);
+	}
+
+	&__price {
+		@include mobile {
+			width: 70%;
+		}
+	}
+
+	&:nth-child(2n+1) {
+		background: var(--bg, #F8F8F8);
+	}
+
+}

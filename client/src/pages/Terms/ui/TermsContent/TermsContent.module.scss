@@ -1,0 +1,40 @@
+.TermsContent {
+	&__inner {
+		padding-top: 30px;
+
+	}
+	&__text {
+		border-radius: 10px;
+		padding: 40px;
+		width: 100%;
+		background: var(--bg, #F8F8F8);
+	}
+}
+
+.Paragraph {
+	&__title {
+		/* desk mob 20 */
+		font-family: Inter;
+		font-weight: 500;
+		font-style: normal;
+		font-size: 20px;
+		line-height: 160%;
+		/* 32px */
+		letter-spacing: 0.2px;
+		color: var(--bl, #101010);
+	}
+
+	&__text {
+		p {
+			/* desk 200 14 */
+			font-family: Inter;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 14px;
+			line-height: 200%;
+			/* 28px */
+			color: var(--bl, #101010);
+		}
+	}
+}
+

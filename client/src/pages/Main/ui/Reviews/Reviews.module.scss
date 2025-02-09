@@ -1,0 +1,17 @@
+@import "@scss/mixins/breakpoint";
+
+.Reviews {
+	ul {
+		display: flex;
+		align-items: start;
+		justify-content: center;
+		padding-top: 30px;
+		gap: 40px;
+
+		@include mobile {
+			justify-content: start;
+			overflow-x: scroll;
+			scroll-snap-type: x mandatory;
+		}
+	}
+}

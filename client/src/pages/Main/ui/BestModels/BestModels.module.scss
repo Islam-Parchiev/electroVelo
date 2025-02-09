@@ -1,0 +1,37 @@
+@import '@scss/mixins/mini';
+@import "@scss/mixins/breakpoint";
+
+.BestModels {
+	@include bg-cover;
+	@include image-set(".../../../../../../../public/images/Main/bestModelsBg");
+	min-height: 770px;
+
+	&__inner {
+		@include flex-column-start;
+		padding-top: 30px;
+
+		@include mobile {
+			padding: 50px 0;
+			gap: 30px;
+		}
+	}
+
+	&__items {
+		@include flex-v-center;
+		width: 100%;
+		gap: 20px;
+
+		@include middle-tablet {
+			flex-wrap: wrap;
+		}
+
+		@include mobile {
+			flex-direction: column;
+
+		}
+	}
+
+	h2 {
+		color: var(--light-color);
+	}
+}

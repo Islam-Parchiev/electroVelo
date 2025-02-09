@@ -1,0 +1,85 @@
+@import "@scss/mixins/breakpoint";
+
+.ReviewsItem {
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: 350px;
+	border-radius: 10px;
+	height: 402px;
+	background: var(--bl, #101010);
+
+	&__img {
+		border-radius: 10px 10px 0 0;
+
+		img {
+			display: block;
+			border-radius: 10px 10px 0 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	time {
+		/* desk mob text 16 */
+		font-family: Inter;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 16px;
+		line-height: 160%;
+		/* 25.6px */
+		color: var(--light-color, #FFF);
+	}
+
+	&__tag {
+		font-family: Inter;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 16px;
+		line-height: 160%;
+		/* 25.6px */
+		color: var(--orange, #F57520);
+	}
+
+	&__text {
+		/* desk mob subhead */
+		font-family: Inter;
+		font-weight: 300;
+		font-style: normal;
+		font-size: 18px;
+		line-height: 160%;
+		/* 28.8px */
+		letter-spacing: 0.18px;
+		color: var(--light-color, #FFF);
+	}
+
+	&__more {
+		display: block;
+		margin-top: 20px;
+		/* desk mob text 16 */
+		font-family: Inter;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 16px;
+		line-height: 160%;
+		/* 25.6px */
+		color: var(--light-color, #FFF);
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+
+		gap: 10px;
+	}
+
+	&__bottom {
+		padding: 20px;
+	}
+
+	@include mobile {
+		flex-shrink: 0;
+		scroll-snap-align: center;
+	}
+}

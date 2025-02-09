@@ -1,0 +1,12 @@
+@import "@scss/mixins/breakpoint";
+
+.Brands {
+	margin-bottom: 30px;
+
+	height: 200px;
+
+	@include mobile {
+		height: 150px;
+	}
+
+}

@@ -1,0 +1,66 @@
+@import "@scss/mixins/breakpoint";
+
+.MountainBikesItem {
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: 302px;
+	border-radius: 10px;
+	padding: 30px 25px;
+	min-height: 233px;
+	max-height: 300px;
+	background: var(--dark, #34312D);
+
+	&__top {
+		display: flex;
+		justify-content: space-between;
+
+	}
+
+	&__title {
+		/* desk mob 20 */
+		font-family: Inter;
+		font-weight: 500;
+		font-style: normal;
+		font-size: 20px;
+		line-height: 160%;
+		/* 32px */
+		letter-spacing: 0.2px;
+		color: var(--light-color, #FFF);
+	}
+
+	&__descr {
+		p {
+			/* desk mob text 16 */
+			font-family: Inter;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 16px;
+			line-height: 160%;
+			/* 25.6px */
+			color: var(--light-color, #FFF);
+		}
+	}
+
+	@include mini-desktop {
+		// flex-basis: 252px;
+		// flex-shrink: 1;
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 200px;
+	}
+
+	@include big-tablet {
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 164px;
+		// flex-basis: 230px;
+	}
+
+	@include mobile {
+		// flex-basis: 360px;
+		scroll-snap-align: center;
+		flex-grow: 1;
+		flex-shrink: 0;
+		flex-basis: 100%;
+	}
+}

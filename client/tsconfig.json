@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -18,9 +18,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@styled/*": ["styled/*"],
+      "@pages/*": ["pages/*"],
+      "@assets/*": ["assets/*"],
+      "@services/*": ["services/*"],
+      "@redux/*": ["redux/*"],
+      "@images/*": ["../public/images/*"],
+      "@scss/*":["scss/*"],
+      "*": ["types/*"]
+    },
   },
   "include": [
     "src"
-  ]
+, "src/shared/types/declaration.d.ts"  ]
 }

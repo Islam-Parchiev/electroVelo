@@ -1,0 +1,42 @@
+.customCheckbox {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+
+	.checkbox {
+		position: relative;
+		border: 1px solid #777777;
+		border-radius: 5px;
+
+		width: 23px;
+		height: 23px;
+
+		.checkmark {
+
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			display: none;
+			width: 100%;
+			height: auto;
+			transform: translate(-50%, -50%);
+		}
+
+	}
+
+	input {
+		-webkit-appearance: none;
+		position: absolute;
+
+	}
+
+	input:checked~.checkbox .checkmark {
+		display: block;
+
+	}
+
+	input:checked~.checkbox {
+		border: none;
+	}
+
+}

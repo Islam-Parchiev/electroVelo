@@ -1,0 +1,11 @@
+@import "@scss/mixins/mini";
+
+.DeliveryPreview {
+	@include image-set("../../../../../public/images/Delivery/DeliveryPreview");
+	@include bg-cover;
+	height: 280px;
+
+	&__inner {
+		padding-top: 30px;
+	}
+}

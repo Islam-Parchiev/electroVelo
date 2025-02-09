@@ -1,0 +1,18 @@
+@import "@scss/mixins/breakpoint";
+
+.Ticker {
+	position: relative;
+	overflow-x: hidden;
+	height: 300px;
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	@include mobile {
+		overflow-y: hidden;
+		height: 100%;
+	}
+}

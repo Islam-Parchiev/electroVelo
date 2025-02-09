@@ -1,0 +1,60 @@
+@import "@scss/mixins/breakpoint";
+
+.ProfileSidebar {
+	&__info {
+		li {
+			margin-top: 0px;
+			padding: 16px;
+			width: 290px;
+			height: 58px;
+
+			a {
+				/* desk mob 16 light */
+				font-family: Inter;
+				font-weight: 300;
+				font-style: normal;
+				font-size: 16px;
+				line-height: 160%;
+				/* 25.6px */
+
+				color: var(--black-color);
+			}
+
+			&:hover {
+				border-radius: 10px;
+				background: var(--orange, #F57520);
+
+				a {
+					color: var(--light-color);
+				}
+			}
+		}
+
+		button {
+			padding: 16px;
+			width: 100%;
+			/* desk mob 16 light */
+			font-family: Inter;
+			font-weight: 300;
+			font-style: normal;
+			font-size: 16px;
+			line-height: 160%;
+			/* 25.6px */
+			text-align: left;
+			color: var(--light-grey, #B3B3B3);
+
+			&:hover {
+				border-radius: 10px;
+				background: var(--orange, #F57520);
+			}
+		}
+	}
+
+	@include middle-tablet {
+		display: none;
+	}
+
+	@include mobile {
+		display: block;
+	}
+}

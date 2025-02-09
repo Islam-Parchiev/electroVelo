@@ -1,0 +1,91 @@
+@import "@scss/mixins/breakpoint";
+
+.AboutUsTeam {
+	&__inner {
+		padding-top: 150px;
+
+		@include mobile {
+			padding-top: 50px;
+		}
+	}
+
+	&__content {
+		display: flex;
+		align-items: start;
+		padding-top: 30px;
+
+		@include mobile {
+			flex-direction: column-reverse;
+		}
+	}
+
+	&__descr {
+		font-family: Inter;
+		font-size: 16px;
+		line-height: 160%;
+		color: var(--bl, #101010);
+	}
+
+	&__text {
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 50%;
+	}
+
+	&__image {
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 50%;
+		border-radius: 10px;
+		height: 480px;
+
+		picture {
+			display: block;
+			border-radius: 10px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		img {
+			display: block;
+			border-radius: 10px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__help {
+		span {
+			font-family: Inter;
+			font-size: 20px;
+			line-height: 160%;
+			letter-spacing: 0.2px;
+			color: var(--bl, #101010);
+		}
+	}
+
+	&__item {
+		/* desk mob 16 light */
+		font-family: Inter;
+		font-weight: 300;
+		font-style: normal;
+		font-size: 16px;
+		line-height: 160%;
+		/* 25.6px */
+		color: var(--bl, #101010);
+
+		&::before {
+			content: "✓";
+			margin-right: 5px;
+			/* desktop/header reg */
+			font-family: Open Sans;
+			font-weight: 900;
+			font-size: 20px;
+			line-height: 160%;
+			/* 28.8px */
+			color: var(--orange, #F57520);
+		}
+	}
+}

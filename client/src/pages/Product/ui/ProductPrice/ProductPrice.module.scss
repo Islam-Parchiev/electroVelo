@@ -1,0 +1,23 @@
+.ProductPrice {
+	
+		padding-top: 30px;
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 40px;
+line-height: 160%; /* 64px */
+letter-spacing: 0.4px;
+		color: var(--bl, #101010);
+			&__prevPrice {
+font-family: Inter;
+font-weight: 500;
+font-style: normal;
+font-size: 18px;
+line-height: 160%; /* 28.8px */
+letter-spacing: 0.18px;
+text-decoration: line-through;
+		color: var(--light-grey, #B3B3B3);
+	
+}
+	}
+

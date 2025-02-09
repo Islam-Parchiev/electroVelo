@@ -1,72 +1,46 @@
-import { Entity,Column,PrimaryGeneratedColumn,CreateDateColumn,JoinColumn, ManyToOne} from "typeorm";
+import { Image } from "./image.entity";
+import {Color} from "./color.entity";
+import { Spec } from "./spec.entity";
+import { Size } from "./size.entity";
+import { CartItem } from "src/cart/entities/cartItem.entity";
+import { FavoriteItem } from "src/favorites/entities/favoriteItem.entity";
 
-@Entity()
 export class Product {
-    @PrimaryGeneratedColumn({name:'product_id'})
     id:number;
 
-
-    @Column()
     title:string;
 
-    @Column()
+
     description:string;
 
-    @Column()
     articul:string;
 
-    @Column()
-    price:string;
+    price:number;
 
-    @Column({name:'prev_price'})
-    prewPrice:string;
+   
+    prevPrice:number;
 
-    @Column()
-    sizes:string;
-
-
-    @Column({nullable:true})
+    sizes:Size[];
+   
+    
     available:boolean;
 
-    @Column()
-    colors:string;
+    colors:Color[];
 
-    @Column()
-    images:string;
+  images: Image[];
+  
+   previewImage:string
+    specifications:Spec[];
 
-    @Column()
-    specifications:string;
-
-    @Column()
     brand:string;
 
+    country:string;
+    
+    category:string;
+    material:string;
+
+    cartItems:CartItem;
+    
+    favoriteItems:FavoriteItem;
 }
 
-// import { Entity,Column,PrimaryGeneratedColumn,CreateDateColumn,JoinColumn, ManyToOne} from "typeorm";
-// import { User } from "src/user/entities/user.entity";
-// @Entity()
-// export class Order {
-//     @PrimaryGeneratedColumn({name:'order_id'})
-//     id:number;
-
-//     @ManyToOne(()=>User,(user)=>user.id)
-//     @JoinColumn({name:'user_id'})
-//     userId:User;
-
-//     @Column({nullable:true})
-//     title:string;
-
-//     @CreateDateColumn()
-//     date:Date;
-
-//     @Column()
-//     price:number;
-
-//     @Column()
-//     status:boolean;
-
-//     @Column()
-//     orderNumber:number;
-
-
-// }
