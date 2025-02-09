@@ -4,11 +4,9 @@ import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class FavoritesService {
-  constructor(
-  ) {}
 
    private prisma = new PrismaClient();
-  async addToFavorites(userId: number, productId: number): Promise<any> {
+  async addToFavorites(userId: number, productId: number) {
     if(await this.prisma.favorite.findFirst({where:{user:{id:userId}},include:{favorite_item:true}})) {
       const test =await this.prisma.favorite.findFirst({where:{user:{id:userId}},include:{favorite_item:true}});
       if(test.favorite_item.find((item)=>item.productId===productId)) {

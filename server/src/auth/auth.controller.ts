@@ -36,10 +36,10 @@ export class AuthController {
   @Get('profile')
   async getProfile(@Request() req):Promise<IProfile|unknown> {
     try {
-      const user = req.user;
-      console.log(req.userId)
-      const profile = await this.userService.findOne(user.userId);
-      console.log(req.user);
+      // const user = req.user;
+      console.log("40",req.userId)
+      const profile = await this.userService.findOne(+req.user.id);
+      console.log("42",req.user);
        if (profile instanceof Error) {
         throw new HttpException('User not found', HttpStatus.NOT_FOUND);
        }

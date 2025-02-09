@@ -19,7 +19,7 @@ export class UserService {
         email:createUserDto.email
       }
     })
-    console.log("serUs32",existUser);
+    console.log("serUs22",existUser);
     if(existUser!==null) {
       throw new BadRequestException('This user already exist!')
     }
@@ -56,8 +56,8 @@ export class UserService {
     return user
   }
 
-  async findOne(email:string) {
-    const user = this.prisma.user.findFirst({where:{email:email}});
+  async findOne(id:number) {
+    const user = this.prisma.user.findUnique({where:{id:id}});
     if(!user) return "Error"
     return user;
   }

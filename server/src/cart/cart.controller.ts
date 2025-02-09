@@ -21,22 +21,17 @@ export class CartController {
 
   @Delete('clear')
   @UseGuards(JwtAuthGuard)
-  clearCart(@Req() req){
+  clearCart(@Request() req){
     return this.cartService.clearCart(+req.user.id)
   }
   @Delete('delete/:id')
   @UseGuards(JwtAuthGuard)
-  remove(@Req() req, @Param('id') id: string) {
+  remove(@Request() req, @Param('id') id: string) {
     return this.cartService.removeCartItem(+req.user.id,+id);
-  }
-  @Post('add-item')
-  @UseGuards(JwtAuthGuard)
-  addToCart(@Req() req, @Body('productId') productId: any,@Body('quantity') quantity:number) {
-    return this.cartService.addToCart(+req.user.id, +productId,+quantity);
   }
   @Patch('quantity')
   @UseGuards(JwtAuthGuard)
-  changeQuantity(@Req() req, @Body('productId') productId: number,@Body('count') count:number){
-    return this.cartService.changeQuantity(+req.user.id, +productId,+count)
+  changeQuantity(@Request() req, @Body('cartItemId') cartItemId: number,@Body('count') count:number){
+    return this.cartService.changeQuantity(+req.user.id, +cartItemId,+count)
   }
 }

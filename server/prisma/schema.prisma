@@ -14,7 +14,7 @@ model cart {
 
   user user? @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime  @default(now())
-  updatedAt DateTime 
+  updatedAt DateTime  @updatedAt
 }
 
 model cart_item {
@@ -25,7 +25,7 @@ model cart_item {
     product product? @relation(fields: [productId], references: [product_id])
     quantity    Int
     createdAt DateTime  @default(now())
-    updatedAt DateTime 
+    updatedAt DateTime  @updatedAt
 }
 
 
@@ -43,7 +43,7 @@ model favorite {
   user          user?           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_83b775fdebbe24c29b2b5831f2d")
   favorite_item favorite_item[]
     createdAt DateTime  @default(now())
-    updatedAt DateTime 
+    updatedAt DateTime  @updatedAt 
 }
 
 model favorite_item {
@@ -53,7 +53,7 @@ model favorite_item {
   product    product?  @relation(fields: [productId], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "FK_886acc99303b9e5f7d7689c2b99")
   favorite   favorite? @relation(fields: [favoriteId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_bba33684c6b4e254a08116b7dac")
   createdAt DateTime  @default(now())
-  updatedAt DateTime 
+  updatedAt DateTime  @updatedAt
 }
 
 model image {
@@ -83,7 +83,7 @@ model product {
   size          size[]
   spec          spec[]
   createdAt DateTime  @default(now())
-  updatedAt DateTime 
+  updatedAt DateTime  @updatedAt
 }
 
 model size {
@@ -120,5 +120,5 @@ model user {
   cart         cart[]
   favorite     favorite[]
   createdAt DateTime  @default(now())
-  updatedAt DateTime 
+  updatedAt DateTime  @updatedAt
 }
